@@ -1,0 +1,15 @@
+# Figma MCP 연동을 위한 의존성 패키지들
+
+# MCP 관련 패키지
+mcp>=1.0.0
+
+# HTTP 클라이언트
+aiohttp>=3.8.0
+
+# 기존 프로젝트 의존성 (Python 표준 라이브러리)
+# asyncio - Python 3.7+ 내장
+# pathlib - Python 3.4+ 내장  
+# typing - Python 3.5+ 내장
+# json - Python 내장
+# os - Python 내장
+# logging - Python 내장
