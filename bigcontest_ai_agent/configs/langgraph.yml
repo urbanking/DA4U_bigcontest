@@ -1,0 +1,120 @@
+# LangGraph 워크플로우 설정
+
+# Store Workflow 설정
+store_workflow:
+  name: "store_analysis_workflow"
+  description: "Store Report → Metrics → Diagnostic"
+  
+  nodes:
+    - name: "generate_report"
+      type: "agent"
+      agent_class: "StoreAgent"
+      method: "run_report"
+      timeout: 300
+      retry: 3
+    
+    - name: "calculate_metrics"
+      type: "engine"
+      engine_class: "MetricsEngine"
+      method: "run"
+      timeout: 60
+      retry: 2
+    
+    - name: "run_diagnostic"
+      type: "engine"
+      engine_class: "DiagnosticEngine"
+      method: "run"
+      timeout: 60
+      retry: 2
+  
+  edges:
+    - from: "START"
+      to: "generate_report"
+    - from: "generate_report"
+      to: "calculate_metrics"
+    - from: "calculate_metrics"
+      to: "run_diagnostic"
+    - from: "run_diagnostic"
+      to: "END"
+
+# Marketing Workflow 설정
+marketing_workflow:
+  name: "marketing_strategy_workflow"
+  description: "Marketing Strategy Generation"
+  
+  nodes:
+    - name: "extract_insights"
+      type: "agent"
+      timeout: 120
+      retry: 2
+    
+    - name: "match_targets"
+      type: "matcher"
+      timeout: 60
+      retry: 2
+    
+    - name: "generate_strategies"
+      type: "llm"
+      timeout: 180
+      retry: 3
+    
+    - name: "estimate_kpi"
+      type: "estimator"
+      timeout: 60
+      retry: 2
+  
+  edges:
+    - from: "START"
+      to: "extract_insights"
+    - from: "extract_insights"
+      to: "match_targets"
+    - from: "match_targets"
+      to: "generate_strategies"
+    - from: "generate_strategies"
+      to: "estimate_kpi"
+    - from: "estimate_kpi"
+      to: "END"
+
+# Orchestrator Workflow 설정
+orchestrator_workflow:
+  name: "full_pipeline_workflow"
+  description: "Store → Marketing Full Pipeline"
+  
+  nodes:
+    - name: "run_store_workflow"
+      type: "workflow"
+      workflow: "store_workflow"
+      timeout: 600
+      retry: 2
+    
+    - name: "run_marketing_workflow"
+      type: "workflow"
+      workflow: "marketing_workflow"
+      timeout: 600
+      retry: 2
+    
+    - name: "finalize"
+      type: "finalizer"
+      timeout: 60
+      retry: 1
+  
+  edges:
+    - from: "START"
+      to: "run_store_workflow"
+    - from: "run_store_workflow"
+      to: "run_marketing_workflow"
+    - from: "run_marketing_workflow"
+      to: "finalize"
+    - from: "finalize"
+      to: "END"
+
+# 공통 설정
+common:
+  debug: false
+  max_concurrent_tasks: 5
+  default_timeout: 300
+  default_retry: 2
+  retry_delay: 5
+  checkpoint_enabled: true
+  checkpoint_path: "outputs/checkpoints"
+

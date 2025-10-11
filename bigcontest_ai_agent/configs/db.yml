@@ -1,0 +1,18 @@
+# 데이터베이스 설정
+database:
+  host: localhost
+  port: 5432
+  name: bigcontest_db
+  user: postgres
+  password: password
+  
+  # Connection Pool
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 3600
+  
+  # Options
+  echo: false
+  echo_pool: false
+
