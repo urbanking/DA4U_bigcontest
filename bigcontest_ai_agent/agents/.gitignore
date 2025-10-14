@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit
+.streamlit/
+
+# Logs
+*.log
+logs/
+
+# Output files
+outputs/
+*.png
+*.pdf
+*.html
+*.json
+!marketing_db/*.json
+!config.env.example
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# API Keys (extra safety)
+*api_key*
+*API_KEY*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project specific
+panorama_img_anal/output/
+panorama_img_anal/downloaded_img/
+mobiity_anal/output/*.json
+store_agent/outputs/
+marketplcae_anal/상권분석리포트/
+
