@@ -10,23 +10,46 @@ import os
 import sys
 import time
 from datetime import datetime
-import matplotlib
-import matplotlib.pyplot as plt
 import platform
 from dotenv import load_dotenv
 
 # .env 파일 로드
 load_dotenv()
 
-# 한글 폰트 설정
-system = platform.system()
-if system == "Windows":
-    plt.rcParams['font.family'] = 'Malgun Gothic'
-elif system == "Darwin":
-    plt.rcParams['font.family'] = 'AppleGothic'
-else:
-    plt.rcParams['font.family'] = 'NanumGothic'
-matplotlib.rcParams['axes.unicode_minus'] = False
+# matplotlib import 및 설정 (완전 안전 모드)
+MATPLOTLIB_AVAILABLE = False
+plt = None
+matplotlib = None
+
+# matplotlib을 완전히 선택적으로 로드
+def safe_import_matplotlib():
+    global MATPLOTLIB_AVAILABLE, plt, matplotlib
+    try:
+        import matplotlib
+        import matplotlib.pyplot as plt
+        
+        # 한글 폰트 설정
+        system = platform.system()
+        if system == "Windows":
+            plt.rcParams['font.family'] = 'Malgun Gothic'
+        elif system == "Darwin":
+            plt.rcParams['font.family'] = 'AppleGothic'
+        else:
+            plt.rcParams['font.family'] = 'NanumGothic'
+        matplotlib.rcParams['axes.unicode_minus'] = False
+        
+        MATPLOTLIB_AVAILABLE = True
+        print("[OK] Matplotlib loaded successfully")
+        return True
+    except ImportError as e:
+        print(f"[WARN] Matplotlib not available: {e}")
+        return False
+    except Exception as e:
+        print(f"[WARN] Matplotlib configuration error: {e}")
+        return False
+
+# matplotlib 로드 시도 (실제 사용 시점에 로드)
+# safe_import_matplotlib()
 
 # run_analysis.py 직접 import
 sys.path.insert(0, str(Path(__file__).parent.parent))  # open_sdk 디렉토리 추가
@@ -231,6 +254,27 @@ JSON 형식으로도 요약해주세요:
         print(f"Gemini 리포트 생성 실패: {e}")
         return None, None
 
+def convert_absolute_to_relative_path(absolute_path: str) -> str:
+    """절대 경로를 상대 경로로 변환"""
+    if not absolute_path:
+        return absolute_path
+    
+    # 프로젝트 루트 기준으로 상대 경로 계산
+    project_root = Path(__file__).parent.parent.parent
+    
+    try:
+        abs_path = Path(absolute_path)
+        if abs_path.is_absolute():
+            # 프로젝트 루트를 기준으로 상대 경로 계산
+            relative_path = abs_path.relative_to(project_root)
+            return str(relative_path).replace('\\', '/')  # Windows 경로 구분자 통일
+        else:
+            return absolute_path
+    except ValueError:
+        # 프로젝트 루트 밖의 경로인 경우 원본 반환
+        return absolute_path
+
+
 def load_analysis_data_from_output(store_code):
     """output 폴더에서 실제 분석 데이터를 로드"""
     try:
@@ -375,7 +419,8 @@ def load_visualization_files(analysis_dir):
             for chart_file in store_charts_dir.glob("*.png"):
                 viz_data["store_charts"].append({
                     "name": chart_file.stem,
-                    "path": str(chart_file),
+                    "path": convert_absolute_to_relative_path(str(chart_file)),
+                    "absolute_path": str(chart_file),
                     "type": "store_chart"
                 })
         
@@ -385,7 +430,8 @@ def load_visualization_files(analysis_dir):
             for chart_file in mobility_charts_dir.glob("*.png"):
                 viz_data["mobility_charts"].append({
                     "name": chart_file.stem,
-                    "path": str(chart_file),
+                    "path": convert_absolute_to_relative_path(str(chart_file)),
+                    "absolute_path": str(chart_file),
                     "type": "mobility_chart"
                 })
         
@@ -395,7 +441,8 @@ def load_visualization_files(analysis_dir):
             for img_file in panorama_images_dir.glob("*.jpg"):
                 viz_data["panorama_images"].append({
                     "name": img_file.stem,
-                    "path": str(img_file),
+                    "path": convert_absolute_to_relative_path(str(img_file)),
+                    "absolute_path": str(img_file),
                     "type": "panorama_image"
                 })
         
@@ -406,14 +453,16 @@ def load_visualization_files(analysis_dir):
         if spatial_map.exists():
             viz_data["spatial_files"].append({
                 "name": "공간 분석 지도",
-                "path": str(spatial_map),
+                "path": convert_absolute_to_relative_path(str(spatial_map)),
+                "absolute_path": str(spatial_map),
                 "type": "spatial_map"
             })
         
         if spatial_chart.exists():
             viz_data["spatial_files"].append({
                 "name": "공간 분석 차트",
-                "path": str(spatial_chart),
+                "path": convert_absolute_to_relative_path(str(spatial_chart)),
+                "absolute_path": str(spatial_chart),
                 "type": "spatial_chart"
             })
         
@@ -422,7 +471,8 @@ def load_visualization_files(analysis_dir):
         if panorama_map.exists():
             viz_data["spatial_files"].append({
                 "name": "파노라마 분석 지도",
-                "path": str(panorama_map),
+                "path": convert_absolute_to_relative_path(str(panorama_map)),
+                "absolute_path": str(panorama_map),
                 "type": "panorama_map"
             })
         
