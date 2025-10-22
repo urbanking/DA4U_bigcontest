@@ -1,0 +1,37 @@
+# 지표 가중치 설정
+
+# 전체 지표 가중치
+overall_weights:
+  cvi: 0.25  # Commercial Viability Index
+  asi: 0.25  # Accessibility Score Index
+  sci: 0.25  # Store Competitiveness Index
+  gmi: 0.25  # Growth & Market Index
+
+# CVI 세부 가중치
+cvi_weights:
+  commercial_area_size: 0.3
+  competition_level: 0.25
+  market_saturation: 0.25
+  foot_traffic: 0.2
+
+# ASI 세부 가중치
+asi_weights:
+  public_transport: 0.35
+  parking_availability: 0.30
+  pedestrian_access: 0.20
+  visibility: 0.15
+
+# SCI 세부 가중치
+sci_weights:
+  brand_strength: 0.25
+  product_quality: 0.25
+  price_competitiveness: 0.25
+  customer_service: 0.25
+
+# GMI 세부 가중치
+gmi_weights:
+  market_growth_rate: 0.3
+  industry_trend: 0.3
+  innovation_potential: 0.2
+  expansion_opportunity: 0.2
+

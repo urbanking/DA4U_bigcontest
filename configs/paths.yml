@@ -1,0 +1,41 @@
+# 파일 경로 설정
+
+# 출력 디렉토리
+output_paths:
+  base: "outputs"
+  reports: "outputs/reports"
+  metrics: "outputs/metrics"
+  diagnostics: "outputs/diagnostics"
+  marketing: "outputs/marketing"
+  charts: "outputs/charts"
+  checkpoints: "outputs/checkpoints"
+  logs: "outputs/logs"
+
+# 차트 출력 경로
+chart_paths:
+  store: "outputs/charts/store"
+  metrics: "outputs/charts/metrics"
+  diagnostics: "outputs/charts/diagnostics"
+  marketing: "outputs/charts/marketing"
+
+# 데이터 경로
+data_paths:
+  raw: "data/raw"
+  processed: "data/processed"
+  external: "data/external"
+
+# 로그 설정
+log_paths:
+  application: "outputs/logs/application.log"
+  error: "outputs/logs/error.log"
+  access: "outputs/logs/access.log"
+  workflow: "outputs/logs/workflow.log"
+
+# 파일명 패턴
+file_patterns:
+  store_report: "store_report_{store_code}.json"
+  store_metrics: "store_metrics_{store_code}.json"
+  store_diagnostic: "store_diagnostic_{store_code}.json"
+  marketing_strategy: "marketing_strategy_report_{store_code}.json"
+  checkpoint: "checkpoint_{store_code}_{timestamp}.pkl"
+
