@@ -1,0 +1,581 @@
+{
+  "metadata": {
+    "input_address": "서울특별시 성동구 왕십리로 222",
+    "center_coordinates": {
+      "longitude": 127.0470893,
+      "latitude": 37.5569876
+    },
+    "buffer_meters": 300,
+    "total_images_found": 10,
+    "images_analyzed": 10,
+    "analysis_timestamp": "2025-10-12T19:20:05.071276"
+  },
+  "individual_analyses": [
+    {
+      "point_id": 7329,
+      "pano_id": "s7Nmy61W4mDX48AjI8xK7Q",
+      "lon": 127.0482444,
+      "lat": 37.5586421,
+      "distance_m": 210.0068832846703,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_7329_pano_s7Nmy61W4mDX48AjI8xK7Q.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용하고 외진 골목길",
+          "overall_impression_prose": "이 장소는 주거 지역에 인접한 조용한 골목길로 보입니다. 상업적 활동은 거의 없으며, 자연과 인접한 느낌을 줍니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "낮은 건물과 담장이 보이며, 건물의 상태는 보통입니다. 주거용 건물로 보입니다.",
+            "street_details": "좁고 구불구불한 도로로, 보도는 따로 없습니다. 가로수나 벤치는 보이지 않으며, 도로는 깨끗하지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "어두운 색감과 낡은 재질감이 지배적입니다.",
+            "imagined_sounds": "차량 소리보다는 자연의 소리와 적막함이 느껴질 것 같습니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "변화의 흔적 없음",
+          "opportunity_for_target_business": {
+            "business_category": "없음",
+            "narrative_insight": "이 장소는 상업적 활동에 적합하지 않으며, 주거 지역으로 유지되는 것이 적절해 보입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 가치가 낮으며, 주거 지역으로서의 기능이 더 적합해 보입니다. 창업자나 투자자에게는 다른 지역을 고려할 것을 권장합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8527,
+      "pano_id": "St1NURk84mg7gbnllm3U7Q",
+      "lon": 127.0483625,
+      "lat": 37.5586885,
+      "distance_m": 219.67358309591674,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_8527_pano_St1NURk84mg7gbnllm3U7Q.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용하고 외진 지역의 한적한 길",
+          "overall_impression_prose": "이 장소는 주거지나 비상업적 용도로 보이는 조용한 지역입니다. 상업 활동이 거의 없고, 자연과 인접한 느낌을 줍니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로 옆으로는 낮은 건물과 돌담이 있으며, 건물은 주거용이나 비상업적 용도로 보입니다.",
+            "street_details": "도로는 좁고 포장이 되어 있지 않으며, 보도는 보이지 않습니다. 가로수나 벤치, 가로등도 없습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "주변은 자연적인 색감과 질감이 지배적이며, 돌담과 나무들이 보입니다.",
+            "imagined_sounds": "차량 소리와 자연의 소리, 그리고 사람들의 소리가 거의 들리지 않을 것 같습니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "변화나 안정성의 신호가 보이지 않습니다.",
+          "opportunity_for_target_business": {
+            "business_category": "N/A",
+            "narrative_insight": "이 지역은 상업적 활동보다는 주거나 자연과 관련된 활동에 더 적합해 보입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 가치가 낮으며, 주거지나 자연과 관련된 용도로 더 적합합니다. 창업자나 투자자는 이 지역의 상업적 잠재력을 재고할 필요가 있습니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    },
+    {
+      "point_id": 7328,
+      "pano_id": "2_RuZESjChB3qDYXlE2-xw",
+      "lon": 127.0484717,
+      "lat": 37.5587438,
+      "distance_m": 229.93894126555364,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_7328_pano_2_RuZESjChB3qDYXlE2-xw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용한 주거 지역의 일각",
+          "overall_impression_prose": "이 장소는 주거 지역에 위치한 조용한 거리입니다. 상업적 활동보다는 주거 및 교육 시설이 주를 이루고 있으며, 자연과 조화된 환경이 특징입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "건물은 주로 중저층이며, 일부는 교육 시설로 보입니다. 건물들은 비교적 단순한 형태로 배치되어 있습니다.",
+            "street_details": "도로는 좁고 포장 상태가 좋지 않으며, 보도는 거의 없습니다. 가로수와 자연 경관이 일부 존재합니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전체적으로 자연의 녹색과 회색의 콘크리트 색상이 지배적입니다. 건물과 도로는 다소 낡은 느낌을 줍니다.",
+            "imagined_sounds": "차량 소리와 함께 주변 자연에서 들리는 새소리와 같은 조용한 소리가 들릴 것으로 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "주로 학생이나 주민으로 보이는 사람들이 보입니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "상업적 변화의 흔적은 보이지 않으며, 안정적인 주거 환경으로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "카페",
+            "narrative_insight": "이 지역은 조용하고 자연과 가까운 환경을 제공하므로, 편안한 분위기의 카페가 들어선다면 주민과 학생들에게 휴식 공간을 제공할 수 있을 것입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지역은 상업적 활동보다는 주거 및 교육 시설이 주를 이루고 있습니다. 창업을 고려한다면, 지역 주민과 학생을 대상으로 한 편안한 카페나 작은 커뮤니티 공간이 적합할 것입니다. 자연과 조화를 이루는 디자인과 컨셉이 중요할 것입니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 1,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8528,
+      "pano_id": "3UbieWoUlK0lMIOC8m1URQ",
+      "lon": 127.048243,
+      "lat": 37.558905,
+      "distance_m": 235.87376751622983,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_8528_pano_3UbieWoUlK0lMIOC8m1URQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "자연에 둘러싸인 조용한 산책로",
+          "overall_impression_prose": "이 장소는 자연 속에 위치한 조용한 산책로입니다. 도심의 번잡함에서 벗어나 휴식을 취하기에 적합한 장소로 보입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "건물은 보이지 않으며, 주변은 나무와 식물로 둘러싸여 있습니다. 자연 그대로의 모습이 잘 유지되고 있습니다.",
+            "street_details": "좁은 비포장 도로가 있으며, 보도블럭이나 가로수, 벤치, 가로등은 보이지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "녹색의 식물들이 주를 이루며, 자연적인 재질감이 느껴집니다.",
+            "imagined_sounds": "새소리와 바람 소리, 그리고 자연의 고요함이 느껴질 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "변화나 안정성 신호 없음",
+          "opportunity_for_target_business": {
+            "business_category": "자연 체험 프로그램",
+            "narrative_insight": "이 지역은 자연을 즐기려는 방문객을 대상으로 한 자연 체험 프로그램이 적합할 것입니다. 자연과의 조화로운 경험을 제공하는 것이 중요합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 활동보다는 자연을 즐기기에 적합한 공간입니다. 창업자나 투자자는 자연 체험 프로그램이나 환경 보존 활동을 고려할 수 있습니다. 자연과의 조화를 유지하는 것이 중요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 2,
+            "Design_Diversity": 2,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    },
+    {
+      "point_id": 7560,
+      "pano_id": "lf5LWJzn_6-fXgapwQMhUw",
+      "lon": 127.047808,
+      "lat": 37.55916,
+      "distance_m": 249.23797827992522,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_7560_pano_lf5LWJzn_6-fXgapwQMhUw.jpg",
+      "analysis": {
+        "error": "Expecting value: line 1 column 1 (char 0)",
+        "raw_response": "I'm sorry, I can't assist with that."
+      }
+    },
+    {
+      "point_id": 9322,
+      "pano_id": "lf5LWJzn_6-fXgapwQMhUw",
+      "lon": 127.047808,
+      "lat": 37.55916,
+      "distance_m": 249.23797827992522,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_9322_pano_lf5LWJzn_6-fXgapwQMhUw.jpg",
+      "analysis": {
+        "error": "Expecting value: line 1 column 1 (char 0)",
+        "raw_response": "I'm sorry, I can't assist with that."
+      }
+    },
+    {
+      "point_id": 7327,
+      "pano_id": "BgGVLL7YHPISy9hlm0qetw",
+      "lon": 127.0486667,
+      "lat": 37.5588524,
+      "distance_m": 249.42884182911195,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_7327_pano_BgGVLL7YHPISy9hlm0qetw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용하고 깔끔한 교육 기관 근처 거리",
+          "overall_impression_prose": "이 장소는 주로 교육 기관과 관련된 건물들로 둘러싸여 있으며, 조용하고 정돈된 분위기를 느낄 수 있습니다. 보행자들이 드문드문 보이며, 상업적 활동보다는 학업과 관련된 활동이 주를 이루는 것으로 보입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "건물들은 주로 중고층의 교육 시설로 보이며, 현대적인 디자인을 갖추고 있습니다. 건물들은 도로를 따라 일렬로 배치되어 있습니다.",
+            "street_details": "도로는 깨끗하고 잘 관리되어 있으며, 보도와 자전거 도로가 구분되어 있습니다. 가로수는 없지만, 보도는 넓고 걷기에 편리합니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "주로 밝고 깨끗한 색감이 지배적이며, 건물 외관은 현대적이고 잘 관리된 느낌을 줍니다.",
+            "imagined_sounds": "주변은 비교적 조용하며, 간간히 학생들의 목소리와 차량 소리가 들릴 것으로 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "학생들로 보이는 사람들이 몇몇 보입니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "특별한 변화의 징후는 보이지 않으며, 안정적인 상태로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "카페",
+            "narrative_insight": "이 지역은 조용하고 학업에 집중하기 좋은 분위기를 가지고 있어, 학생들이 공부하거나 휴식을 취할 수 있는 카페가 적합할 것입니다. 편안한 좌석과 조용한 음악을 제공하는 것이 좋습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 활동보다는 교육과 관련된 활동이 주를 이루고 있습니다. 따라서, 창업자는 학생들을 주요 고객으로 삼는 비즈니스를 고려하는 것이 좋습니다. 카페나 스터디 카페와 같은 공간이 적합할 수 있으며, 편안한 학습 환경을 제공하는 것이 중요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 2,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 1,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 2,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 3908,
+      "pano_id": "AkSDyUlMNBCYQEE5MOhumg",
+      "lon": 127.047927,
+      "lat": 37.559177,
+      "distance_m": 253.9234622465366,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_3908_pano_AkSDyUlMNBCYQEE5MOhumg.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용하고 비어 있는 공간",
+          "overall_impression_prose": "이 장소는 주차장이나 물류 공간으로 보이며, 상업적 활동이 거의 없는 조용한 분위기입니다. 주변에 컨테이너와 건물이 있지만, 상업적 활기는 느껴지지 않습니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "컨테이너와 낮은 건물들이 배치되어 있으며, 주차장이나 물류 공간으로 사용되는 듯합니다. 건물의 높이는 낮고, 용도는 상업적이라기보다는 보관용으로 보입니다.",
+            "street_details": "도로와 보도는 깨끗하지만, 보행자나 상업적 요소는 없습니다. 가로수나 벤치, 가로등 등의 편의시설은 보이지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "회색과 파란색의 컨테이너가 주를 이루며, 전체적으로 단조롭고 깨끗한 느낌입니다.",
+            "imagined_sounds": "차량 소리나 작업 소리가 들릴 것으로 예상됩니다. 사람들의 목소리나 상업적 소음은 거의 없을 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "상업적 변화의 흔적은 보이지 않으며, 안정적인 상태로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "물류 및 보관 서비스",
+            "narrative_insight": "이 지역은 물류나 보관 서비스에 적합하며, 효율적인 공간 활용과 안전한 보관을 강조하는 컨셉으로 접근할 수 있습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 활동보다는 물류나 보관 용도로 적합합니다. 창업자나 투자자는 이 공간을 활용하여 물류 서비스나 창고 사업을 고려해 볼 수 있습니다. 상업적 발전 가능성은 낮지만, 물류 중심지로서의 잠재력은 있습니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 2,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 3910,
+      "pano_id": "AkSDyUlMNBCYQEE5MOhumg",
+      "lon": 127.047927,
+      "lat": 37.559177,
+      "distance_m": 253.9234622465366,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_3910_pano_AkSDyUlMNBCYQEE5MOhumg.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용하고 비어 있는 공간",
+          "overall_impression_prose": "이 장소는 주차장이나 임시 창고로 사용되는 듯한 느낌을 줍니다. 상업 활동은 거의 없으며, 주변은 조용하고 한적한 분위기입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "컨테이너 박스들이 주차장 형태로 배치되어 있으며, 건물은 낮고 임시 구조물처럼 보입니다.",
+            "street_details": "도로는 포장되어 있지만 보도나 가로수, 벤치, 가로등은 보이지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "회색과 파란색의 컨테이너가 주를 이루며, 전반적으로 밝고 깨끗한 느낌입니다.",
+            "imagined_sounds": "차량 소리나 작업 소리가 들릴 법한 조용한 환경입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "리모델링이나 변화의 흔적은 보이지 않음",
+          "opportunity_for_target_business": {
+            "business_category": "편의점",
+            "narrative_insight": "이 지역은 상업 활동이 거의 없으므로, 편의점이 들어선다면 지역 주민이나 근처 작업자들에게 필요한 기본적인 물품을 제공하는 역할을 할 수 있습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 가치가 낮아 보이며, 현재로서는 창고나 주차장으로 활용되고 있습니다. 만약 상업적 용도로 개발하려면, 주변 인프라와의 연계가 필요합니다. 창업자나 투자자는 장기적인 관점에서 개발 가능성을 고려해야 합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    },
+    {
+      "point_id": 9323,
+      "pano_id": "AkSDyUlMNBCYQEE5MOhumg",
+      "lon": 127.047927,
+      "lat": 37.559177,
+      "distance_m": 253.9234622465366,
+      "image_path": "C:\\img_gpt\\downloaded_img\\point_9323_pano_AkSDyUlMNBCYQEE5MOhumg.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "조용하고 비상업적인 지역",
+          "overall_impression_prose": "이 장소는 상업적 활동이 거의 없는 조용한 공간입니다. 주로 컨테이너와 건물로 둘러싸여 있으며, 상업적 매력은 낮습니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "주변에는 컨테이너와 낮은 건물들이 배치되어 있습니다. 건물들은 주로 보관 용도로 사용되는 것으로 보입니다.",
+            "street_details": "도로는 넓고 깨끗하지만, 보도나 가로수, 벤치, 가로등은 보이지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "회색과 청색의 컨테이너가 주를 이루며, 전체적으로 단조롭고 깨끗한 느낌입니다.",
+            "imagined_sounds": "차량 소리와 함께 조용한 환경이 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "변화의 신호는 보이지 않으며, 안정된 상태로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "보관 및 물류 서비스",
+            "narrative_insight": "이 지역은 상업적 활동보다는 보관 및 물류 서비스에 적합해 보입니다. 이러한 업종은 공간의 특성을 활용하여 효율적인 운영이 가능할 것입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 상업적 활동보다는 물류 및 보관 서비스에 더 적합합니다. 창업자나 투자자는 이 지역의 공간적 특성을 활용하여 효율적인 물류 운영을 고려할 수 있습니다. 상업적 매력은 낮으므로 다른 지역과의 연계를 고려해야 합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 2,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    }
+  ],
+  "synthesis": {
+    "area_summary": {
+      "overall_character": "이 지역은 조용하고 외진 주거 지역으로, 상업 활동이 거의 없는 차분한 분위기를 가지고 있습니다. 자연과 가까운 환경이 특징이며, 상업적 개발이 미미한 상태입니다.",
+      "dominant_zone_type": "주거지역",
+      "primary_commercial_type": "근린형 생활상가"
+    },
+    "comprehensive_scores": {
+      "commercial_atmosphere": 2,
+      "street_atmosphere": 6,
+      "cleanliness": 7,
+      "maintenance": 6,
+      "walkability": 5,
+      "safety_perception": 7,
+      "business_diversity": 1,
+      "residential_suitability": 8,
+      "commercial_suitability": 3
+    },
+    "detailed_assessment": {
+      "strengths": [
+        "조용하고 평화로운 주거 환경",
+        "자연과 가까운 산책로 및 녹지",
+        "낮은 범죄율로 인한 안전한 분위기"
+      ],
+      "weaknesses": [
+        "상업 시설의 부족",
+        "낮은 보행자 유입 및 유동 인구",
+        "상업적 개발 가능성의 제한"
+      ],
+      "recommended_business_types": [
+        "커피숍",
+        "작은 편의점",
+        "지역 주민 대상의 커뮤니티 센터"
+      ],
+      "foot_traffic_estimate": "하",
+      "competition_level": "낮음"
+    },
+    "final_recommendation": "이 지역은 주거지로서의 쾌적함과 안전성이 뛰어나지만, 상업적 잠재력은 제한적입니다. 조용하고 자연 친화적인 환경을 활용하여, 소규모 커피숍이나 지역 주민을 위한 커뮤니티 센터 같은 사업이 적합할 수 있습니다. 상업 시설의 부족이 주요 약점이지만, 이를 보완하기 위해 지역 주민의 필요를 충족시키는 맞춤형 서비스를 제공하는 것이 중요합니다. 초기 투자 규모는 작게 시작하여, 지역 주민의 반응에 따라 점진적으로 확장하는 전략이 바람직합니다. 상업적 성공을 위해서는 지역 사회와의 긴밀한 관계 구축이 필수적이며, 초기에는 수익성이 낮을 수 있으나 장기적으로 안정적인 수익을 기대할 수 있습니다. 최종적으로, 이 지역은 상업적 개발보다는 주거 환경 개선에 중점을 두는 것이 바람직하며, 소규모 비즈니스로 시작하는 것을 추천합니다."
+  }
+}
