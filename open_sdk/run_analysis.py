@@ -18,24 +18,8 @@ sys.path.insert(0, str(project_root / "agents_new" / "marketing_agent"))
 sys.path.insert(0, str(project_root / "agents_new" / "panorama_img_anal"))
 sys.path.insert(0, str(project_root / "open_sdk"))  # For spatial_matcher module
 
-# Fix Korean font issue in matplotlib
-import matplotlib
-import matplotlib.pyplot as plt
-import platform
-
-# Configure Korean font based on OS
-system = platform.system()
-if system == "Windows":
-    plt.rc('font', family='Malgun Gothic')  # Windows: Malgun Gothic
-elif system == "Darwin":
-    plt.rc('font', family='AppleGothic')  # macOS: AppleGothic
-else:
-    plt.rc('font', family='NanumGothic')  # Linux: Nanum Gothic
-
-# Disable minus sign warning
-matplotlib.rcParams['axes.unicode_minus'] = False
-
-print("[INFO] Korean font configured successfully for matplotlib")
+# matplotlib은 store_agent_module에서만 사용 (여기서는 제거)
+MATPLOTLIB_AVAILABLE = False
 
 
 async def run_store_analysis(store_code: str) -> Dict[str, Any]:
@@ -246,6 +230,27 @@ def _find_nearest_marketplace(address: str) -> str:
         print(f"[WARN] 상권 판단 실패: {e}")
     
     return None
+
+
+def convert_absolute_to_relative_path(absolute_path: str) -> str:
+    """절대 경로를 상대 경로로 변환"""
+    if not absolute_path:
+        return absolute_path
+    
+    # 프로젝트 루트 기준으로 상대 경로 계산
+    project_root = Path(__file__).parent.parent
+    
+    try:
+        abs_path = Path(absolute_path)
+        if abs_path.is_absolute():
+            # 프로젝트 루트를 기준으로 상대 경로 계산
+            relative_path = abs_path.relative_to(project_root)
+            return str(relative_path).replace('\\', '/')  # Windows 경로 구분자 통일
+        else:
+            return absolute_path
+    except ValueError:
+        # 프로젝트 루트 밖의 경로인 경우 원본 반환
+        return absolute_path
 
 
 def convert_store_to_marketing_format(store_analysis: Dict[str, Any]) -> Dict[str, Any]:
