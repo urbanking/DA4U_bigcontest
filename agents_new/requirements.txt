@@ -1,0 +1,36 @@
+# AI Data Analysis Agent - Dependencies
+
+# AI & LLM
+google-generativeai>=0.3.0  # Gemini API
+openai>=1.50.0  # For Panorama analysis
+# langgraph 제거됨 - OpenAI Agents SDK 사용
+# langchain-core==0.2.40  # Compatible version
+pydantic==2.7.4  # Compatible with langchain
+
+# Data Processing
+pandas==2.2.3
+numpy<2.0
+geopandas==1.0.1
+shapely==2.0.6
+
+# Utilities
+python-dotenv==1.0.1
+# pydantic은 위에 정의됨 (2.7.4)
+
+# Image Processing (for panorama analysis)
+Pillow<11,>=7.1.0
+
+# PDF Processing (for marketplace analysis)
+PyPDF2>=3.0.0
+
+# Geocoding & HTTP
+geopy==2.4.1
+requests==2.32.3
+
+# Visualization
+matplotlib>=3.7.0
+
+# Testing & Development (optional)
+pytest==8.3.3
+pytest-asyncio==0.24.0
+httpx==0.27.2
