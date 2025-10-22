@@ -1,0 +1,422 @@
+{
+  "store_code": "002816BA73",
+  "analysis_timestamp": "2025-10-22T23:43:46.145530",
+  "persona_analysis": {
+    "persona_type": "마장_프리미엄_육식_미식가",
+    "persona_description": "마장 축산물 시장의 뛰어난 육류를 활용한 고품격 요리와 주류를 즐기며, 특별한 모임이나 회식을 선호하는 40대 남성 고객입니다. 맛과 품질, 그리고 공간의 분위기를 중요하게 생각하며, 새로운 미식 경험을 추구합니다.",
+    "components": {
+      "industry": "한식",
+      "commercial_zone": "주거형",
+      "is_franchise": false,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "Male",
+        "age": "40대"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "Stable",
+        "revisit": "Decreasing"
+      },
+      "delivery_ratio": null
+    },
+    "marketing_tone": "전문적이고 신뢰감 있는, 품격 있고 세련된, 가치를 강조하는",
+    "key_channels": [
+      "네이버 플레이스/카카오맵 상세 정보 및 리뷰 관리 (사진, 메뉴, 예약 기능)",
+      "프리미엄 미식 블로거 및 인플루언서 협업 (고품질 콘텐츠 제작)",
+      "기업 제휴 및 단체 예약 프로모션 (법인카드 할인, 코스 메뉴 제안 등)",
+      "CRM 기반 개인화된 프로모션 (재방문 고객 대상 신메뉴 안내, 기념일 할인)",
+      "다이닝 플랫폼 (캐치테이블, 포잉 등) 입점 및 특별 메뉴 제공",
+      "고품질 비주얼 콘텐츠 (인스타그램, 페이스북)를 통한 메뉴 및 분위기 홍보",
+      "지역 상권 내 고급 매거진 또는 커뮤니티 광고"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 Male이 높고, 40대가 주를 이루고 있고, 유동인구가 많은 \"마장_프리미엄_육식_미식가\"형 가게입니다",
+        "table_data": {
+          "업종": "한식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "N",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "Male 40대",
+          "고객유형": "거주형",
+          "고객관계": "신규유입Stable / 재방문Decreasing",
+          "배달비중": null
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "Male",
+            "age": "40대"
+          },
+          "customer_trends": {
+            "new_customer": "Stable",
+            "revisit": "Decreasing"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음, 주문 취소율이 급격히 증가하고 있음로 2개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          },
+          {
+            "code": "R6",
+            "meaning": "취소율 급등",
+            "severity": "unknown",
+            "description": "주문 취소율이 급격히 증가하고 있음",
+            "chart_type": "trend"
+          }
+        ],
+        "overall_risk_level": "위험"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "위험",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": "위험",
+        "score": 100,
+        "evidence": "재방문율 10.8% (업종평균: 40.0%)",
+        "priority": 2,
+        "impact_score": 7.5
+      },
+      {
+        "code": "R6",
+        "name": "취소율 급등",
+        "description": "주문 취소율이 급격히 증가하고 있음",
+        "level": "낮음",
+        "score": 64.5,
+        "evidence": "취소율 5.00% (기준: 0.7%)",
+        "priority": 3,
+        "impact_score": 7.0
+      }
+    ],
+    "analysis_summary": "매장에서 재방문율 저하 등의 주요 위험 요소가 감지되었습니다. 즉시 대응이 필요합니다."
+  },
+  "marketing_strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "1.  **[전략명]",
+      "description": "셰프의 시그니처 마장육 코스 & 페어링 (R6, R2 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "셰프의 시그니처 마장육 코스 & 페어링 (R6, R2 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "2.  **[전략명]",
+      "description": "프리미엄 미식 서포터즈 & 리뷰어 프로그램 (R2, R6 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "프리미엄 미식 서포터즈 & 리뷰어 프로그램 (R2, R6 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "3.  **[전략명]",
+      "description": "VIP 멤버십 & 개인화된 리워드 시스템 (R2 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "VIP 멤버십 & 개인화된 리워드 시스템 (R2 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "4.  **[전략명]",
+      "description": "비즈니스/단체 모임 특화 맞춤형 패키지 (R6 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "비즈니스/단체 모임 특화 맞춤형 패키지 (R6 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "5.  **[전략명]",
+      "description": "마장 축산물 시장 연계 '미트 마스터 클래스' (R6, R2 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "마장 축산물 시장 연계 '미트 마스터 클래스' (R6, R2 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "6.  **[전략명]",
+      "description": "고품격 비주얼 콘텐츠 마케팅 강화 (R6, R2 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "고품격 비주얼 콘텐츠 마케팅 강화 (R6, R2 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251022_234248",
+    "name": "자갈*********** 마케팅 캠페인",
+    "description": "6개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "1.  **[전략명]",
+        "activities": [
+          "셰프의 시그니처 마장육 코스 & 페어링 (R6, R2 해결)**"
+        ],
+        "milestones": [
+          "1.  **[전략명] 기획 완료",
+          "1.  **[전략명] 실행 시작",
+          "1.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "1.  **[전략명] 결과 보고서",
+          "1.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "2.  **[전략명]",
+        "activities": [
+          "프리미엄 미식 서포터즈 & 리뷰어 프로그램 (R2, R6 해결)**"
+        ],
+        "milestones": [
+          "2.  **[전략명] 기획 완료",
+          "2.  **[전략명] 실행 시작",
+          "2.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "2.  **[전략명] 결과 보고서",
+          "2.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "3.  **[전략명]",
+        "activities": [
+          "VIP 멤버십 & 개인화된 리워드 시스템 (R2 해결)**"
+        ],
+        "milestones": [
+          "3.  **[전략명] 기획 완료",
+          "3.  **[전략명] 실행 시작",
+          "3.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "3.  **[전략명] 결과 보고서",
+          "3.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "4.  **[전략명]",
+        "activities": [
+          "비즈니스/단체 모임 특화 맞춤형 패키지 (R6 해결)**"
+        ],
+        "milestones": [
+          "4.  **[전략명] 기획 완료",
+          "4.  **[전략명] 실행 시작",
+          "4.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "4.  **[전략명] 결과 보고서",
+          "4.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "5.  **[전략명]",
+        "activities": [
+          "마장 축산물 시장 연계 '미트 마스터 클래스' (R6, R2 해결)**"
+        ],
+        "milestones": [
+          "5.  **[전략명] 기획 완료",
+          "5.  **[전략명] 실행 시작",
+          "5.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "5.  **[전략명] 결과 보고서",
+          "5.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "6.  **[전략명]",
+        "activities": [
+          "고품격 비주얼 콘텐츠 마케팅 강화 (R6, R2 해결)**"
+        ],
+        "milestones": [
+          "6.  **[전략명] 기획 완료",
+          "6.  **[전략명] 실행 시작",
+          "6.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "6.  **[전략명] 결과 보고서",
+          "6.  **[전략명] 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {
+      "매출_증가율": 60,
+      "신규_고객_증가율": 0,
+      "재방문율_개선": 0,
+      "리뷰_점수_개선": 0,
+      "SNS_팔로워_증가율": 0
+    },
+    "success_probability": 95.0
+  },
+  "marketing_focus_points": {
+    "industry_focus": "신뢰·품질 중심",
+    "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+    "customer_type_focus": "단골 관리, 적립제·멤버십"
+  },
+  "social_content": {
+    "instagram_posts": [
+      {
+        "title": "셰프의 미학, 마장 프리미엄 육식 미식의 정점 🥩🍷",
+        "content": "[자갈***]에서 경험하는 프리미엄 육식 미학의 정점. 🌟 숙련된 셰프의 섬세한 터치로 완성되는 시그니처 마장육 코스는 최상급 마장동 한우의 진정한 가치를 선사합니다. 엄선된 식재료와 예술적인 플레이팅, 그리고 각 코스에 완벽하게 어울리는 와인 및 전통주 페어링으로 오감을 만족시키는 특별한 다이닝 경험을 약속드립니다.\n\n당신의 미식 안목을 [자갈***]에서 한층 더 높여보세요. 예약은 프로필 링크를 통해 가능합니다.",
+        "hashtags": [
+          "#자갈미식",
+          "#마장육코스",
+          "#프리미엄다이닝",
+          "#셰프의요리",
+          "#와인페어링",
+          "#미식경험",
+          "#성동구맛집",
+          "#청계천맛집",
+          "#고품격요리주점",
+          "#육식미식가"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "미식의 여정을 함께할 당신을 초대합니다: 프리미엄 미식 서포터즈 모집 ✍️✨",
+        "content": "[자갈***]은 품격 있는 미식 경험을 사랑하고, 그 가치를 진정성 있게 공유해주실 프리미엄 미식 서포터즈를 모집합니다. 저희 매장의 시그니처 메뉴와 특별한 분위기를 가장 먼저 경험하고, 당신의 깊이 있는 미식 스토리를 전파할 기회를 드립니다.\n\n선정된 서포터즈에게는 특별한 혜택과 함께 [자갈***]의 미식 여정에 동참할 수 있는 소중한 기회가 주어집니다. 자세한 내용은 공식 블로그 또는 DM으로 문의해주세요. 당신의 안목이 곧 저희의 자부심입니다.",
+        "hashtags": [
+          "#자갈미식",
+          "#미식서포터즈",
+          "#프리미엄리뷰어",
+          "#미식가초대",
+          "#특별한경험",
+          "#고품격다이닝",
+          "#맛스타그램",
+          "#성동구핫플",
+          "#인플루언서모집",
+          "#미식의가치"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "당신만을 위한 최상의 경험, [자갈***] VIP 멤버십 💎🥂",
+        "content": "[자갈***]은 저희 매장을 아껴주시는 고객님들께 최고의 가치와 만족을 선사하기 위해 VIP 멤버십 프로그램을 운영합니다. 재방문 고객을 위한 개인화된 신메뉴 안내, 기념일 특별 할인, 그리고 프라이빗한 이벤트 초대까지. 당신의 특별한 순간을 [자갈***]에서 더욱 빛나게 해드립니다.\n\n품격 있는 서비스를 통해 당신의 미식 라이프를 한층 더 업그레이드하세요. VIP 멤버십 가입 및 혜택 문의는 매장 직원에게 문의해주시기 바랍니다.",
+        "hashtags": [
+          "#자갈미식",
+          "#VIP멤버십",
+          "#개인화서비스",
+          "#프리미엄혜택",
+          "#단골우대",
+          "#기념일맛집",
+          "#최고급다이닝",
+          "#성동구프리미엄",
+          "#고객감동",
+          "#미식라이프"
+        ],
+        "post_type": "feed"
+      }
+    ],
+    "facebook_posts": [],
+    "promotion_texts": []
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "즉시 실행: 1.  **[전략명]",
+      "예상 효과: 매출 증대 및 고객 만족도 향상",
+      "예산: 중간",
+      "구현 기간: 1-2주"
+    ],
+    "short_term_goals": [
+      "위험 코드 해결을 위한 단계적 접근",
+      "페르소나별 맞춤 마케팅 채널 최적화",
+      "고객 만족도 및 리뷰 점수 개선"
+    ],
+    "long_term_strategy": [
+      "브랜드 이미지 및 고객 충성도 구축",
+      "지속 가능한 성장 모델 수립",
+      "시장 경쟁력 강화 및 차별화"
+    ],
+    "success_factors": [
+      "페르소나 기반 맞춤형 접근",
+      "데이터 기반 의사결정",
+      "지속적인 모니터링 및 개선",
+      "고객 피드백 반영"
+    ]
+  }
+}
