@@ -145,7 +145,12 @@ def find_images_in_buffer(center_lon: float,
     --------
     List[Dict] : 버퍼 내 이미지 정보 리스트
     """
-    # CSV 로드
+    # CSV 로드 (경로 확인)
+    if not Path(data_csv_path).exists():
+        # 상대 경로로 다시 시도
+        current_dir = Path(__file__).parent
+        data_csv_path = str(current_dir / "Step1_Result_final (1).csv")
+    
     df = pd.read_csv(data_csv_path)
     
     # GeoDataFrame 생성
@@ -175,19 +180,40 @@ def find_images_in_buffer(center_lon: float,
     # 다시 WGS84로 변환 (거리는 이미 계산됨)
     within_buffer = within_buffer_utm.to_crs('EPSG:4326')
     
-    # 이미지 정보 수집
+    # 이미지 정보 수집 (9개 폴더에서 검색)
     images_info = []
-    image_folder_path = Path(image_folder)
+    
+    # 9개 폴더 경로 생성
+    base_folder = Path(image_folder)
+    image_folders = [
+        base_folder,
+        base_folder.parent / "downloaded_img_1",
+        base_folder.parent / "downloaded_img_2", 
+        base_folder.parent / "downloaded_img_3",
+        base_folder.parent / "downloaded_img_4",
+        base_folder.parent / "downloaded_img_5",
+        base_folder.parent / "downloaded_img_6",
+        base_folder.parent / "downloaded_img_7",
+        base_folder.parent / "downloaded_img_8",
+        base_folder.parent / "downloaded_img_9"
+    ]
     
     for idx, row in within_buffer.iterrows():
         point_id = row['point_ID']
         pano_id = row['pano_id']
         
-        # 이미지 파일 경로
+        # 이미지 파일명
         image_filename = f"point_{point_id}_pano_{pano_id}.jpg"
-        image_path = image_folder_path / image_filename
         
-        if image_path.exists():
+        # 9개 폴더에서 이미지 찾기
+        image_path = None
+        for folder in image_folders:
+            potential_path = folder / image_filename
+            if potential_path.exists():
+                image_path = potential_path
+                break
+        
+        if image_path:
             images_info.append({
                 'point_id': int(point_id),
                 'pano_id': pano_id,
@@ -813,14 +839,16 @@ def analyze_area_by_address(address: str,
     if data_csv_path is None:
         data_csv_path = os.getenv('PANOID_FILE')
         if not data_csv_path:
-            # 상대 경로로 변경
-            data_csv_path = "agents_new/panorama_img_anal/Step1_Result_final (1).csv"
+            # 상대 경로로 변경 (현재 스크립트 기준)
+            current_dir = Path(__file__).parent
+            data_csv_path = str(current_dir / "Step1_Result_final (1).csv")
     
     if image_folder is None:
         image_folder = os.getenv('IMAGE_FOLDER')
         if not image_folder:
-            # 상대 경로로 변경
-            image_folder = "agents_new/panorama_img_anal/downloaded_img"
+            # 상대 경로로 변경 (현재 스크립트 기준)
+            current_dir = Path(__file__).parent
+            image_folder = str(current_dir / "downloaded_img_1")  # 첫 번째 폴더를 기본으로
     
     # 1. 주소 -> 좌표 변환
     print(f"\n[주소] {address}")
