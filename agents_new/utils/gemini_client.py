@@ -4,6 +4,7 @@ Reference: https://ai.google.dev/gemini-api/docs/openai
 """
 import os
 import asyncio
+import time
 from types import SimpleNamespace
 from typing import Optional, List, Dict, Any
 from openai import OpenAI
@@ -107,10 +108,11 @@ class GeminiClient:
         temperature: float = 0.7,
         max_tokens: Optional[int] = None,
         reasoning_effort: Optional[str] = None,
+        max_retries: int = 5,
         **kwargs
     ) -> str:
         """
-        Generate chat completion using Gemini
+        Generate chat completion using Gemini with automatic retry on overload
         
         Args:
             messages: List of message dicts with 'role' and 'content'
@@ -118,6 +120,7 @@ class GeminiClient:
             temperature: Sampling temperature (0-1)
             max_tokens: Maximum tokens to generate
             reasoning_effort: Thinking level - "low", "medium", "high", or None
+            max_retries: Maximum number of retries on 503 errors (default: 5)
             **kwargs: Additional parameters
             
         Returns:
@@ -141,17 +144,40 @@ class GeminiClient:
             
         params.update(kwargs)
         
-        try:
-            response = self.client.chat.completions.create(**params)
-            content = response.choices[0].message.content
-            
-            # 빈 응답 체크
-            if content is None or content.strip() == "":
-                raise RuntimeError("Gemini returned empty response")
-            
-            return content
-        except Exception as e:
-            raise RuntimeError(f"Gemini API error: {str(e)}")
+        # Retry logic with exponential backoff
+        last_error = None
+        for attempt in range(max_retries):
+            try:
+                response = self.client.chat.completions.create(**params)
+                content = response.choices[0].message.content
+                
+                # 빈 응답 체크
+                if content is None or content.strip() == "":
+                    raise RuntimeError("Gemini returned empty response")
+                
+                return content
+                
+            except Exception as e:
+                last_error = e
+                error_str = str(e)
+                
+                # 503 (overloaded) 에러인 경우에만 재시도
+                if "503" in error_str or "overloaded" in error_str.lower() or "UNAVAILABLE" in error_str:
+                    if attempt < max_retries - 1:
+                        # 지수 백오프: 2^attempt 초 대기 (1s, 2s, 4s, 8s, 16s)
+                        wait_time = 2 ** attempt
+                        print(f"[WARN] Gemini API overloaded (503). Retrying in {wait_time}s... (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(wait_time)
+                        continue
+                    else:
+                        print(f"[ERROR] Gemini API still overloaded after {max_retries} attempts")
+                        raise RuntimeError(f"Gemini API overloaded after {max_retries} retries: {error_str}")
+                else:
+                    # 다른 에러는 바로 raise
+                    raise RuntimeError(f"Gemini API error: {error_str}")
+        
+        # 모든 재시도 실패
+        raise RuntimeError(f"Gemini API error after {max_retries} retries: {str(last_error)}")
     
     @observe()
     def chat_completion_json(
@@ -195,6 +221,7 @@ class GeminiClient:
         thinking_budget: Optional[int] = None,
         include_thoughts: bool = False,
         model: str = None,
+        max_retries: int = 5,
         **kwargs
     ) -> Dict[str, Any]:
         """
@@ -205,6 +232,7 @@ class GeminiClient:
             thinking_budget: Exact thinking token budget (alternative to reasoning_effort)
             include_thoughts: Whether to include thought process in response
             model: Gemini thinking model name
+            max_retries: Maximum number of retries on 503 errors (default: 5)
             **kwargs: Additional parameters
             
         Returns:
@@ -236,19 +264,42 @@ class GeminiClient:
             
         params.update(kwargs)
         
-        try:
-            response = self.client.chat.completions.create(**params)
-            result = {
-                "content": response.choices[0].message.content
-            }
-            
-            # Extract thoughts if included
-            if include_thoughts and hasattr(response.choices[0].message, 'thoughts'):
-                result["thoughts"] = response.choices[0].message.thoughts
+        # Retry logic with exponential backoff
+        last_error = None
+        for attempt in range(max_retries):
+            try:
+                response = self.client.chat.completions.create(**params)
+                result = {
+                    "content": response.choices[0].message.content
+                }
                 
-            return result
-        except Exception as e:
-            raise RuntimeError(f"Gemini API error: {str(e)}")
+                # Extract thoughts if included
+                if include_thoughts and hasattr(response.choices[0].message, 'thoughts'):
+                    result["thoughts"] = response.choices[0].message.thoughts
+                    
+                return result
+                
+            except Exception as e:
+                last_error = e
+                error_str = str(e)
+                
+                # 503 (overloaded) 에러인 경우에만 재시도
+                if "503" in error_str or "overloaded" in error_str.lower() or "UNAVAILABLE" in error_str:
+                    if attempt < max_retries - 1:
+                        # 지수 백오프: 2^attempt 초 대기 (1s, 2s, 4s, 8s, 16s)
+                        wait_time = 2 ** attempt
+                        print(f"[WARN] Gemini API overloaded (503). Retrying in {wait_time}s... (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(wait_time)
+                        continue
+                    else:
+                        print(f"[ERROR] Gemini API still overloaded after {max_retries} attempts")
+                        raise RuntimeError(f"Gemini API overloaded after {max_retries} retries: {error_str}")
+                else:
+                    # 다른 에러는 바로 raise
+                    raise RuntimeError(f"Gemini API error: {error_str}")
+        
+        # 모든 재시도 실패
+        raise RuntimeError(f"Gemini API error after {max_retries} retries: {str(last_error)}")
 
 
 # Global client instance

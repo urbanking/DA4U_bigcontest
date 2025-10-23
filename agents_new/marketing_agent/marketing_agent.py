@@ -4,7 +4,7 @@ Marketing Agent - 페르소나 기반 마케팅 전략 에이전트
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 import json
-import logger
+import logging
 try:
     # 패키지로 실행될 때
     from .persona_engine import PersonaEngine, PersonaComponents
@@ -164,7 +164,7 @@ class MarketingAgent:
             return result
             
         except Exception as e:
-            logger.error(f"Error running marketing analysis for {self.store_code}: {e}")
+            logging.error(f"Error running marketing analysis for {self.store_code}: {e}")
             
             # API 할당량 초과 등의 오류 시에도 기본 데이터 반환
             return {
@@ -378,7 +378,7 @@ class MarketingAgent:
             return 50.0
             
         except Exception as e:
-            logger.warning(f"시장 적합도 점수 계산 중 오류: {e}")
+            logging.warning(f"시장 적합도 점수 계산 중 오류: {e}")
             return 50.0
     
     def _calculate_business_churn_risk(self, store_report: Dict[str, Any], diagnostic: Dict[str, Any]) -> float:
@@ -457,7 +457,7 @@ class MarketingAgent:
             return 30.0
             
         except Exception as e:
-            logger.warning(f"상권 해지 위험도 계산 중 오류: {e}")
+            logging.warning(f"상권 해지 위험도 계산 중 오류: {e}")
             return 30.0
     
     def _get_seasonal_context(self) -> str:

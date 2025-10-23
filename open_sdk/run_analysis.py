@@ -70,8 +70,8 @@ async def run_store_analysis(store_code: str) -> Dict[str, Any]:
         # Initialize Store Agent
         agent = StoreAgentModule()
         
-        # Prepare state
-        state: StoreAgentState = {
+        # Prepare state - Create as dict (TypedDict is compatible)
+        state = {
             "user_query": f"{store_code} store analysis",
             "user_id": "pipeline_user",
             "session_id": f"pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
