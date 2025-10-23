@@ -677,6 +677,108 @@ def display_final_report_button(store_code, analysis_data):
     else:
         st.info("✅ 최종 리포트가 이미 생성되었습니다.")
 
+
+def generate_comprehensive_analysis_with_gemini(analysis_data):
+    """OpenAI SDK(Gemini 2.5 Flash)를 사용해서 전체 분석 데이터를 종합하여 인사이트 생성"""
+    try:
+        if not OPENAI_AVAILABLE or not openai_client:
+            return None
+        
+        # 분석 데이터 요약
+        store_data = analysis_data.get("store_analysis", {})
+        marketing_data = analysis_data.get("marketing_strategy", {})
+        panorama_data = analysis_data.get("panorama_analysis", {})
+        marketplace_data = analysis_data.get("marketplace_analysis", {})
+        mobility_data = analysis_data.get("mobility_analysis", {})
+        
+        # 데이터 요약 생성
+        summary_text = f"""
+## 매장 분석 데이터 요약
+
+### 🏪 매장 기본 정보
+- 매장명: {store_data.get('store_overview', {}).get('name', 'N/A')}
+- 업종: {store_data.get('store_overview', {}).get('industry', 'N/A')}
+- 상권: {store_data.get('store_overview', {}).get('commercial_area', 'N/A')}
+- 운영 개월: {store_data.get('store_overview', {}).get('operating_months', 'N/A')}개월
+
+### 📈 매출 분석
+- 매출액 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('sales_amount', {}).get('trend', 'N/A')}
+- 매출건수 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('sales_count', {}).get('trend', 'N/A')}
+- 고유고객 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('unique_customers', {}).get('trend', 'N/A')}
+- 평균 거래액 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('avg_transaction', {}).get('trend', 'N/A')}
+
+### 👥 고객 분석
+- 성별 분포: 남성 {store_data.get('customer_analysis', {}).get('gender_distribution', {}).get('male_ratio', 0):.1f}% / 여성 {store_data.get('customer_analysis', {}).get('gender_distribution', {}).get('female_ratio', 0):.1f}%
+- 주요 연령대: {max(store_data.get('customer_analysis', {}).get('age_group_distribution', {}), key=store_data.get('customer_analysis', {}).get('age_group_distribution', {}).get) if store_data.get('customer_analysis', {}).get('age_group_distribution') else 'N/A'}
+
+### 🎯 마케팅 전략
+- 전략 수: {len(marketing_data.get('marketing_strategies', []))}개
+- 페르소나 유형: {marketing_data.get('persona_analysis', {}).get('persona_type', 'N/A')}
+
+### 🌆 지역 환경 분석
+- 지역 유형: {panorama_data.get('area_summary', {}).get('dominant_zone_type', 'N/A')}
+- 상권 분위기: {panorama_data.get('comprehensive_scores', {}).get('commercial_atmosphere', 'N/A')}/10
+
+### 🏬 상권 분석
+- 상권명: {marketplace_data.get('상권명', 'N/A')}
+- 점포수: {marketplace_data.get('상권_점포수', 'N/A')}개
+- 매출액: {marketplace_data.get('상권_매출액', 'N/A')}만원
+        """
+        
+        prompt = f"""다음 매장 분석 데이터를 바탕으로 종합적인 비즈니스 인사이트와 전략적 제안을 작성해주세요.
+
+{summary_text}
+
+다음 형식으로 작성해주세요:
+
+## 🎯 종합 비즈니스 분석 리포트
+
+### 📊 핵심 인사이트
+- 매장의 주요 강점과 약점
+- 시장에서의 위치와 경쟁력
+- 성장 잠재력 평가
+
+### 🔍 상세 분석
+- 매출 동향 분석 및 전망
+- 고객층 특성 및 타겟팅 전략
+- 상권 환경과의 적합성
+- 마케팅 전략의 효과성
+
+### ⚠️ 위험 요소 및 주의사항
+- 매장 운영상 주의해야 할 점
+- 시장 변화에 따른 리스크
+- 경쟁 환경 변화 대응 방안
+
+### 🚀 성장 전략 제안
+- 매출 증대를 위한 구체적 방안
+- 고객 유치 및 리텐션 전략
+- 상권 특성을 활용한 차별화 방안
+- 마케팅 전략 개선 제안
+
+### 💡 실행 가능한 액션 플랜
+- 단기 (1-3개월) 실행 계획
+- 중기 (3-6개월) 실행 계획
+- 장기 (6-12개월) 실행 계획
+
+전문적이고 실용적인 분석을 제공해주세요."""
+        
+        response = openai_client.chat.completions.create(
+            model="gemini-2.5-flash",
+            messages=[
+                {"role": "system", "content": "당신은 전문적인 비즈니스 분석가이자 컨설턴트입니다. 데이터를 종합하여 실행 가능한 전략적 인사이트를 제공합니다."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=3000
+        )
+        
+        return response.choices[0].message.content.strip()
+        
+    except Exception as e:
+        print(f"[ERROR] OpenAI(Gemini) 종합 분석 생성 실패: {e}")
+        return None
+
+
 def display_store_overview(analysis_data):
     """매장 개요 탭 - 간단하고 핵심적인 개요"""
     st.markdown("### 🏪 매장 개요")
@@ -3024,107 +3126,6 @@ with col2:
                 st.code(f"{analysis['store_code']}  # 분석일: {analysis['analysis_date']}")
         else:
             st.info("기존 분석 결과가 없습니다.")
-
-
-def generate_comprehensive_analysis_with_gemini(analysis_data):
-    """OpenAI SDK(Gemini 2.5 Flash)를 사용해서 전체 분석 데이터를 종합하여 인사이트 생성"""
-    try:
-        if not OPENAI_AVAILABLE or not openai_client:
-            return None
-        
-        # 분석 데이터 요약
-        store_data = analysis_data.get("store_analysis", {})
-        marketing_data = analysis_data.get("marketing_strategy", {})
-        panorama_data = analysis_data.get("panorama_analysis", {})
-        marketplace_data = analysis_data.get("marketplace_analysis", {})
-        mobility_data = analysis_data.get("mobility_analysis", {})
-        
-        # 데이터 요약 생성
-        summary_text = f"""
-## 매장 분석 데이터 요약
-
-### 🏪 매장 기본 정보
-- 매장명: {store_data.get('store_overview', {}).get('name', 'N/A')}
-- 업종: {store_data.get('store_overview', {}).get('industry', 'N/A')}
-- 상권: {store_data.get('store_overview', {}).get('commercial_area', 'N/A')}
-- 운영 개월: {store_data.get('store_overview', {}).get('operating_months', 'N/A')}개월
-
-### 📈 매출 분석
-- 매출액 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('sales_amount', {}).get('trend', 'N/A')}
-- 매출건수 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('sales_count', {}).get('trend', 'N/A')}
-- 고유고객 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('unique_customers', {}).get('trend', 'N/A')}
-- 평균 거래액 추세: {store_data.get('sales_analysis', {}).get('trends', {}).get('avg_transaction', {}).get('trend', 'N/A')}
-
-### 👥 고객 분석
-- 성별 분포: 남성 {store_data.get('customer_analysis', {}).get('gender_distribution', {}).get('male_ratio', 0):.1f}% / 여성 {store_data.get('customer_analysis', {}).get('gender_distribution', {}).get('female_ratio', 0):.1f}%
-- 주요 연령대: {max(store_data.get('customer_analysis', {}).get('age_group_distribution', {}), key=store_data.get('customer_analysis', {}).get('age_group_distribution', {}).get) if store_data.get('customer_analysis', {}).get('age_group_distribution') else 'N/A'}
-
-### 🎯 마케팅 전략
-- 전략 수: {len(marketing_data.get('marketing_strategies', []))}개
-- 페르소나 유형: {marketing_data.get('persona_analysis', {}).get('persona_type', 'N/A')}
-
-### 🌆 지역 환경 분석
-- 지역 유형: {panorama_data.get('area_summary', {}).get('dominant_zone_type', 'N/A')}
-- 상권 분위기: {panorama_data.get('comprehensive_scores', {}).get('commercial_atmosphere', 'N/A')}/10
-
-### 🏬 상권 분석
-- 상권명: {marketplace_data.get('상권명', 'N/A')}
-- 점포수: {marketplace_data.get('상권_점포수', 'N/A')}개
-- 매출액: {marketplace_data.get('상권_매출액', 'N/A')}만원
-        """
-        
-        prompt = f"""다음 매장 분석 데이터를 바탕으로 종합적인 비즈니스 인사이트와 전략적 제안을 작성해주세요.
-
-{summary_text}
-
-다음 형식으로 작성해주세요:
-
-## 🎯 종합 비즈니스 분석 리포트
-
-### 📊 핵심 인사이트
-- 매장의 주요 강점과 약점
-- 시장에서의 위치와 경쟁력
-- 성장 잠재력 평가
-
-### 🔍 상세 분석
-- 매출 동향 분석 및 전망
-- 고객층 특성 및 타겟팅 전략
-- 상권 환경과의 적합성
-- 마케팅 전략의 효과성
-
-### ⚠️ 위험 요소 및 주의사항
-- 매장 운영상 주의해야 할 점
-- 시장 변화에 따른 리스크
-- 경쟁 환경 변화 대응 방안
-
-### 🚀 성장 전략 제안
-- 매출 증대를 위한 구체적 방안
-- 고객 유치 및 리텐션 전략
-- 상권 특성을 활용한 차별화 방안
-- 마케팅 전략 개선 제안
-
-### 💡 실행 가능한 액션 플랜
-- 단기 (1-3개월) 실행 계획
-- 중기 (3-6개월) 실행 계획
-- 장기 (6-12개월) 실행 계획
-
-전문적이고 실용적인 분석을 제공해주세요."""
-        
-        response = openai_client.chat.completions.create(
-            model="gemini-2.5-flash",
-            messages=[
-                {"role": "system", "content": "당신은 전문적인 비즈니스 분석가이자 컨설턴트입니다. 데이터를 종합하여 실행 가능한 전략적 인사이트를 제공합니다."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.7,
-            max_tokens=3000
-        )
-        
-        return response.choices[0].message.content.strip()
-        
-    except Exception as e:
-        print(f"[ERROR] OpenAI(Gemini) 종합 분석 생성 실패: {e}")
-        return None
 
 
 # 앱 종료 시 로그 캡처 중지

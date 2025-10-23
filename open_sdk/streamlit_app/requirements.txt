@@ -33,6 +33,10 @@ Pillow>=10.0.0
 requests>=2.31.0
 httpx>=0.24.0
 
+# Web Scraping
+selenium>=4.0.0
+webdriver-manager>=4.0.0
+
 # Geocoding
 geopy>=2.3.0
 
