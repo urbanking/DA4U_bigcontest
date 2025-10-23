@@ -109,7 +109,21 @@ print("[OK] Matplotlib loaded successfully")
 
 # run_analysis.py 직접 import
 sys.path.insert(0, str(Path(__file__).parent.parent))  # open_sdk 디렉토리 추가
-from run_analysis import run_full_analysis_pipeline
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "agents_new"))  # agents_new 추가
+from run_analysis import run_full_analysis_pipeline, convert_store_to_marketing_format, _convert_enums_to_strings
+
+# Marketing Agent import
+MARKETING_AGENT_AVAILABLE = False
+try:
+    from agents_new.marketing_agent.marketing_agent import MarketingAgent
+    MARKETING_AGENT_AVAILABLE = True
+    print("[OK] Marketing Agent loaded successfully")
+except ImportError as e:
+    print(f"[WARN] Marketing Agent import failed: {e}")
+except Exception as e:
+    print(f"[ERROR] Marketing Agent error: {e}")
+    import traceback
+    traceback.print_exc()
 
 # Langchain AI Agents import
 AGENTS_AVAILABLE = False
@@ -2816,6 +2830,45 @@ with col2:
             
             # 분석 실행
             result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
+            
+            # Marketing Agent 실행 (app.py에서 직접)
+            marketing_result = None
+            if result and result.get("status") == "success" and MARKETING_AGENT_AVAILABLE:
+                try:
+                    log_capture.add_log("Marketing Agent 분석 시작...", "INFO")
+                    
+                    # Store analysis에서 marketing format으로 변환
+                    store_analysis = result.get("store_analysis")
+                    if store_analysis:
+                        store_report = convert_store_to_marketing_format(store_analysis)
+                        
+                        if store_report:
+                            # Marketing Agent 실행
+                            store_code = st.session_state.store_code
+                            agent = MarketingAgent(store_code)
+                            
+                            diagnostic = {
+                                "overall_risk_level": "MEDIUM",
+                                "detected_risks": [],
+                                "diagnostic_results": {}
+                            }
+                            
+                            marketing_result = asyncio.run(agent.run_marketing(store_report, diagnostic))
+                            
+                            if marketing_result and not marketing_result.get("error"):
+                                # Enum을 문자열로 변환
+                                marketing_result = _convert_enums_to_strings(marketing_result)
+                                
+                                # result에 추가
+                                result["marketing_result"] = marketing_result
+                                
+                                log_capture.add_log("Marketing Agent 완료!", "SUCCESS")
+                            else:
+                                log_capture.add_log("Marketing Agent 실패", "WARN")
+                except Exception as e:
+                    log_capture.add_log(f"Marketing Agent 오류: {str(e)}", "ERROR")
+                    import traceback
+                    traceback.print_exc()
             
             # 분석 완료 후 결과 로드
             if result and result.get("status") == "success":

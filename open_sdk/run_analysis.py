@@ -13,13 +13,9 @@ from typing import Dict, Any
 # Add project root to Python path
 project_root = Path(__file__).parent.parent
 
-# Add paths before importing MarketingAgent
+# Add paths
 sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(project_root / "agents_new"))
-sys.path.insert(0, str(project_root / "agents_new" / "marketing_agent"))
-
-# Import MarketingAgent directly
-from agents_new.marketing_agent.marketing_agent import MarketingAgent
 
 # Global environment detection
 def is_cloud_environment() -> bool:
@@ -469,53 +465,6 @@ def _calculate_cancellation_rate(json_output: Dict[str, Any]) -> float:
         return cancellation_rate
     except:
         return 2.0  # 기본값
-
-
-async def run_marketing_analysis(store_report: Dict[str, Any]) -> Dict[str, Any]:
-    """Step 3: Execute Marketing Agent Analysis"""
-    print("\n" + "="*60)
-    print("[Step 3] Marketing Agent Analysis")
-    print("="*60)
-    
-    try:
-        # Initialize Marketing Agent (imported at top of file)
-        store_code = store_report["store_code"]
-        agent = MarketingAgent(store_code)
-        
-        # Prepare diagnostic data (simplified version)
-        diagnostic = {
-            "overall_risk_level": "MEDIUM",
-            "detected_risks": [],
-            "diagnostic_results": {}
-        }
-        
-        # Execute marketing analysis
-        print(f"Generating marketing strategy: {store_code}")
-        result = await agent.run_marketing(store_report, diagnostic)
-        
-        if result.get("error"):
-            print(f"[ERROR] Marketing Agent failed: {result['error']}")
-            return None
-        
-        # Convert Enums to strings
-        result = _convert_enums_to_strings(result)
-        
-        persona_type = result["persona_analysis"]["persona_type"]
-        strategy_count = len(result["marketing_strategies"])
-        risk_count = len(result["risk_analysis"]["detected_risks"])
-        
-        print(f"[OK] Marketing Agent completed")
-        print(f"   Persona: {persona_type}")
-        print(f"   Marketing strategies: {strategy_count}")
-        print(f"   Risk factors: {risk_count}")
-        
-        return result
-        
-    except Exception as e:
-        print(f"[ERROR] Marketing Agent error: {e}")
-        import traceback
-        traceback.print_exc()
-        return None
 
 
 def _convert_enums_to_strings(obj):
@@ -1102,11 +1051,12 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
         print("\n[ERROR] Pipeline interrupted due to data conversion failure")
         return {"status": "failed", "step": "data_conversion"}
     
-    # Step 3: Marketing Agent analysis
-    marketing_result = await run_marketing_analysis(store_report)
-    if not marketing_result:
-        print("\n[WARN] Marketing Agent failed, continuing pipeline")
-        marketing_result = {"status": "failed"}
+    # Step 3: Marketing Agent analysis - SKIPPED (handled by app.py)
+    print("\n" + "="*60)
+    print("[Step 3] Marketing Agent Analysis - SKIPPED")
+    print("="*60)
+    print("[INFO] Marketing Agent는 app.py에서 직접 호출됩니다")
+    marketing_result = {"status": "skipped", "reason": "Handled by app.py"}
     
     # Step 4: New Product Agent (if applicable)
     print("\n" + "="*60)
