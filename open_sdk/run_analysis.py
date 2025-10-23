@@ -5,12 +5,31 @@ Implemented as regular Python functions, not Agent format
 import asyncio
 import sys
 import json
+import os
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any
 
 # Add project root to Python path
 project_root = Path(__file__).parent.parent
+
+# Global environment detection
+def is_cloud_environment() -> bool:
+    """클라우드 환경 감지 (Streamlit Cloud, etc.)"""
+    return (
+        os.path.exists('/mount/src') or 
+        os.path.exists('/home/appuser') or
+        os.getenv('STREAMLIT_SHARING_MODE') is not None or
+        os.getenv('HOME') == '/home/appuser' or
+        'streamlit' in sys.executable.lower() or
+        os.path.exists('/app')  # Heroku, Cloud Run 등
+    )
+
+IS_CLOUD = is_cloud_environment()
+if IS_CLOUD:
+    print("[INFO] 클라우드 환경 감지됨 - 일부 Agent 비활성화됨")
+else:
+    print("[INFO] 로컬 환경에서 실행 중")
 sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(project_root / "agents_new"))
 sys.path.insert(0, str(project_root / "agents_new" / "store_agent" / "report_builder"))
@@ -597,18 +616,15 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
     print("[Step 5] Panorama Analysis")
     print("="*60)
     
+    # Skip in cloud environment due to network restrictions
+    if IS_CLOUD:
+        print(f"[SKIP] 클라우드 환경 - Panorama Analysis 비활성화 (외부 API 접근 제한)")
+        return {"status": "skipped", "reason": "Cloud environment - network restrictions"}
+    
     try:
         import importlib.util
         import shutil
         from datetime import datetime
-        import os
-        
-        # Check if running in Streamlit Cloud (network restrictions)
-        is_streamlit_cloud = os.path.exists('/mount/src') or os.getenv('STREAMLIT_SHARING_MODE')
-        
-        if is_streamlit_cloud:
-            print(f"[SKIP] Streamlit Cloud 환경에서는 Panorama Analysis 비활성화 (외부 API 접근 제한)")
-            return {"status": "skipped", "reason": "Streamlit Cloud network restrictions"}
         
         spec = importlib.util.spec_from_file_location(
             "analyze_area_by_address",
@@ -834,9 +850,9 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
                 marketplace_result: Dict[str, Any] = None,
                 spatial_info: Dict[str, Any] = None,
                 new_product_result: Dict[str, Any] = None) -> str:
-    """Step 7: Save results to open_sdk/output"""
+    """Step 8: Save results to open_sdk/output"""
     print("\n" + "="*60)
-    print("[Step 7] Saving Results")
+    print("[Step 8] Saving Results")
     print("="*60)
     
     try:
@@ -1136,16 +1152,10 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
                     matched_industry = industry_small
                 
                 if matched_industry:
-                    print(f"[INFO] 업종 '{matched_industry}'이 허용 목록에 있음")
-                    
-                    # Check if running in Streamlit Cloud (no Selenium support)
-                    import os
-                    is_streamlit_cloud = os.path.exists('/mount/src') or os.getenv('STREAMLIT_SHARING_MODE')
-                    
-                    if is_streamlit_cloud:
-                        print(f"[SKIP] Streamlit Cloud 환경에서는 New Product Agent 비활성화 (Selenium 미지원)")
+                    if IS_CLOUD:
+                        print(f"[SKIP] 업종 '{matched_industry}' 확인 - 클라우드 환경으로 New Product Agent 비활성화")
                     else:
-                        print(f"[OK] New Product Agent 활성화")
+                        print(f"[OK] 업종 '{matched_industry}' 확인 - New Product Agent 활성화")
                         try:
                             from agents_new.new_product_agent.new_product_agent import NewProductAgent
                             
@@ -1162,6 +1172,8 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
                                 
                         except Exception as e:
                             print(f"[ERROR] New Product Agent failed: {e}")
+                            import traceback
+                            traceback.print_exc()
                             new_product_result = None
                 else:
                     print(f"[SKIP] 업종이 허용 목록에 없음 - New Product Agent 비활성화")
@@ -1177,16 +1189,16 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
         print(f"[ERROR] CSV 업종 조회 실패: {e}")
         print(f"[SKIP] New Product Agent 비활성화")
     
-    # Step 5: Mobility analysis (Mandatory)
+    # Step 5: Mobility analysis
     mobility_result = await run_mobility_analysis(address, dong)
     
-    # Step 5: Panorama analysis (Mandatory)
+    # Step 6: Panorama analysis (클라우드 환경에서는 자동 스킵)
     panorama_result = await run_panorama_analysis(address)
     
-    # Step 6: Marketplace analysis (Mandatory) - Using spatial_matcher result
+    # Step 7: Marketplace analysis - Using spatial_matcher result
     marketplace_result = get_marketplace_json(address, spatial_info)
     
-    # Step 7: Save results (including visualization files)
+    # Step 8: Save results (including visualization files)
     output_file = save_results(
         store_code, 
         store_analysis, 

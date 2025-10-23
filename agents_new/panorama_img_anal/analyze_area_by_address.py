@@ -71,7 +71,7 @@ def init_openai_client():
 
 def address_to_coordinates(address: str) -> tuple:
     """
-    주소를 좌표로 변환 (Kakao API 사용)
+    주소를 좌표로 변환 (Google Maps / Kakao API 사용)
     
     Parameters:
     -----------
@@ -86,9 +86,31 @@ def address_to_coordinates(address: str) -> tuple:
     import requests
     
     load_dotenv()
-    kakao_key = os.getenv('KAKAO_REST_API_KEY')
     
-    # Kakao API 사용 (더 정확함)
+    # 1. Google Maps Geocoding API 시도 (가장 안정적)
+    google_key = os.getenv('GOOGLE_MAPS_API_KEY') or os.getenv('Google_Map_API_KEY')
+    if google_key:
+        url = 'https://maps.googleapis.com/maps/api/geocode/json'
+        params = {
+            'address': address,
+            'key': google_key,
+            'region': 'kr'  # 한국 지역 우선
+        }
+        try:
+            response = requests.get(url, params=params, timeout=(5, 15))
+            if response.status_code == 200:
+                result = response.json()
+                if result.get('status') == 'OK' and result.get('results'):
+                    location = result['results'][0]['geometry']['location']
+                    lat = location['lat']
+                    lon = location['lng']
+                    print(f"[OK] Google Maps API: {address} -> ({lat:.6f}, {lon:.6f})")
+                    return lon, lat
+        except requests.RequestException as e:
+            print(f"[WARN] Google Maps API 요청 실패: {e}")
+    
+    # 2. Kakao API 시도
+    kakao_key = os.getenv('KAKAO_REST_API_KEY')
     if kakao_key:
         url = 'https://dapi.kakao.com/v2/local/search/address.json'
         headers = {'Authorization': f'KakaoAK {kakao_key}'}
@@ -107,16 +129,35 @@ def address_to_coordinates(address: str) -> tuple:
         except requests.RequestException as e:
             print(f"[WARN] Kakao API 요청 실패: {e}")
     
-    # Fallback: Nominatim (무료, 느림)
-    print("[INFO] Kakao API 미사용/실패로 Nominatim 사용 (느릴 수 있음)")
-    geolocator = Nominatim(user_agent="street_analyzer")
-    # Nominatim can be slow; provide a timeout
-    location = geolocator.geocode(address, timeout=15)
+    # 3. Fallback: Nominatim (무료, 느림) - 로컬 환경에서만 사용
+    # Check if in cloud environment (network restrictions)
+    is_cloud = (
+        os.path.exists('/mount/src') or 
+        os.path.exists('/home/appuser') or
+        os.getenv('STREAMLIT_SHARING_MODE') is not None
+    )
     
-    if location:
-        print(f"[OK] Nominatim: {address} -> ({location.latitude:.6f}, {location.longitude:.6f})")
-        return location.longitude, location.latitude
-    else:
+    if is_cloud:
+        print("[ERROR] 클라우드 환경 - 모든 Geocoding API 실패")
+        print("[INFO] 다음 환경변수 중 하나를 설정하세요:")
+        print("  - GOOGLE_MAPS_API_KEY (권장)")
+        print("  - KAKAO_REST_API_KEY")
+        raise ValueError(f"[ERROR] Geocoding 실패: API 키가 필요합니다 (클라우드 환경)")
+    
+    # 로컬 환경에서만 Nominatim 시도
+    print("[INFO] API 키 없음 - Nominatim 사용 (로컬 환경에서만, 느릴 수 있음)")
+    try:
+        geolocator = Nominatim(user_agent="street_analyzer")
+        # Nominatim can be slow; provide a timeout
+        location = geolocator.geocode(address, timeout=15)
+        
+        if location:
+            print(f"[OK] Nominatim: {address} -> ({location.latitude:.6f}, {location.longitude:.6f})")
+            return location.longitude, location.latitude
+        else:
+            raise ValueError(f"[ERROR] 주소를 찾을 수 없습니다: {address}")
+    except Exception as e:
+        print(f"[ERROR] Nominatim 접근 실패: {e}")
         raise ValueError(f"[ERROR] 주소를 찾을 수 없습니다: {address}")
 
 
