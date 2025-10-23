@@ -2862,6 +2862,33 @@ with col2:
                                 # result에 추가
                                 result["marketing_result"] = marketing_result
                                 
+                                # Marketing Agent 결과를 파일로 저장
+                                try:
+                                    from pathlib import Path
+                                    import json
+                                    from datetime import datetime
+                                    
+                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
+                                    output_dir = Path(__file__).parent.parent / "output"
+                                    store_folders = sorted(
+                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
+                                        key=lambda x: x.name,
+                                        reverse=True
+                                    )
+                                    
+                                    if store_folders:
+                                        latest_folder = store_folders[0]
+                                        marketing_file = latest_folder / "marketing_strategy.json"
+                                        
+                                        with open(marketing_file, 'w', encoding='utf-8') as f:
+                                            json.dump(marketing_result, f, ensure_ascii=False, indent=2)
+                                        
+                                        log_capture.add_log(f"Marketing Agent 결과 저장: {marketing_file.name}", "OK")
+                                    else:
+                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
+                                except Exception as save_error:
+                                    log_capture.add_log(f"Marketing Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                
                                 log_capture.add_log("Marketing Agent 완료!", "SUCCESS")
                             else:
                                 log_capture.add_log("Marketing Agent 실패", "WARN")
