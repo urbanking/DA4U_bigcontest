@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "store_code": "002816BA73",
+    "analysis_timestamp": "20251023_050450",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울 성동구 청계천로10나길 78",
+    "coordinates": [
+      37.5700669,
+      127.0370927
+    ],
+    "administrative_dong": "마장동",
+    "marketplace": {
+      "상권명": "R",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "자갈***********",
+    "industry": "요리주점",
+    "commercial_area": "마장축산물시장",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "마장_미식_애주가_김과장",
+    "risk_level": "위험",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 오래된 주거지와 소규모 상업, 경공업 시설이 혼재된 조용한 골목길 및 이면도로로 구성되어 있습니다. 전반적으로 상업적 활력이 매우 낮고 유동인구가 적으며, 주거지로서의 평온함이 두드러지는 특징을 보입니다.",
+    "marketplace_type": "주거지 밀착형 소규모 생활 편의 상가 및 공방",
+    "scores": {
+      "commercial_atmosphere": 2,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 6,
+      "safety_perception": 6,
+      "business_diversity": 3,
+      "residential_suitability": 7,
+      "commercial_suitability": 2
+    },
+    "strengths": [
+      "일관되게 조용하고 평온한 주거 환경으로, 주거지로서의 쾌적성이 높음",
+      "정육점, 미용실 등 주민 생활에 필요한 기본적인 편의시설이 일부 존재함",
+      "소규모 공방이나 사무실 등 조용한 환경을 선호하는 특정 업종의 입점 가능성 및 선례가 있음"
+    ],
+    "weaknesses": [
+      "모든 지점에서 상업적 활력이 극히 낮고, 상점 수가 매우 적어 일반적인 상권으로 기능하기 어려움",
+      "골목길 및 이면도로 위주로 구성되어 유동인구 유입이 어렵고, 상권으로서의 접근성이 떨어짐",
+      "업종 다양성이 매우 낮고, 대규모 상점이나 다양한 소비 경험을 제공하는 업종 입점이 불가능한 구조"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "metadata": {
+    "input_address": "서울특별시 성동구 무학봉28길 16",
+    "center_coordinates": {
+      "longitude": 127.033422,
+      "latitude": 37.5619123
+    },
+    "buffer_meters": 300,
+    "total_images_found": 5,
+    "images_analyzed": 5,
+    "analysis_timestamp": "2025-10-23T19:20:53.986920"
+  },
+  "individual_analyses": [
+    {
+      "point_id": 8189,
+      "pano_id": "5_iehv70hQNY-1nDc5Gfqw",
+      "lon": 127.0336289,
+      "lat": 37.5618866,
+      "distance_m": 18.49430076180263,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_8189_pano_5_iehv70hQNY-1nDc5Gfqw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "생활 밀착형 상업시설이 혼재된 지역 상권",
+          "overall_impression_prose": "이 장소는 지역 주민과 직장인의 일상적인 필요를 충족시키는 다양한 상업 시설이 밀집된 거리입니다. 전반적으로 활기찬 분위기보다는 기능적이고 실용적인 느낌이 강하며, 오래된 인프라와 현대적인 요소가 공존하는 특징을 보입니다. 특별한 매력보다는 안정적인 수요를 기반으로 하는 상권으로 판단됩니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "거리는 양쪽에 3~5층 높이의 건물들이 밀집해 있으며, 대부분 1층은 상업 시설로 활용되고 있습니다. 건물들은 다양한 건축 양식과 연식을 보여주며, 일부는 현대적인 유리 외관을, 다른 일부는 오래된 콘크리트 또는 타일 마감입니다. 건물 간의 간격은 좁고, 전반적으로 연속적인 상업 가로를 형성하고 있습니다.",
+            "street_details": "도로는 아스팔트로 포장되어 있으며, 횡단보도 표시가 선명하게 보입니다. 보도는 비교적 좁고, 전신주, 간판, 에어컨 실외기 등으로 인해 다소 복잡한 인상을 줍니다. 가로수나 벤치와 같은 보행자 편의시설은 눈에 띄지 않으며, 전선들이 복잡하게 얽혀 있어 시각적으로 어수선한 느낌을 줍니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 회색빛의 도로와 건물 외벽, 그리고 다양한 색상의 상점 간판들이 주를 이룹니다. 유리, 콘크리트, 금속 등 다양한 재질감이 혼재되어 있으며, 전반적으로 깨끗하기보다는 다소 낡고 실용적인 느낌이 강합니다.",
+            "imagined_sounds": "차량 통행 소리, 사람들의 대화 소리, 상점 내부에서 흘러나오는 소리 등 일상적인 도시 소음이 들릴 것으로 예상됩니다. 번화가처럼 시끄럽기보다는 꾸준한 활동이 있는 차분한 소음이 지배적일 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사진에는 몇몇 보행자들이 보이며, 주로 성인들로 보입니다. 특별한 연령대나 집단보다는 일상적인 활동을 하는 지역 주민이나 직장인으로 추정됩니다. 특정 목적을 가지고 이동하는 모습보다는 일상적인 동선에 있는 사람들로 보입니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "약국, 의원, 미용실, 일반 소매점 (예: 휴대폰 매장, 식당 등)",
+          "signs_of_change_or_stability": "오래된 건물과 비교적 현대적인 외관의 건물이 혼재되어 있어, 상권이 꾸준히 유지되면서도 부분적인 리모델링이나 신규 입점이 이루어지고 있음을 시사합니다. 눈에 띄는 공실이나 대규모 신규 개발 흔적은 없어, 전반적으로 안정적인 상권으로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "캐주얼 다이닝 (예: 분식점, 국밥집, 백반집)",
+            "narrative_insight": "이 지역은 지역 주민과 직장인들의 일상적인 식사 수요가 높은 곳으로 판단됩니다. 접근성이 좋고 가격 경쟁력이 있는 캐주얼 다이닝은 안정적인 고객층을 확보할 수 있을 것입니다. 화려함보다는 편안하고 익숙한 분위기, 그리고 신속하고 맛있는 음식을 제공하는 데 집중하여 단골 고객을 유치하는 전략이 유효할 것입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 유동 인구가 많고 트렌디한 상권이라기보다는, 지역 주민과 직장인들의 일상생활에 밀접하게 연결된 안정적인 상권입니다. 창업자나 투자자는 높은 임대료를 감수하며 유행을 쫓기보다는, 필수 서비스 업종이나 가성비 좋은 F&B 업종에 집중하는 것이 좋습니다. 기존 상권의 특성을 이해하고 지역 고객과의 유대감을 형성하는 데 주력한다면, 꾸준한 수익을 기대할 수 있는 잠재력을 가진 곳입니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 9,
+            "Operational_Status": 9,
+            "Customer_Presence": 3,
+            "Promotional_Activity": 4
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 1
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8182,
+      "pano_id": "Wacdy5EFbn4iguHRmE9QsQ",
+      "lon": 127.0334566,
+      "lat": 37.5617136,
+      "distance_m": 22.255785074547035,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_8182_pano_Wacdy5EFbn4iguHRmE9QsQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "생활 밀착형 상업 기능이 혼재된 이면 도로",
+          "overall_impression_prose": "이 장소는 주거지와 상업 시설이 혼재된 지역의 이면 도로로 보입니다. 전반적으로 차분하고 일상적인 분위기를 풍기며, 독특한 녹색 도로면이 시선을 끕니다. 화려함보다는 실용성과 지역 주민의 편의에 초점을 맞춘 공간으로 느껴집니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "거리는 비교적 좁은 2차선 도로로 보이며, 양 옆으로는 3층에서 5층 높이의 건물들이 밀집해 있습니다. 건물들은 대부분 상업용 저층부와 주거/업무용 고층부가 혼합된 형태이며, 외관은 벽돌, 타일, 패널 등 다양한 재질로 구성되어 있습니다. 전반적으로 신축보다는 연식이 있는 건물들이 주를 이룹니다.",
+            "street_details": "도로는 독특하게 녹색 아스팔트 또는 페인트로 덮여 있으며, 우측에는 노란색 실선이 보입니다. 보도는 양쪽에 존재하나 폭이 넓지 않고, 특히 좌측 보도에는 간판, 쓰레기통 등 일부 적치물이 있어 보행에 다소 불편을 줄 수 있습니다. 가로수나 벤치와 같은 편의시설은 눈에 띄지 않으며, 전봇대와 복잡한 전선들이 상공을 가로지르고 있습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "이 공간을 지배하는 색감은 녹색 도로면, 회색/갈색 계열의 건물 외벽, 그리고 다양한 색상의 상점 간판들입니다. 전반적으로 밝고 깨끗하기보다는 다소 낡고 기능적인 느낌의 재질감(콘크리트, 아스팔트, 벽돌)이 강합니다.",
+            "imagined_sounds": "이곳에서는 차량(승용차, 오토바이)의 이동 소리, 상점의 영업 소음, 그리고 지나가는 사람들의 대화 소리가 들릴 것으로 예상됩니다. 번화가만큼 시끄럽지는 않지만, 도시의 일상적인 소음이 꾸준히 이어질 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사진에는 몇 명의 보행자가 좌측 보도에서 관찰됩니다. 주로 지역 주민이나 상점 이용객으로 보이는 평범한 유형의 사람들입니다. 인구 밀도가 높지 않아 북적이는 모습은 아닙니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "사진상으로는 소규모 음식점, 생활 편의시설(예: 편의점), 그리고 일반 소매점 또는 서비스업종이 혼재되어 있는 것으로 보입니다. 특정 업종이 압도적으로 우세하기보다는 다양한 생활 밀착형 상점들이 자리하고 있습니다.",
+          "signs_of_change_or_stability": "건물과 간판의 전반적인 상태로 보아 상권은 비교적 안정적으로 유지되고 있는 것으로 판단됩니다. 신규 개업이나 대규모 리모델링의 흔적은 명확히 보이지 않으며, 기존 상점들이 꾸준히 영업을 이어가는 모습입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "특색 있는 소규모 음식점 또는 카페",
+            "narrative_insight": "이 지역은 높은 유동인구보다는 지역 주민의 꾸준한 수요를 기반으로 하는 상권입니다. 따라서, 단순히 유행을 쫓기보다는 고유한 컨셉과 높은 품질을 갖춘 소규모 음식점이나 카페가 적합할 것입니다. 지역 커뮤니티에 자연스럽게 스며들어 단골 고객을 확보하고, 편안하고 아늑한 분위기를 제공하여 일상 속 작은 쉼터 역할을 하는 것이 중요합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 거리는 안정적인 지역 상권을 형성하고 있으나, 높은 상업적 활력을 기대하기는 어렵습니다. 창업자나 투자자는 대규모 프랜차이즈보다는 지역 특색을 살린 독립적인 사업 모델을 고려해야 합니다. 보행 환경 개선 및 건물 외관 정비가 이루어진다면 상업적 매력을 높일 수 있을 것이며, 독특한 녹색 도로면을 활용한 마케팅 전략도 고려해볼 만합니다. 장기적인 관점에서 지역 주민과의 유대감을 형성하는 것이 성공의 핵심입니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 7,
+            "Operational_Status": 7,
+            "Customer_Presence": 1,
+            "Promotional_Activity": 4
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8188,
+      "pano_id": "ibZgpSuLE7n9u_kP8qTcSg",
+      "lon": 127.0338024,
+      "lat": 37.5620574,
+      "distance_m": 37.25423082658322,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_8188_pano_ibZgpSuLE7n9u_kP8qTcSg.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "재개발 또는 정비가 필요한 혼합 상업 주거 지역",
+          "overall_impression_prose": "이 장소는 오래된 상업 건물과 대규모 공사 현장이 공존하는 전형적인 도시 이면 도로입니다. 전반적으로 활기보다는 차분함이 느껴지며, 현재는 상업적 매력이 높지 않지만 잠재적인 변화의 가능성을 내포하고 있습니다. 공간의 분위기는 다소 정돈되지 않고 노후화된 느낌을 줍니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로 좌측에는 2~4층 높이의 다소 노후화된 상업 및 주거 복합 건물이 연속적으로 늘어서 있습니다. 건물들은 대부분 벽돌이나 페인트 마감으로 되어 있으며, 간판들이 다소 무질서하게 부착되어 있습니다. 우측에는 대형 공사 가림막이 길게 이어져 있어, 해당 부지에 대규모 개발이 진행 중이거나 예정되어 있음을 시사합니다. 도로는 왕복 2차선으로 보이며, 양쪽에 좁은 보도가 있습니다.",
+            "street_details": "도로는 아스팔트 포장 상태이며, 중앙에 노란색 이중 실선이 그어져 있습니다. 보도는 폭이 좁고, 전신주와 복잡한 전선들이 시야를 가립니다. 가로수나 벤치와 같은 보행자 편의시설은 눈에 띄지 않습니다. 보도블럭은 일부 파손되거나 오염된 흔적이 보입니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "이 공간을 지배하는 색감은 회색(도로, 건물 외벽), 갈색(오래된 건물), 그리고 공사 가림막의 녹색/파란색 계열입니다. 전반적으로 밝고 화려하기보다는 다소 어둡고 낡은 느낌을 주며, 콘크리트, 아스팔트, 금속 등의 거친 재질감이 두드러집니다.",
+            "imagined_sounds": "차량 통행이 많지 않더라도 도로변이므로 차량 소음이 주를 이룰 것으로 예상됩니다. 공사 가림막이 있는 점을 미루어 볼 때, 공사 현장에서 발생하는 소음(장비 소리, 작업 소리)이 들릴 수 있습니다. 보행자가 많지 않아 사람들의 목소리는 간헐적으로 들릴 것이며, 전반적으로 조용하거나 차분한 도시 소음이 지배적일 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "음식점 (중화요리), 소규모 상점",
+          "signs_of_change_or_stability": "오른쪽 대형 가림막은 재개발 또는 신축 공사를 암시하며, 이는 상권의 큰 변화를 예고합니다. 왼쪽 건물들은 비교적 오래되어 안정적이나 노후화된 상태로, 향후 개발 압력을 받을 가능성도 있습니다. 현재는 안정적이지만, 미래에 큰 변화가 예상되는 과도기적 상권입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "생활 밀착형 음식점 또는 서비스업",
+            "narrative_insight": "이 지역은 현재 큰 활기가 없지만, 재개발이 진행 중이라면 미래 가치가 상승할 수 있습니다. 지역 주민과 공사 관계자를 대상으로 한 가성비 좋은 식당이나 필수 생활 서비스 업종이 적합하며, 장기적인 관점에서 변화에 대응할 수 있는 유연한 컨셉이 필요합니다. 특히, 공사 기간 동안 유입될 인력을 고려한 점심 메뉴나 간편식 위주의 접근도 효과적일 수 있습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 현재 상업적 활기가 낮고 보행 환경이 좋지 않지만, 우측의 대규모 공사 가림막은 향후 상권의 큰 변화와 잠재적 가치 상승을 시사합니다. 창업자나 투자자는 단기적인 수익보다는 장기적인 관점에서 접근해야 하며, 개발 완료 후의 상권 변화를 예측하여 업종과 컨셉을 신중하게 결정해야 합니다. 현재는 저렴한 임대료를 활용하여 지역 주민을 대상으로 한 필수 업종으로 시작하고, 미래 변화에 맞춰 확장 또는 전환할 수 있는 유연한 전략이 필요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 2,
+            "Operational_Status": 2,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 1
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8334,
+      "pano_id": "rRiqZ8lchIUX6UsCblOhFw",
+      "lon": 127.0332057,
+      "lat": 37.5615264,
+      "distance_m": 46.88271436537563,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_8334_pano_rRiqZ8lchIUX6UsCblOhFw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "생활 밀착형 상업시설과 주거지가 혼재된 도심 이면도로",
+          "overall_impression_prose": "이 장소는 주거와 상업 기능이 혼합된 도심의 이면도로로 보입니다. 전반적으로 활기보다는 차분한 분위기이며, 오래된 건물과 신축 건물이 공존하여 상권의 변화 과정을 엿볼 수 있습니다. 복잡한 전선과 간판들이 도시의 생동감을 더하지만, 동시에 다소 정돈되지 않은 인상을 줍니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "좌측에는 5층 내외의 비교적 현대적인 외관의 상업/업무용 건물이 위치하며, 1층에는 여러 상점들이 입점해 있습니다. 우측에는 낡은 벽돌 건물과 함께 3-4층 높이의 다소 오래된 상업용 건물들이 밀집해 있습니다. 전반적으로 건물들은 중층 규모이며, 상업시설과 주거/업무시설이 혼재된 형태입니다.",
+            "street_details": "도로는 아스팔트로 포장되어 있으며, 일부 구간은 녹색으로 도색되어 있습니다. '30'이라는 속도 제한 표시가 보입니다. 보도는 콘크리트 블록으로 되어 있으나, 폭이 좁고 전봇대, 간판, 쓰레기통 등으로 인해 다소 복잡합니다. 가로수나 벤치와 같은 편의시설은 보이지 않습니다. 전봇대에 복잡하게 얽힌 전선들이 눈에 띕니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "회색빛 건물 외벽과 녹색 도로, 콘크리트 보도가 주를 이루며, 전반적으로 밝지만 다소 낡고 거친 재질감이 느껴집니다. 다양한 색상의 간판들이 시각적 활기를 더합니다.",
+            "imagined_sounds": "차량 통행 소리, 간간이 들리는 사람들의 대화 소리, 상점 내부에서 흘러나오는 생활 소음 등이 어우러져 비교적 차분하지만 활기 없는 도심의 소리가 들릴 것으로 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "몇 명의 보행자가 보도 위를 걷고 있습니다. 주로 일상적인 활동을 하는 지역 주민이나 직장인으로 추정됩니다. 특별히 많은 인파는 보이지 않습니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "음식점, 미용실, 부동산 중개업소, 일반 소매점",
+          "signs_of_change_or_stability": "좌측 건물의 비교적 깔끔한 외관과 현대적인 간판은 신규 입점이나 리모델링을 통한 변화의 신호로 볼 수 있습니다. 반면 우측의 오래된 건물들은 상권의 안정성과 함께 노후화된 부분을 보여줍니다. 전반적으로 상권이 활발히 변화하기보다는 기존 상권이 유지되며 부분적인 개선이 이루어지는 단계로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "생활 밀착형 카페 또는 소규모 식당",
+            "narrative_insight": "이 지역은 주거지와 상업시설이 혼재되어 있어, 지역 주민과 직장인 모두를 타겟으로 하는 생활 밀착형 업종이 적합합니다. 아늑하고 편안한 분위기의 카페나, 간편하게 식사를 해결할 수 있는 소규모 식당은 일상적인 수요를 충족시키며 안정적인 고객층을 확보할 수 있을 것입니다. 특히, 깔끔하고 트렌디한 인테리어로 주변의 다소 노후된 상점들과 차별점을 두는 전략이 유효합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지점은 주거와 상업이 혼재된 도심 이면도로로, 높은 유동인구보다는 안정적인 지역 수요를 기반으로 하는 상권입니다. 신규 창업자나 투자자는 대규모 프랜차이즈보다는 지역 주민의 일상에 스며들 수 있는 독특하고 개성 있는 소규모 업종을 고려하는 것이 좋습니다. 다소 복잡한 보행 환경과 노후된 건물들이 존재하지만, 이를 보완할 수 있는 깔끔한 인테리어와 차별화된 컨셉으로 접근한다면 충분히 상업적 가치를 창출할 수 있을 것입니다. 특히, 주차 공간 확보나 접근성 개선에 대한 고민이 필요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 8,
+            "Operational_Status": 8,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 3
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 2
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8183,
+      "pano_id": "yZu7u2JzgAZIxUn6LEfSmA",
+      "lon": 127.0332514,
+      "lat": 37.5615043,
+      "distance_m": 47.707801907177796,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_8183_pano_yZu7u2JzgAZIxUn6LEfSmA.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "자동생성"
+        },
+        "visit_summary": {
+          "location_headline": "생활 밀착형 상점들이 밀집한 골목 상권",
+          "overall_impression_prose": "이 장소는 좁은 도로 양옆으로 다양한 소규모 상점들이 늘어선 전형적인 골목 상권입니다. 전반적으로 차분하고 정겨운 분위기를 풍기며, 지역 주민들의 일상생활과 밀접하게 연결된 상업 활동이 이루어지는 것으로 보입니다. 오래된 건물과 간판, 복잡한 전선들이 어우러져 다소 정돈되지 않은 듯한 인상을 주지만, 동시에 특유의 활력과 개성을 지니고 있습니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로는 비교적 좁고, 양옆으로는 2층에서 4층 높이의 건물들이 밀집해 있습니다. 건물들은 대부분 벽돌 또는 페인트 마감으로 되어 있으며, 일부는 오래된 외관을 유지하고 있습니다. 1층에는 상점들이 입점해 있고, 상층부는 주거 또는 다른 용도로 사용될 가능성이 있습니다. 건물들은 서로 가깝게 붙어 있어 골목의 밀집도를 높입니다.",
+            "street_details": "도로는 녹색으로 도색되어 있어 보행자 친화적인 공간임을 암시합니다. 보도는 매우 좁거나 거의 없는 구간이 많으며, 상점의 간판, 어닝, 입간판 등이 보행 공간을 침범하고 있습니다. 전봇대와 복잡하게 얽힌 전선들이 거리의 상단부를 지배하고 있으며, '주택재개발'이라는 파란색 표지판이 눈에 띕니다. 맨홀 뚜껑과 같은 도시 기반 시설도 보입니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "녹색(도로), 갈색/붉은색(벽돌 건물), 다양한 색상의 간판들이 주를 이룹니다. 전반적으로 채도가 높지 않고 다소 바랜 듯한 색감이 많습니다. 건물 외벽은 벽돌, 페인트, 타일 등 다양한 재질감을 보이며, 간판과 전선들은 금속과 플라스틱 재질로 이루어져 있습니다. 깨끗함보다는 세월의 흔적이 느껴지는 낡고 투박한 질감이 지배적입니다.",
+            "imagined_sounds": "낮은 수준의 차량 통행 소리, 상점 내부에서 새어 나오는 생활 소음(음식 조리 소리, 음악 소리), 지나가는 사람들의 대화 소리, 그리고 간간이 들리는 오토바이 소리 등이 어우러질 것으로 예상됩니다. 전반적으로 시끄럽기보다는 차분하고 일상적인 소음이 주를 이룰 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "한 명의 성인으로 보이는 사람이 카메라를 등지고 걸어가고 있습니다. 상점의 유형을 고려할 때, 주로 지역 주민이나 인근 직장인들이 이 거리를 이용할 것으로 추정됩니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "음식점, 미용실, 소규모 소매점",
+          "signs_of_change_or_stability": "오래된 건물과 간판들이 많아 상권의 안정성을 보여주지만, '주택재개발' 표지판은 이 지역에 큰 변화가 있을 수 있음을 시사합니다. 일부 상점은 비교적 현대적인 간판을 사용하고 있어, 기존 상권 내에서도 꾸준한 변화와 재투자가 이루어지고 있음을 알 수 있습니다. 전반적으로는 안정적인 지역 상권의 모습을 유지하려는 노력과 함께 잠재적인 변화의 기운이 공존합니다.",
+          "opportunity_for_target_business": {
+            "business_category": "특색 있는 카페 또는 지역 특화 음식점",
+            "narrative_insight": "이 분위기에서는 지역 주민들의 일상에 스며들면서도 특별한 경험을 제공하는 업종이 적합합니다. 예를 들어, 아늑하고 개성 있는 인테리어의 카페는 동네 사랑방 역할을 하며 주민들의 휴식 공간이 될 수 있습니다. 또한, 지역 특산물을 활용하거나 가정식 백반처럼 편안하고 맛있는 음식을 제공하는 식당은 재개발 전후의 변화 속에서도 꾸준한 수요를 확보할 수 있을 것입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지역은 '주택재개발'이라는 중요한 변수를 안고 있는 골목 상권입니다. 단기적인 투자보다는 장기적인 관점에서 접근해야 하며, 재개발 계획에 대한 면밀한 조사가 선행되어야 합니다. 현재 상권은 생활 밀착형 업종이 주를 이루며 안정적인 수요를 보이지만, 보행 환경 개선과 같은 인프라 투자가 이루어진다면 상업적 가치가 더욱 상승할 잠재력이 있습니다. 창업자나 투자자는 지역 커뮤니티와의 연계성을 강화하고, 재개발 이후 변화할 상권의 특성을 미리 예측하여 유연한 사업 전략을 수립하는 것이 중요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 12,
+            "Operational_Status": 10,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 7
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 2,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    }
+  ],
+  "synthesis": {
+    "area_summary": {
+      "overall_character": "이 지역은 주거지와 생활 밀착형 상업시설이 혼재된 전형적인 근린 상권입니다. 대부분 이면도로나 골목에 위치하며, 전반적으로 차분하고 안정적인 분위기를 유지하고 있습니다. 일부 지역은 정비가 필요한 노후화된 모습을 보입니다.",
+      "dominant_zone_type": "혼합지역",
+      "primary_commercial_type": "근린형 생활상가"
+    },
+    "comprehensive_scores": {
+      "commercial_atmosphere": 5,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 4,
+      "walkability": 6,
+      "safety_perception": 6,
+      "business_diversity": 8,
+      "residential_suitability": 8,
+      "commercial_suitability": 6
+    },
+    "detailed_assessment": {
+      "strengths": [
+        "주거지와 혼재되어 있어 지역 주민들의 일상적인 소비 수요가 꾸준합니다.",
+        "약국, 의원, 미용실, 식당 등 주민 생활에 필수적인 업종들이 고루 분포되어 있습니다.",
+        "중심에서 비교적 가까운 거리에 위치하며, 골목 상권의 특성상 주민들의 도보 접근성이 좋습니다."
+      ],
+      "weaknesses": [
+        "모든 지점에서 '차분함'으로 평가되어, 유동인구를 유인할 만한 활기나 특색이 부족합니다.",
+        "일부 지역(지점 3)에서 '재개발 또는 정비가 필요한' 언급이 있어, 전반적인 거리 환경 및 건물 노후화 문제가 존재할 수 있습니다.",
+        "이면도로, 골목 상권의 특성상 외부 유입 인구를 끌어들이기 어렵고, 대형 상업시설 입점에는 부적합합니다."
+      ],
+      "recommended_business_types": [
+        "소규모 생활 밀착형 카페/베이커리",
+        "반찬가게/간편식 전문점",
+        "세탁소/수선집"
+      ],
+      "foot_traffic_estimate": "하",
+      "competition_level": "보통"
+    },
+    "final_recommendation": "이 지역은 주거지와 생활 밀착형 상업시설이 혼재된 전형적인 근린 상권으로, 전반적으로 차분하고 안정적인 분위기를 유지하며 주민들의 일상적 수요를 충족시킵니다. 주요 강점은 지역 주민들의 꾸준한 수요와 다양한 생활 편의시설이 잘 갖춰져 있다는 점이며, 이를 활용해 커뮤니티 중심의 고품질 서비스를 제공하는 것이 중요합니다. 그러나 상권 활력 부족과 일부 지역의 노후화는 외부 유입 인구 유치에 한계가 있으며, 초기 환경 개선 투자가 필요할 수 있는 약점입니다. 특히, 지점 3과 같이 정비가 필요한 구역은 상권 전체의 이미지에 부정적인 영향을 줄 수 있으므로, 입지 선정 시 주의가 필요합니다. 따라서 소규모 생활 밀착형 카페/베이커리, 반찬가게, 세탁소 등 주민 편의를 높이는 업종이 적합하며, 개인화된 서비스와 지역 밀착 마케팅으로 단골 고객을 확보하는 전략이 필요합니다. 투자 규모는 중소형으로 시작하여 안정적인 운영을 목표로 해야 하며, 폭발적인 수익보다는 꾸준하고 안정적인 수익을 기대하는 것이 현실적입니다. 결론적으로, 이 지역은 지역 사회에 기여하며 안정적인 사업을 운영하고자 하는 창업자에게는 긍정적으로 추천할 수 있으나, 상권의 특성을 명확히 이해하고 장기적인 관점에서 접근해야 성공 가능성이 높습니다."
+  },
+  "summary": {
+    "area_characteristics": "혼합지역",
+    "commercial_type": "N/A",
+    "scores": {
+      "commercial_atmosphere": 5,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 4,
+      "walkability": 6,
+      "safety_perception": 6,
+      "business_diversity": 8,
+      "residential_suitability": 8,
+      "commercial_suitability": 6
+    },
+    "strengths": [],
+    "weaknesses": [],
+    "recommended_industries": [],
+    "expert_opinion": ""
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "store_code": "2791AA9D19",
+    "analysis_timestamp": "20251023_191759",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 연무장길 3",
+    "coordinates": [
+      37.5441616,
+      127.050092
+    ],
+    "administrative_dong": "성수2가3동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "백이*",
+    "industry": "호프/맥주",
+    "commercial_area": "성수동카페거리",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "성수동_트렌드_탐색_30대_직장인_맥주_애호가",
+    "risk_level": "높음",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 조용하고 한적한 주택가 이면도로가 지배적인 특징을 보이며, 전반적으로 상업 활동이 거의 전무한 매우 차분한 분위기입니다. 주거 밀집 지역 내에 위치해 있지만, 상업 시설은 찾아보기 어렵고 골목길 특유의 아늑함과 고요함이 두드러집니다.",
+    "marketplace_type": "현재 상업 시설 부재로 특정 유형 정의 불가 (잠재적 근린형 생활상가)",
+    "scores": {
+      "commercial_atmosphere": 1,
+      "street_atmosphere": 6,
+      "cleanliness": 6,
+      "maintenance": 6,
+      "walkability": 5,
+      "safety_perception": 5,
+      "business_diversity": 0,
+      "residential_suitability": 8,
+      "commercial_suitability": 2
+    },
+    "strengths": [
+      "조용하고 쾌적한 주거 환경 및 아늑한 골목길 분위기",
+      "주거 밀집 지역 내 위치하여 잠재적인 지역 주민 수요 존재",
+      "경쟁 상업 시설이 전무하여 독점적인 시장 개척 가능성"
+    ],
+    "weaknesses": [
+      "상업 시설 및 유동 인구의 극심한 부족으로 인한 낮은 상업적 활력",
+      "좁고 한적한 이면도로의 낮은 접근성과 인지도",
+      "상업 인프라(주차, 대중교통 연계 등)의 부족"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  },
+  "new_product_summary": {
+    "activated": false,
+    "proposal_count": 0,
+    "target_audience": {},
+    "used_categories": []
+  }
+}

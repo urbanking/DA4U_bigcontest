@@ -1,0 +1,387 @@
+{
+  "metadata": {
+    "input_address": "서울특별시 성동구 고산자로2길 4",
+    "center_coordinates": {
+      "longitude": 127.0357121,
+      "latitude": 37.5519984
+    },
+    "buffer_meters": 300,
+    "total_images_found": 5,
+    "images_analyzed": 5,
+    "analysis_timestamp": "2025-10-23T14:23:32.043995"
+  },
+  "individual_analyses": [
+    {
+      "point_id": 6519,
+      "pano_id": "lapeiUZ9Ephv0T2vf_j0Tw",
+      "lon": 127.0361523,
+      "lat": 37.5522256,
+      "distance_m": 46.338760870393806,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6519_pano_lapeiUZ9Ephv0T2vf_j0Tw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "주거지역과 상업지역의 경계에 위치한 차분한 골목길",
+          "overall_impression_prose": "이 장소는 오래된 주거 건물과 소규모 상점들이 혼재된 조용한 골목길입니다. 한쪽에는 거대한 옹벽이 자리하고 있어 독특한 경관을 형성하며, 전반적으로 차분하고 정적인 분위기를 풍깁니다. 활기찬 상업지구라기보다는 지역 주민들을 위한 생활 상권의 성격이 강해 보입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "왼편에는 2~3층 높이의 붉은 벽돌 건물들이 줄지어 있으며, 1층에는 몇몇 상점들이 입점해 있습니다. 건물들은 대체로 연식이 있어 보이며, 주거와 상업 용도가 혼합된 형태입니다. 오른편에는 매우 높고 긴 붉은 벽돌 옹벽이 길게 이어져 있으며, 옹벽 위로는 나무들이 보입니다. 이는 지형적 특성상 경사지에 위치함을 시사합니다.",
+            "street_details": "도로는 아스팔트 포장되어 있으며, 일부 구간은 붉은색으로 도색되어 있습니다. 노란색 중앙선과 정지선 표시가 보입니다. 보도는 오른편 옹벽을 따라 좁게 형성되어 있으며, 콘크리트 재질입니다. 가로수나 벤치와 같은 보행자 편의시설은 눈에 띄지 않으며, 전봇대와 전선이 복잡하게 얽혀 있습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "이 공간을 지배하는 색감은 붉은 벽돌의 적갈색, 도로의 붉은색, 그리고 콘크리트와 아스팔트의 회색입니다. 전반적으로 채도가 낮고 차분한 색감을 띠며, 벽돌의 거친 질감과 콘크리트의 매끄러운 질감이 대비됩니다. 밝고 화려하기보다는 다소 낡고 정돈된 느낌입니다.",
+            "imagined_sounds": "차량이 많지 않은 조용한 골목길이므로, 간헐적인 차량 통행 소리, 멀리서 들려오는 도시의 소음, 그리고 보행자의 발걸음 소리나 낮은 대화 소리가 주로 들릴 것으로 상상됩니다. 시끄럽거나 번잡한 소리보다는 평온하고 차분한 소리가 공간을 채울 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "한 명의 보행자가 옹벽 옆 보도를 따라 걷고 있습니다. 특별한 그룹이나 특정 연령대의 집단은 보이지 않으며, 주로 지역 주민이나 통행객으로 추정되는 개별 보행자 위주로 보입니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "사진상 명확히 식별하기 어렵지만, 왼편 건물 1층에 소규모 음식점 또는 동네 상점으로 추정되는 간판이 보입니다. 대형 프랜차이즈보다는 독립적인 소규모 상점들이 주를 이룰 것으로 예상됩니다.",
+          "signs_of_change_or_stability": "건물들의 외관과 전반적인 분위기는 오랜 기간 유지되어 온 안정적인 상권을 시사합니다. 신규 개업이나 대규모 리모델링의 흔적은 보이지 않으며, 급격한 변화보다는 현 상태를 유지하는 경향이 강해 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "동네 카페 또는 소규모 전문 식당",
+            "narrative_insight": "이 지역은 유동 인구가 많지 않으므로, 지역 주민들을 대상으로 한 '단골' 확보가 중요합니다. 동네 카페는 아늑하고 편안한 분위기로 주민들의 휴식 공간이 될 수 있으며, 소규모 전문 식당은 특정 메뉴에 특화하여 입소문을 통해 고객을 유치할 수 있습니다. 단순히 상품을 판매하기보다, 지역 커뮤니티의 일부가 되는 컨셉으로 접근하여 충성 고객을 확보하는 것이 성공의 열쇠가 될 것입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 대규모 상업지구의 특성을 기대하기 어렵습니다. 대신, 지역 주민들의 일상생활에 밀접하게 연결된 '생활 밀착형' 상권으로서의 가치를 가집니다. 창업자나 투자자는 높은 유동 인구보다는 안정적인 지역 수요와 단골 고객 확보에 초점을 맞춰야 합니다. 독특한 컨셉과 진정성 있는 서비스로 지역 커뮤니티에 스며드는 전략이 필요하며, 초기 투자 비용을 최소화하고 장기적인 관점에서 접근하는 것이 현명할 것입니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 3,
+            "Operational_Status": 2,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 1
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 6520,
+      "pano_id": "e5e_ncci6pkZY6B9XfTtrA",
+      "lon": 127.0363033,
+      "lat": 37.55206,
+      "distance_m": 52.6663214173885,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6520_pano_e5e_ncci6pkZY6B9XfTtrA.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "주거지역 인근의 조용한 이면도로",
+          "overall_impression_prose": "이 장소는 주거 건물들이 밀집한 이면도로로, 전반적으로 차분하고 조용한 분위기입니다. 한두 개의 소규모 상점이 보이지만, 상업적 활기보다는 주거 기능이 강하게 느껴집니다. 높은 아파트 단지가 인근에 있어 잠재적 유동인구는 있을 수 있으나, 현재는 보행자 통행이 많지 않아 보입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "좌우로 4-5층 높이의 다세대/다중주택으로 보이는 건물들이 밀집해 있습니다. 건물들은 대체로 어두운 색조의 외벽을 가지고 있으며, 일부는 발코니를 갖추고 있습니다. 우측 건물 1층에는 작은 상업 공간이 있으며, 그 외에는 주차 공간이나 주거용 입구로 보입니다. 멀리 고층 아파트 단지가 보입니다. 도로는 좁은 일방통행 또는 막다른 골목 형태입니다.",
+            "street_details": "도로는 아스팔트로 포장되어 있으며, 차량 한 대가 겨우 지나갈 수 있을 정도로 좁습니다. 보도는 거의 없거나 매우 좁아 보행 환경이 좋지 않습니다. 가로수나 벤치, 가로등은 직접적으로 보이지 않습니다. 전선들이 복잡하게 얽혀 있습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 어두운 회색, 갈색 계열의 색감이 지배적이며, 건물 외벽은 콘크리트나 타일 같은 단단한 재질감을 가집니다. 밝은 햇빛이 비추지만, 골목 자체는 다소 어둡고 낡은 느낌을 줍니다. 우측 상점의 노란색 의자와 붉은 스쿠터가 유일한 밝은 색상 포인트입니다.",
+            "imagined_sounds": "주변 주거지에서 들려오는 생활 소음, 간헐적인 차량 통행 소리, 오토바이 엔진 소리, 그리고 사람들의 낮은 대화 소리가 들릴 법합니다. 전반적으로 조용하고 차분한 분위기일 것으로 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "소규모 카페/공방/음식점 (1개만 확인됨)",
+          "signs_of_change_or_stability": "우측 건물 1층의 상점은 비교적 최근에 리모델링되었거나 개성 있는 인테리어를 시도한 것으로 보입니다. 노란색 의자와 벽화는 상업적 시도를 나타내지만, 전반적으로 상권의 큰 변화나 활성화 신호는 감지하기 어렵습니다. 주거 기능이 안정적으로 유지되는 가운데 소규모 상업 공간이 간헐적으로 들어서는 형태입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "작은 카페 또는 공방/작업실",
+            "narrative_insight": "이러한 조용한 이면도로는 대형 프랜차이이즈보다는 개성 있고 아늑한 분위기의 소규모 카페나 공방에 적합합니다. 인근 주거민들을 대상으로 한 '숨겨진 보석' 같은 컨셉으로, 편안하고 조용한 휴식 공간을 제공하거나 특정 취미/예술 활동을 위한 공간으로 접근한다면 경쟁력을 가질 수 있습니다. 높은 아파트 단지 주민들을 타겟으로 한 배달 서비스 연계도 고려해볼 만합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지역은 주거 밀집 지역의 이면도로로, 높은 유동인구를 기대하기는 어렵습니다. 하지만 인근 고층 아파트 단지의 잠재적 수요를 고려할 때, 특정 니즈를 충족시키는 소규모 특화 업종에는 기회가 있을 수 있습니다. 창업자는 대중적인 업종보다는 독특한 컨셉과 아늑한 분위기를 통해 단골 고객을 확보하는 전략이 필요합니다. 초기 투자 비용을 최소화하고, 온라인 홍보 및 배달 서비스 연계를 통해 상권의 한계를 극복하는 방안을 모색해야 합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 1,
+            "Operational_Status": 1,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 1
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 6576,
+      "pano_id": "NeRPQKNSUbFEbN7-tn4F8Q",
+      "lon": 127.0351288,
+      "lat": 37.5518712,
+      "distance_m": 53.42101547119371,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6576_pano_NeRPQKNSUbFEbN7-tn4F8Q.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "차량 통행을 위한 전용 도로 구간",
+          "overall_impression_prose": "이 장소는 보행자나 상업 활동과는 무관한, 오직 차량 통행만을 위한 구조물로 보입니다. 전반적으로 깔끔하게 관리되고 있으며, 날씨와 소음으로부터 도로를 보호하는 기능을 하는 것으로 판단됩니다. 상업적 가치는 전무합니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "붉은색 철골 구조물과 반투명 패널로 이루어진 터널형 지붕이 도로 전체를 덮고 있습니다. 건물은 전혀 보이지 않으며, 오직 차량 통행을 위한 넓은 도로 공간만이 존재합니다. 구조물은 비교적 높은 천장을 가지고 있으며, 개방감을 줍니다.",
+            "street_details": "왕복 4차선 이상의 넓은 아스팔트 도로가 깔끔하게 유지되어 있습니다. 차선 표시는 명확하며, 도로 중앙에는 낮은 분리대가 설치되어 있습니다. 보도는 전혀 없으며, 가로수, 벤치, 가로등 등 보행자를 위한 시설은 전무합니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "붉은색 철골 구조물과 회색 아스팔트 도로가 주된 색감입니다. 반투명 패널은 밝은 빛을 투과시키며, 전체적으로 깨끗하고 현대적인 느낌을 줍니다. 금속과 아스팔트의 단단하고 매끄러운 재질감이 지배적입니다.",
+            "imagined_sounds": "주로 차량의 주행 소음, 엔진 소리, 타이어 마찰음이 들릴 것으로 예상됩니다. 터널 구조로 인해 소리가 다소 울릴 수 있으며, 사람들의 목소리나 상점의 소음은 전혀 없을 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "차량 운전자 외에는 사람이 보이지 않습니다. 보행자는 전혀 없습니다.",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "상업 시설이 전무하여 상권의 변화나 안정성을 논하기 어렵습니다. 도로 및 구조물 자체는 안정적으로 유지되고 있는 것으로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "해당 없음",
+            "narrative_insight": "이 지역은 상업적 활동을 위한 공간이 아니므로, 특정 업종의 입점을 고려할 수 없습니다. 오직 교통 인프라로서의 기능만을 수행합니다. 따라서 상업적 관점에서의 기회는 전무합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 이미지는 상업적 가치를 평가할 수 있는 대상이 아닙니다. 보행자 통행이 불가능하며, 어떠한 상업 시설도 존재하지 않는 순수한 차량 전용 도로 구간입니다. 따라서 창업자나 투자자에게 상업적 관점에서의 조언은 제공할 수 없으며, 이 지점은 상권 분석의 대상에서 제외되어야 합니다. 교통 흐름 개선이나 인프라 투자 관점에서는 의미가 있을 수 있으나, 상업 전략과는 무관합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 2,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 2,
+            "Lighting_Proxy": 2
+          }
+        }
+      }
+    },
+    {
+      "point_id": 6569,
+      "pano_id": "ZaDx54TPURUWoLH1k1uj7w",
+      "lon": 127.0350828,
+      "lat": 37.5521037,
+      "distance_m": 56.80079555993881,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6569_pano_ZaDx54TPURUWoLH1k1uj7w.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "고가도로 하부의 주거-상업 복합 교차로",
+          "overall_impression_prose": "고가도로 하부에 위치한 교차로로, 주변은 주거지와 소규모 상업시설이 혼재된 모습입니다. 고가도로의 거대한 구조물이 공간을 압도하며, 전반적으로 통행 위주의 기능적인 분위기가 강합니다. 상권 활성화보다는 교통 흐름에 중점을 둔 지역으로 보입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "거대한 콘크리트 고가도로 구조물이 시야의 상당 부분을 차지하며, 그 아래로 여러 갈래의 도로가 교차합니다. 우측에는 2-3층 높이의 다소 연식이 있는 상업용 건물이 위치하며, 병원 또는 사무실 용도로 추정됩니다. 좌측 언덕 위로는 현대적인 고층 아파트 단지가 보이며, 전반적으로 주거와 상업 기능이 혼재된 지역입니다.",
+            "street_details": "도로는 아스팔트 포장으로 노면 상태는 양호해 보이며, 황색 이중선, 횡단보도, 방향 지시선 등이 명확하게 표시되어 있습니다. 보도는 콘크리트 블록과 일부 돌 포장으로 이루어져 있으며, 자전거 거치대와 볼라드가 설치되어 있습니다. 가로수는 좌측에 일부 보이지만, 전반적으로 녹지 공간은 부족하며, 가로등 기둥이 하나 보입니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "고가도로의 회색 콘크리트와 아스팔트 도로의 검은색이 주를 이루며, 건물들은 옅은 갈색과 베이지색 계열입니다. 전반적으로 차분하고 무채색 계열의 도시적인 색감이 지배적이며, 콘크리트와 아스팔트의 단단하고 거친 재질감이 느껴집니다.",
+            "imagined_sounds": "차량 통행량이 많을 것으로 예상되어, 자동차 엔진 소리, 타이어 마찰음, 경적 소리 등 교통 소음이 지배적일 것입니다. 간혹 사람들의 대화 소리가 들릴 수 있으나, 전반적으로 시끄럽고 분주한 도시의 소음이 가득할 것으로 상상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "병원/의원, 소규모 사무실, 생활 서비스 업종 (추정)",
+          "signs_of_change_or_stability": "건물 외관이 다소 연식이 있어 보이며, 특별한 신규 개업이나 폐업 흔적은 보이지 않습니다. 전반적으로 안정적인 상태를 유지하고 있는 것으로 판단됩니다.",
+          "opportunity_for_target_business": {
+            "business_category": "편의점 또는 테이크아웃 전문 카페",
+            "narrative_insight": "이 지역은 고가도로 하부의 통행로이자 주거지 인근에 위치하여, 주민들의 일상적인 필요를 충족시키거나 출퇴근길에 간편하게 이용할 수 있는 업종이 적합합니다. 편의점은 기본적인 생활 편의를 제공하며, 테이크아웃 전문 카페는 바쁜 통행객들에게 빠른 음료 서비스를 제공하여 유동인구를 흡수할 수 있습니다. 화려한 컨셉보다는 실용성과 접근성을 강조하는 것이 중요합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지점은 고가도로 하부의 교통 요충지로, 상업적 가치는 주로 통행 인구를 대상으로 한 편의성 기반 업종에 있습니다. 목적형 상권보다는 주거지 배후 수요와 통과하는 차량 및 보행자를 위한 실용적인 비즈니스 모델을 고려해야 합니다. 높은 가시성과 빠른 서비스 제공이 핵심이며, 대형 상업시설보다는 소규모 생활 밀착형 업종에 투자하는 것이 현명할 것입니다. 주차 공간 확보 및 접근성 개선에 대한 고민도 필요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 2,
+            "Operational_Status": "N/A",
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 1,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 6575,
+      "pano_id": "km5nRb9kdBQK65KgmPcCtw",
+      "lon": 127.0351922,
+      "lat": 37.5516557,
+      "distance_m": 59.62002046351472,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6575_pano_km5nRb9kdBQK65KgmPcCtw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "차량 통행을 위한 고속도로 방음 터널 구간",
+          "overall_impression_prose": "이 장소는 차량 통행을 위한 고속도로 또는 주요 간선도로의 방음 터널 구간으로 보입니다. 보행자 공간은 전혀 없으며, 상업적 활동이 이루어질 수 없는 순수한 교통 인프라 공간입니다. 전반적으로 기능적이고 차가운 분위기입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로는 왕복 6차선 이상으로 보이며, 양쪽에 붉은색 철골 구조물과 반투명 패널로 이루어진 아치형 방음 터널이 길게 이어져 있습니다. 시야 내에 상업용 건물은 전혀 보이지 않으며, 멀리 희미하게 도시의 고층 건물 실루엣이 보입니다. 터널 구조물은 높고 개방감이 있습니다.",
+            "street_details": "도로는 아스팔트로 포장되어 있으며, 차선 표시는 명확합니다. 보도는 전혀 없으며, 가로수, 벤치, 가로등 등 보행자를 위한 시설은 전무합니다. 터널 내부 조명은 천장의 반투명 패널을 통해 자연광이 들어오는 것으로 보입니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "주요 색감은 도로의 회색 아스팔트, 차량의 어두운 색상, 그리고 방음 터널 구조물의 붉은색 철골과 반투명 흰색 패널입니다. 전반적으로 차갑고 기능적인 재질감이며, 금속과 플라스틱, 아스팔트가 지배적입니다.",
+            "imagined_sounds": "주로 고속으로 주행하는 차량들의 엔진 소리, 타이어 마찰음, 그리고 바람 소리가 들릴 것입니다. 방음 터널 내부에서는 소리가 다소 울릴 수 있으나, 외부 소음은 차단될 것입니다. 사람들의 목소리나 상점의 활기찬 소리는 전혀 들리지 않을 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "차량 내부에 있는 운전자 외에 보행자는 전혀 보이지 않습니다. 이 공간은 보행을 위한 곳이 아닙니다.",
+          "street_energy_level": "침체됨"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "상업 시설이 없는 순수한 교통 인프라 공간이므로, 상권의 변화나 안정성 신호를 판단할 수 없습니다. 이 공간은 교통 흐름의 안정성을 유지하는 데 중점을 둡니다.",
+          "opportunity_for_target_business": {
+            "business_category": "해당 없음 (교통 인프라)",
+            "narrative_insight": "이 지역은 상업적 활동이 불가능한 교통 인프라 공간입니다. 따라서 특정 업종을 제안하는 것은 적절하지 않습니다. 만약 이 터널을 벗어나 인근 지역에 상업 시설을 고려한다면, 이 도로는 주요 접근로 역할을 할 수 있으나, 터널 자체는 상업적 가치를 가지지 않습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 이미지는 상업적 가치를 평가하기 어려운 고속도로 또는 주요 간선도로의 방음 터널 구간을 보여줍니다. 보행자 통행이 전혀 없으며, 상점이나 건물도 존재하지 않아 상권 분석의 대상이 아닙니다. 창업자나 투자자는 이 지점 자체를 상업 공간으로 고려해서는 안 되며, 이 도로가 연결되는 주변 지역의 상권을 별도로 분석해야 합니다. 이 도로는 단순히 차량 이동의 편의성을 제공하는 인프라일 뿐입니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 0,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    }
+  ],
+  "synthesis": {
+    "area_summary": {
+      "overall_character": "이 지역은 주거지역과 상업지역의 경계 및 차량 통행을 위한 주요 도로 인프라가 혼재된 특성을 보입니다. 전반적으로 조용하고 차분한 분위기이며, 활발한 상업 활동보다는 근린 생활 서비스나 소규모 독립 상점들이 드문드문 위치한 형태입니다. 고가도로 및 방음 터널 구간이 상권 활성화에 제약 요인으로 작용하고 있습니다.",
+      "dominant_zone_type": "혼합지역",
+      "primary_commercial_type": "근린형 생활상가"
+    },
+    "comprehensive_scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 4,
+      "safety_perception": 5,
+      "business_diversity": 3,
+      "residential_suitability": 6,
+      "commercial_suitability": 3
+    },
+    "detailed_assessment": {
+      "strengths": [
+        "주거지역 인근에 위치하여 안정적인 근린 생활 수요가 존재합니다.",
+        "전반적으로 조용하고 차분한 분위기로 특정 니치 업종에 적합할 수 있습니다.",
+        "일부 구간은 차량 접근성이 양호하여 드라이브 스루 등 특정 형태의 상점에 유리할 수 있습니다."
+      ],
+      "weaknesses": [
+        "상업 시설의 밀도가 매우 낮고 활발한 상업 활동이 부재하여 상권 활력이 떨어집니다.",
+        "고가도로, 방음 터널 등 차량 통행 위주의 인프라가 보행자 동선을 단절시키고 상업적 매력을 저해합니다.",
+        "업종 다양성이 부족하고, 상점 수가 적어 고객 유인력이 낮습니다."
+      ],
+      "recommended_business_types": [
+        "생활 밀착형 서비스 (세탁소, 편의점, 소규모 식료품점 등)",
+        "소규모 독립 카페/공방 (조용한 분위기를 선호하는 고객층 대상)",
+        "병원/의원 (주거지 인근 수요 및 차량 접근성 활용)"
+      ],
+      "foot_traffic_estimate": "하",
+      "competition_level": "낮음"
+    },
+    "final_recommendation": "이 지역은 주거지역과 차량 통행 인프라가 혼합된 특성을 보이며, 전반적으로 상업적 활력이 매우 낮은 상태입니다. 주요 강점은 인근 주거민들의 안정적인 근린 생활 수요와 조용한 분위기이지만, 고가도로 및 방음 터널로 인한 보행자 동선 단절과 낮은 상업 밀도가 치명적인 약점입니다. 따라서 높은 유동인구를 기반으로 하는 일반적인 상업 시설 투자에는 매우 부적합하며, 큰 리스크가 따를 것으로 예상됩니다. 성공을 위해서는 주거민들의 필수적인 일상생활을 지원하는 생활 밀착형 서비스업이나, 조용한 분위기를 선호하는 특정 고객층을 타겟으로 하는 소규모 독립 카페/공방, 혹은 차량 접근성이 중요한 병원/의원 등의 업종을 고려해야 합니다. 투자 규모는 최소화하고, 지역 주민과의 유대감을 형성하며 장기적인 관점에서 안정적인 운영을 목표로 하는 전략이 필요합니다. 높은 수익성보다는 안정적인 운영에 초점을 맞춘다면 제한적인 성공 가능성이 있으나, 전반적인 상권 활성화 잠재력이 낮으므로 신중한 접근이 요구됩니다. 결론적으로, 일반적인 상업 투자처로는 **비추천**하며, 매우 특수한 목적과 전략을 가진 소규모 사업자에게만 제한적으로 고려될 수 있습니다."
+  },
+  "summary": {
+    "area_characteristics": "혼합지역",
+    "commercial_type": "N/A",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 4,
+      "safety_perception": 5,
+      "business_diversity": 3,
+      "residential_suitability": 6,
+      "commercial_suitability": 3
+    },
+    "strengths": [],
+    "weaknesses": [],
+    "recommended_industries": [],
+    "expert_opinion": ""
+  }
+}

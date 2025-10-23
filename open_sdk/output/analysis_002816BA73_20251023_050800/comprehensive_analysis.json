@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "store_code": "002816BA73",
+    "analysis_timestamp": "20251023_050800",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울 성동구 청계천로10나길 78",
+    "coordinates": [
+      37.5700669,
+      127.0370927
+    ],
+    "administrative_dong": "마장동",
+    "marketplace": {
+      "상권명": "R",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "자갈***********",
+    "industry": "요리주점",
+    "commercial_area": "마장축산물시장",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "마장_미식_탐험가_김부장",
+    "risk_level": "위험",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 중심 상권에서 다소 떨어진 이면도로와 골목길을 중심으로 형성된, 조용하고 노후화된 주거 및 생활 밀착형 상업 혼합 지역입니다. 전반적으로 상업적 활력이 낮으며, 지역 주민을 대상으로 하는 소규모 상점들이 드문드문 위치해 있습니다.",
+    "marketplace_type": "근린형 생활상가",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 4,
+      "walkability": 6,
+      "safety_perception": 5,
+      "business_diversity": 3,
+      "residential_suitability": 6,
+      "commercial_suitability": 4
+    },
+    "strengths": [
+      "주변 주거 인구를 기반으로 한 안정적인 생활 밀착형 수요 존재",
+      "낮은 상점 밀도로 인한 특정 업종의 낮은 경쟁 수준",
+      "이면도로 및 노후화된 지역 특성상 상대적으로 저렴한 임대료 예상"
+    ],
+    "weaknesses": [
+      "매우 낮은 유동인구와 가시성으로 인한 신규 상점의 집객 어려움",
+      "노후화된 건물과 거리 풍경으로 인한 낮은 상업적 매력도",
+      "업종 다양성 부족 및 전반적인 상업 활력 저하"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

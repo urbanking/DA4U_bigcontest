@@ -1,0 +1,241 @@
+{
+  "report_metadata": {
+    "store_code": "002816BA73",
+    "analysis_date": "2025-10-23 05:03:08",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "002816BA73",
+    "name": "자갈***********",
+    "address": "서울 성동구 청계천로10나길 78",
+    "industry": "요리주점",
+    "brand": "브랜드 없음",
+    "commercial_area": "마장축산물시장",
+    "record_months": 24,
+    "operating_months": 19.2,
+    "store_age": "성숙 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "상승 추세",
+        "stability": "안정적",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "상승 추세",
+        "stability": "안정적",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "하락 추세",
+        "stability": "보통",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "하락 추세",
+        "average": 116.4
+      },
+      "same_industry_sales_count": {
+        "trend": "하락 추세",
+        "average": 53.7
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 안정",
+        "average": 17.3
+      },
+      "commercial_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 21.3
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 3.0,
+      "grade_distribution": {
+        "1.0": 14,
+        "6.0": 8,
+        "5.0": 2
+      },
+      "recommendation": "취소율이 보통 수준입니다. 지속적인 모니터링과 개선이 필요합니다."
+    },
+    "delivery_analysis": {
+      "trend": "데이터 부족",
+      "average": 0
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 79.8,
+      "female_ratio": 20.1
+    },
+    "age_group_distribution": {
+      "20대 이하": 7.4,
+      "30대": 24.6,
+      "40대": 26.4,
+      "50대": 25.2,
+      "60대 이상": 16.3
+    },
+    "detailed_customer_ratios": {
+      "남40대": 21.1,
+      "남50대": 20.1,
+      "남30대": 19.7,
+      "남60대이상": 13.0,
+      "남20대이하": 5.9,
+      "여40대": 5.3,
+      "여50대": 5.1,
+      "여30대": 4.9,
+      "여60대이상": 3.3,
+      "여20대이하": 1.5
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 8.6,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 10.8,
+        "trend": "하락 추세"
+      },
+      "customer_distribution": {
+        "residential": 12.5,
+        "workplace": 3.1,
+        "floating": 84.4
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "마장축산물시장",
+    "analysis_available": true,
+    "total_stores_in_area": 230,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 5.77,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 4.0,
+      "남30대": 10.8,
+      "남40대": 9.9,
+      "남50대": 13.5,
+      "남60대이상": 20.9,
+      "여20대이하": 2.3,
+      "여30대": 5.4,
+      "여40대": 6.2,
+      "여50대": 8.4,
+      "여60대이상": 18.8
+    }
+  },
+  "industry_analysis": {
+    "industry": "요리주점",
+    "analysis_available": true,
+    "total_stores_in_industry": 80,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 17.65,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 17.5,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 17.4,
+      "남30대": 16.8,
+      "남40대": 8.1,
+      "남50대": 9.1,
+      "남60대이상": 7.1,
+      "여20대이하": 16.3,
+      "여30대": 13.9,
+      "여40대": 5.2,
+      "여50대": 4.2,
+      "여60대이상": 2.0
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 상승 추세",
+      "업종 내 순위: 순위 안정",
+      "주 고객층: 남성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": [
+      {
+        "category": "운영 개선",
+        "priority": "높음",
+        "target": "전체 고객",
+        "action": "취소율 감소 프로그램",
+        "specific_actions": [
+          "주문 확인 시스템 개선 (2단계 확인)",
+          "예상 대기시간 정확한 안내",
+          "취소 시 포인트 적립 혜택 제공",
+          "배달 시간 단축 (30분 이내 목표)"
+        ],
+        "expected_impact": "취소율 3.0 → 2.0 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 17.5% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_sales_trend_20251023_050308.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_gender_pie_20251023_050308.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_age_pie_20251023_050308.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_detailed_pie_20251023_050308.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_ranking_trend_20251023_050308.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_customer_trends_20251023_050308.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\002816BA73_new_returning_trends_20251023_050308.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

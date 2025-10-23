@@ -1,0 +1,418 @@
+{
+  "store_code": "002816BA73",
+  "analysis_timestamp": "2025-10-23T05:02:06.802704",
+  "persona_analysis": {
+    "persona_type": "마장_미식_애주가_김과장",
+    "persona_description": "마장축산물시장 근처에서 근무하거나 시장을 방문하는 40대 남성으로, 퇴근 후 혹은 주말에 신선한 재료로 만든 수준 높은 요리와 함께 편안하게 술 한 잔 즐기며 스트레스를 풀고 싶은 '나만의 아지트'를 찾는 고객입니다. 재방문율 하락(R6)을 막기 위해 이들의 '단골집' 욕구를 충족시키고, 시장 특성에 맞는 차별화된 미식 경험(R2)을 제공하는 것이 중요합니다.",
+    "components": {
+      "industry": "한식",
+      "commercial_zone": "주거형",
+      "is_franchise": false,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "Male",
+        "age": "40대"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "Stable",
+        "revisit": "Decreasing"
+      },
+      "delivery_ratio": "낮음"
+    },
+    "marketing_tone": "정성스러운 손맛으로 빚어낸 미식의 향연, 마장축산물시장의 신선함을 담다. 당신의 피로를 녹여줄 편안한 아지트, '자갈*****'에서 특별한 시간을 경험하세요. (진정성 있고, 미식 지향적이며, 편안함을 강조)",
+    "key_channels": [
+      "네이버 플레이스/카카오맵 (최신 메뉴, 고품질 사진, 방문자 리뷰 적극 관리 및 응대)",
+      "지역 기반 온라인 커뮤니티/카페 (마장동 및 인근 지역 직장인/주민 대상 정보성 콘텐츠 및 이벤트)",
+      "매장 내 프로모션 (단골 고객 전용 할인, 스탬프 카드, 시그니처 메뉴 할인 쿠폰)",
+      "SNS (인스타그램 - 먹음직스러운 음식 사진, 요리 과정, 식재료 스토리를 담은 고품질 콘텐츠)",
+      "주변 상인/직장인 제휴 (명함 제시 할인, 단체 회식 프로모션)",
+      "미식 블로거/유튜브 협업 ('마장동 숨겨진 맛집' 등 실제 방문 후기 콘텐츠 제작)"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 Male이 높고, 40대가 주를 이루고 있고, 유동인구가 많은 \"마장_미식_애주가_김과장\"형 가게입니다",
+        "table_data": {
+          "업종": "한식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "N",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "Male 40대",
+          "고객유형": "거주형",
+          "고객관계": "신규유입Stable / 재방문Decreasing",
+          "배달비중": "낮음"
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "Male",
+            "age": "40대"
+          },
+          "customer_trends": {
+            "new_customer": "Stable",
+            "revisit": "Decreasing"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음, 주문 취소율이 급격히 증가하고 있음로 2개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          },
+          {
+            "code": "R6",
+            "meaning": "취소율 급등",
+            "severity": "unknown",
+            "description": "주문 취소율이 급격히 증가하고 있음",
+            "chart_type": "trend"
+          }
+        ],
+        "overall_risk_level": "위험"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "위험",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": "위험",
+        "score": 100,
+        "evidence": "재방문율 10.8% (업종평균: 40.0%)",
+        "priority": 2,
+        "impact_score": 7.5
+      },
+      {
+        "code": "R6",
+        "name": "취소율 급등",
+        "description": "주문 취소율이 급격히 증가하고 있음",
+        "level": "낮음",
+        "score": 64.5,
+        "evidence": "취소율 5.00% (기준: 0.7%)",
+        "priority": 3,
+        "impact_score": 7.0
+      }
+    ],
+    "analysis_summary": "매장에서 재방문율 저하 등의 주요 위험 요소가 감지되었습니다. 즉시 대응이 필요합니다."
+  },
+  "marketing_strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "전략 1",
+      "description": "1.  **[전략명] 마장 프리미엄 '오늘의 특선' & 스토리텔링:**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "1.  **[전략명] 마장 프리미엄 '오늘의 특선' & 스토리텔링:**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "전략 2",
+      "description": "2.  **[전략명] '김과장님의 아지트' 멤버십 프로그램 도입:**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "2.  **[전략명] '김과장님의 아지트' 멤버십 프로그램 도입:**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "전략 3",
+      "description": "3.  **[전략명] '미식 애주가의 밤' 테마 이벤트 기획:**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "3.  **[전략명] '미식 애주가의 밤' 테마 이벤트 기획:**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "전략 4",
+      "description": "4.  **[전략명] '김과장님 회식/모임 특전' 패키지 & 공간 차별화:**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "4.  **[전략명] '김과장님 회식/모임 특전' 패키지 & 공간 차별화:**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "전략 5",
+      "description": "5.  **[전략명] 네이버 플레이스/카카오맵 '아지트' 정보 최적화 및 소통:**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "5.  **[전략명] 네이버 플레이스/카카오맵 '아지트' 정보 최적화 및 소통:**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "전략 6",
+      "description": "6.  **[전략명] '오픈 키친' & 셰프의 '정성' 강조:**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "6.  **[전략명] '오픈 키친' & 셰프의 '정성' 강조:**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251023_050144",
+    "name": "자갈*********** 마케팅 캠페인",
+    "description": "6개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "전략 1",
+        "activities": [
+          "1.  **[전략명] 마장 프리미엄 '오늘의 특선' & 스토리텔링:**"
+        ],
+        "milestones": [
+          "전략 1 기획 완료",
+          "전략 1 실행 시작",
+          "전략 1 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 1 결과 보고서",
+          "전략 1 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "전략 2",
+        "activities": [
+          "2.  **[전략명] '김과장님의 아지트' 멤버십 프로그램 도입:**"
+        ],
+        "milestones": [
+          "전략 2 기획 완료",
+          "전략 2 실행 시작",
+          "전략 2 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 2 결과 보고서",
+          "전략 2 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "전략 3",
+        "activities": [
+          "3.  **[전략명] '미식 애주가의 밤' 테마 이벤트 기획:**"
+        ],
+        "milestones": [
+          "전략 3 기획 완료",
+          "전략 3 실행 시작",
+          "전략 3 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 3 결과 보고서",
+          "전략 3 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "전략 4",
+        "activities": [
+          "4.  **[전략명] '김과장님 회식/모임 특전' 패키지 & 공간 차별화:**"
+        ],
+        "milestones": [
+          "전략 4 기획 완료",
+          "전략 4 실행 시작",
+          "전략 4 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 4 결과 보고서",
+          "전략 4 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "전략 5",
+        "activities": [
+          "5.  **[전략명] 네이버 플레이스/카카오맵 '아지트' 정보 최적화 및 소통:**"
+        ],
+        "milestones": [
+          "전략 5 기획 완료",
+          "전략 5 실행 시작",
+          "전략 5 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 5 결과 보고서",
+          "전략 5 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "전략 6",
+        "activities": [
+          "6.  **[전략명] '오픈 키친' & 셰프의 '정성' 강조:**"
+        ],
+        "milestones": [
+          "전략 6 기획 완료",
+          "전략 6 실행 시작",
+          "전략 6 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 6 결과 보고서",
+          "전략 6 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {
+      "매출_증가율": 60,
+      "신규_고객_증가율": 0,
+      "재방문율_개선": 0,
+      "리뷰_점수_개선": 0,
+      "SNS_팔로워_증가율": 0
+    },
+    "success_probability": 95.0
+  },
+  "marketing_focus_points": {
+    "industry_focus": "신뢰·품질 중심",
+    "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+    "customer_type_focus": "단골 관리, 적립제·멤버십"
+  },
+  "social_content": {
+    "instagram_posts": [
+      {
+        "title": "마장동 미식의 정수: '오늘의 특선'으로 만나는 신선함 🐟🌿",
+        "content": "마장_미식_애주가_김과장님께 드리는 특별한 초대장! 💌\n매일 아침, 마장축산물시장에서 공수해 온 가장 신선한 재료들로 정성껏 준비하는 '자갈 요리주점'의 '오늘의 특선'을 소개합니다. ✨\n오늘은 또 어떤 재료가 김과장님의 입맛을 사로잡을지 기대되지 않으세요? 😋\n정성스러운 손맛으로 빚어낸 미식의 향연, 한 점 한 점에 담긴 요리사의 철학을 느껴보세요. 👨‍🍳\n지친 하루의 피로를 잊게 해줄 편안한 분위기 속에서, 오직 당신만을 위한 특별한 미식 경험을 선사합니다. 🥂\n오늘 저녁, '자갈 요리주점'에서 미식의 감동을 맛보세요!",
+        "hashtags": [
+          "#마장동맛집",
+          "#자갈요리주점",
+          "#오늘의특선",
+          "#미식의향연",
+          "#신선한재료",
+          "#마장축산물시장",
+          "#정성가득",
+          "#애주가",
+          "#김과장님추천"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "퇴근 후, 당신의 완벽한 아지트: '자갈 요리주점' 🌟",
+        "content": "김과장님, 오늘도 수고 많으셨습니다! 💼\n복잡한 생각은 잠시 내려두고, 편안한 아지트에서 온전히 당신만을 위한 시간을 보내고 싶을 때가 있으시죠?\n'자갈 요리주점'은 정성스러운 요리와 따뜻한 분위기로 당신의 지친 하루를 위로해 드리는 마장동의 숨겨진 보석입니다. 💎\n이제 '김과장님의 아지트' 멤버십 프로그램으로 더욱 특별한 혜택을 누려보세요! 🎁\n방문할수록 쌓이는 포인트, 단골 고객 전용 할인, 시그니처 메뉴 쿠폰까지!\n당신의 피로를 녹여줄 편안함과 미식의 즐거움을 동시에 선사합니다. 🍻\n오늘 저녁, '자갈 요리주점'에서 편안한 휴식을 선물하세요. 😌",
+        "hashtags": [
+          "#김과장님아지트",
+          "#자갈요리주점",
+          "#마장동술집",
+          "#퇴근후한잔",
+          "#단골혜택",
+          "#멤버십프로그램",
+          "#편안한아지트",
+          "#미식애주가",
+          "#힐링타임"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "[COMING SOON] '미식 애주가의 밤' - 자갈 요리주점의 특별한 초대 🍷✨",
+        "content": "마장_미식_애주가_김과장님들을 위한 특별한 소식! 📢\n'자갈 요리주점'에서 미식과 애주를 사랑하는 분들을 위해 '미식 애주가의 밤' 테마 이벤트를 기획 중입니다. 🥂\n엄선된 제철 식재료로 빚어낸 한정판 스페셜 메뉴와, 각 요리에 완벽하게 어울리는 프리미엄 주류 페어링까지! 🍽️🍾\n단순한 식사를 넘어, 미식의 깊이를 경험하고 애주가들과 함께 교류할 수 있는 특별한 밤이 될 것입니다. 🌙\n자세한 일정과 메뉴는 곧 공개됩니다! 기대해주세요!\n미리 예약하시면 더 좋은 자리에서 특별한 경험을 즐기실 수 있습니다. (선착순 마감 예상)\n'자갈 요리주점'에서 잊지 못할 '미식 애주가의 밤'을 함께 만들어가요!",
+        "hashtags": [
+          "#미식애주가의밤",
+          "#자갈요리주점",
+          "#마장동이벤트",
+          "#한정판메뉴",
+          "#주류페어링",
+          "#미식경험",
+          "#애주가모임",
+          "#특별한밤",
+          "#커밍순"
+        ],
+        "post_type": "feed"
+      }
+    ],
+    "facebook_posts": [],
+    "promotion_texts": []
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "즉시 실행: 전략 1",
+      "예상 효과: 매출 증대 및 고객 만족도 향상",
+      "예산: 중간",
+      "구현 기간: 1-2주"
+    ],
+    "short_term_goals": [
+      "위험 코드 해결을 위한 단계적 접근",
+      "페르소나별 맞춤 마케팅 채널 최적화",
+      "고객 만족도 및 리뷰 점수 개선"
+    ],
+    "long_term_strategy": [
+      "브랜드 이미지 및 고객 충성도 구축",
+      "지속 가능한 성장 모델 수립",
+      "시장 경쟁력 강화 및 차별화"
+    ],
+    "success_factors": [
+      "페르소나 기반 맞춤형 접근",
+      "데이터 기반 의사결정",
+      "지속적인 모니터링 및 개선",
+      "고객 피드백 반영"
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "store_code": "614B42817C",
+    "analysis_timestamp": "20251023_123829",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울  성동구  무학로2나길  21-19",
+    "coordinates": [
+      37.5644399,
+      127.033601
+    ],
+    "administrative_dong": "왕십리도선동",
+    "marketplace": {
+      "상권명": "R",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "샘터**",
+    "industry": "백반/가정식",
+    "commercial_area": "왕십리도선동상점가",
+    "quality_score": 0.83
+  },
+  "marketing_summary": {
+    "persona_type": "동네 든든한 밥상지기",
+    "risk_level": "보통",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 고층 주거단지와 일반 주택이 혼재된 매우 조용한 주거 중심의 이면도로 및 골목길 상권입니다. 대부분의 지점에서 상업 활동이 전무하며, 유일하게 한 지점에서만 소규모 생활 밀착형 상점들이 운영되고 있어 전반적인 상업 에너지는 매우 낮은 수준입니다.",
+    "marketplace_type": "근린형 생활상가 (주민 편의 위주)",
+    "scores": {
+      "commercial_atmosphere": 2,
+      "street_atmosphere": 5,
+      "cleanliness": 6,
+      "maintenance": 5,
+      "walkability": 6,
+      "safety_perception": 6,
+      "business_diversity": 2,
+      "residential_suitability": 8,
+      "commercial_suitability": 3
+    },
+    "strengths": [
+      "고층 주거단지를 포함한 안정적인 주거 배후 수요 존재",
+      "전반적으로 조용하고 평화로운 주거 환경 조성",
+      "일부 지점(지점 1)의 개발 잠재력 및 향후 변화 가능성"
+    ],
+    "weaknesses": [
+      "대부분의 지점에서 상업 활동이 전무하여 상권 활력 매우 낮음",
+      "유동 인구가 극히 적어 신규 상점의 고객 유치 어려움",
+      "오래된 골목길 및 이면도로 위주로 접근성 및 가시성 부족"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

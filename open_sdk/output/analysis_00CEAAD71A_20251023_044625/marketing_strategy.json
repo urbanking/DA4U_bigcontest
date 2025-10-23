@@ -1,0 +1,449 @@
+{
+  "store_code": "00CEAAD71A",
+  "analysis_timestamp": "2025-10-23T04:43:51.504416",
+  "persona_analysis": {
+    "persona_type": "왕십리_골목_정통_단골_박부장",
+    "persona_description": "서울 성동구 왕십리 상권에 거주하며, 퇴근 후 또는 주말 저녁에 편안하고 익숙한 분위기에서 동료나 친구들과 함께 정통 포장마차 음식을 즐기는 50대 남성 고객입니다. 새로운 장소보다는 오랫동안 검증된 단골집을 선호하며, 친근한 사장님과 직원들과의 소통을 중요하게 생각합니다. 높은 재방문율을 보이지만, 새로운 경험에 대한 니즈가 낮아 신규 고객 유입이 줄어들고 있다는 점이 매장의 고민입니다.",
+    "components": {
+      "industry": "한식",
+      "commercial_zone": "주거형",
+      "is_franchise": false,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "Male",
+        "age": "50대"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "Decreasing",
+        "revisit": "Increasing"
+      },
+      "delivery_ratio": "낮음"
+    },
+    "marketing_tone": "정겹고 푸근하며, 진정성 있는 '우리 동네 아지트' 같은 따뜻한 톤앤매너",
+    "key_channels": [
+      "**네이버 플레이스 최적화:** 최신 메뉴, 사진, 운영 시간 업데이트 및 리뷰 관리",
+      "**지역 커뮤니티 활성화:** 동네 맘카페/아빠카페, 지역 정보 공유 밴드 등 온라인 커뮤니티 활용 (이벤트, 소식 공유)",
+      "**재방문 고객 대상 로열티 프로그램:** 스탬프 카드, 단골 전용 할인/서비스, 생일 할인 등",
+      "**계절별/테마별 신메뉴 개발 및 홍보:** '오늘의 특선 안주', '제철 메뉴' 등 작은 변화로 신선함 제공",
+      "**매장 내 이벤트:** 특정 요일 할인, 막걸리/소주 이벤트, 단체 예약 시 서비스 등",
+      "**구전 마케팅 유도:** '친구와 함께 오면 서비스' 등 기존 고객이 신규 고객을 데려오도록 유도",
+      "**간단한 인스타그램/블로그 운영:** 매장 분위기, 음식 사진, 사장님/직원 스토리 등 인간적인 매력 어필 (젊은 층 유입 목적)"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 Male이 높고, 50대가 주를 이루고 있고, 유동인구가 많은 \"왕십리_골목_정통_단골_박부장\"형 가게입니다",
+        "table_data": {
+          "업종": "한식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "N",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "Male 50대",
+          "고객유형": "거주형",
+          "고객관계": "신규유입Decreasing / 재방문Increasing",
+          "배달비중": "낮음"
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "Male",
+            "age": "50대"
+          },
+          "customer_trends": {
+            "new_customer": "Decreasing",
+            "revisit": "Increasing"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음, 주문 취소율이 급격히 증가하고 있음로 2개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          },
+          {
+            "code": "R6",
+            "meaning": "취소율 급등",
+            "severity": "unknown",
+            "description": "주문 취소율이 급격히 증가하고 있음",
+            "chart_type": "trend"
+          }
+        ],
+        "overall_risk_level": "높음"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "높음",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": "높음",
+        "score": 87.0,
+        "evidence": "재방문율 19.6% (업종평균: 40.0%)",
+        "priority": 2,
+        "impact_score": 7.5
+      },
+      {
+        "code": "R6",
+        "name": "취소율 급등",
+        "description": "주문 취소율이 급격히 증가하고 있음",
+        "level": "낮음",
+        "score": 61.49999999999999,
+        "evidence": "취소율 4.80% (기준: 0.7%)",
+        "priority": 3,
+        "impact_score": 7.0
+      }
+    ],
+    "analysis_summary": "매장에서 재방문율 저하 등의 주요 위험 요소가 감지되었습니다. 즉시 대응이 필요합니다."
+  },
+  "marketing_strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "1.  **[전략명]",
+      "description": "'박부장님을 위한' 단골 맞춤형 '오늘의 특별 안주' 큐레이션**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'박부장님을 위한' 단골 맞춤형 '오늘의 특별 안주' 큐레이션**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "2.  **[전략명]",
+      "description": "'왕십리 추억 소환' 레트로 테마 & 세대 공감 SNS 챌린지**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'왕십리 추억 소환' 레트로 테마 & 세대 공감 SNS 챌린지**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "3.  **[전략명]",
+      "description": "'단골이 단골을 부른다' 상생 구전 마케팅 강화**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'단골이 단골을 부른다' 상생 구전 마케팅 강화**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "4.  **[전략명]",
+      "description": "'사장님이 쏜다!' 지역 커뮤니티 정기 소통 데이**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'사장님이 쏜다!' 지역 커뮤니티 정기 소통 데이**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "5.  **[전략명]",
+      "description": "'왕십리 포차 장인'의 스토리텔링 콘텐츠 제작**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'왕십리 포차 장인'의 스토리텔링 콘텐츠 제작**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "6.  **[전략명]",
+      "description": "'골목길 미식 투어' 제휴 & 연계 프로모션**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'골목길 미식 투어' 제휴 & 연계 프로모션**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_7",
+      "name": "7.  **[전략명]",
+      "description": "'가심비'를 높이는 소소한 편의 및 서비스 개선**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'가심비'를 높이는 소소한 편의 및 서비스 개선**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 7
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251023_044330",
+    "name": "근이*** 마케팅 캠페인",
+    "description": "7개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "1.  **[전략명]",
+        "activities": [
+          "'박부장님을 위한' 단골 맞춤형 '오늘의 특별 안주' 큐레이션**"
+        ],
+        "milestones": [
+          "1.  **[전략명] 기획 완료",
+          "1.  **[전략명] 실행 시작",
+          "1.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "1.  **[전략명] 결과 보고서",
+          "1.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "2.  **[전략명]",
+        "activities": [
+          "'왕십리 추억 소환' 레트로 테마 & 세대 공감 SNS 챌린지**"
+        ],
+        "milestones": [
+          "2.  **[전략명] 기획 완료",
+          "2.  **[전략명] 실행 시작",
+          "2.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "2.  **[전략명] 결과 보고서",
+          "2.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "3.  **[전략명]",
+        "activities": [
+          "'단골이 단골을 부른다' 상생 구전 마케팅 강화**"
+        ],
+        "milestones": [
+          "3.  **[전략명] 기획 완료",
+          "3.  **[전략명] 실행 시작",
+          "3.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "3.  **[전략명] 결과 보고서",
+          "3.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "4.  **[전략명]",
+        "activities": [
+          "'사장님이 쏜다!' 지역 커뮤니티 정기 소통 데이**"
+        ],
+        "milestones": [
+          "4.  **[전략명] 기획 완료",
+          "4.  **[전략명] 실행 시작",
+          "4.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "4.  **[전략명] 결과 보고서",
+          "4.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "5.  **[전략명]",
+        "activities": [
+          "'왕십리 포차 장인'의 스토리텔링 콘텐츠 제작**"
+        ],
+        "milestones": [
+          "5.  **[전략명] 기획 완료",
+          "5.  **[전략명] 실행 시작",
+          "5.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "5.  **[전략명] 결과 보고서",
+          "5.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "6.  **[전략명]",
+        "activities": [
+          "'골목길 미식 투어' 제휴 & 연계 프로모션**"
+        ],
+        "milestones": [
+          "6.  **[전략명] 기획 완료",
+          "6.  **[전략명] 실행 시작",
+          "6.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "6.  **[전략명] 결과 보고서",
+          "6.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 7,
+        "strategy_name": "7.  **[전략명]",
+        "activities": [
+          "'가심비'를 높이는 소소한 편의 및 서비스 개선**"
+        ],
+        "milestones": [
+          "7.  **[전략명] 기획 완료",
+          "7.  **[전략명] 실행 시작",
+          "7.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "7.  **[전략명] 결과 보고서",
+          "7.  **[전략명] 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {
+      "매출_증가율": 70,
+      "신규_고객_증가율": 0,
+      "재방문율_개선": 0,
+      "리뷰_점수_개선": 0,
+      "SNS_팔로워_증가율": 0
+    },
+    "success_probability": 95.0
+  },
+  "marketing_focus_points": {
+    "industry_focus": "신뢰·품질 중심",
+    "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+    "customer_type_focus": "단골 관리, 적립제·멤버십"
+  },
+  "social_content": {
+    "instagram_posts": [
+      {
+        "title": "박부장님, 오늘 저녁은 여기 어떠세요? 👨‍💼",
+        "content": "오늘도 고생 많으셨죠, 박부장님? 😌 퇴근길 발걸음이 무겁다면, 근이네 포차로 오세요! \n\n오늘은 사장님이 직접 공수해온 싱싱한 제철 해산물로 만든 '오늘의 특선 안주'가 준비되어 있습니다. 🐟✨ 따끈한 국물에 소주 한 잔, 시원한 맥주 한 모금이면 하루의 피로가 싹~ 풀릴 거예요! \n\n정겹고 푸근한 근이네에서 오늘 하루 마무리 제대로 해보자구요! 🍲🍢🍶",
+        "hashtags": [
+          "#근이네포차",
+          "#왕십리맛집",
+          "#오늘의특선",
+          "#단골환영",
+          "#우리동네아지트",
+          "#왕십리포차",
+          "#박부장님픽",
+          "#퇴근길힐링"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "왕십리 골목 추억 소환 챌린지! 📸",
+        "content": "어릴 적 왕십리 골목에서 뛰놀던 기억, 잊으셨나요? 🕰️ 근이네 포차는 잊혀가는 왕십리의 정겨운 추억을 되살리고 싶어요! \n\n그때 그 시절 왕십리 사진이나 잊지 못할 추억이 담긴 이야기를 댓글로 공유해주세요! 가장 정겹고 공감 가는 사연을 남겨주신 분께는 근이네 '추억의 도시락'을 서비스로 드립니다! 🎁 \n\n우리 다 같이 왕십리의 옛 정을 나눠봐요! 🍻",
+        "hashtags": [
+          "#왕십리추억소환",
+          "#레트로포차",
+          "#근이네포차",
+          "#왕십리골목",
+          "#세대공감",
+          "#추억의맛",
+          "#왕십리맛집",
+          "#골목감성"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "단골 손님께 드리는 특별한 선물! 🤝",
+        "content": "언제나 근이네 포차를 사랑해주시는 단골 손님 여러분께 감사의 말씀을 전합니다! 🙏 저희는 여러분 덕분에 매일매일 힘이 납니다! 💪 \n\n그래서 준비했어요! 친구, 가족, 동료 누구든 좋으니, 아직 근이네에 안 와본 분과 함께 방문해주세요! \n\n단골 손님과 새로운 손님 모두에게 '사장님표 시그니처 메뉴' 또는 '시원한 소주/맥주 1병'을 서비스로 드립니다! 🥳 좋은 사람들과 맛있는 음식, 정겨운 분위기까지! 근이네에서 함께 나눠요!",
+        "hashtags": [
+          "#근이네포차",
+          "#단골이벤트",
+          "#친구랑같이",
+          "#왕십리맛집",
+          "#구전마케팅",
+          "#함께해요",
+          "#서비스팍팍",
+          "#왕십리정통포차"
+        ],
+        "post_type": "feed"
+      }
+    ]
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "즉시 실행: 1.  **[전략명]",
+      "예상 효과: 매출 증대 및 고객 만족도 향상",
+      "예산: 중간",
+      "구현 기간: 1-2주"
+    ],
+    "short_term_goals": [
+      "위험 코드 해결을 위한 단계적 접근",
+      "페르소나별 맞춤 마케팅 채널 최적화",
+      "고객 만족도 및 리뷰 점수 개선"
+    ],
+    "long_term_strategy": [
+      "브랜드 이미지 및 고객 충성도 구축",
+      "지속 가능한 성장 모델 수립",
+      "시장 경쟁력 강화 및 차별화"
+    ],
+    "success_factors": [
+      "페르소나 기반 맞춤형 접근",
+      "데이터 기반 의사결정",
+      "지속적인 모니터링 및 개선",
+      "고객 피드백 반영"
+    ]
+  }
+}

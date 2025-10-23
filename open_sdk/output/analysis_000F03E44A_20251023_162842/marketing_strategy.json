@@ -1,0 +1,442 @@
+{
+  "store_code": "000F03E44A",
+  "analysis_timestamp": "2025-10-23T16:25:57.653537",
+  "persona_analysis": {
+    "persona_type": "배달_선호_MZ_중식러",
+    "persona_description": "주거 지역에 거주하는 20대 이하 남성으로, 빠르고 간편하게 즐길 수 있는 중식을 선호하며 주로 배달 앱을 통해 주문합니다. 익숙한 맛과 안정적인 재방문을 보이지만, 새로운 매장 탐색에는 소극적인 경향이 있어 신규 유입을 위한 특별한 동기 부여가 필요합니다.",
+    "components": {
+      "industry": "중식",
+      "commercial_zone": "주거형",
+      "is_franchise": false,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "Male",
+        "age": "20대 이하"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "Decreasing",
+        "revisit": "Increasing"
+      },
+      "delivery_ratio": "높음"
+    },
+    "marketing_tone": "친근하고 트렌디하며, 가성비와 편리함을 강조하는 소통 방식",
+    "key_channels": [
+      "배달 앱 내 '우리 동네 맛집' 등 상위 노출 및 타겟 광고",
+      "인스타그램 릴스, 틱톡 등 숏폼 콘텐츠를 활용한 바이럴 마케팅",
+      "대학생 커뮤니티, 지역 맘카페 등 온라인 커뮤니티 제휴 및 홍보",
+      "네이버 플레이스, 카카오맵 등 지도 앱 리뷰 이벤트 및 최적화",
+      "매장 방문 시 할인, 세트 메뉴 등 신규 고객 유입 프로모션 (배달 의존도 완화)",
+      "유튜브 먹방/리뷰 채널 협찬을 통한 신뢰도 및 인지도 향상",
+      "타겟 연령층이 선호하는 인플루언서(마이크로/나노 인플루언서) 협업"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 Male이 높고, 20대 이하가 주를 이루고 있고, 유동인구가 많은 \"배달_선호_MZ_중식러\"형 가게입니다",
+        "table_data": {
+          "업종": "중식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "N",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "Male 20대 이하",
+          "고객유형": "거주형",
+          "고객관계": "신규유입Decreasing / 재방문Increasing",
+          "배달비중": "높음"
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "Male",
+            "age": "20대 이하"
+          },
+          "customer_trends": {
+            "new_customer": "Decreasing",
+            "revisit": "Increasing"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음, 시장 적합도가 낮아지고 있음, 주문 취소율이 급격히 증가하고 있음로 3개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          },
+          {
+            "code": "R8",
+            "meaning": "시장부적합",
+            "severity": "unknown",
+            "description": "시장 적합도가 낮아지고 있음",
+            "chart_type": "analysis"
+          },
+          {
+            "code": "R6",
+            "meaning": "취소율 급등",
+            "severity": "unknown",
+            "description": "주문 취소율이 급격히 증가하고 있음",
+            "chart_type": "trend"
+          }
+        ],
+        "overall_risk_level": "보통"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "보통",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": "위험",
+        "score": 100,
+        "evidence": "재방문율 10.9% (업종평균: 42.1%)",
+        "priority": 2,
+        "impact_score": 7.5
+      },
+      {
+        "code": "R8",
+        "name": "시장부적합",
+        "description": "시장 적합도가 낮아지고 있음",
+        "level": "높음",
+        "score": 41.94000000000001,
+        "evidence": "시장 적합도 점수 84.0 (기준: 70.0)",
+        "priority": 2,
+        "impact_score": 8.0
+      },
+      {
+        "code": "R6",
+        "name": "취소율 급등",
+        "description": "주문 취소율이 급격히 증가하고 있음",
+        "level": "낮음",
+        "score": 13.500000000000002,
+        "evidence": "취소율 1.60% (기준: 0.7%)",
+        "priority": 3,
+        "impact_score": 7.0
+      }
+    ],
+    "analysis_summary": "매장에서 재방문율 저하, 시장부적합 등의 주요 위험 요소가 감지되었습니다. 즉시 대응이 필요합니다."
+  },
+  "marketing_strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "전략 1",
+      "description": "1.  **첫 주문 파격 할인 & 인기 메뉴 증정 프로모션**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "1.  **첫 주문 파격 할인 & 인기 메뉴 증정 프로모션**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "전략 2",
+      "description": "2.  **'혼밥/모임' MZ 맞춤 세트 메뉴 강화**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "2.  **'혼밥/모임' MZ 맞춤 세트 메뉴 강화**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "전략 3",
+      "description": "3.  **숏폼 콘텐츠 바이럴 마케팅 & 마이크로 인플루언서 협업**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "3.  **숏폼 콘텐츠 바이럴 마케팅 & 마이크로 인플루언서 협업**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "전략 4",
+      "description": "4.  **배달 앱 리뷰 활성화 및 '베스트 리뷰어' 선정 이벤트**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "4.  **배달 앱 리뷰 활성화 및 '베스트 리뷰어' 선정 이벤트**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "전략 5",
+      "description": "5.  **'요일별 특가' & '단골 전용 배달비 할인 정액제'**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "5.  **'요일별 특가' & '단골 전용 배달비 할인 정액제'**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "전략 6",
+      "description": "6.  **MZ 취향 저격 '시즌 한정 퓨전 중식' 개발 및 홍보**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "6.  **MZ 취향 저격 '시즌 한정 퓨전 중식' 개발 및 홍보**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251023_162530",
+    "name": "육육** 마케팅 캠페인",
+    "description": "6개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "전략 1",
+        "activities": [
+          "1.  **첫 주문 파격 할인 & 인기 메뉴 증정 프로모션**:"
+        ],
+        "milestones": [
+          "전략 1 기획 완료",
+          "전략 1 실행 시작",
+          "전략 1 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 1 결과 보고서",
+          "전략 1 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "전략 2",
+        "activities": [
+          "2.  **'혼밥/모임' MZ 맞춤 세트 메뉴 강화**:"
+        ],
+        "milestones": [
+          "전략 2 기획 완료",
+          "전략 2 실행 시작",
+          "전략 2 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 2 결과 보고서",
+          "전략 2 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "전략 3",
+        "activities": [
+          "3.  **숏폼 콘텐츠 바이럴 마케팅 & 마이크로 인플루언서 협업**:"
+        ],
+        "milestones": [
+          "전략 3 기획 완료",
+          "전략 3 실행 시작",
+          "전략 3 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 3 결과 보고서",
+          "전략 3 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "전략 4",
+        "activities": [
+          "4.  **배달 앱 리뷰 활성화 및 '베스트 리뷰어' 선정 이벤트**:"
+        ],
+        "milestones": [
+          "전략 4 기획 완료",
+          "전략 4 실행 시작",
+          "전략 4 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 4 결과 보고서",
+          "전략 4 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "전략 5",
+        "activities": [
+          "5.  **'요일별 특가' & '단골 전용 배달비 할인 정액제'**:"
+        ],
+        "milestones": [
+          "전략 5 기획 완료",
+          "전략 5 실행 시작",
+          "전략 5 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 5 결과 보고서",
+          "전략 5 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "전략 6",
+        "activities": [
+          "6.  **MZ 취향 저격 '시즌 한정 퓨전 중식' 개발 및 홍보**:"
+        ],
+        "milestones": [
+          "전략 6 기획 완료",
+          "전략 6 실행 시작",
+          "전략 6 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 6 결과 보고서",
+          "전략 6 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {
+      "매출_증가율": 60,
+      "신규_고객_증가율": 0,
+      "재방문율_개선": 0,
+      "리뷰_점수_개선": 0,
+      "SNS_팔로워_증가율": 0
+    },
+    "success_probability": 95.0
+  },
+  "marketing_focus_points": {
+    "industry_focus": "메뉴·가성비 중심",
+    "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+    "customer_type_focus": "단골 관리, 적립제·멤버십"
+  },
+  "social_content": {
+    "instagram_posts": [
+      {
+        "title": "🚨육육** 첫 주문 역대급 혜택! 놓치면 후회!🚨",
+        "content": "✨🎉 드디어 서울 성동구에 육육**이 상륙했습니다! 🎉✨ 배달 앱(배달의민족, 요기요 등)에서 육육**을 처음 주문하시는 모든 분들께 파격 할인과 인기 메뉴 증정 혜택을 드려요! 💸 짜장면, 짬뽕, 탕수육... 뭘 시켜도 후회 없는 육육**의 맛! 지금 바로 앱에서 '육육**' 검색하고 핵이득 챙기세요! 🚀 우리 동네 중식 맛집은 이제 육육**! 😉\n\n📍 위치: 서울 성동구 왕십리로4가길 9\n#육육별 #왕십리맛집 #성동구맛집 #중식맛집 #배달맛집 #첫주문할인 #인기메뉴증정 #혜자이벤트 #MZ맛집 #가성비갑",
+        "hashtags": [
+          "#육육별",
+          "#왕십리맛집",
+          "#성동구맛집",
+          "#중식맛집",
+          "#배달맛집",
+          "#첫주문할인",
+          "#인기메뉴증정",
+          "#혜자이벤트",
+          "#MZ맛집",
+          "#가성비갑"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "혼밥? 모임? 육육** MZ맞춤 세트가 딱! 🍜🥢",
+        "content": "🍜🥢 혼밥러들 주목! 친구들과의 즐거운 모임도 육육**과 함께! 💖 MZ세대의 취향을 저격할 '혼밥 세트'부터 '우정 세트', '패밀리 세트'까지! 🤩 짜장, 짬뽕, 탕수육, 깐풍기... 원하는 조합으로 푸짐하게 즐겨보세요! 🤤 가성비는 물론, 편리함까지 잡은 육육** 세트 메뉴로 오늘 점심, 저녁 고민 끝! 🚀 배달 앱에서 지금 바로 확인하고 주문하세요! 📍\n\n#육육별 #혼밥세트 #모임세트 #MZ세트 #중식세트 #짜장면맛집 #탕수육맛집 #왕십리중식 #배달음식 #편리미엄 #성동구배달",
+        "hashtags": [
+          "#육육별",
+          "#혼밥세트",
+          "#모임세트",
+          "#MZ세트",
+          "#중식세트",
+          "#짜장면맛집",
+          "#탕수육맛집",
+          "#왕십리중식",
+          "#배달음식",
+          "#편리미엄",
+          "#성동구배달"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "🔥 요즘 가장 핫한 중식 맛집? 육육**에서 배달 파티! 🔥",
+        "content": "🔥✨ 피드에 계속 보이던 그 중식 맛집? 바로 육육**! 🤩 비주얼부터 맛까지 완벽한 육육**의 메뉴들로 눈과 입이 즐거운 시간 보내세요! 💖 숏폼에서 난리난 핵인싸템, 육육**에서 바로 배달 가능! 🚀 친구들과 맛있는 중식 먹방 찍고 #육육별 태그해서 자랑해보세요! 😉\n\n(마이크로/나노 인플루언서님들, 육육**과 함께할 기회! DM 언제든 환영해요! 😉)\n\n#육육별 #중식추천 #인생중식 #맛스타그램 #먹스타그램 #왕십리핫플 #성동구핫플 #배달중식 #핵맛탱 #MZ픽 #릴스맛집 #틱톡챌린지",
+        "hashtags": [
+          "#육육별",
+          "#중식추천",
+          "#인생중식",
+          "#맛스타그램",
+          "#먹스타그램",
+          "#왕십리핫플",
+          "#성동구핫플",
+          "#배달중식",
+          "#핵맛탱",
+          "#MZ픽",
+          "#릴스맛집",
+          "#틱톡챌린지"
+        ],
+        "post_type": "reel"
+      }
+    ],
+    "facebook_posts": [],
+    "promotion_texts": []
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "즉시 실행: 전략 1",
+      "예상 효과: 매출 증대 및 고객 만족도 향상",
+      "예산: 중간",
+      "구현 기간: 1-2주"
+    ],
+    "short_term_goals": [
+      "위험 코드 해결을 위한 단계적 접근",
+      "페르소나별 맞춤 마케팅 채널 최적화",
+      "고객 만족도 및 리뷰 점수 개선"
+    ],
+    "long_term_strategy": [
+      "브랜드 이미지 및 고객 충성도 구축",
+      "지속 가능한 성장 모델 수립",
+      "시장 경쟁력 강화 및 차별화"
+    ],
+    "success_factors": [
+      "페르소나 기반 맞춤형 접근",
+      "데이터 기반 의사결정",
+      "지속적인 모니터링 및 개선",
+      "고객 피드백 반영"
+    ]
+  }
+}

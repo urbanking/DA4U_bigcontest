@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "store_code": "000F03E44A",
+    "analysis_timestamp": "20251023_222715",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 왕십리로4가길 9",
+    "coordinates": [
+      37.5454363,
+      127.04636
+    ],
+    "administrative_dong": "성수1가1동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "육육**",
+    "industry": "중식",
+    "commercial_area": "서울숲역 1번",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "서울숲_든든한_한끼_딜리버",
+    "risk_level": "보통",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": null,
+    "marketplace_type": null,
+    "scores": null,
+    "strengths": null,
+    "weaknesses": null,
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "상왕십리역 3번",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  },
+  "new_product_summary": {
+    "activated": false,
+    "proposal_count": 0,
+    "target_audience": {},
+    "used_categories": []
+  }
+}

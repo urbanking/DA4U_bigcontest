@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "store_code": "8219FA9E99",
+    "analysis_timestamp": "20251023_115300",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울  성동구  성수2가3동",
+    "coordinates": [
+      37.5482051,
+      127.0552403
+    ],
+    "administrative_dong": "성수2가3동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "동맛******",
+    "industry": "한식-국수/만두",
+    "commercial_area": "성수2가3동주민센터",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "성수동_든든한_한끼_추구자",
+    "risk_level": "보통",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 도심 중심부와 인접해 있음에도 불구하고, 대부분의 이면도로와 골목길은 주차 공간이나 주거 시설 위주로 매우 조용하고 상업 활동이 미미합니다. 일부 지점에서만 생활 편의시설과 소규모 상업시설이 혼재된 모습을 보여, 전반적으로 정체된 분위기의 혼합 지역 특성을 가집니다.",
+    "marketplace_type": "근린형 생활상가 및 주거지 기반의 소규모 서비스업",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 4,
+      "cleanliness": 6,
+      "maintenance": 6,
+      "walkability": 5,
+      "safety_perception": 5,
+      "business_diversity": 4,
+      "residential_suitability": 7,
+      "commercial_suitability": 3
+    },
+    "strengths": [
+      "도심 중심부와의 근접성 (39-41m)으로 잠재적 접근성 및 개발 여지 보유.",
+      "일부 지점에서 생활 편의시설 및 주거지가 혼재되어 있어, 지역 주민을 대상으로 한 안정적인 수요 기반 존재.",
+      "대부분의 지점이 조용하여 특정 업종(예: 스터디 카페, 조용한 카페, 소규모 사무실)에 적합한 환경 제공."
+    ],
+    "weaknesses": [
+      "대부분의 지점에서 상업 시설이 전무하며, 전반적으로 낮은 상업 활력과 유동 인구.",
+      "'이면도로', '골목길' 위주의 공간 구성으로 가시성이 낮고, 외부 유입 고객 확보에 어려움 예상.",
+      "상권의 정체된 분위기와 제한적인 업종 다양성으로 인해 새로운 상점의 초기 정착 및 성장 동력 확보 난이도 높음."
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "서울숲역 1번",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

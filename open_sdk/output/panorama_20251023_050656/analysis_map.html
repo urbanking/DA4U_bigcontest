@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cf64c5ef83d453063310ab059187ae6f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+        <div style='position: fixed; 
+                    bottom: 50px; right: 50px; width: 350px; height: auto; 
+                    background-color: white; z-index:9999; font-size:14px;
+                    border:2px solid grey; border-radius: 5px; padding: 10px;
+                    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);'>
+            <h4 style='margin-top:0'>종합 분석 결과</h4>
+            <hr>
+            <b>지역 유형:</b> 혼합지역<br>
+            <b>상권 유형:</b> 주거지 기반 소규모 근린상권<br>
+            <br>
+            <b>종합 점수:</b><br>
+            <div style='margin-left: 10px'>
+                상권 분위기: 2/10<br>
+                도로 분위기: 3/10<br>
+                청결도: 5/10<br>
+                보행환경: 5/10<br>
+            </div>
+        </div>
+        
+    
+            <div class="folium-map" id="map_cf64c5ef83d453063310ab059187ae6f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cf64c5ef83d453063310ab059187ae6f = L.map(
+                "map_cf64c5ef83d453063310ab059187ae6f",
+                {
+                    center: [37.5702296, 127.0353131],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 16,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_74e986ab3b855e899108f3ef7d8ebd45 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_74e986ab3b855e899108f3ef7d8ebd45.addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+            var marker_01278c38d0f0b3d7879878a51c1ef291 = L.marker(
+                [37.5702296, 127.0353131],
+                {}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+            var icon_4cf4bdb8f5883ab75b3eaf6ee6af20a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_01278c38d0f0b3d7879878a51c1ef291.setIcon(icon_4cf4bdb8f5883ab75b3eaf6ee6af20a8);
+        
+    
+        var popup_8d97a0dc49575d356cd4c2310d5bec38 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_275a300d3811e91271e320ae448ff0c7 = $(`<div id="html_275a300d3811e91271e320ae448ff0c7" style="width: 100.0%; height: 100.0%;"><b>분석 중심점</b><br>위도: 37.570230<br>경도: 127.035313</div>`)[0];
+                popup_8d97a0dc49575d356cd4c2310d5bec38.setContent(html_275a300d3811e91271e320ae448ff0c7);
+            
+        
+
+        marker_01278c38d0f0b3d7879878a51c1ef291.bindPopup(popup_8d97a0dc49575d356cd4c2310d5bec38)
+        ;
+
+        
+    
+    
+            marker_01278c38d0f0b3d7879878a51c1ef291.bindTooltip(
+                `<div>
+                     분석 중심점
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_2640c92f822d8ed25f091de31d81f0bb = L.circle(
+                [37.5702296, 127.0353131],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 300, "stroke": true, "weight": 3}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+        var popup_f4f02a904cfa04da3a6c08b223a4b701 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_77bc2a4e338c49b1ff79b993afcc1383 = $(`<div id="html_77bc2a4e338c49b1ff79b993afcc1383" style="width: 100.0%; height: 100.0%;"><b>분석 범위</b><br>반경: 300m</div>`)[0];
+                popup_f4f02a904cfa04da3a6c08b223a4b701.setContent(html_77bc2a4e338c49b1ff79b993afcc1383);
+            
+        
+
+        circle_2640c92f822d8ed25f091de31d81f0bb.bindPopup(popup_f4f02a904cfa04da3a6c08b223a4b701)
+        ;
+
+        
+    
+    
+            circle_2640c92f822d8ed25f091de31d81f0bb.bindTooltip(
+                `<div>
+                     분석 범위 (300m)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7bc14fad520380803d553ca2396fcbe8 = L.circleMarker(
+                [37.5702934, 127.0354235],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+        var popup_a461e1a6bd45a5ff9de2812418f34e85 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ac5d5ba9dd00ab89a968706d0f9517a5 = $(`<div id="html_ac5d5ba9dd00ab89a968706d0f9517a5" style="width: 100.0%; height: 100.0%;">         <div style='width:300px'>             <h4>지점 1</h4>             <hr>             <b>거리:</b> 12.0m<br>             <b>Point ID:</b> 4898<br>             <br>             <b>첫인상:</b><br>             조용하고 주거지 특성이 강한 이면 도로<br>             <br>             <b>주요 상점:</b><br>             정육점 (MEAT 더명품)<br>             <br>                      <b>정량 지표:</b><br>             - 상점 수: 1<br>             - 영업중: 1<br>             </div></div>`)[0];
+                popup_a461e1a6bd45a5ff9de2812418f34e85.setContent(html_ac5d5ba9dd00ab89a968706d0f9517a5);
+            
+        
+
+        circle_marker_7bc14fad520380803d553ca2396fcbe8.bindPopup(popup_a461e1a6bd45a5ff9de2812418f34e85)
+        ;
+
+        
+    
+    
+            circle_marker_7bc14fad520380803d553ca2396fcbe8.bindTooltip(
+                `<div>
+                     지점 1 (12m)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_aba51eb0637dd1f13e796324dac18042 = L.circleMarker(
+                [37.5701272, 127.0350899],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+        var popup_b41bb4beae3f7b9b84cef580f156c4f2 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_44d30101bdb5a0d70e0ccad2bda10276 = $(`<div id="html_44d30101bdb5a0d70e0ccad2bda10276" style="width: 100.0%; height: 100.0%;">         <div style='width:300px'>             <h4>지점 2</h4>             <hr>             <b>거리:</b> 22.8m<br>             <b>Point ID:</b> 8926<br>             <br>             <b>첫인상:</b><br>             노후화된 주거-상업 혼재 지역의 이면도로<br>             <br>             <b>주요 상점:</b><br>             미용실, 소규모 식당 또는 잡화점 (추정), 창고/폐업 추정 상점<br>             <br>                      <b>정량 지표:</b><br>             - 상점 수: 5<br>             - 영업중: 2<br>             </div></div>`)[0];
+                popup_b41bb4beae3f7b9b84cef580f156c4f2.setContent(html_44d30101bdb5a0d70e0ccad2bda10276);
+            
+        
+
+        circle_marker_aba51eb0637dd1f13e796324dac18042.bindPopup(popup_b41bb4beae3f7b9b84cef580f156c4f2)
+        ;
+
+        
+    
+    
+            circle_marker_aba51eb0637dd1f13e796324dac18042.bindTooltip(
+                `<div>
+                     지점 2 (23m)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4cee9cf23367750b2ead30c5612e3915 = L.circleMarker(
+                [37.5698744, 127.0354705],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+        var popup_64149128c78aedc40715af5ffde3ed5c = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6aee9aafc5acc34dfdb20cf1e289f1b6 = $(`<div id="html_6aee9aafc5acc34dfdb20cf1e289f1b6" style="width: 100.0%; height: 100.0%;">         <div style='width:300px'>             <h4>지점 3</h4>             <hr>             <b>거리:</b> 41.8m<br>             <b>Point ID:</b> 2926<br>             <br>             <b>첫인상:</b><br>             주거 및 경공업 시설이 혼재된 조용한 이면도로<br>             <br>             <b>주요 상점:</b><br>             상점 없음<br>             <br>                      <b>정량 지표:</b><br>             - 상점 수: 0<br>             - 영업중: 0<br>             </div></div>`)[0];
+                popup_64149128c78aedc40715af5ffde3ed5c.setContent(html_6aee9aafc5acc34dfdb20cf1e289f1b6);
+            
+        
+
+        circle_marker_4cee9cf23367750b2ead30c5612e3915.bindPopup(popup_64149128c78aedc40715af5ffde3ed5c)
+        ;
+
+        
+    
+    
+            circle_marker_4cee9cf23367750b2ead30c5612e3915.bindTooltip(
+                `<div>
+                     지점 3 (42m)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_30bee473ddd2f904106c28f71d85188e = L.circleMarker(
+                [37.5700394, 127.0348958],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+        var popup_566b869a2a5b1191d231641f3e7c9341 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_fc79c71a0da3e28f675044396e3f535d = $(`<div id="html_fc79c71a0da3e28f675044396e3f535d" style="width: 100.0%; height: 100.0%;">         <div style='width:300px'>             <h4>지점 4</h4>             <hr>             <b>거리:</b> 42.5m<br>             <b>Point ID:</b> 6345<br>             <br>             <b>첫인상:</b><br>             주택가와 상업시설이 혼재된 이면도로<br>             <br>             <b>주요 상점:</b><br>             소규모 음식점 (분식류 추정), 사무실<br>             <br>                      <b>정량 지표:</b><br>             - 상점 수: 1<br>             - 영업중: 1<br>             </div></div>`)[0];
+                popup_566b869a2a5b1191d231641f3e7c9341.setContent(html_fc79c71a0da3e28f675044396e3f535d);
+            
+        
+
+        circle_marker_30bee473ddd2f904106c28f71d85188e.bindPopup(popup_566b869a2a5b1191d231641f3e7c9341)
+        ;
+
+        
+    
+    
+            circle_marker_30bee473ddd2f904106c28f71d85188e.bindTooltip(
+                `<div>
+                     지점 4 (42m)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c5631a5c95c858b136fdc135f1be4daf = L.circleMarker(
+                [37.5702459, 127.0347979],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_cf64c5ef83d453063310ab059187ae6f);
+        
+    
+        var popup_95d5cd96d8ae856d988bfde72f89d2ef = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b221cb2c08cb3ac9155902b600d011c9 = $(`<div id="html_b221cb2c08cb3ac9155902b600d011c9" style="width: 100.0%; height: 100.0%;">         <div style='width:300px'>             <h4>지점 5</h4>             <hr>             <b>거리:</b> 45.5m<br>             <b>Point ID:</b> 8322<br>             <br>             <b>첫인상:</b><br>             오래된 주택가 골목에 위치한 소규모 상권<br>             <br>             <b>주요 상점:</b><br>             가구점, 인테리어 관련 상점<br>             <br>                      <b>정량 지표:</b><br>             - 상점 수: 1<br>             - 영업중: 1<br>             </div></div>`)[0];
+                popup_95d5cd96d8ae856d988bfde72f89d2ef.setContent(html_b221cb2c08cb3ac9155902b600d011c9);
+            
+        
+
+        circle_marker_c5631a5c95c858b136fdc135f1be4daf.bindPopup(popup_95d5cd96d8ae856d988bfde72f89d2ef)
+        ;
+
+        
+    
+    
+            circle_marker_c5631a5c95c858b136fdc135f1be4daf.bindTooltip(
+                `<div>
+                     지점 5 (46m)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

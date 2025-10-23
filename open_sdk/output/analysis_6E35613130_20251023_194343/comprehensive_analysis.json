@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "store_code": "6E35613130",
+    "analysis_timestamp": "20251023_194343",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울 성동구 성수일로 33.",
+    "coordinates": [
+      37.5436309,
+      127.0491999
+    ],
+    "administrative_dong": "성수1가1동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 45.90942049190013
+    }
+  },
+  "store_summary": {
+    "store_name": "토*",
+    "industry": "베이커리",
+    "commercial_area": "성수",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "성수_일상_가치추구_베이커리_고객",
+    "risk_level": "낮음",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 고가도로 하부 및 이면도로의 영향으로 상권이 단절되고 파편화된 특성을 보입니다. 일부 현대적인 오피스 및 상업 시설이 혼재되어 있으나, 전반적으로 상업 활동이 미미하고 차분하거나 침체된 분위기가 지배적입니다. 보행자 친화성이 낮고 상업적 매력이 부족한 과도기적 공간이 많습니다.",
+    "marketplace_type": "근린형 생활상가",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 3,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 4,
+      "safety_perception": 4,
+      "business_diversity": 2,
+      "residential_suitability": 6,
+      "commercial_suitability": 3
+    },
+    "strengths": [
+      "일부 지점(지점 2, 5)에서 오피스 및 주거 복합 지역의 잠재적 배후 수요 존재",
+      "도심 교차로 및 교통 요충지 인근으로 차량 접근성 및 이동 인구 유입 가능성",
+      "고가도로 하부 공간의 저렴한 임대료 가능성 및 독특한 공간 활용 여지"
+    ],
+    "weaknesses": [
+      "고가도로로 인한 상권 단절, 시각적 매력 저하 및 소음/환경적 제약",
+      "전반적으로 매우 낮은 상업 활력, 업종 다양성 부족 및 침체된 분위기",
+      "보행자 친화성 및 거리의 쾌적함이 낮아 유동인구 유입에 한계"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "서울숲역 1번",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  },
+  "new_product_summary": {
+    "activated": false,
+    "proposal_count": 0,
+    "target_audience": {},
+    "used_categories": []
+  }
+}

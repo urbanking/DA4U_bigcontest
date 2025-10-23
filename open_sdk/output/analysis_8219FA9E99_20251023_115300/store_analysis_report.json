@@ -1,0 +1,227 @@
+{
+  "report_metadata": {
+    "store_code": "8219FA9E99",
+    "analysis_date": "2025-10-23 11:49:21",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "8219FA9E99",
+    "name": "동맛******",
+    "address": "서울  성동구  성수2가3동",
+    "industry": "한식-국수/만두",
+    "brand": "브랜드 없음",
+    "commercial_area": "성수2가3동주민센터",
+    "record_months": 24,
+    "operating_months": 5.0,
+    "store_age": "신생 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "상승 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "상승 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "상승 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "하락 추세",
+        "average": 102.4
+      },
+      "same_industry_sales_count": {
+        "trend": "하락 추세",
+        "average": 91.3
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 하락 (악화)",
+        "average": 18.6
+      },
+      "commercial_rank": {
+        "trend": "순위 하락 (악화)",
+        "average": 21.5
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 2.0,
+      "grade_distribution": {
+        "1.0": 18,
+        "5.0": 6
+      },
+      "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+    },
+    "delivery_analysis": {
+      "trend": "데이터 부족",
+      "average": 0
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 58.9,
+      "female_ratio": 41.1
+    },
+    "age_group_distribution": {
+      "20대 이하": 14.7,
+      "30대": 26.1,
+      "40대": 15.6,
+      "50대": 21.3,
+      "60대 이상": 22.3
+    },
+    "detailed_customer_ratios": {
+      "남30대": 15.4,
+      "남60대이상": 13.1,
+      "남50대": 12.5,
+      "여30대": 10.7,
+      "남40대": 9.2,
+      "여60대이상": 9.2,
+      "여50대": 8.8,
+      "남20대이하": 8.7,
+      "여40대": 6.4,
+      "여20대이하": 6.0
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 8.3,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 25.0,
+        "trend": "하락 추세"
+      },
+      "customer_distribution": {
+        "residential": 34.8,
+        "workplace": 23.9,
+        "floating": 41.3
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "성수2가3동주민센터",
+    "analysis_available": true,
+    "total_stores_in_area": 29,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 8.29,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 13.3,
+      "남30대": 14.6,
+      "남40대": 9.6,
+      "남50대": 5.5,
+      "남60대이상": 3.6,
+      "여20대이하": 17.6,
+      "여30대": 17.2,
+      "여40대": 7.1,
+      "여50대": 7.7,
+      "여60대이상": 3.9
+    }
+  },
+  "industry_analysis": {
+    "industry": "한식-국수/만두",
+    "analysis_available": true,
+    "total_stores_in_industry": 64,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 17.06,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 12.92,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 9.8,
+      "남30대": 13.3,
+      "남40대": 10.5,
+      "남50대": 12.1,
+      "남60대이상": 9.7,
+      "여20대이하": 8.3,
+      "여30대": 10.5,
+      "여40대": 8.5,
+      "여50대": 9.7,
+      "여60대이상": 7.5
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 상승 추세",
+      "업종 내 순위: 순위 하락 (악화)",
+      "주 고객층: 남성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": [
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 12.9% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_sales_trend_20251023_114921.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_gender_pie_20251023_114921.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_age_pie_20251023_114921.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_detailed_pie_20251023_114921.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_ranking_trend_20251023_114921.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_customer_trends_20251023_114921.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\8219FA9E99_new_returning_trends_20251023_114921.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

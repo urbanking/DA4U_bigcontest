@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "store_code": "816261F28B",
+    "analysis_timestamp": "20251023_142332",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 고산자로2길 4",
+    "coordinates": [
+      37.5520089,
+      127.035498
+    ],
+    "administrative_dong": "응봉동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 274.05683788189293
+    }
+  },
+  "store_summary": {
+    "store_name": "간식******",
+    "industry": "아이스크림/빙수",
+    "commercial_area": "중심상권 아님",
+    "quality_score": 0.83
+  },
+  "marketing_summary": {
+    "persona_type": "동네_간식_책임_아빠",
+    "risk_level": "보통",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 주거지역과 상업지역의 경계 및 차량 통행을 위한 주요 도로 인프라가 혼재된 특성을 보입니다. 전반적으로 조용하고 차분한 분위기이며, 활발한 상업 활동보다는 근린 생활 서비스나 소규모 독립 상점들이 드문드문 위치한 형태입니다. 고가도로 및 방음 터널 구간이 상권 활성화에 제약 요인으로 작용하고 있습니다.",
+    "marketplace_type": "근린형 생활상가",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 4,
+      "safety_perception": 5,
+      "business_diversity": 3,
+      "residential_suitability": 6,
+      "commercial_suitability": 3
+    },
+    "strengths": [
+      "주거지역 인근에 위치하여 안정적인 근린 생활 수요가 존재합니다.",
+      "전반적으로 조용하고 차분한 분위기로 특정 니치 업종에 적합할 수 있습니다.",
+      "일부 구간은 차량 접근성이 양호하여 드라이브 스루 등 특정 형태의 상점에 유리할 수 있습니다."
+    ],
+    "weaknesses": [
+      "상업 시설의 밀도가 매우 낮고 활발한 상업 활동이 부재하여 상권 활력이 떨어집니다.",
+      "고가도로, 방음 터널 등 차량 통행 위주의 인프라가 보행자 동선을 단절시키고 상업적 매력을 저해합니다.",
+      "업종 다양성이 부족하고, 상점 수가 적어 고객 유인력이 낮습니다."
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

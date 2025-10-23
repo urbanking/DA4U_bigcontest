@@ -1,0 +1,413 @@
+{
+  "store_code": "003AC99735",
+  "analysis_timestamp": "2025-10-23T14:03:27.979960",
+  "persona_analysis": {
+    "persona_type": "주거상권_활력충전_30대_남성_활동가",
+    "persona_description": "주거 밀집 지역 내 상권에서 일하거나 활동하며, 바쁜 일상 속에서 짧은 휴식과 활력 충전을 위해 효율적인 커피 소비를 추구하는 30대 남성 고객입니다.",
+    "components": {
+      "industry": "한식",
+      "commercial_zone": "주거형",
+      "is_franchise": true,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "Male",
+        "age": "30대"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "Stable",
+        "revisit": "Stable"
+      },
+      "delivery_ratio": "낮음"
+    },
+    "marketing_tone": "실용적이고 활기찬, 신뢰감을 주는 (Efficiency-focused, Energetic, Trustworthy)",
+    "key_channels": [
+      "매장 내 디지털 메뉴판 및 키오스크 (주문 효율성 강조)",
+      "카카오톡 채널/문자 마케팅 (개인화된 프로모션 및 로열티 혜택 안내 - R2 해결)",
+      "지역 커뮤니티 앱/온라인 카페 (주거 상권 내 정보 공유 및 홍보)",
+      "간편 결제 앱 연동 프로모션 (빠른 결제 및 적립 혜택)",
+      "매장 앞 배너/입간판 및 POP (신속한 정보 전달 및 신메뉴, 행사 안내)",
+      "SNS (인스타그램/페이스북) - 지역 타겟 광고 (매장의 활기찬 분위기 및 프로모션 노출)",
+      "스탬프 카드 또는 멤버십 프로그램 (재방문 유도 및 R2 해결)"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 Male이 높고, 30대가 주를 이루고 있고, 유동인구가 많은 \"주거상권_활력충전_30대_남성_활동가\"형 가게입니다",
+        "table_data": {
+          "업종": "한식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "Y",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "Male 30대",
+          "고객유형": "거주형",
+          "고객관계": "신규유입Stable / 재방문Stable",
+          "배달비중": "낮음"
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "Male",
+            "age": "30대"
+          },
+          "customer_trends": {
+            "new_customer": "Stable",
+            "revisit": "Stable"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음, 주문 취소율이 급격히 증가하고 있음로 2개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          },
+          {
+            "code": "R6",
+            "meaning": "취소율 급등",
+            "severity": "unknown",
+            "description": "주문 취소율이 급격히 증가하고 있음",
+            "chart_type": "trend"
+          }
+        ],
+        "overall_risk_level": "낮음"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "낮음",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": "낮음",
+        "score": 0.0,
+        "evidence": "재방문율 37.0% (업종평균: 40.0%)",
+        "priority": 2,
+        "impact_score": 7.5
+      },
+      {
+        "code": "R6",
+        "name": "취소율 급등",
+        "description": "주문 취소율이 급격히 증가하고 있음",
+        "level": "낮음",
+        "score": 61.49999999999999,
+        "evidence": "취소율 4.80% (기준: 0.7%)",
+        "priority": 3,
+        "impact_score": 7.0
+      }
+    ],
+    "analysis_summary": "매장에서 재방문율 저하 등의 주요 위험 요소가 감지되었습니다. 즉시 대응이 필요합니다."
+  },
+  "marketing_strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "1.  **[전략명]",
+      "description": "'스마트 선주문 & 픽업' 시스템 전면 활성화**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'스마트 선주문 & 픽업' 시스템 전면 활성화**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "2.  **[전략명]",
+      "description": "'데일리 활력 충전' 디지털 멤버십 프로그램 강화**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'데일리 활력 충전' 디지털 멤버십 프로그램 강화**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "3.  **[전략명]",
+      "description": "'피크타임 스피드 세트' 프로모션 도입**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'피크타임 스피드 세트' 프로모션 도입**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "4.  **[전략명]",
+      "description": "'우리 동네 활력 스폰서' 지역 제휴 마케팅**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'우리 동네 활력 스폰서' 지역 제휴 마케팅**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "5.  **[전략명]",
+      "description": "'안심 품질 보증' 제도 및 실시간 피드백 채널 운영**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'안심 품질 보증' 제도 및 실시간 피드백 채널 운영**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "6.  **[전략명]",
+      "description": "'나만의 루틴 음료' 빠른 재주문 기능 및 추천**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "'나만의 루틴 음료' 빠른 재주문 기능 및 추천**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251023_140316",
+    "name": "메가************ 마케팅 캠페인",
+    "description": "6개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "1.  **[전략명]",
+        "activities": [
+          "'스마트 선주문 & 픽업' 시스템 전면 활성화**"
+        ],
+        "milestones": [
+          "1.  **[전략명] 기획 완료",
+          "1.  **[전략명] 실행 시작",
+          "1.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "1.  **[전략명] 결과 보고서",
+          "1.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "2.  **[전략명]",
+        "activities": [
+          "'데일리 활력 충전' 디지털 멤버십 프로그램 강화**"
+        ],
+        "milestones": [
+          "2.  **[전략명] 기획 완료",
+          "2.  **[전략명] 실행 시작",
+          "2.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "2.  **[전략명] 결과 보고서",
+          "2.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "3.  **[전략명]",
+        "activities": [
+          "'피크타임 스피드 세트' 프로모션 도입**"
+        ],
+        "milestones": [
+          "3.  **[전략명] 기획 완료",
+          "3.  **[전략명] 실행 시작",
+          "3.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "3.  **[전략명] 결과 보고서",
+          "3.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "4.  **[전략명]",
+        "activities": [
+          "'우리 동네 활력 스폰서' 지역 제휴 마케팅**"
+        ],
+        "milestones": [
+          "4.  **[전략명] 기획 완료",
+          "4.  **[전략명] 실행 시작",
+          "4.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "4.  **[전략명] 결과 보고서",
+          "4.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "5.  **[전략명]",
+        "activities": [
+          "'안심 품질 보증' 제도 및 실시간 피드백 채널 운영**"
+        ],
+        "milestones": [
+          "5.  **[전략명] 기획 완료",
+          "5.  **[전략명] 실행 시작",
+          "5.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "5.  **[전략명] 결과 보고서",
+          "5.  **[전략명] 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "6.  **[전략명]",
+        "activities": [
+          "'나만의 루틴 음료' 빠른 재주문 기능 및 추천**"
+        ],
+        "milestones": [
+          "6.  **[전략명] 기획 완료",
+          "6.  **[전략명] 실행 시작",
+          "6.  **[전략명] 중간 점검"
+        ],
+        "expected_deliverables": [
+          "6.  **[전략명] 결과 보고서",
+          "6.  **[전략명] 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {
+      "매출_증가율": 60,
+      "신규_고객_증가율": 0,
+      "재방문율_개선": 0,
+      "리뷰_점수_개선": 0,
+      "SNS_팔로워_증가율": 0
+    },
+    "success_probability": 95.0
+  },
+  "marketing_focus_points": {
+    "industry_focus": "신뢰·품질 중심",
+    "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+    "customer_type_focus": "단골 관리, 적립제·멤버십"
+  },
+  "social_content": {
+    "instagram_posts": [
+      {
+        "title": "⚡️ 바쁜 당신을 위한 스마트 솔루션! 메가커피 용답점 '스마트 선주문 & 픽업' 🚀",
+        "content": "아침 출근길, 점심시간, 퇴근 후! 바쁜 일상 속 커피 한 잔의 여유도 놓칠 수 없죠? 🏃‍♂️ 메가커피 용답점의 '스마트 선주문 & 픽업'으로 기다림 없이 바로 픽업하세요! 📱 앱으로 미리 주문하고 매장 도착 시 바로 수령! 소중한 당신의 시간을 아껴드립니다. 이제 줄 서지 말고 스마트하게 즐기세요! ✨ #메가커피용답 #스마트오더 #선주문픽업 #시간절약 #바쁜일상 #용답동카페 #출근길필수템",
+        "hashtags": [
+          "#메가커피용답",
+          "#스마트오더",
+          "#선주문픽업",
+          "#시간절약",
+          "#바쁜일상",
+          "#용답동카페",
+          "#출근길필수템"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "☕️ 매일매일 활력 충전! 메가커피 용답점 '데일리 디지털 멤버십'으로 혜택 UP! 🔋",
+        "content": "매일 커피로 활력을 채우는 당신에게 드리는 특별한 혜택! 🌟 메가커피 용답점 '데일리 활력 충전' 디지털 멤버십에 가입하고 다양한 로열티 혜택을 누리세요. 방문할 때마다 쌓이는 포인트, 멤버십 전용 할인, 생일 쿠폰까지! 🎁 놓치지 말고 지금 바로 가입하세요! 매일매일 당신의 에너지를 책임집니다! 💪 #메가커피멤버십 #디지털멤버십 #데일리충전 #활력템 #용답동맛집 #커피구독 #혜택빵빵",
+        "hashtags": [
+          "#메가커피멤버십",
+          "#디지털멤버십",
+          "#데일리충전",
+          "#활력템",
+          "#용답동맛집",
+          "#커피구독",
+          "#혜택빵빵"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "🔥 피크타임에도 스피드하게! 메가커피 용답점 '스피드 세트'로 에너지 UP! 🥪",
+        "content": "점심시간, 오후 활력이 필요한 피크타임! ⏰ 메가커피 용답점에서 '피크타임 스피드 세트'를 만나보세요. 든든한 샌드위치나 베이커리 🥐와 시원한 커피 ☕️를 한 번에! 빠르고 간편하게 활력을 충전하고 다시 업무에 집중하세요! 바쁜 당신을 위한 완벽한 솔루션입니다. 🏃‍♂️💨 #메가커피피크타임 #스피드세트 #점심메뉴 #바쁜점심 #용답동커피 #가성비세트 #직장인필수템",
+        "hashtags": [
+          "#메가커피피크타임",
+          "#스피드세트",
+          "#점심메뉴",
+          "#바쁜점심",
+          "#용답동커피",
+          "#가성비세트",
+          "#직장인필수템"
+        ],
+        "post_type": "feed"
+      }
+    ],
+    "facebook_posts": [],
+    "promotion_texts": []
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "즉시 실행: 1.  **[전략명]",
+      "예상 효과: 매출 증대 및 고객 만족도 향상",
+      "예산: 중간",
+      "구현 기간: 1-2주"
+    ],
+    "short_term_goals": [
+      "위험 코드 해결을 위한 단계적 접근",
+      "페르소나별 맞춤 마케팅 채널 최적화",
+      "고객 만족도 및 리뷰 점수 개선"
+    ],
+    "long_term_strategy": [
+      "브랜드 이미지 및 고객 충성도 구축",
+      "지속 가능한 성장 모델 수립",
+      "시장 경쟁력 강화 및 차별화"
+    ],
+    "success_factors": [
+      "페르소나 기반 맞춤형 접근",
+      "데이터 기반 의사결정",
+      "지속적인 모니터링 및 개선",
+      "고객 피드백 반영"
+    ]
+  }
+}

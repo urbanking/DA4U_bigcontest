@@ -1,0 +1,229 @@
+{
+  "report_metadata": {
+    "store_code": "278EA7FDDE",
+    "analysis_date": "2025-10-23 19:13:03",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "278EA7FDDE",
+    "name": "중화*****",
+    "address": "서울 성동구 장터5길 4-1.",
+    "industry": "중식당",
+    "brand": "브랜드 없음",
+    "commercial_area": "금남시장",
+    "record_months": 24,
+    "operating_months": 17.5,
+    "store_age": "성숙 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "하락 추세",
+        "stability": "안정적",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "하락 추세",
+        "stability": "불안정",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "하락 추세",
+        "stability": "불안정",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "상승 추세",
+        "average": 109.6
+      },
+      "same_industry_sales_count": {
+        "trend": "상승 추세",
+        "average": 165.9
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 21.7
+      },
+      "commercial_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 14.3
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 1.7,
+      "grade_distribution": {
+        "1.0": 18,
+        "3.0": 3,
+        "5.0": 2,
+        "4.0": 1
+      },
+      "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+    },
+    "delivery_analysis": {
+      "trend": "데이터 부족",
+      "average": 0
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 68.9,
+      "female_ratio": 31.1
+    },
+    "age_group_distribution": {
+      "20대 이하": 6.7,
+      "30대": 16.9,
+      "40대": 18.8,
+      "50대": 28.1,
+      "60대 이상": 29.5
+    },
+    "detailed_customer_ratios": {
+      "남60대이상": 20.3,
+      "남50대": 19.4,
+      "남40대": 13.0,
+      "남30대": 11.6,
+      "여60대이상": 9.2,
+      "여50대": 8.7,
+      "여40대": 5.8,
+      "여30대": 5.3,
+      "남20대이하": 4.6,
+      "여20대이하": 2.1
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 8.2,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 32.4,
+        "trend": "안정 추세"
+      },
+      "customer_distribution": {
+        "residential": 64.3,
+        "workplace": 6.3,
+        "floating": 29.4
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "금남시장",
+    "analysis_available": true,
+    "total_stores_in_area": 92,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "상승 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 8.53,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 4.0,
+      "남30대": 10.5,
+      "남40대": 10.9,
+      "남50대": 12.0,
+      "남60대이상": 14.5,
+      "여20대이하": 4.0,
+      "여30대": 10.4,
+      "여40대": 10.8,
+      "여50대": 10.4,
+      "여60대이상": 12.4
+    }
+  },
+  "industry_analysis": {
+    "industry": "중식당",
+    "analysis_available": true,
+    "total_stores_in_industry": 99,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "하락 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 16.99,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 26.07,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 12.9,
+      "남30대": 15.1,
+      "남40대": 13.2,
+      "남50대": 12.8,
+      "남60대이상": 8.3,
+      "여20대이하": 9.9,
+      "여30대": 9.0,
+      "여40대": 7.5,
+      "여50대": 7.0,
+      "여60대이상": 4.2
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 하락 추세",
+      "업종 내 순위: 순위 상승 (개선)",
+      "주 고객층: 남성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": [
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 26.1% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_sales_trend_20251023_191303.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_gender_pie_20251023_191303.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_age_pie_20251023_191303.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_detailed_pie_20251023_191303.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_ranking_trend_20251023_191303.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_customer_trends_20251023_191303.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\278EA7FDDE_new_returning_trends_20251023_191303.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

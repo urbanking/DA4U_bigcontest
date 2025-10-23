@@ -1,0 +1,239 @@
+{
+  "report_metadata": {
+    "store_code": "6E35613130",
+    "analysis_date": "2025-10-23 19:38:23",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "6E35613130",
+    "name": "토*",
+    "address": "서울 성동구 성수일로 33.",
+    "industry": "베이커리",
+    "brand": "브랜드 없음",
+    "commercial_area": "성수",
+    "record_months": 24,
+    "operating_months": 37.5,
+    "store_age": "성숙 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "상승 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "상승 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "상승 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "하락 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "하락 추세",
+        "average": 9.2
+      },
+      "same_industry_sales_count": {
+        "trend": "하락 추세",
+        "average": 14.0
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 하락 (악화)",
+        "average": 65.9
+      },
+      "commercial_rank": {
+        "trend": "순위 하락 (악화)",
+        "average": 48.2
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 1.0,
+      "grade_distribution": {
+        "1.0": 24
+      },
+      "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+    },
+    "delivery_analysis": {
+      "trend": "데이터 부족",
+      "average": 0
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 21.0,
+      "female_ratio": 79.0
+    },
+    "age_group_distribution": {
+      "20대 이하": 26.6,
+      "30대": 37.7,
+      "40대": 16.6,
+      "50대": 14.6,
+      "60대 이상": 4.5
+    },
+    "detailed_customer_ratios": {
+      "여30대": 29.8,
+      "여20대이하": 21.0,
+      "여40대": 13.1,
+      "여50대": 11.5,
+      "남30대": 7.9,
+      "남20대이하": 5.6,
+      "여60대이상": 3.6,
+      "남40대": 3.5,
+      "남50대": 3.1,
+      "남60대이상": 0.9
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 4.8,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 22.8,
+        "trend": "하락 추세"
+      },
+      "customer_distribution": {
+        "residential": 47.4,
+        "workplace": 5.3,
+        "floating": 47.4
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "성수",
+    "analysis_available": true,
+    "total_stores_in_area": 55,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 8.31,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 14.0,
+      "남30대": 16.5,
+      "남40대": 9.4,
+      "남50대": 7.4,
+      "남60대이상": 4.5,
+      "여20대이하": 15.1,
+      "여30대": 15.3,
+      "여40대": 7.4,
+      "여50대": 5.8,
+      "여60대이상": 4.8
+    }
+  },
+  "industry_analysis": {
+    "industry": "베이커리",
+    "analysis_available": true,
+    "total_stores_in_industry": 146,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 14.63,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 17.27,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 9.3,
+      "남30대": 10.0,
+      "남40대": 7.1,
+      "남50대": 5.9,
+      "남60대이상": 3.8,
+      "여20대이하": 18.2,
+      "여30대": 18.1,
+      "여40대": 11.9,
+      "여50대": 9.5,
+      "여60대이상": 6.1
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 상승 추세",
+      "업종 내 순위: 순위 하락 (악화)",
+      "주 고객층: 여성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": [
+      {
+        "category": "경쟁력 강화",
+        "priority": "높음",
+        "target": "업종 내 경쟁력",
+        "action": "차별화 전략 수립",
+        "specific_actions": [
+          "시그니처 메뉴 개발",
+          "고객 리뷰 관리 시스템 구축",
+          "로열티 프로그램 도입",
+          "경쟁사 대비 가격 경쟁력 분석"
+        ],
+        "expected_impact": "업종 내 순위 65.9% → 30% 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 17.3% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_sales_trend_20251023_193823.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_gender_pie_20251023_193823.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_age_pie_20251023_193823.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_detailed_pie_20251023_193823.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_ranking_trend_20251023_193823.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_customer_trends_20251023_193823.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\6E35613130_new_returning_trends_20251023_193823.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

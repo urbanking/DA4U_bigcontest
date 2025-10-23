@@ -1,0 +1,418 @@
+{
+  "store_code": "00CEAAD71A",
+  "analysis_timestamp": "2025-10-23T04:42:04.984930",
+  "persona_analysis": {
+    "persona_type": "왕십리_골목대장_근이네_아재단골",
+    "persona_description": "왕십리 주거 상권에 거주하는 50대 남성으로, 퇴근 후 혹은 주말 저녁에 지인들과 편안하게 한 잔 기울이며 하루를 마무리하는 것을 즐기는 단골 고객층입니다. 익숙함과 변함없는 맛, 그리고 매장에서 느끼는 소속감과 유대감을 중요하게 여기며, 새로운 것을 탐색하기보다는 검증된 단골집에서 안정감을 찾는 성향이 강합니다.",
+    "components": {
+      "industry": "한식",
+      "commercial_zone": "주거형",
+      "is_franchise": false,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "Male",
+        "age": "50대"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "Decreasing",
+        "revisit": "Increasing"
+      },
+      "delivery_ratio": "낮음"
+    },
+    "marketing_tone": "친근하고 정감 있는, 진정성 있고 신뢰를 주는, 변치 않는 가치를 강조하는",
+    "key_channels": [
+      "동네 커뮤니티 앱 (당근마켓 비즈니스 프로필 활용)",
+      "기존 단골 고객 대상 '지인 추천' 프로모션 (예: 동반 방문 시 할인 또는 서비스)",
+      "네이버 플레이스/카카오맵 정보 최적화 및 긍정 리뷰 유도",
+      "매장 앞 입간판/배너를 통한 '오늘의 추천 메뉴' 또는 '단골 혜택' 강조",
+      "소규모 동호회/모임 대상 '단체 예약' 프로모션",
+      "지역 맛집 블로거 또는 인플루언서와의 협업 (진정성 있는 '동네 맛집' 스토리텔링)",
+      "계절 메뉴 또는 한정판 메뉴를 통한 '변화 속의 익숙함' 제안"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 Male이 높고, 50대가 주를 이루고 있고, 유동인구가 많은 \"왕십리_골목대장_근이네_아재단골\"형 가게입니다",
+        "table_data": {
+          "업종": "한식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "N",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "Male 50대",
+          "고객유형": "거주형",
+          "고객관계": "신규유입Decreasing / 재방문Increasing",
+          "배달비중": "낮음"
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "Male",
+            "age": "50대"
+          },
+          "customer_trends": {
+            "new_customer": "Decreasing",
+            "revisit": "Increasing"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음, 주문 취소율이 급격히 증가하고 있음로 2개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          },
+          {
+            "code": "R6",
+            "meaning": "취소율 급등",
+            "severity": "unknown",
+            "description": "주문 취소율이 급격히 증가하고 있음",
+            "chart_type": "trend"
+          }
+        ],
+        "overall_risk_level": "높음"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "높음",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": "높음",
+        "score": 87.0,
+        "evidence": "재방문율 19.6% (업종평균: 40.0%)",
+        "priority": 2,
+        "impact_score": 7.5
+      },
+      {
+        "code": "R6",
+        "name": "취소율 급등",
+        "description": "주문 취소율이 급격히 증가하고 있음",
+        "level": "낮음",
+        "score": 61.49999999999999,
+        "evidence": "취소율 4.80% (기준: 0.7%)",
+        "priority": 3,
+        "impact_score": 7.0
+      }
+    ],
+    "analysis_summary": "매장에서 재방문율 저하 등의 주요 위험 요소가 감지되었습니다. 즉시 대응이 필요합니다."
+  },
+  "marketing_strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "전략 1",
+      "description": "1.  **[전략명] 단골 아재 추천 '근이네 뉴페이스' 프로그램**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "1.  **[전략명] 단골 아재 추천 '근이네 뉴페이스' 프로그램**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "전략 2",
+      "description": "2.  **[전략명] '우리 동네 근이네' 진정성 스토리텔링**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "2.  **[전략명] '우리 동네 근이네' 진정성 스토리텔링**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "전략 3",
+      "description": "3.  **[전략명] '세대 공감' 근이네 시그니처 메뉴 재발견**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "3.  **[전략명] '세대 공감' 근이네 시그니처 메뉴 재발견**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "전략 4",
+      "description": "4.  **[전략명] '근이네 아지트' 단골 전용 서비스**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "4.  **[전략명] '근이네 아지트' 단골 전용 서비스**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "전략 5",
+      "description": "5.  **[전략명] '동네 사랑방' 근이네 문화의 밤**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "5.  **[전략명] '동네 사랑방' 근이네 문화의 밤**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "전략 6",
+      "description": "6.  **[전략명] 네이버/카카오맵 '진심 리뷰' & 사장님 댓글 소통**:",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "6.  **[전략명] 네이버/카카오맵 '진심 리뷰' & 사장님 댓글 소통**:"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251023_044138",
+    "name": "근이*** 마케팅 캠페인",
+    "description": "6개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "전략 1",
+        "activities": [
+          "1.  **[전략명] 단골 아재 추천 '근이네 뉴페이스' 프로그램**:"
+        ],
+        "milestones": [
+          "전략 1 기획 완료",
+          "전략 1 실행 시작",
+          "전략 1 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 1 결과 보고서",
+          "전략 1 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "전략 2",
+        "activities": [
+          "2.  **[전략명] '우리 동네 근이네' 진정성 스토리텔링**:"
+        ],
+        "milestones": [
+          "전략 2 기획 완료",
+          "전략 2 실행 시작",
+          "전략 2 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 2 결과 보고서",
+          "전략 2 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "전략 3",
+        "activities": [
+          "3.  **[전략명] '세대 공감' 근이네 시그니처 메뉴 재발견**:"
+        ],
+        "milestones": [
+          "전략 3 기획 완료",
+          "전략 3 실행 시작",
+          "전략 3 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 3 결과 보고서",
+          "전략 3 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "전략 4",
+        "activities": [
+          "4.  **[전략명] '근이네 아지트' 단골 전용 서비스**:"
+        ],
+        "milestones": [
+          "전략 4 기획 완료",
+          "전략 4 실행 시작",
+          "전략 4 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 4 결과 보고서",
+          "전략 4 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "전략 5",
+        "activities": [
+          "5.  **[전략명] '동네 사랑방' 근이네 문화의 밤**:"
+        ],
+        "milestones": [
+          "전략 5 기획 완료",
+          "전략 5 실행 시작",
+          "전략 5 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 5 결과 보고서",
+          "전략 5 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "전략 6",
+        "activities": [
+          "6.  **[전략명] 네이버/카카오맵 '진심 리뷰' & 사장님 댓글 소통**:"
+        ],
+        "milestones": [
+          "전략 6 기획 완료",
+          "전략 6 실행 시작",
+          "전략 6 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 6 결과 보고서",
+          "전략 6 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {
+      "매출_증가율": 60,
+      "신규_고객_증가율": 0,
+      "재방문율_개선": 0,
+      "리뷰_점수_개선": 0,
+      "SNS_팔로워_증가율": 0
+    },
+    "success_probability": 95.0
+  },
+  "marketing_focus_points": {
+    "industry_focus": "신뢰·품질 중심",
+    "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+    "customer_type_focus": "단골 관리, 적립제·멤버십"
+  },
+  "social_content": {
+    "instagram_posts": [
+      {
+        "title": "근이네 단골 아재들이 인정한, NEW 손님 환영! 🍻",
+        "content": "왕십리 골목대장 근이네, 여기 모르는 아재 없지? 😉 우리 단골 형님들이 먼저 알아본 그 맛! 이제 새로운 친구들도 근이네 매력에 빠질 시간이야! 🤩\n\n🔥 **[단골 아재 추천 '근이네 뉴페이스' 프로그램]** 🔥\n오랜만에 찾아온 친구, 또는 근이네 처음인 지인과 함께 오시면, 사장님이 팍팍 쏜다! 쏜다! 🔫\n(자세한 혜택은 매장에서 확인하세요! 속닥속닥🤫)\n\n변치 않는 따뜻한 정, 푸짐한 안주, 그리고 시원한 술 한 잔이 기다리는 곳! 🍶\n새로운 인연도, 오래된 인연도 모두 환영이야! 어서 와, 근이네는 처음이지? 👋",
+        "hashtags": [
+          "#근이네",
+          "#왕십리포장마차",
+          "#단골추천",
+          "#뉴페이스환영",
+          "#왕십리맛집",
+          "#골목대장근이네",
+          "#변치않는맛",
+          "#근이네는사랑입니다"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "🕰️ 왕십리 골목을 지킨 찐(眞) 포장마차, 근이네 이야기",
+        "content": "\"여기 근이네 말고 어디 가겠어?\"\n왕십리 골목 한 켠에서 묵묵히 자리를 지켜온 근이네. 🏮 화려하진 않아도, 매일 신선한 재료로 정성껏 준비하는 안주와 잊을 수 없는 손맛으로 오가는 이들의 발길을 붙잡았죠. 🚶‍♂️🚶‍♀️\n\n힘든 하루 끝, 편안하게 기대어 앉아 속 깊은 이야기를 나눌 수 있는 친구 같은 공간. 비 오는 날이면 더욱 생각나는 따뜻한 어묵탕처럼, 근이네는 여러분의 일상에 스며든 작은 위로입니다. ☔️🍢\n\n화려한 유행보다, 변치 않는 정직함과 진정성으로 똘똘 뭉친 우리 동네 포장마차 근이네. 오늘 밤, 따뜻한 위로가 필요하다면 근이네로 오세요! 💖",
+        "hashtags": [
+          "#우리동네맛집",
+          "#근이네스토리",
+          "#왕십리근이네",
+          "#진정성맛집",
+          "#정겨운포차",
+          "#추억의맛",
+          "#왕십리숨은맛집",
+          "#골목길감성",
+          "#따뜻한위로"
+        ],
+        "post_type": "feed"
+      },
+      {
+        "title": "🌶️ 전 세대 입맛 강타! 근이네 시그니처 '매콤닭발'의 유혹!",
+        "content": "\"이 맛은 잊을 수 없어!\" 근이네 오면 꼭 시켜야 하는 그 메뉴! 🔥 바로 쫄깃하고 매콤한 **닭발** 아니겠어? 🐔\n\n매콤달콤한 양념이 쏙쏙 배어든 닭발 한 점에 시원한 소주 한 잔 캬~ 🍶 이 조합은 남녀노소, 세대를 불문하고 모두를 사로잡는 마성의 맛이죠!\n\n스트레스 확 날려주는 화끈한 맛! 옛날 그 시절 추억의 맛 그대로, 변함없이 여러분의 입맛을 책임집니다. 🤤\n\n오늘은 근이네 시그니처 닭발과 함께 뜨거운 밤을 보내는 건 어때요? 🌙 닭발 못 먹는다고? 걱정 마! 닭똥집, 오돌뼈, 꼼장어 등 다른 시그니처도 잔뜩 있으니! 😋",
+        "hashtags": [
+          "#근이네시그니처",
+          "#세대공감메뉴",
+          "#왕십리명물",
+          "#포장마차안주",
+          "#오늘뭐먹지",
+          "#왕십리술집",
+          "#변치않는클래식",
+          "#근이네닭발",
+          "#매콤닭발맛집"
+        ],
+        "post_type": "feed"
+      }
+    ],
+    "facebook_posts": [],
+    "promotion_texts": []
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "즉시 실행: 전략 1",
+      "예상 효과: 매출 증대 및 고객 만족도 향상",
+      "예산: 중간",
+      "구현 기간: 1-2주"
+    ],
+    "short_term_goals": [
+      "위험 코드 해결을 위한 단계적 접근",
+      "페르소나별 맞춤 마케팅 채널 최적화",
+      "고객 만족도 및 리뷰 점수 개선"
+    ],
+    "long_term_strategy": [
+      "브랜드 이미지 및 고객 충성도 구축",
+      "지속 가능한 성장 모델 수립",
+      "시장 경쟁력 강화 및 차별화"
+    ],
+    "success_factors": [
+      "페르소나 기반 맞춤형 접근",
+      "데이터 기반 의사결정",
+      "지속적인 모니터링 및 개선",
+      "고객 피드백 반영"
+    ]
+  }
+}

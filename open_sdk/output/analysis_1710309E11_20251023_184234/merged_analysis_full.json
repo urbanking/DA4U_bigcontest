@@ -1,0 +1,1816 @@
+{
+  "store_code": "1710309E11",
+  "analysis_timestamp": "2025-10-23T18:42:34.357090",
+  "analysis_directory": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234",
+  "store_analysis": {
+    "report_metadata": {
+      "store_code": "1710309E11",
+      "analysis_date": "2025-10-23 18:37:50",
+      "agent_name": "StoreAgent",
+      "report_version": "1.0",
+      "quality_score": 0.8700000000000001
+    },
+    "store_overview": {
+      "code": "1710309E11",
+      "name": "24*********",
+      "address": "서울 성동구 왕십리로31나길 33.",
+      "industry": "카페",
+      "brand": "브랜드 없음",
+      "commercial_area": "상왕십리역 6번",
+      "record_months": 24,
+      "operating_months": 37.5,
+      "store_age": "성숙 매장"
+    },
+    "sales_analysis": {
+      "trends": {
+        "sales_amount": {
+          "trend": "안정 추세",
+          "stability": "매우 안정적",
+          "data_points": 24
+        },
+        "sales_count": {
+          "trend": "상승 추세",
+          "stability": "안정적",
+          "data_points": 24
+        },
+        "unique_customers": {
+          "trend": "상승 추세",
+          "stability": "매우 안정적",
+          "data_points": 24
+        },
+        "avg_transaction": {
+          "trend": "하락 추세",
+          "stability": "매우 안정적",
+          "data_points": 24
+        }
+      },
+      "industry_comparison": {
+        "same_industry_sales_amount": {
+          "trend": "하락 추세",
+          "average": 8.0
+        },
+        "same_industry_sales_count": {
+          "trend": "하락 추세",
+          "average": 57.0
+        }
+      },
+      "rankings": {
+        "industry_rank": {
+          "trend": "순위 하락 (악화)",
+          "average": 68.7
+        },
+        "commercial_rank": {
+          "trend": "순위 안정",
+          "average": 0.0
+        }
+      },
+      "cancellation_analysis": {
+        "average_grade": 1.8,
+        "grade_distribution": {
+          "1.0": 20,
+          "5.0": 2,
+          "6.0": 2
+        },
+        "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+      },
+      "delivery_analysis": {
+        "trend": "안정 추세",
+        "average": 0.0
+      }
+    },
+    "customer_analysis": {
+      "gender_distribution": {
+        "male_ratio": 52.8,
+        "female_ratio": 47.2
+      },
+      "age_group_distribution": {
+        "20대 이하": 46.8,
+        "30대": 28.4,
+        "40대": 10.4,
+        "50대": 8.1,
+        "60대 이상": 6.3
+      },
+      "detailed_customer_ratios": {
+        "남20대이하": 24.7,
+        "여20대이하": 22.1,
+        "남30대": 15.0,
+        "여30대": 13.4,
+        "남40대": 5.5,
+        "여40대": 4.9,
+        "남50대": 4.3,
+        "여50대": 3.8,
+        "남60대이상": 3.3,
+        "여60대이상": 3.0
+      },
+      "customer_type_analysis": {
+        "new_customers": {
+          "ratio": 9.2,
+          "trend": "안정 추세"
+        },
+        "returning_customers": {
+          "ratio": 41.6,
+          "trend": "하락 추세"
+        },
+        "customer_distribution": {
+          "residential": 60.0,
+          "workplace": 0.0,
+          "floating": 40.0
+        }
+      }
+    },
+    "commercial_area_analysis": {
+      "commercial_area": "상왕십리역 6번",
+      "analysis_available": true,
+      "total_stores_in_area": 25,
+      "average_sales_analysis": {
+        "sales_amount_trend": "하락 추세",
+        "sales_count_trend": "안정 추세",
+        "unique_customers_trend": "안정 추세",
+        "avg_transaction_trend": "하락 추세"
+      },
+      "termination_analysis": {
+        "termination_ratio": 9.58,
+        "area_health": "건전한 상권"
+      },
+      "average_customer_segments": {
+        "남20대이하": 9.2,
+        "남30대": 11.4,
+        "남40대": 10.8,
+        "남50대": 12.7,
+        "남60대이상": 10.5,
+        "여20대이하": 10.0,
+        "여30대": 10.5,
+        "여40대": 8.0,
+        "여50대": 9.6,
+        "여60대이상": 7.4
+      }
+    },
+    "industry_analysis": {
+      "industry": "카페",
+      "analysis_available": true,
+      "total_stores_in_industry": 357,
+      "average_sales_analysis": {
+        "sales_amount_trend": "안정 추세",
+        "sales_count_trend": "상승 추세",
+        "unique_customers_trend": "안정 추세",
+        "avg_transaction_trend": "안정 추세"
+      },
+      "termination_analysis": {
+        "termination_ratio": 15.31,
+        "industry_health": "보통 업종"
+      },
+      "delivery_analysis": {
+        "average_delivery_ratio": 15.29,
+        "delivery_trend": "안정 추세"
+      },
+      "average_customer_segments": {
+        "남20대이하": 11.7,
+        "남30대": 12.6,
+        "남40대": 7.0,
+        "남50대": 6.1,
+        "남60대이상": 3.2,
+        "여20대이하": 20.0,
+        "여30대": 18.1,
+        "여40대": 9.3,
+        "여50대": 7.7,
+        "여60대이상": 4.3
+      }
+    },
+    "summary": {
+      "key_insights": [
+        "매출 트렌드: 안정 추세",
+        "업종 내 순위: 순위 하락 (악화)",
+        "주 고객층: 남성 고객 중심",
+        "상권 건강도: 건전한 상권",
+        "업종 건강도: 보통 업종"
+      ],
+      "main_problems": [],
+      "recommendations": [
+        {
+          "category": "경쟁력 강화",
+          "priority": "높음",
+          "target": "업종 내 경쟁력",
+          "action": "차별화 전략 수립",
+          "specific_actions": [
+            "시그니처 메뉴 개발",
+            "고객 리뷰 관리 시스템 구축",
+            "로열티 프로그램 도입",
+            "경쟁사 대비 가격 경쟁력 분석"
+          ],
+          "expected_impact": "업종 내 순위 68.7% → 30% 이하"
+        },
+        {
+          "category": "배달 서비스",
+          "priority": "중간",
+          "target": "배달 매출 확대",
+          "action": "배달 서비스 강화",
+          "specific_actions": [
+            "배달 전용 메뉴 개발",
+            "배달 앱 최적화",
+            "배달 포장재 개선",
+            "배달료 할인 이벤트"
+          ],
+          "expected_impact": "배달 매출 비율 15.3% → 40% 이상"
+        }
+      ]
+    },
+    "visualizations": {
+      "chart_files": {
+        "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_sales_trend_20251023_183750.png",
+        "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_gender_pie_20251023_183750.png",
+        "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_age_pie_20251023_183750.png",
+        "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_detailed_pie_20251023_183750.png",
+        "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_ranking_trend_20251023_183750.png",
+        "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_customer_trends_20251023_183750.png",
+        "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\1710309E11_new_returning_trends_20251023_183750.png"
+      },
+      "available_charts": [
+        "sales_trend",
+        "gender_pie",
+        "age_pie",
+        "detailed_pie",
+        "ranking_trend",
+        "customer_trends",
+        "new_returning_trends"
+      ]
+    },
+    "evaluation": {
+      "quality_score": 0.87,
+      "completeness": 1.0,
+      "accuracy": 0.9,
+      "relevance": 0.7,
+      "actionability": 0.8,
+      "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+    }
+  },
+  "marketing_analysis": {
+    "store_code": "1710309E11",
+    "analysis_timestamp": "2025-10-23T18:39:39.754418",
+    "persona_analysis": {
+      "persona_type": "상왕십리_영_트렌드_탐색가",
+      "persona_description": "상왕십리역 인근에 거주하거나 학업/직장에 종사하는 10대 후반~20대 초반 남성으로, 합리적인 가격에 고품질 커피와 편안한 공간을 선호합니다. 새로운 경험을 추구하며 SNS를 통해 정보를 얻고 공유하는 데 능숙하지만, 특별한 재방문 유인이 없으면 다른 곳으로 발길을 돌릴 수 있는 트렌드 민감형 고객입니다.",
+      "components": {
+        "industry": "카페",
+        "commercial_zone": "주거형",
+        "is_franchise": false,
+        "store_age": "안정기",
+        "customer_demographics": {
+          "gender": "Male",
+          "age": "20대 이하"
+        },
+        "customer_type": "거주형",
+        "trends": {
+          "new_customer": "Stable",
+          "revisit": "Decreasing"
+        },
+        "delivery_ratio": "낮음"
+      },
+      "marketing_tone": "트렌디하고 친근하며 솔직한, 동시에 새로운 경험을 제안하는 톤",
+      "key_channels": [
+        "인스타그램 (릴스, 스토리, 해시태그 마케팅)",
+        "네이버 플레이스/블로그 (리뷰 이벤트, 상세 정보 제공)",
+        "대학생 커뮤니티/지역 커뮤니티 (타겟 프로모션)",
+        "카카오톡 채널 (단골 고객 대상 할인, 신메뉴 알림)",
+        "매장 내 프로모션 (스탬프 카드, 콤보 메뉴 할인)",
+        "유튜브 쇼츠/틱톡 (매장 분위기, 메뉴 소개 등 짧은 영상 콘텐츠)"
+      ],
+      "core_insights": {
+        "persona": {
+          "summary": "이 가게는 Male이 높고, 20대 이하가 주를 이루고 있고, 유동인구가 많은 \"상왕십리_영_트렌드_탐색가\"형 가게입니다",
+          "table_data": {
+            "업종": "카페",
+            "상권": "주거형",
+            "프랜차이즈 여부": "N",
+            "신규·노점 여부": "안정기",
+            "주요 고객": "Male 20대 이하",
+            "고객유형": "거주형",
+            "고객관계": "신규유입Stable / 재방문Decreasing",
+            "배달비중": "낮음"
+          },
+          "charts": {
+            "customer_demographics": {
+              "gender": "Male",
+              "age": "20대 이하"
+            },
+            "customer_trends": {
+              "new_customer": "Stable",
+              "revisit": "Decreasing"
+            }
+          }
+        },
+        "risk_diagnosis": {
+          "summary": "이 가게에서 파악된 위험 요소는 주문 취소율이 급격히 증가하고 있음로 1개의 요소가 있습니다",
+          "table_data": [
+            {
+              "code": "R6",
+              "meaning": "취소율 급등",
+              "severity": "unknown",
+              "description": "주문 취소율이 급격히 증가하고 있음",
+              "chart_type": "trend"
+            }
+          ],
+          "overall_risk_level": "낮음"
+        }
+      }
+    },
+    "risk_analysis": {
+      "overall_risk_level": "낮음",
+      "detected_risks": [
+        {
+          "code": "R6",
+          "name": "취소율 급등",
+          "description": "주문 취소율이 급격히 증가하고 있음",
+          "level": "낮음",
+          "score": 28.500000000000004,
+          "evidence": "취소율 2.60% (기준: 0.7%)",
+          "priority": 3,
+          "impact_score": 7.0
+        }
+      ],
+      "analysis_summary": "매장에서 취소율 급등 등의 위험 요소가 감지되었습니다. 모니터링과 함께 단계적 대응을 권장합니다."
+    },
+    "marketing_strategies": [
+      {
+        "strategy_id": "DYNAMIC_STRAT_1",
+        "name": "전략 1",
+        "description": "1.  **시즌 한정 시그니처 메뉴 & 챌린지**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "1.  **시즌 한정 시그니처 메뉴 & 챌린지**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 1
+      },
+      {
+        "strategy_id": "DYNAMIC_STRAT_2",
+        "name": "전략 2",
+        "description": "2.  **친구와 함께! 그룹 방문 리워드 프로그램**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "2.  **친구와 함께! 그룹 방문 리워드 프로그램**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 2
+      },
+      {
+        "strategy_id": "DYNAMIC_STRAT_3",
+        "name": "전략 3",
+        "description": "3.  **힙스터 감성 포토존 & #인생샷 이벤트**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "3.  **힙스터 감성 포토존 & #인생샷 이벤트**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 3
+      },
+      {
+        "strategy_id": "DYNAMIC_STRAT_4",
+        "name": "전략 4",
+        "description": "4.  **상왕십리 로컬 커뮤니티 제휴 할인**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "4.  **상왕십리 로컬 커뮤니티 제휴 할인**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 4
+      },
+      {
+        "strategy_id": "DYNAMIC_STRAT_5",
+        "name": "전략 5",
+        "description": "5.  **디지털 라이프를 위한 스마트 스페이스 제공**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "5.  **디지털 라이프를 위한 스마트 스페이스 제공**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 5
+      },
+      {
+        "strategy_id": "DYNAMIC_STRAT_6",
+        "name": "전략 6",
+        "description": "6.  **가성비 UP! 나만의 커스텀 콤보 메뉴**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "6.  **가성비 UP! 나만의 커스텀 콤보 메뉴**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 6
+      },
+      {
+        "strategy_id": "DYNAMIC_STRAT_7",
+        "name": "전략 7",
+        "description": "7.  **메뉴 탄생 비화 & ASMR 숏폼 콘텐츠**:",
+        "risk_codes": [],
+        "channel": "다양한 채널",
+        "tactics": [
+          "7.  **메뉴 탄생 비화 & ASMR 숏폼 콘텐츠**:"
+        ],
+        "expected_impact": "매출 증대 및 고객 만족도 향상",
+        "implementation_time": "1-2주",
+        "budget_estimate": "중간",
+        "success_metrics": [
+          "매출 증가",
+          "고객 수 증가",
+          "재방문율 향상"
+        ],
+        "priority": 7
+      }
+    ],
+    "campaign_plan": {
+      "campaign_id": "CAMP_20251023_183904",
+      "name": "24********* 마케팅 캠페인",
+      "description": "7개 전략을 포함한 종합 마케팅 캠페인",
+      "duration": "1개월",
+      "budget_allocation": {
+        "다양한 채널": 100.0
+      },
+      "timeline": [
+        {
+          "week": 1,
+          "strategy_name": "전략 1",
+          "activities": [
+            "1.  **시즌 한정 시그니처 메뉴 & 챌린지**:"
+          ],
+          "milestones": [
+            "전략 1 기획 완료",
+            "전략 1 실행 시작",
+            "전략 1 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 1 결과 보고서",
+            "전략 1 개선 방안"
+          ]
+        },
+        {
+          "week": 2,
+          "strategy_name": "전략 2",
+          "activities": [
+            "2.  **친구와 함께! 그룹 방문 리워드 프로그램**:"
+          ],
+          "milestones": [
+            "전략 2 기획 완료",
+            "전략 2 실행 시작",
+            "전략 2 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 2 결과 보고서",
+            "전략 2 개선 방안"
+          ]
+        },
+        {
+          "week": 3,
+          "strategy_name": "전략 3",
+          "activities": [
+            "3.  **힙스터 감성 포토존 & #인생샷 이벤트**:"
+          ],
+          "milestones": [
+            "전략 3 기획 완료",
+            "전략 3 실행 시작",
+            "전략 3 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 3 결과 보고서",
+            "전략 3 개선 방안"
+          ]
+        },
+        {
+          "week": 4,
+          "strategy_name": "전략 4",
+          "activities": [
+            "4.  **상왕십리 로컬 커뮤니티 제휴 할인**:"
+          ],
+          "milestones": [
+            "전략 4 기획 완료",
+            "전략 4 실행 시작",
+            "전략 4 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 4 결과 보고서",
+            "전략 4 개선 방안"
+          ]
+        },
+        {
+          "week": 5,
+          "strategy_name": "전략 5",
+          "activities": [
+            "5.  **디지털 라이프를 위한 스마트 스페이스 제공**:"
+          ],
+          "milestones": [
+            "전략 5 기획 완료",
+            "전략 5 실행 시작",
+            "전략 5 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 5 결과 보고서",
+            "전략 5 개선 방안"
+          ]
+        },
+        {
+          "week": 6,
+          "strategy_name": "전략 6",
+          "activities": [
+            "6.  **가성비 UP! 나만의 커스텀 콤보 메뉴**:"
+          ],
+          "milestones": [
+            "전략 6 기획 완료",
+            "전략 6 실행 시작",
+            "전략 6 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 6 결과 보고서",
+            "전략 6 개선 방안"
+          ]
+        },
+        {
+          "week": 7,
+          "strategy_name": "전략 7",
+          "activities": [
+            "7.  **메뉴 탄생 비화 & ASMR 숏폼 콘텐츠**:"
+          ],
+          "milestones": [
+            "전략 7 기획 완료",
+            "전략 7 실행 시작",
+            "전략 7 중간 점검"
+          ],
+          "expected_deliverables": [
+            "전략 7 결과 보고서",
+            "전략 7 개선 방안"
+          ]
+        }
+      ],
+      "expected_kpis": {
+        "매출_증가율": 70,
+        "신규_고객_증가율": 0,
+        "재방문율_개선": 0,
+        "리뷰_점수_개선": 0,
+        "SNS_팔로워_증가율": 0
+      },
+      "success_probability": 95.0
+    },
+    "marketing_focus_points": {
+      "industry_focus": "감성·비주얼 중심 SNS",
+      "zone_focus": "단골/재방문 유도 (멤버십·쿠폰)",
+      "customer_type_focus": "단골 관리, 적립제·멤버십"
+    },
+    "social_content": {
+      "instagram_posts": [
+        {
+          "title": "✨24카페 시그니처! 올겨울 대란 예감 #눈꽃라떼 ❄️",
+          "content": "상왕십리 트렌드세터들 주목! 📢 24카페에서만 맛볼 수 있는 겨울 한정 시그니처, #눈꽃라떼 가 드디어 출시했어요! 🌨️ 폭신한 눈꽃 크림에 달콤쌉쌀한 에스프레소의 조화, 한 모금 마시면 입안 가득 겨울 왕국이 펼쳐진답니다? 🌬️\n이 특별한 맛, 그냥 지나칠 수 없죠? #눈꽃라떼챌린지 에 참여하고 스페셜 할인 쿠폰 받으세요! 🎁\n1. 눈꽃라떼 인증샷 찍고\n2. 필수 해시태그 #24카페 #눈꽃라떼챌린지 와 함께 업로드!\n3. 스토리에 24카페 계정 태그하면 당첨 확률 UP!\n이번 겨울, 24카페 눈꽃라떼로 가장 트렌디한 경험을 만들어보세요! 😉\n📍 서울 성동구 왕십리로31나길 33",
+          "hashtags": [
+            "#24카페",
+            "#상왕십리카페",
+            "#왕십리카페",
+            "#성동구카페",
+            "#눈꽃라떼",
+            "#시즌한정",
+            "#신메뉴",
+            "#카페챌린지",
+            "#겨울카페",
+            "#트렌디카페"
+          ],
+          "post_type": "feed"
+        },
+        {
+          "title": "🧑‍🤝‍🧑친구랑 같이 오면 더 이득! 24카페 찐친 리워드!",
+          "content": "혼자 와도 좋지만, 친구랑 같이 오면 혜택이 쏟아지는 24카페! 🥳 우리 아지트 삼을 상왕십리 트렌디 카페 찾는 친구들 다 모여!\n✨ **[24카페 찐친 리워드 프로그램]** ✨\n✔️ **3인 이상 방문 시:** 전 메뉴 10% 할인! (와, 이건 진짜 이득!)\n✔️ **5인 이상 방문 시:** 서비스 음료 1잔 & 조각 케이크 1개 증정! (디저트까지 완벽!)\n✔️ **친구 태그하고 방문 시:** 다음 방문 시 아메리카노 1+1 쿠폰 증정! (미리미리 태그해두자!)\n이번 주말, 24카페에서 친구들과 수다 떨고, 맛있는 거 먹고, 할인까지 챙겨가세요! 💖\n(ps. 결제 전 직원에게 꼭 말씀해주세요! 🤫)\n📍 서울 성동구 왕십리로31나길 33",
+          "hashtags": [
+            "#24카페",
+            "#상왕십리맛집",
+            "#왕십리데이트",
+            "#친구랑카페",
+            "#그룹할인",
+            "#카페이벤트",
+            "#성동구카페",
+            "#찐친",
+            "#혜택가득",
+            "#모임장소"
+          ],
+          "post_type": "feed"
+        },
+        {
+          "title": "📸 상왕십리 힙스터 다 모여! 24카페 #인생샷 스팟 대공개!",
+          "content": "✨ 어딜 찍어도 화보? 24카페는 매장 전체가 포토존! ✨\n특히, 매장 한 켠에 숨겨진 우리만의 #힙스터감성 포토존 은 이미 상왕십리 인싸들 사이에서 소문이 자자해요! 🤫 빈티지한 소품과 감각적인 조명, 그리고 24카페만의 유니크한 무드까지! 여기서 찍으면 무조건 #인생샷 각! 💖\n지금 바로 24카페 포토존에서 인생샷 찍고 #인증샷이벤트 참여하세요!\n1. 24카페 포토존에서 나만의 인생샷 찍기!\n2. 필수 해시태그 #24카페 #상왕십리인생샷 #포토존맛집 과 함께 인스타그램 업로드!\n3. 매장 직원에게 보여주면 시그니처 음료 1천원 할인! (매일 선착순 10명 한정)\n이번 주말, 24카페에서 커피도 마시고 인생샷도 남겨보세요! 🤳\n📍 서울 성동구 왕십리로31나길 33",
+          "hashtags": [
+            "#24카페",
+            "#상왕십리인생샷",
+            "#왕십리사진",
+            "#카페포토존",
+            "#힙스터카페",
+            "#감성카페",
+            "#인생샷",
+            "#성동구카페",
+            "#사진맛집",
+            "#셀피존"
+          ],
+          "post_type": "feed"
+        }
+      ],
+      "facebook_posts": [],
+      "promotion_texts": []
+    },
+    "recommendations": {
+      "immediate_actions": [
+        "즉시 실행: 전략 1",
+        "예상 효과: 매출 증대 및 고객 만족도 향상",
+        "예산: 중간",
+        "구현 기간: 1-2주"
+      ],
+      "short_term_goals": [
+        "위험 코드 해결을 위한 단계적 접근",
+        "페르소나별 맞춤 마케팅 채널 최적화",
+        "고객 만족도 및 리뷰 점수 개선"
+      ],
+      "long_term_strategy": [
+        "브랜드 이미지 및 고객 충성도 구축",
+        "지속 가능한 성장 모델 수립",
+        "시장 경쟁력 강화 및 차별화"
+      ],
+      "success_factors": [
+        "페르소나 기반 맞춤형 접근",
+        "데이터 기반 의사결정",
+        "지속적인 모니터링 및 개선",
+        "고객 피드백 반영"
+      ]
+    },
+    "formatted_output": "# 📈 마케팅 전략 분석 보고서\n---\n## 1️⃣ 현황 분석\n### 🎯 페르소나 유형: 상왕십리_영_트렌드_탐색가\n상왕십리역 인근에 거주하거나 학업/직장에 종사하는 10대 후반~20대 초반 남성으로, 합리적인 가격에 고품질 커피와 편안한 공간을 선호합니다. 새로운 경험을 추구하며 SNS를 통해 정보를 얻고 공유하는 데 능숙하지만, 특별한 재방문 유인이 없으면 다른 곳으로 발길을 돌릴 수 있는 트렌드 민감형 고객입니다.\n\n**📊 매장 특성:**\n- **업종:** 카페\n- **상권:** 주거형\n- **매장 연령:** 안정기\n- **주요 고객:** Male 20대 이하\n- **고객 유형:** 거주형\n- **배달 비중:** 낮음\n\n### ⚠️ 위험 수준: 낮음\n\n**감지된 위험 요소:**\n- **취소율 급등** (우선순위: 3)\n  주문 취소율이 급격히 증가하고 있음\n\n---\n## 2️⃣ 추천 마케팅 전략\n\n### 전략 1: 전략 1\n\n**📋 설명:** 1.  **시즌 한정 시그니처 메뉴 & 챌린지**:\n\n**⚡ 주요 전술:**\n  • 1.  **시즌 한정 시그니처 메뉴 & 챌린지**:\n\n**🎯 예상 효과:** 매출 증대 및 고객 만족도 향상\n**⏱️ 구현 기간:** 1-2주\n**💰 예산:** 중간\n**⭐ 우선순위:** 1\n\n### 전략 2: 전략 2\n\n**📋 설명:** 2.  **친구와 함께! 그룹 방문 리워드 프로그램**:\n\n**⚡ 주요 전술:**\n  • 2.  **친구와 함께! 그룹 방문 리워드 프로그램**:\n\n**🎯 예상 효과:** 매출 증대 및 고객 만족도 향상\n**⏱️ 구현 기간:** 1-2주\n**💰 예산:** 중간\n**⭐ 우선순위:** 2\n\n### 전략 3: 전략 3\n\n**📋 설명:** 3.  **힙스터 감성 포토존 & #인생샷 이벤트**:\n\n**⚡ 주요 전술:**\n  • 3.  **힙스터 감성 포토존 & #인생샷 이벤트**:\n\n**🎯 예상 효과:** 매출 증대 및 고객 만족도 향상\n**⏱️ 구현 기간:** 1-2주\n**💰 예산:** 중간\n**⭐ 우선순위:** 3\n\n### 전략 4: 전략 4\n\n**📋 설명:** 4.  **상왕십리 로컬 커뮤니티 제휴 할인**:\n\n**⚡ 주요 전술:**\n  • 4.  **상왕십리 로컬 커뮤니티 제휴 할인**:\n\n**🎯 예상 효과:** 매출 증대 및 고객 만족도 향상\n**⏱️ 구현 기간:** 1-2주\n**💰 예산:** 중간\n**⭐ 우선순위:** 4\n\n### 전략 5: 전략 5\n\n**📋 설명:** 5.  **디지털 라이프를 위한 스마트 스페이스 제공**:\n\n**⚡ 주요 전술:**\n  • 5.  **디지털 라이프를 위한 스마트 스페이스 제공**:\n\n**🎯 예상 효과:** 매출 증대 및 고객 만족도 향상\n**⏱️ 구현 기간:** 1-2주\n**💰 예산:** 중간\n**⭐ 우선순위:** 5\n\n---\n## 3️⃣ 실행 방안 (캠페인 계획)\n\n**📌 캠페인명:** 24********* 마케팅 캠페인\n**📅 기간:** 1개월\n**📖 설명:** 7개 전략을 포함한 종합 마케팅 캠페인\n\n**💰 예산 배분:**\n  • 다양한 채널: 100.0\n\n**📆 실행 일정:**\n  • **1:** N/A\n  • **2:** N/A\n  • **3:** N/A\n  • **4:** N/A\n  • **5:** N/A\n\n**📊 목표 KPI:**\n  • 매출_증가율: 70\n  • 신규_고객_증가율: 0\n  • 재방문율_개선: 0\n  • 리뷰_점수_개선: 0\n  • SNS_팔로워_증가율: 0\n\n**✅ 성공 확률:** 95.0\n\n---\n## 4️⃣ 예상 효과\n\n**전략별 예상 효과:**\n\n**전략 1 - 전략 1:**\n  • 매출 증대 및 고객 만족도 향상\n  • 성공 지표: 매출 증가, 고객 수 증가, 재방문율 향상\n\n**전략 2 - 전략 2:**\n  • 매출 증대 및 고객 만족도 향상\n  • 성공 지표: 매출 증가, 고객 수 증가, 재방문율 향상\n\n**전략 3 - 전략 3:**\n  • 매출 증대 및 고객 만족도 향상\n  • 성공 지표: 매출 증가, 고객 수 증가, 재방문율 향상\n\n**전략 4 - 전략 4:**\n  • 매출 증대 및 고객 만족도 향상\n  • 성공 지표: 매출 증가, 고객 수 증가, 재방문율 향상\n\n**전략 5 - 전략 5:**\n  • 매출 증대 및 고객 만족도 향상\n  • 성공 지표: 매출 증가, 고객 수 증가, 재방문율 향상\n\n**캠페인 전체 예상 효과:**\n  • 매출_증가율: 70\n  • 신규_고객_증가율: 0\n  • 재방문율_개선: 0\n  • 리뷰_점수_개선: 0\n  • SNS_팔로워_증가율: 0\n\n---\n\n*본 분석은 AI 기반 마케팅 에이전트에 의해 생성되었습니다.*\n"
+  },
+  "marketplace_analysis": {
+    "상권명": "상왕십리역 3번",
+    "분석일시": "2025-10-12T17:24:58.352248",
+    "총_페이지": 22,
+    "추출_페이지": 11,
+    "데이터": [
+      {
+        "페이지": 1,
+        "유형": "표지",
+        "상권유형": "분석일자",
+        "분석지역": "골목상권",
+        "분석업종": "골목상권",
+        "분석일자": "골목상권"
+      },
+      {
+        "페이지": 2,
+        "유형": "종합의견",
+        "면적": {
+          "선택": 80878,
+          "분석": 80878,
+          "단위": "㎡"
+        },
+        "종합의견": [
+          "업종전체의"
+        ],
+        "점포수": {
+          "현재": {
+            "값": 183,
+            "단위": "개",
+            "기준": "2025년2분기"
+          },
+          "전분기대비": {
+            "변화": -6,
+            "단위": "개"
+          },
+          "전년동분기대비": {
+            "변화": -16,
+            "단위": "개"
+          },
+          "순위": "4/17"
+        },
+        "매출액": {
+          "현재": {
+            "값": 959,
+            "단위": "만원",
+            "기준": "2025년2분기"
+          },
+          "전분기대비": {
+            "변화": 8,
+            "단위": "만원"
+          },
+          "전년동분기대비": {
+            "변화": 47,
+            "단위": "만원"
+          },
+          "순위": "4/17"
+        },
+        "유동인구": {
+          "현재": {
+            "값": 101283,
+            "단위": "명",
+            "기준": "2025년2분기"
+          },
+          "전분기대비": {
+            "변화": -3121,
+            "단위": "명"
+          },
+          "전년동분기대비": {
+            "변화": 7152,
+            "단위": "명"
+          },
+          "순위": "4/17"
+        }
+      },
+      {
+        "페이지": 3,
+        "유형": "Best_분석"
+      },
+      {
+        "페이지": 4,
+        "제목": "점포수",
+        "점포수": {
+          "값": 183,
+          "단위": "개"
+        },
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "-16",
+            "단위": "개"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "-6",
+            "단위": "개"
+          }
+        ],
+        "설명": [
+          "상권이쇠퇴하는시기인경우창업에유의하셔야합니다."
+        ]
+      },
+      {
+        "페이지": 5,
+        "제목": "신생기업생존율(3년)",
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "4.65",
+            "단위": "%"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "3.82",
+            "단위": "%"
+          },
+          {
+            "기준": "자치구대비",
+            "변화": "0.1",
+            "단위": "년"
+          },
+          {
+            "기준": "서울시대비",
+            "변화": "-0.1",
+            "단위": "년"
+          }
+        ],
+        "설명": [
+          "년간생존율이높을수록안정적인상권이라고할수있습니다.",
+          "상권내해당업종의경\n쟁력이양호한편입니다.",
+          "평균영업기간이길수록좋\n은상권입니다. 해당상권은서울시평균보다낮은상권이므로정확한원인분석이필요합니다."
+        ]
+      },
+      {
+        "페이지": 6,
+        "제목": "개업현황",
+        "페업수": {
+          "값": 7,
+          "단위": "개"
+        },
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "-3",
+            "단위": "개"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "-6",
+            "단위": "개"
+          },
+          {
+            "기준": "전년동분기대비",
+            "변화": "-2",
+            "단위": "개"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "-2",
+            "단위": "개"
+          }
+        ],
+        "설명": [
+          "폐업은감소추세인상권입니다. 상권이안정기인것으로보입니다. 마케팅활동에유의하세요.",
+          "폐업은감소추세인상권입니다. 상권이안정기인것으로보입니다. 마케팅활동에유의하세요."
+        ]
+      },
+      {
+        "페이지": 7,
+        "제목": "업종분포",
+        "설명": [
+          "가밀집한상권입니다. 창업하시려는업종과의관련성에유의하세요. 서비스업종세분류의증감추세를보다세심히분석하세요\n."
+        ]
+      },
+      {
+        "페이지": 8,
+        "제목": "매출액",
+        "점포당월평균매출건수": {
+          "값": 254,
+          "단위": "건"
+        },
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "47",
+            "단위": "만원"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "8",
+            "단위": "만원"
+          },
+          {
+            "기준": "전년동분기대비",
+            "변화": "-1",
+            "단위": "건"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "29",
+            "단위": "건"
+          }
+        ],
+        "설명": [
+          "만원\n선택상권매출액이전년대비증가추세입니다. 업종전체상권이활성화되고있습니다. 마케팅을강화하세요."
+        ]
+      },
+      {
+        "페이지": 9,
+        "제목": "요일별매출",
+        "설명": [
+          "고객이중요한상권이므로고정고객확보에유의하세요."
+        ]
+      },
+      {
+        "페이지": 10,
+        "제목": "성별매출",
+        "설명": [
+          "고객이많은상권입니다. 남성고객의방문에도움이되는요소에보다많은투자를고려하세요."
+        ]
+      },
+      {
+        "페이지": 11,
+        "제목": "연령대별매출"
+      }
+    ]
+  },
+  "panorama_analysis": {
+    "metadata": {
+      "input_address": "서울 성동구 왕십리로31나길 33.",
+      "center_coordinates": {
+        "longitude": 127.0286261,
+        "latitude": 37.5631582
+      },
+      "buffer_meters": 300,
+      "total_images_found": 5,
+      "images_analyzed": 5,
+      "analysis_timestamp": "2025-10-23T18:42:34.267708"
+    },
+    "individual_analyses": [
+      {
+        "point_id": 6819,
+        "pano_id": "tMoyJ1yMEXIMAxxrQflmcQ",
+        "lon": 127.0286603,
+        "lat": 37.5632601,
+        "distance_m": 11.701949528930896,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6819_pano_tMoyJ1yMEXIMAxxrQflmcQ.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2024-07-30T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "생활 밀착형 상점들이 위치한 조용하고 정돈된 이면 도로",
+            "overall_impression_prose": "이 장소는 주거지와 상업 시설이 혼재된 이면 도로로 보입니다. 전반적으로 차분하고 조용한 분위기이며, 일상생활에 필요한 소규모 상점들이 자리하고 있습니다. 특별한 활기는 없지만, 지역 주민들의 편의를 제공하는 역할을 할 것으로 예상됩니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "도로 양 옆으로 2~4층 높이의 건물들이 줄지어 있으며, 대부분 회색 또는 베이지색 계열의 외벽을 가지고 있습니다. 건물들은 비교적 오래되었지만 심하게 낡아 보이지는 않습니다. 멀리 보이는 고층 빌딩과 대비되어 이 지역이 도시 외곽 또는 주거 밀집 지역의 일부임을 시사합니다. 건물들의 용도는 1층은 상업시설, 상층부는 주거 또는 사무실로 추정됩니다.",
+              "street_details": "도로는 아스팔트 포장으로 양호한 상태이며, 노란색 횡단보도가 선명하게 그려져 있습니다. 보도는 회색 보도블럭으로 포장되어 있으나 폭이 좁고, 일부 오토바이와 간판 등으로 인해 통행에 방해가 될 수 있습니다. 가로수는 거의 보이지 않으며, 전봇대와 복잡한 전선들이 도시의 일상적인 풍경을 이룹니다. 별도의 벤치나 편의시설은 눈에 띄지 않습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "전반적으로 회색, 베이지색, 흰색 등 무채색 계열이 지배적이며, 건물 외벽의 콘크리트와 아스팔트 도로가 주된 재질감을 이룹니다. 밝고 깨끗하다기보다는 차분하고 다소 낡은 느낌이 공존합니다.",
+              "imagined_sounds": "차량의 엔진 소리, 간간이 지나가는 오토바이 소리, 그리고 멀리서 들려오는 도시의 미약한 소음이 주를 이룰 것으로 예상됩니다. 사람들의 대화 소리는 거의 들리지 않는 조용한 분위기일 것입니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사진 내에 명확하게 보이는 사람은 없습니다. 차량 몇 대만 주차되어 있거나 이동 중입니다.",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "음식점 (김밥천국), 미용/서비스업 (추정)",
+            "signs_of_change_or_stability": "건물들의 외관과 상점 간판으로 미루어 보아, 급격한 변화보다는 안정적으로 운영되는 상권으로 보입니다. 신규 개업이나 폐업의 명확한 흔적은 없으며, 기존 상점들이 꾸준히 자리를 지키고 있는 것으로 판단됩니다.",
+            "opportunity_for_target_business": {
+              "business_category": "테이크아웃 전문 카페 또는 소규모 식료품점",
+              "narrative_insight": "이 지역은 유동 인구가 많지 않지만, 주변 주거민이나 직장인들을 대상으로 한 생활 밀착형 서비스에 대한 수요가 있을 수 있습니다. 테이크아웃 전문 카페는 바쁜 일상 속에서 빠르고 간편하게 커피나 음료를 즐기려는 사람들에게 어필할 수 있으며, 소규모 식료품점은 신선하고 특색 있는 제품으로 지역 주민들의 만족도를 높일 수 있습니다. '일상 속 작은 행복'을 컨셉으로, 접근성을 높이고 친근한 분위기를 조성하는 것이 중요합니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 지역은 높은 유동 인구를 기대하기 어려운 이면 도로 상권입니다. 따라서 대규모 투자보다는 소자본 창업이나 특정 타겟층을 위한 니치 마켓 전략이 적합합니다. 주변 주거민 또는 소규모 오피스 상주 인구를 대상으로 한 생활 편의형 업종, 예를 들어 간편식, 테이크아웃 전문점, 또는 특정 서비스업이 유리할 것입니다. 높은 임대료를 감당하기 어려울 수 있으므로, 초기 비용을 최소화하고 고객과의 관계 형성에 집중하는 전략이 필요합니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 2,
+              "Operational_Status": 2,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 1
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 1
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 0,
+              "Weather_Protection": 1,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 6818,
+        "pano_id": "kDcg6We3_bBJuLVE8jKeDA",
+        "lon": 127.0285381,
+        "lat": 37.5630642,
+        "distance_m": 13.006379921824802,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6818_pano_kDcg6We3_bBJuLVE8jKeDA.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2024-07-29T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "오래된 주거-상업 혼합 지역의 조용한 이면 도로",
+            "overall_impression_prose": "이 장소는 전반적으로 조용하고 차분한 분위기의 이면 도로입니다. 오래된 건물들과 복잡한 전선들이 과거의 도시 풍경을 연상시키며, 멀리 보이는 고층 건물들과 대조를 이룹니다. 상업 활동은 제한적이며, 보행자 친화적인 요소는 부족해 보입니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "도로 좌측에는 2~3층 높이의 저층 건물들이 줄지어 있으며, 대부분 벽돌 또는 페인트 마감으로 다소 노후된 모습을 보입니다. 일부 건물 1층에는 상업 공간이 입점해 있습니다. 도로 우측에는 낮은 담장과 녹색 펜스가 이어져 있으며, 그 너머로 낮은 지대의 주거 또는 녹지 공간이 있는 것으로 추정됩니다. 멀리 배경에는 현대적인 고층 건물들이 밀집해 있어, 이 지역이 구도심과 신도심의 경계에 있음을 시사합니다.",
+              "street_details": "도로는 아스팔트 포장으로, 중앙에 노란색 실선이 그어져 있습니다. 전반적으로 깨끗해 보이나, 노면 상태가 아주 좋지는 않습니다. 보도는 도로보다 약간 높게 조성되어 있으며, 폭이 좁고 특별한 편의시설(벤치, 가로수 등)은 보이지 않습니다. 머리 위로는 복잡하게 얽힌 전선들이 시야를 가득 채우고 있으며, 나무 전봇대들이 곳곳에 서 있습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "공간을 지배하는 색감은 회색빛 하늘, 낡은 벽돌색과 베이지색 건물, 회색 아스팔트, 녹색 펜스 등 전반적으로 차분하고 무채색 계열입니다. 재질감은 거친 벽돌, 콘크리트, 아스팔트 등으로 다소 낡고 투박한 느낌을 줍니다.",
+              "imagined_sounds": "이곳에서는 차량이 드물게 지나가는 소리, 멀리서 들려오는 도시의 미약한 소음, 그리고 바람 소리 정도가 들릴 것 같습니다. 사람들의 활기찬 대화나 상점의 음악 소리보다는 조용하고 한적한 분위기가 지배적일 것으로 예상됩니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사진에 보이는 사람은 없습니다. 멀리 작은 차량 한 대가 보일 뿐입니다.",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "부동산 중개업소",
+            "signs_of_change_or_stability": "눈에 띄는 신규 개업이나 폐업 흔적은 보이지 않으며, 건물 외관 또한 큰 변화 없이 유지되고 있는 것으로 보입니다. 전반적으로 상권의 변화보다는 안정성(혹은 정체)이 더 강하게 느껴집니다. 멀리 보이는 고층 건물들이 이 지역에 잠재적인 변화를 가져올 수 있지만, 현재 이 거리 자체는 큰 동력이 없어 보입니다.",
+            "opportunity_for_target_business": {
+              "business_category": "소규모 주거 밀착형 서비스업 또는 특색 있는 카페",
+              "narrative_insight": "이 지역은 유동 인구가 적고 조용하기 때문에, 대규모 상업 시설보다는 지역 주민들을 대상으로 하는 소규모, 고정 고객 기반의 업종이 적합합니다. 예를 들어, 조용하고 아늑한 분위기의 개인 카페나 동네 주민들이 편하게 이용할 수 있는 세탁소, 수선집 등 주거 밀착형 서비스업이 고려될 수 있습니다. 특히, 낡은 건물들의 레트로한 감성을 살린 독특한 컨셉의 공간으로 접근한다면, 주변 고층 주거 단지의 젊은 층에게도 어필할 수 있는 잠재력이 있습니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 거리는 현재 상업적 활기가 매우 낮은 지역으로, 대규모 투자나 유동 인구 기반의 사업에는 부적합합니다. 하지만 주변 고층 주거 단지와의 연계성을 고려할 때, 특정 니즈를 충족시키는 주거 밀착형 서비스업이나 독특한 컨셉의 소규모 F&B 매장에는 기회가 있을 수 있습니다. 창업자나 투자자는 높은 임대료를 감당하기 어려운 초기 단계의 사업이나, 지역 커뮤니티와의 유대감을 중요시하는 사업 모델을 고려해야 할 것입니다. 장기적인 관점에서 주변 재개발이나 상권 변화 가능성을 주시하며, 초기에는 낮은 고정 비용으로 운영하는 전략이 필요합니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 3,
+              "Operational_Status": 3,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 1
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 2950,
+        "pano_id": "ncrscnAHyNOhX-9SMEz4lg",
+        "lon": 127.0284981,
+        "lat": 37.5630351,
+        "distance_m": 17.729118994858265,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_2950_pano_ncrscnAHyNOhX-9SMEz4lg.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2023-10-27T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "주거지역 인근의 조용하고 생활 밀착형 상권",
+            "overall_impression_prose": "전반적으로 조용하고 차분한 분위기의 거리입니다. 오래된 건물들이 주를 이루며, 주로 지역 주민들을 위한 생활 밀착형 상점들이 위치해 있습니다. 상업적 활기는 다소 부족해 보이며, 주거지역의 편의성을 보완하는 역할을 하는 것으로 판단됩니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "오른편에는 2층 높이의 붉은 벽돌 건물이 위치하며, 1층에 상업 공간이 있습니다. 건물은 다소 연식이 있어 보이지만 관리는 되고 있는 듯합니다. 왼편으로는 낮은 울타리가 있는 공터 또는 경사면이 보이며, 멀리 다른 건물들이 조망됩니다. 도로는 완만한 경사를 이루고 있습니다.",
+              "street_details": "도로는 아스팔트로 포장되어 있으며, 중앙선으로 보이는 노란색 이중선이 희미하게 보입니다. 보도는 좁고 콘크리트 또는 평범한 보도블럭으로 되어 있으며, 상태가 아주 좋지는 않습니다. 전봇대와 복잡한 전선들이 눈에 띄며, 가로수, 벤치, 전용 가로등과 같은 편의시설은 보이지 않습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "공간을 지배하는 색감은 붉은 벽돌의 갈색, 아스팔트와 보도의 회색, 그리고 흐린 하늘의 회색빛입니다. 전반적으로 채도가 낮고 차분한 느낌을 줍니다. 재질감은 벽돌의 거친 느낌과 아스팔트의 평평함, 그리고 낡은 보도의 불균일함이 혼재되어 있습니다.",
+              "imagined_sounds": "차량 통행이 많지 않은 주거지역 인근임을 감안할 때, 간헐적으로 지나가는 차량 소리나 멀리서 들려오는 생활 소음이 주를 이룰 것으로 예상됩니다. 사람들의 대화 소리는 거의 들리지 않거나 매우 드물 것이며, 전반적으로 조용한 분위기일 것입니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사람 없음",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "미용실, 부동산",
+            "signs_of_change_or_stability": "오래된 간판과 건물 외관으로 미루어 보아 상권의 큰 변화보다는 안정적인 운영이 이루어지고 있는 것으로 보입니다. 신규 개업이나 폐업의 흔적은 보이지 않으며, 지역 주민들을 대상으로 한 고정적인 서비스가 제공되는 안정적인 상권으로 판단됩니다.",
+            "opportunity_for_target_business": {
+              "business_category": "소규모 카페 또는 베이커리",
+              "narrative_insight": "이 지역은 주거 밀집 지역 인근으로, 주민들이 편안하게 이용할 수 있는 아늑한 분위기의 카페나 베이커리가 적합해 보입니다. 대형 프랜차이즈보다는 지역 주민의 취향을 반영한 개성 있는 컨셉으로 접근하여 동네 사랑방 역할을 할 수 있다면 성공 가능성이 높을 것입니다. 테이크아웃보다는 앉아서 쉬어갈 수 있는 공간 구성이 중요하며, 주차 편의성 확보도 고려해야 합니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 지점은 주거지역에 인접한 생활 밀착형 상권으로, 높은 유동인구를 기대하기는 어렵습니다. 따라서 광범위한 고객층보다는 지역 주민을 대상으로 한 안정적인 운영 전략이 필요합니다. 초기 투자 비용을 최소화하고, 고정 고객 확보에 집중할 수 있는 업종을 고려해야 합니다. 특히, 주차 공간이나 접근성 개선이 동반된다면 더욱 긍정적인 상업적 가치를 창출할 수 있을 것입니다. 온라인 홍보보다는 입소문과 단골 확보에 주력하는 것이 효과적입니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 2,
+              "Operational_Status": 2,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 0
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 6817,
+        "pano_id": "Zqfl-Ws2dqtvk8u81R3dGg",
+        "lon": 127.0282996,
+        "lat": 37.5631076,
+        "distance_m": 29.377047608253914,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_6817_pano_Zqfl-Ws2dqtvk8u81R3dGg.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "자동생성"
+          },
+          "visit_summary": {
+            "location_headline": "주거와 상업이 혼재된 조용한 이면 도로",
+            "overall_impression_prose": "이 장소는 주거지와 소규모 상업 시설이 혼재된 조용한 이면 도로로 보입니다. 전반적으로 차분하고 한적한 분위기이며, 오래된 건물들이 주를 이루어 정비가 필요한 부분이 눈에 띕니다. 잠재적인 상업 공간이 있으나 현재는 활기가 부족해 보입니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "도로 양쪽으로 2-4층 높이의 건물들이 늘어서 있습니다. 좌측 건물은 흰색 외벽에 상점 간판이 보이며, 우측 건물은 벽돌 외벽입니다. 중앙에는 갈색 벽돌 건물이 도로 끝에 위치해 있으며, 전반적으로 건물들은 노후화된 모습을 보입니다. 건물 용도는 주거와 소규모 상업 시설이 혼합된 것으로 추정됩니다.",
+              "street_details": "도로는 아스팔트 포장이며 중앙에 이중 황색선이 그어져 있습니다. 보도는 좌측에 좁게 존재하며, 우측은 보도와 차도가 명확히 구분되지 않는 형태입니다. 가로수나 벤치와 같은 편의시설은 보이지 않으며, 전봇대와 복잡한 전선들이 시야를 가립니다. 우측에는 오토바이 한 대가 주차되어 있습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "전반적으로 회색빛 아스팔트, 흰색/갈색/벽돌색 건물 외벽이 주를 이루며, 노란색 개나리꽃이 시각적인 포인트를 줍니다. 건물들은 다소 낡고 거친 질감을 보이며, 전선들은 복잡하고 어수선한 느낌을 줍니다.",
+              "imagined_sounds": "차량 통행이 많지 않아 조용할 것으로 예상됩니다. 간혹 지나가는 차량 소리나 오토바이 소리, 그리고 멀리서 들려오는 생활 소음 정도가 있을 것 같습니다. 사람들의 대화 소리는 거의 들리지 않을 듯합니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사람 없음",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "소규모 식료품점, 생활 편의 시설",
+            "signs_of_change_or_stability": "전반적으로 노후화된 건물과 간판들이 많아 상권의 큰 변화보다는 안정적이거나 정체된 상태로 보입니다. 신규 개업이나 리모델링의 흔적은 거의 보이지 않습니다. 일부 상점은 영업 중인 것으로 보이나 활발한 상업 활동은 감지되지 않습니다.",
+            "opportunity_for_target_business": {
+              "business_category": "생활 밀착형 카페 또는 소규모 식료품점",
+              "narrative_insight": "이 지역은 주거와 상업이 혼재된 조용한 분위기이므로, 주민들의 일상에 스며들 수 있는 생활 밀착형 업종이 적합합니다. 예를 들어, 아침 일찍 문을 열어 간단한 커피와 빵을 제공하거나, 신선한 식료품을 판매하는 소규모 상점은 지역 주민들의 편의를 높이고 커뮤니티 공간 역할을 할 수 있습니다. 현대적인 감각으로 리모델링하여 낡은 거리의 분위기를 환기시키는 것도 중요합니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 지점은 현재 상업적 활기가 낮은 이면 도로로, 주거 밀집 지역의 잠재 고객을 기반으로 한 생활 밀착형 상권으로의 전환 가능성이 있습니다. 노후화된 건물과 부족한 보행 환경은 개선이 필요하지만, 임대료가 저렴하다면 초기 투자 비용을 절감할 수 있습니다. 창업자는 지역 주민의 니즈를 정확히 파악하고, 차별화된 컨셉과 깔끔한 인테리어로 주변 환경과의 대비를 통해 주목도를 높이는 전략을 고려해야 합니다. 대규모 상권보다는 틈새시장을 공략하는 것이 현명해 보입니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 3,
+              "Operational_Status": 3,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 0
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 0,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 1,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 1179,
+        "pano_id": "mBO4mUg1bNFA-Nfn5Ujy9A",
+        "lon": 127.0285409,
+        "lat": 37.5634541,
+        "distance_m": 33.6802929794551,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img\\point_1179_pano_mBO4mUg1bNFA-Nfn5Ujy9A.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2023-10-27T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "주거와 소규모 업무 시설이 혼재된 조용한 이면 도로",
+            "overall_impression_prose": "이 장소는 주거용 건물과 소규모 사무실 또는 창고로 보이는 건물이 혼재된 조용한 이면 도로입니다. 전반적으로 차분하고 인적이 드물어 보이며, 상업적 활기는 거의 느껴지지 않습니다. 오래된 건물들이 주를 이루며, 생활 편의를 위한 공간보다는 기능적인 통로의 느낌이 강합니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "좌우로 4~5층 높이의 회색빛 건물들이 마주보고 있으며, 건물 간 간격이 좁아 골목길 형태를 이룹니다. 건물들은 대부분 벽돌 또는 페인트 마감으로 보이며, 주거용 또는 소규모 사무실/창고 용도로 추정됩니다. 특히 오른쪽 건물은 1층에 녹색 차양과 이중문이 있어 상업 시설일 가능성도 있으나, 간판이 명확하지 않습니다. 왼쪽 건물은 주거용 출입구와 계단이 보입니다.",
+              "street_details": "도로는 아스팔트 포장으로 비교적 깨끗해 보이며, 중앙선은 없지만 양쪽에 노란색 실선이 그어져 있습니다. 보도는 매우 좁거나 거의 없으며, 오른쪽 건물 앞에는 녹색 바닥의 좁은 공간이 있습니다. 가로수나 벤치 같은 편의시설은 보이지 않으며, 전봇대와 복잡한 전선들이 시야를 가립니다. 가로등은 전봇대에 설치된 것으로 추정됩니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "전반적으로 회색, 베이지색 등 무채색 계열이 지배적이며, 건물 외벽은 거친 벽돌 질감이나 페인트 마감으로 보입니다. 하늘은 흐려 전체적으로 어둡고 차분한 느낌을 줍니다. 도로의 아스팔트와 보도의 콘크리트가 주된 재질감입니다.",
+              "imagined_sounds": "주변에 사람이 거의 없어 조용할 것으로 예상됩니다. 가끔 지나가는 차량 소리, 멀리서 들려오는 도시의 소음, 그리고 바람 소리 정도가 들릴 것 같습니다. 생활 소음이나 작업 소음이 간헐적으로 들릴 수도 있습니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사람 없음",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "상점 없음",
+            "signs_of_change_or_stability": "특별한 변화의 징후(신규 개업, 폐업, 리모델링)는 보이지 않으며, 전반적으로 안정적이지만 오래된 주거/업무 지역의 모습을 유지하고 있습니다.",
+            "opportunity_for_target_business": {
+              "business_category": "소규모 사무실, 창고, 공유 오피스, 배달 전문 음식점",
+              "narrative_insight": "이 지역은 유동 인구가 적고 주거 및 소규모 업무 시설이 혼재되어 있어, 일반적인 소매업보다는 특정 목적을 가진 업종이 적합합니다. 예를 들어, 배달 전문 음식점이나 공유 오피스, 혹은 소규모 창고형 매장 등이 고려될 수 있습니다. 접근성이 좋지 않으므로, 온라인 기반의 비즈니스 모델이나 특정 고객층을 대상으로 하는 서비스가 유리할 것입니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 장소는 상업적 활기가 매우 낮은 이면 도로로, 일반적인 소매업 창업에는 부적합합니다. 유동 인구가 거의 없어 고객 유입을 기대하기 어렵습니다. 만약 이 지역에 투자를 고려한다면, 주거 또는 소규모 업무 공간으로서의 가치를 평가하거나, 배달/물류 등 특정 목적에 특화된 비즈니스 모델을 신중하게 검토해야 합니다. 상권 활성화보다는 기능적 공간 활용에 초점을 맞추는 것이 현실적입니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 0,
+              "Operational_Status": 0,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 0
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 0,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 1,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      }
+    ],
+    "synthesis": {
+      "area_summary": {
+        "overall_character": "이 지역은 주거와 생활 밀착형 상업 시설이 혼재된 조용한 이면 도로 상권입니다. 전반적으로 활발한 상업 활동보다는 지역 주민의 일상생활 편의를 위한 기능에 초점을 맞춘 차분하고 정돈된 분위기를 가지고 있습니다.",
+        "dominant_zone_type": "혼합지역",
+        "primary_commercial_type": "근린형 생활상가"
+      },
+      "comprehensive_scores": {
+        "commercial_atmosphere": 3,
+        "street_atmosphere": 6,
+        "cleanliness": 7,
+        "maintenance": 6,
+        "walkability": 6,
+        "safety_perception": 6,
+        "business_diversity": 3,
+        "residential_suitability": 8,
+        "commercial_suitability": 3
+      },
+      "detailed_assessment": {
+        "strengths": [
+          "안정적인 주거 인구를 기반으로 한 생활 밀착형 서비스 수요가 존재합니다.",
+          "조용하고 정돈된 분위기로, 주민들에게 쾌적한 주거 환경을 제공합니다.",
+          "기존 상점 수가 적어 특정 니치 업종에 대한 경쟁 강도가 낮습니다."
+        ],
+        "weaknesses": [
+          "모든 지점에서 '조용함'이 강조되어 유동 인구가 매우 적고 상권 활력이 낮습니다.",
+          "상업 시설의 밀집도가 낮고 업종 다양성이 부족하여 상업적 매력이 떨어집니다.",
+          "이면 도로에 위치하여 가시성이 낮고, 외부 유입 고객을 기대하기 어렵습니다."
+        ],
+        "recommended_business_types": [
+          "생활 밀착형 서비스업 (세탁소, 수선집, 소규모 수리점 등)",
+          "주거지 기반 소규모 카페/베이커리 (테이크아웃 및 배달 중심)",
+          "배달 전문 음식점 또는 공유 주방"
+        ],
+        "foot_traffic_estimate": "하",
+        "competition_level": "낮음"
+      },
+      "final_recommendation": "이 지역은 조용하고 주거 중심적인 이면 도로 상권으로, 상업적 활력이 매우 낮은 것이 특징입니다. 기존 상점들이 대부분 생활 밀착형 서비스업에 집중되어 있으며, 유동 인구가 적어 일반적인 상업 활동에는 부적합합니다. 강점은 안정적인 주거 인구를 기반으로 한 생활 편의 서비스 수요가 존재한다는 점과, 낮은 경쟁률로 특정 니치 시장을 공략할 수 있다는 것입니다. 그러나 낮은 유동 인구와 가시성 부족은 신규 사업자가 반드시 고려해야 할 주요 약점입니다. 따라서 이 지역에 적합한 업종은 주민들의 일상생활에 필수적인 생활 밀착형 서비스업, 또는 배달 및 테이크아웃에 특화된 소규모 카페나 음식점입니다. 성공을 위해서는 높은 임대료를 지양하고, 온라인 마케팅과 지역 커뮤니티와의 유대 강화를 통해 고정 고객을 확보하는 전략이 중요합니다. 예상 투자 규모는 소규모로 유지하고, 높은 수익성보다는 안정적인 운영과 지역 밀착형 서비스 제공에 초점을 맞춰야 합니다. 전반적으로 대규모 투자를 통한 상권 활성화보다는, 지역 주민을 위한 틈새시장 공략에 적합한 곳으로 판단되므로, 신중한 접근과 장기적인 관점의 사업 계획이 필수적입니다."
+    },
+    "summary": {
+      "area_characteristics": "혼합지역",
+      "commercial_type": "N/A",
+      "scores": {
+        "commercial_atmosphere": 3,
+        "street_atmosphere": 6,
+        "cleanliness": 7,
+        "maintenance": 6,
+        "walkability": 6,
+        "safety_perception": 6,
+        "business_diversity": 3,
+        "residential_suitability": 8,
+        "commercial_suitability": 3
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "recommended_industries": [],
+      "expert_opinion": ""
+    }
+  },
+  "mobility_analysis": {
+    "target_dong": "왕십리2동",
+    "timestamp": "20251012_173824",
+    "analysis": {
+      "part1_move_types": {
+        "유출": 5018,
+        "유입": 4611,
+        "내부이동": 394
+      },
+      "part2_time_pattern": {
+        "0": 74,
+        "1": 139,
+        "2": 102,
+        "3": 92,
+        "4": 112,
+        "5": 215,
+        "6": 310,
+        "7": 467,
+        "8": 654,
+        "9": 722,
+        "10": 584,
+        "11": 594,
+        "12": 592,
+        "13": 580,
+        "14": 559,
+        "15": 558,
+        "16": 600,
+        "17": 734,
+        "18": 648,
+        "19": 567,
+        "20": 444,
+        "21": 389,
+        "22": 236,
+        "23": 51
+      },
+      "part3_purpose": {
+        "기타": 5099,
+        "쇼핑/여가/관광": 3849,
+        "출근": 908,
+        "등교": 100,
+        "쇼핑": 54,
+        "관광": 9,
+        "병원": 4
+      },
+      "part4_transport": {
+        "차량": 3449,
+        "지하철": 3302,
+        "도보": 3148,
+        "기타": 1789,
+        "일반버스": 1556,
+        "광역버스": 9
+      },
+      "part5_age": {
+        "00대": 183,
+        "10대": 1346,
+        "20대": 2706,
+        "30대": 3984,
+        "40대": 3181,
+        "50대": 4056,
+        "60대": 3363,
+        "70대 이상": 2336
+      },
+      "part5_2_age_purpose": {
+        "00대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 53.40599455040872
+        },
+        "10대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 56.22191021669527
+        },
+        "20대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 53.385242478778714
+        },
+        "30대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 55.95160703304426
+        },
+        "40대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 54.415684844522126
+        },
+        "50대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 53.07386799267311
+        },
+        "60대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 50.76448234643449
+        },
+        "70대 이상": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 55.10525482409029
+        }
+      },
+      "part5_3_age_time": {
+        "00대": {
+          "peak_hour": 13,
+          "peak_count": 31.5
+        },
+        "10대": {
+          "peak_hour": 20,
+          "peak_count": 128.03
+        },
+        "20대": {
+          "peak_hour": 22,
+          "peak_count": 264.96999999999997
+        },
+        "30대": {
+          "peak_hour": 18,
+          "peak_count": 431.36
+        },
+        "40대": {
+          "peak_hour": 18,
+          "peak_count": 327.8
+        },
+        "50대": {
+          "peak_hour": 18,
+          "peak_count": 384.52
+        },
+        "60대": {
+          "peak_hour": 18,
+          "peak_count": 233.95
+        },
+        "70대 이상": {
+          "peak_hour": 17,
+          "peak_count": 208.24
+        }
+      },
+      "part5_4_top3_purposes": {
+        "00대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 98
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 67
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 18
+          }
+        },
+        "10대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 756
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 443
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 111
+          }
+        },
+        "20대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1444
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 952
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 261
+          }
+        },
+        "30대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 2229
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1264
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 488
+          }
+        },
+        "40대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1731
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1096
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 353
+          }
+        },
+        "50대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 2152
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1312
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 590
+          }
+        },
+        "60대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1707
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1191
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 464
+          }
+        },
+        "70대 이상": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1287
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 816
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 232
+          }
+        }
+      },
+      "part5_5_3d_analysis": {
+        "50대": {
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 260.5
+          },
+          "기타": {
+            "peak_hour": 18,
+            "peak_count": 124.01999999999998
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 191.64
+          }
+        },
+        "30대": {
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 313.52
+          },
+          "기타": {
+            "peak_hour": 18,
+            "peak_count": 115.33
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 238.85
+          }
+        },
+        "60대": {
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 180.26999999999998
+          },
+          "기타": {
+            "peak_hour": 12,
+            "peak_count": 116.38999999999999
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 123.71000000000001
+          }
+        }
+      }
+    }
+  },
+  "comprehensive_analysis": {
+    "metadata": {
+      "store_code": "1710309E11",
+      "analysis_timestamp": "20251023_184234",
+      "analysis_type": "comprehensive_analysis"
+    },
+    "spatial_analysis": {
+      "address": "서울 성동구 왕십리로31나길 33.",
+      "coordinates": [
+        37.5635478,
+        127.0286756
+      ],
+      "administrative_dong": "왕십리2동",
+      "marketplace": {
+        "상권명": "A",
+        "거리_m": 0
+      }
+    },
+    "store_summary": {
+      "store_name": "24*********",
+      "industry": "카페",
+      "commercial_area": "상왕십리역 6번",
+      "quality_score": 0.87
+    },
+    "marketing_summary": {
+      "persona_type": "상왕십리_영_트렌드_탐색가",
+      "risk_level": "낮음",
+      "strategy_count": 0,
+      "campaign_count": 0
+    },
+    "panorama_summary": {
+      "area_characteristics": "이 지역은 주거와 생활 밀착형 상업 시설이 혼재된 조용한 이면 도로 상권입니다. 전반적으로 활발한 상업 활동보다는 지역 주민의 일상생활 편의를 위한 기능에 초점을 맞춘 차분하고 정돈된 분위기를 가지고 있습니다.",
+      "marketplace_type": "근린형 생활상가",
+      "scores": {
+        "commercial_atmosphere": 3,
+        "street_atmosphere": 6,
+        "cleanliness": 7,
+        "maintenance": 6,
+        "walkability": 6,
+        "safety_perception": 6,
+        "business_diversity": 3,
+        "residential_suitability": 8,
+        "commercial_suitability": 3
+      },
+      "strengths": [
+        "안정적인 주거 인구를 기반으로 한 생활 밀착형 서비스 수요가 존재합니다.",
+        "조용하고 정돈된 분위기로, 주민들에게 쾌적한 주거 환경을 제공합니다.",
+        "기존 상점 수가 적어 특정 니치 업종에 대한 경쟁 강도가 낮습니다."
+      ],
+      "weaknesses": [
+        "모든 지점에서 '조용함'이 강조되어 유동 인구가 매우 적고 상권 활력이 낮습니다.",
+        "상업 시설의 밀집도가 낮고 업종 다양성이 부족하여 상업적 매력이 떨어집니다.",
+        "이면 도로에 위치하여 가시성이 낮고, 외부 유입 고객을 기대하기 어렵습니다."
+      ],
+      "recommended_industries": null,
+      "expert_opinion": null
+    },
+    "marketplace_summary": {
+      "marketplace_name": "상왕십리역 3번",
+      "store_count": null,
+      "sales_volume": null
+    },
+    "mobility_summary": {
+      "analysis_period": null,
+      "total_charts": 0
+    },
+    "new_product_summary": {
+      "activated": false,
+      "proposal_count": 0,
+      "target_audience": {},
+      "used_categories": []
+    }
+  },
+  "visualizations": {
+    "store_charts": [
+      {
+        "name": "1710309E11_age_pie_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_age_pie_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_age_pie_20251023_183750.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "1710309E11_customer_trends_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_customer_trends_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_customer_trends_20251023_183750.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "1710309E11_detailed_pie_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_detailed_pie_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_detailed_pie_20251023_183750.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "1710309E11_gender_pie_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_gender_pie_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_gender_pie_20251023_183750.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "1710309E11_new_returning_trends_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_new_returning_trends_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_new_returning_trends_20251023_183750.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "1710309E11_ranking_trend_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_ranking_trend_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_ranking_trend_20251023_183750.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "1710309E11_sales_trend_20251023_183750",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_sales_trend_20251023_183750.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\store_charts\\1710309E11_sales_trend_20251023_183750.png",
+        "type": "store_chart"
+      }
+    ],
+    "mobility_charts": [
+      {
+        "name": "part1_move_types_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part1_move_types_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part1_move_types_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part2_time_pattern_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part2_time_pattern_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part2_time_pattern_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part3_purpose_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part3_purpose_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part3_purpose_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part4_transport_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part4_transport_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part4_transport_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_2_age_purpose_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_2_age_purpose_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_2_age_purpose_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_3_age_time_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_3_age_time_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_3_age_time_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_4_top3_purposes_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_4_top3_purposes_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_4_top3_purposes_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_5_3d_analysis_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_5_3d_analysis_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_5_3d_analysis_20251012_173824.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_age_20251012_173824",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_age_20251012_173824.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\mobility_charts\\part5_age_20251012_173824.png",
+        "type": "mobility_chart"
+      }
+    ],
+    "panorama_images": [
+      {
+        "name": "point_1179_pano_mBO4mUg1bNFA-Nfn5Ujy9A",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_1179_pano_mBO4mUg1bNFA-Nfn5Ujy9A.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_1179_pano_mBO4mUg1bNFA-Nfn5Ujy9A.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_2950_pano_ncrscnAHyNOhX-9SMEz4lg",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_2950_pano_ncrscnAHyNOhX-9SMEz4lg.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_2950_pano_ncrscnAHyNOhX-9SMEz4lg.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6817_pano_Zqfl-Ws2dqtvk8u81R3dGg",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_6817_pano_Zqfl-Ws2dqtvk8u81R3dGg.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_6817_pano_Zqfl-Ws2dqtvk8u81R3dGg.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6818_pano_kDcg6We3_bBJuLVE8jKeDA",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_6818_pano_kDcg6We3_bBJuLVE8jKeDA.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_6818_pano_kDcg6We3_bBJuLVE8jKeDA.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6819_pano_tMoyJ1yMEXIMAxxrQflmcQ",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_6819_pano_tMoyJ1yMEXIMAxxrQflmcQ.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\images\\point_6819_pano_tMoyJ1yMEXIMAxxrQflmcQ.jpg",
+        "type": "panorama_image"
+      }
+    ],
+    "spatial_files": [
+      {
+        "name": "공간 분석 지도",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\spatial_map.html",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\spatial_map.html",
+        "type": "spatial_map"
+      },
+      {
+        "name": "공간 분석 차트",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\spatial_analysis.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\spatial_analysis.png",
+        "type": "spatial_chart"
+      },
+      {
+        "name": "파노라마 분석 지도",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\analysis_map.html",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_1710309E11_20251023_184234\\panorama\\analysis_map.html",
+        "type": "panorama_map"
+      }
+    ]
+  }
+}

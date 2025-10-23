@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "store_code": "278EA7FDDE",
+    "analysis_timestamp": "20251023_191722",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울 성동구 장터5길 4-1.",
+    "coordinates": [
+      37.5486926,
+      127.0213945
+    ],
+    "administrative_dong": "금호2·3가동",
+    "marketplace": {
+      "상권명": "R",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "중화*****",
+    "industry": "중식당",
+    "commercial_area": "금남시장",
+    "quality_score": 0.87
+  },
+  "marketing_summary": {
+    "persona_type": "금남시장_오랜_벗_김선생",
+    "risk_level": "낮음",
+    "strategy_count": 0,
+    "campaign_count": 0
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 고층 아파트 단지에 둘러싸인 조용하고 한적한 주거지역으로, 모든 지점에서 상업 활동이 전무한 상태입니다. 전반적으로 평화롭고 정적인 분위기를 유지하며, 주거 기능에 특화된 공간 특성을 보입니다.",
+    "marketplace_type": "주거지 기반 편의시설 상권",
+    "scores": {
+      "commercial_atmosphere": 0,
+      "street_atmosphere": 5,
+      "cleanliness": 7,
+      "maintenance": 7,
+      "walkability": 6,
+      "safety_perception": 7,
+      "business_diversity": 0,
+      "residential_suitability": 9,
+      "commercial_suitability": 1
+    },
+    "strengths": [
+      "확실한 주거 배후 수요 (고층 아파트 단지 인접)",
+      "조용하고 쾌적한 주거 환경 (주민들의 정주 만족도 높음)",
+      "경쟁이 전무한 초기 시장 (새로운 사업 기회 발굴 가능성)"
+    ],
+    "weaknesses": [
+      "상업 인프라 전무 (상점, 유동 인구, 상권 형성의 기반 부족)",
+      "매우 낮은 유동 인구 (상업 활동을 위한 고객 확보 어려움)",
+      "낮은 가시성과 접근성 (경사로, 골목길, 이면도로 위치로 인한 상업적 불리함)"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  },
+  "new_product_summary": {
+    "activated": false,
+    "proposal_count": 0,
+    "target_audience": {},
+    "used_categories": []
+  }
+}
