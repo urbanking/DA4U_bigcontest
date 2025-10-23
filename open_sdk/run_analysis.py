@@ -49,15 +49,21 @@ except ImportError:
     LANGFUSE_AVAILABLE = False
     langfuse_openai = None
 
-# matplotlib 활성화
+# matplotlib 활성화 및 폰트 경고 완전 억제
+import warnings
+import logging
+
+# matplotlib 관련 모든 경고 억제
+warnings.filterwarnings('ignore')
+logging.getLogger('matplotlib').setLevel(logging.ERROR)
+logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+
 import matplotlib
+matplotlib.use('Agg')  # GUI 백엔드 비활성화
 import matplotlib.pyplot as plt
 import platform
 
-# 한글 폰트 설정 (폰트 경고 억제)
-import warnings
-warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib')
-
+# 한글 폰트 설정
 system = platform.system()
 try:
     if system == "Windows":
@@ -65,29 +71,33 @@ try:
     elif system == "Darwin":
         plt.rcParams['font.family'] = 'AppleGothic'
     else:
-        # Linux (Streamlit Cloud)
+        # Linux (Streamlit Cloud) - 폰트 검색 없이 바로 설정
+        # packages.txt에서 설치된 폰트 직접 사용
         import matplotlib.font_manager as fm
-        font_list = [f.name for f in fm.fontManager.ttflist]
         
-        # Try multiple Korean fonts in order of preference
-        korean_fonts = ['NanumGothic', 'NanumBarunGothic', 'NanumSquare', 'DejaVu Sans']
-        font_found = False
+        # 폰트 캐시 강제 갱신 (한 번만)
+        try:
+            fm._load_fontmanager(try_read_cache=False)
+        except:
+            pass
         
-        for font in korean_fonts:
-            if font in font_list:
-                plt.rcParams['font.family'] = font
-                font_found = True
-                print(f"[OK] Using font: {font}")
-                break
+        # DejaVu Sans를 기본으로 사용 (항상 존재)
+        plt.rcParams['font.family'] = 'DejaVu Sans'
         
-        if not font_found:
-            print("[WARN] No Korean font found, using default (Korean characters may not display)")
-            plt.rcParams['font.family'] = 'DejaVu Sans'
+        # NanumGothic이 있으면 사용 (경고 없이)
+        try:
+            font_list = {f.name for f in fm.fontManager.ttflist}
+            if 'NanumGothic' in font_list:
+                plt.rcParams['font.family'] = 'NanumGothic'
+            elif 'NanumBarunGothic' in font_list:
+                plt.rcParams['font.family'] = 'NanumBarunGothic'
+        except:
+            pass  # 폰트 검색 실패 시 DejaVu Sans 유지
     
     matplotlib.rcParams['axes.unicode_minus'] = False
-except Exception as e:
-    print(f"[WARN] Font setup warning: {e}")
-    # Use default font as fallback
+    
+except Exception:
+    # 모든 에러 무시
     pass
 
 print("[OK] Matplotlib loaded in run_analysis")
