@@ -1914,7 +1914,7 @@ def _display_marketing_strategies_detailed(strategies):
                 if str(agents_path) not in sys.path:
                     sys.path.insert(0, str(agents_path))
                 
-                from marketing_agent.strategy_generator import StrategyGenerator  # type: ignore
+                from agents_new.marketing_agent.strategy_generator import StrategyGenerator
                 
                 sg = StrategyGenerator()
                 expanded = sg.expand_channel_details(channel)
@@ -2037,8 +2037,8 @@ def _display_marketing_details(marketing_data):
                         if str(agents_path) not in sys.path:
                             sys.path.insert(0, str(agents_path))
                         
-                        # Import StrategyGenerator (IDE 경고 무시 - 런타임에 정상 작동)
-                        from marketing_agent.strategy_generator import StrategyGenerator  # type: ignore
+                        # Import StrategyGenerator
+                        from agents_new.marketing_agent.strategy_generator import StrategyGenerator
                         
                         # 채널 상세 정보 확장
                         sg = StrategyGenerator()
