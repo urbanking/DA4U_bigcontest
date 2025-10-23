@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "store_code": "12A28908F1",
+    "analysis_timestamp": "20251024_053952",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 왕십리로 315",
+    "coordinates": [
+      37.561722,
+      127.0342494
+    ],
+    "administrative_dong": "행당1동",
+    "marketplace": {
+      "상권명": "R",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "바나********",
+    "industry": "카페",
+    "commercial_area": "행당시장상점가",
+    "quality_score": 0.87
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 도심 외곽 및 이면도로에 걸쳐 형성된, 기능적인 상업-주거 복합 지역입니다. 전반적으로 '차분함' 또는 '조용함'으로 특징지어지는 분위기 속에서 생활 밀착형 서비스업과 소규모 상점들이 주를 이루고 있습니다. 지역 주민과 인근 오피스 종사자들의 일상적인 필요를 충족시키는 데 중점을 둔 상권입니다.",
+    "marketplace_type": "근린형 생활상가 및 생활 밀착형 서비스 상권",
+    "scores": {
+      "commercial_atmosphere": 6,
+      "street_atmosphere": 6,
+      "cleanliness": 7,
+      "maintenance": 6,
+      "walkability": 6,
+      "safety_perception": 7,
+      "business_diversity": 8,
+      "residential_suitability": 8,
+      "commercial_suitability": 7
+    },
+    "strengths": [
+      "생활 편의 및 필수 서비스 업종의 높은 밀집도로 인한 안정적인 지역 수요 확보",
+      "모든 상점의 높은 영업률(100%)을 통해 확인되는 견고한 상권 유지력 및 수요",
+      "주거, 상업, 오피스가 혼합된 형태로, 주중 및 주말 모두 일정 수준의 유동 인구 기대 가능"
+    ],
+    "weaknesses": [
+      "전반적으로 '차분함' 또는 '조용함'으로 묘사되는 낮은 상업적 활력과 유동 인구 밀도",
+      "이면도로 및 구도심 특성으로 인한 외부 유입 고객 유치 한계 및 낮은 시인성",
+      "일부 지역(지점 3)에서 언급된 재개발 가능성으로 인한 장기적인 불확실성 및 투자 리스크"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "상왕십리역 3번",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

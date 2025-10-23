@@ -52,6 +52,65 @@ class LLMGenerator:
         lines = [f"- [{k}] " + ", ".join(v) for k, v in by_cat.items()]
         return "\n".join(lines) if lines else "- (no insights)"
 
+    def _generate_menu_name(self, keyword: str, category: str) -> str:
+        """
+        키워드와 카테고리를 기반으로 완성된 메뉴명 생성
+        
+        Args:
+            keyword: 식재료 키워드 (예: "무화과", "바나나")
+            category: 카테고리 (예: "농산물", "음료", "과자/베이커리")
+            
+        Returns:
+            완성된 메뉴명 (예: "무화과 스무디", "바나나 쿠키")
+        """
+        # 카테고리별 메뉴명 템플릿
+        menu_templates = {
+            "농산물": {
+                "무화과": ["무화과 스무디", "무화과 타르트", "허니 무화과 라떼", "무화과 파르페"],
+                "바나나": ["바나나 스무디", "바나나 브레드", "바나나 마카롱", "바나나 푸딩"],
+                "딸기": ["딸기 스무디", "딸기 타르트", "딸기 라떼", "딸기 파르페"],
+                "블루베리": ["블루베리 스무디", "블루베리 마핀", "블루베리 라떼", "블루베리 케이크"],
+                "망고": ["망고 스무디", "망고 타르트", "망고 라떼", "망고 파르페"],
+                "아보카도": ["아보카도 스무디", "아보카도 토스트", "아보카도 라떼", "아보카도 브레드"],
+                "사과": ["사과 스무디", "사과 타르트", "사과 라떼", "사과 케이크"],
+                "호두": ["호두 브레드", "호두 쿠키", "호두 라떼", "호두 케이크"],
+                "기본": ["{keyword} 스무디", "{keyword} 쿠키", "{keyword} 타르트", "{keyword} 라떼"]
+            },
+            "음료": {
+                "콜드브루": ["콜드브루", "바닐라 콜드브루", "헤이즐넛 콜드브루", "시나몬 콜드브루"],
+                "라떼": ["바닐라 라떼", "헤이즐넛 라떼", "카라멜 라떼", "시나몬 라떼"],
+                "아메리카노": ["아메리카노", "아이스 아메리카노", "롱 블랙", "에스프레소"],
+                "프라푸치노": ["바닐라 프라푸치노", "모카 프라푸치노", "카라멜 프라푸치노", "헤이즐넛 프라푸치노"],
+                "밀크셰이크": ["바닐라 밀크셰이크", "초콜릿 밀크셰이크", "딸기 밀크셰이크", "바나나 밀크셰이크"],
+                "기본": ["{keyword} 라떼", "{keyword} 스무디", "{keyword} 주스", "{keyword} 티"]
+            },
+            "과자/베이커리": {
+                "크로와상": ["버터 크로와상", "초콜릿 크로와상", "아몬드 크로와상", "바닐라 크로와상"],
+                "마카롱": ["바닐라 마카롱", "초콜릿 마카롱", "딸기 마카롱", "라벤더 마카롱"],
+                "케이크": ["초콜릿 케이크", "딸기 케이크", "티라미수", "치즈케이크"],
+                "수제 빵": ["소프트 빵", "크림 빵", "단팥 빵", "야채 빵"],
+                "도넛": ["글레이즈드 도넛", "초콜릿 도넛", "바닐라 도넛", "딸기 도넛"],
+                "쿠키": ["초콜릿 쿠키", "오트밀 쿠키", "버터 쿠키", "견과류 쿠키"],
+                "기본": ["{keyword} 쿠키", "{keyword} 브레드", "{keyword} 마카롱", "{keyword} 케이크"]
+            }
+        }
+        
+        # 카테고리별 템플릿 선택
+        category_templates = menu_templates.get(category, menu_templates["농산물"])
+        
+        # 키워드별 특정 템플릿이 있으면 사용, 없으면 기본 템플릿 사용
+        if keyword in category_templates:
+            templates = category_templates[keyword]
+        else:
+            templates = category_templates.get("기본", ["{keyword} 스무디", "{keyword} 쿠키"])
+        
+        # 랜덤하게 하나 선택
+        import random
+        template = random.choice(templates)
+        
+        # 템플릿에 키워드 삽입
+        return template.format(keyword=keyword)
+
     def generate(
         self, 
         *, 
@@ -178,7 +237,7 @@ class LLMGenerator:
             },
             "proposals": [
                 {
-                    "menu_name": f"{best['keyword']} 콘셉트",
+                    "menu_name": self._generate_menu_name(best["keyword"], best["category"]),
                     "category": best["category"],
                     "target": {
                         "gender": audience["gender"], 

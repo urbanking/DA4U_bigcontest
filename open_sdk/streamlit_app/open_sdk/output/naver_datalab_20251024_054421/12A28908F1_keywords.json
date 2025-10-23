@@ -1,0 +1,172 @@
+{
+  "store_code": "12A28908F1",
+  "crawled_at": "2025-10-24T05:44:21.584616",
+  "metadata": {
+    "industry": "카페·디저트",
+    "commercial_area": "행당시장상점가",
+    "target_gender": "여성",
+    "target_ages": [
+      "10대",
+      "20대",
+      "30대"
+    ],
+    "categories": [
+      "농산물",
+      "음료",
+      "과자/베이커리"
+    ]
+  },
+  "keywords": [
+    {
+      "category": "농산물",
+      "rank": 1,
+      "keyword": "무화과"
+    },
+    {
+      "category": "농산물",
+      "rank": 2,
+      "keyword": "쌀20kg"
+    },
+    {
+      "category": "농산물",
+      "rank": 3,
+      "keyword": "곶감"
+    },
+    {
+      "category": "농산물",
+      "rank": 4,
+      "keyword": "과일선물세트"
+    },
+    {
+      "category": "농산물",
+      "rank": 5,
+      "keyword": "사과"
+    },
+    {
+      "category": "농산물",
+      "rank": 6,
+      "keyword": "쌀10kg"
+    },
+    {
+      "category": "농산물",
+      "rank": 7,
+      "keyword": "딸기"
+    },
+    {
+      "category": "농산물",
+      "rank": 8,
+      "keyword": "수향미"
+    },
+    {
+      "category": "농산물",
+      "rank": 9,
+      "keyword": "복숭아"
+    },
+    {
+      "category": "농산물",
+      "rank": 10,
+      "keyword": "샤인머스켓"
+    },
+    {
+      "category": "음료",
+      "rank": 1,
+      "keyword": "레몬즙"
+    },
+    {
+      "category": "음료",
+      "rank": 2,
+      "keyword": "두유"
+    },
+    {
+      "category": "음료",
+      "rank": 3,
+      "keyword": "생수"
+    },
+    {
+      "category": "음료",
+      "rank": 4,
+      "keyword": "맥심모카골드"
+    },
+    {
+      "category": "음료",
+      "rank": 5,
+      "keyword": "그릭요거트"
+    },
+    {
+      "category": "음료",
+      "rank": 6,
+      "keyword": "멸균우유"
+    },
+    {
+      "category": "음료",
+      "rank": 7,
+      "keyword": "쌍화차"
+    },
+    {
+      "category": "음료",
+      "rank": 8,
+      "keyword": "커피믹스"
+    },
+    {
+      "category": "음료",
+      "rank": 9,
+      "keyword": "생강청"
+    },
+    {
+      "category": "음료",
+      "rank": 10,
+      "keyword": "탄산수"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 1,
+      "keyword": "두바이쫀득쿠키"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 2,
+      "keyword": "쫀득빵"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 3,
+      "keyword": "화과자"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 4,
+      "keyword": "두바이초콜릿"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 5,
+      "keyword": "마가렛트고구마"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 6,
+      "keyword": "구황작물빵"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 7,
+      "keyword": "도라지정과"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 8,
+      "keyword": "스쿱당"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 9,
+      "keyword": "칸쵸"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 10,
+      "keyword": "약과"
+    }
+  ],
+  "total_count": 30
+}

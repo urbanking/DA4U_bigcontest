@@ -503,19 +503,35 @@ class StrategyGenerator:
         """페르소나 기반 마케팅 전략 생성"""
         strategies = []
         
+        # 연령별 SNS 채널 정보 추출
+        target_age_groups = self._extract_target_age_groups(store_data)
+        age_channel_recommendations = self._get_age_channel_recommendations(target_age_groups)
+        
         # 기본 전략 템플릿에서 선택
         if persona_type in self.strategy_templates:
             for template in self.strategy_templates[persona_type]:
                 # 위험 코드 매칭 확인
                 if any(risk_code in risk_codes for risk_code in template["risk_codes"]):
+                    # 채널 정보 업데이트 (연령별 SNS 채널 반영)
+                    updated_channel = self._update_channel_with_age_insights(
+                        template["channel"], 
+                        age_channel_recommendations
+                    )
+                    
+                    # 전술 업데이트 (연령별 채널 정보 반영)
+                    updated_tactics = self._update_tactics_with_age_channels(
+                        template["tactics"], 
+                        age_channel_recommendations
+                    )
+                    
                     strategy = MarketingStrategy(
                         strategy_id=f"STRAT_{len(strategies) + 1}",
                         name=template["name"],
                         description=template["description"],
                         target_persona=persona_type,
                         risk_codes=template["risk_codes"],
-                        channel=template["channel"],
-                        tactics=template["tactics"],
+                        channel=updated_channel,
+                        tactics=updated_tactics,
                         expected_impact=template["expected_impact"],
                         implementation_time=template["implementation_time"],
                         budget_estimate=template["budget_estimate"],
@@ -523,6 +539,16 @@ class StrategyGenerator:
                         priority=template["priority"]
                     )
                     strategies.append(strategy)
+        
+        # 연령별 SNS 전용 전략 추가
+        if age_channel_recommendations:
+            sns_strategy = self._create_age_based_sns_strategy(
+                persona_type, 
+                risk_codes, 
+                age_channel_recommendations
+            )
+            if sns_strategy:
+                strategies.append(sns_strategy)
         
         # 계절적 요소 적용
         if seasonal_context:
@@ -532,6 +558,149 @@ class StrategyGenerator:
         strategies.sort(key=lambda x: x.priority)
         
         return strategies
+    
+    def _extract_target_age_groups(self, store_data: Dict[str, Any]) -> List[str]:
+        """매장 데이터에서 주요 연령대 추출"""
+        age_groups = []
+        
+        # 고객 분석 데이터에서 연령 분포 확인
+        customer_analysis = store_data.get("customer_analysis", {})
+        age_distribution = customer_analysis.get("age_distribution", {})
+        
+        # 상위 3개 연령대 추출 (20% 이상인 경우)
+        sorted_ages = sorted(
+            age_distribution.items(), 
+            key=lambda x: x[1], 
+            reverse=True
+        )
+        
+        for age_group, percentage in sorted_ages[:3]:
+            if percentage >= 20.0:  # 20% 이상인 연령대만
+                age_groups.append(age_group)
+        
+        return age_groups
+    
+    def _get_age_channel_recommendations(self, age_groups: List[str]) -> Dict[str, Any]:
+        """연령대별 SNS 채널 추천 정보 생성"""
+        recommendations = {}
+        
+        for age_group in age_groups:
+            if age_group in self.age_channel_insights:
+                insights = self.age_channel_insights[age_group]
+                recommendations[age_group] = {
+                    "primary_channel": insights.get("primary_channel"),
+                    "secondary_channel": insights.get("secondary_channel"),
+                    "usage_rate": insights.get("usage_rate", 0),
+                    "avoid_channels": insights.get("avoid_channels", []),
+                    "all_channels": insights.get("all_channels", [])
+                }
+        
+        return recommendations
+    
+    def _update_channel_with_age_insights(self, original_channel: str, age_recommendations: Dict[str, Any]) -> str:
+        """기존 채널 정보를 연령별 인사이트로 업데이트"""
+        if not age_recommendations:
+            return original_channel
+        
+        # 주요 연령대의 1순위 채널 추출
+        primary_channels = []
+        for age_data in age_recommendations.values():
+            if age_data.get("primary_channel"):
+                primary_channels.append(age_data["primary_channel"])
+        
+        if primary_channels:
+            # 중복 제거하고 상위 2개 채널 선택
+            unique_channels = list(dict.fromkeys(primary_channels))[:2]
+            return f"{original_channel} + {' + '.join(unique_channels)}"
+        
+        return original_channel
+    
+    def _update_tactics_with_age_channels(self, original_tactics: List[str], age_recommendations: Dict[str, Any]) -> List[str]:
+        """전술을 연령별 채널 정보로 업데이트"""
+        if not age_recommendations:
+            return original_tactics
+        
+        updated_tactics = []
+        
+        for tactic in original_tactics:
+            # SNS 관련 전술인 경우 연령별 채널 정보 추가
+            if any(keyword in tactic for keyword in ["SNS", "인스타그램", "페이스북", "카카오", "네이버"]):
+                # 주요 연령대의 채널 정보 추가
+                channel_info = self._format_channel_info_for_tactic(age_recommendations)
+                if channel_info:
+                    tactic += f" ({channel_info})"
+            
+            updated_tactics.append(tactic)
+        
+        return updated_tactics
+    
+    def _format_channel_info_for_tactic(self, age_recommendations: Dict[str, Any]) -> str:
+        """전술용 채널 정보 포맷팅"""
+        channel_info_parts = []
+        
+        for age_group, data in age_recommendations.items():
+            primary = data.get("primary_channel")
+            usage_rate = data.get("usage_rate", 0)
+            
+            if primary and usage_rate > 0:
+                channel_info_parts.append(f"{age_group} {primary} {usage_rate:.1f}%")
+        
+        return ", ".join(channel_info_parts) if channel_info_parts else ""
+    
+    def _create_age_based_sns_strategy(
+        self, 
+        persona_type: str, 
+        risk_codes: List[str], 
+        age_recommendations: Dict[str, Any]
+    ) -> Optional[MarketingStrategy]:
+        """연령별 SNS 채널 기반 전략 생성"""
+        if not age_recommendations:
+            return None
+        
+        # 주요 연령대와 채널 정보 추출
+        primary_channels = []
+        channel_details = []
+        
+        for age_group, data in age_recommendations.items():
+            primary = data.get("primary_channel")
+            usage_rate = data.get("usage_rate", 0)
+            
+            if primary and usage_rate > 0:
+                primary_channels.append(primary)
+                channel_details.append(f"{age_group}: {primary} ({usage_rate:.1f}%)")
+        
+        if not primary_channels:
+            return None
+        
+        # 중복 제거
+        unique_channels = list(dict.fromkeys(primary_channels))
+        
+        # 전술 생성
+        tactics = [
+            f"{unique_channels[0]} 콘텐츠 제작 및 업로드",
+            f"고객 후기 리그램 및 해시태그 캠페인",
+            f"매장 포토존 인테리어 강화"
+        ]
+        
+        if len(unique_channels) > 1:
+            tactics.append(f"{unique_channels[1]} 크로스 프로모션")
+        
+        tactics.append(f"연령별 채널 분석: {', '.join(channel_details)}")
+        
+        return MarketingStrategy(
+            strategy_id=f"STRAT_SNS_{len(age_recommendations)}",
+            name="연령별 SNS 타겟팅 전략",
+            description=f"주요 연령대({', '.join(age_recommendations.keys())})의 선호 채널을 활용한 SNS 마케팅 전략",
+            target_persona=persona_type,
+            risk_codes=risk_codes,
+            channel=f"{' + '.join(unique_channels)}",
+            tactics=tactics,
+            expected_impact="SNS 팔로워 및 참여도 20-30% 증가",
+            implementation_time="2-3주",
+            budget_estimate="월 30-50만원",
+            success_metrics=["SNS 팔로워 수", "게시물 참여도", "매장 방문 전환율"],
+            priority=2
+        )
     
     def _apply_seasonal_factors(self, strategies: List[MarketingStrategy], season: str) -> List[MarketingStrategy]:
         """계절적 요소 적용"""

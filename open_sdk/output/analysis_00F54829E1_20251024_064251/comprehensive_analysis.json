@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "store_code": "00F54829E1",
+    "analysis_timestamp": "20251024_064251",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 왕십리로 410",
+    "coordinates": [
+      37.56610999999999,
+      127.0276467
+    ],
+    "administrative_dong": "왕십리도선동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 138.26342987693187
+    }
+  },
+  "store_summary": {
+    "store_name": "카페***",
+    "industry": "카페",
+    "commercial_area": "중심상권 아님",
+    "quality_score": 0.87
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 도심의 간선도로변에 위치한 주거 및 업무 복합 지역으로, 주상복합, 오피스텔, 업무용 빌딩이 혼재되어 있습니다. 전반적으로 상업적 활력이 낮고 '차분함' 또는 '조용함'으로 묘사되는 분위기가 특징이며, 주로 거주민과 직장인을 대상으로 하는 생활 밀착형 서비스 업종이 주를 이룹니다.",
+    "marketplace_type": "근린형 생활상가 및 주거/업무 지원형 상권",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 5,
+      "cleanliness": 6,
+      "maintenance": 6,
+      "walkability": 5,
+      "safety_perception": 7,
+      "business_diversity": 3,
+      "residential_suitability": 7,
+      "commercial_suitability": 4
+    },
+    "strengths": [
+      "주거 및 업무 시설이 혼재되어 있어, 상주 인구 기반의 안정적인 배후 수요가 존재합니다.",
+      "간선도로변에 위치하여 차량 접근성이 좋고, 간판 노출을 통한 가시성 확보에 유리합니다.",
+      "기존 상점 수가 적고 업종이 불분명하여, 특정 니치 업종 진입 시 경쟁이 낮은 편입니다."
+    ],
+    "weaknesses": [
+      "전반적으로 '차분함', '조용함'으로 묘사되어 상업적 활력이 낮고, 목적성 없는 유동 인구가 적을 것으로 예상됩니다.",
+      "기존 상점들의 업종이 불분명하거나 생활 밀착형 서비스에 집중되어 있어, 상권의 매력도와 업종 다양성이 떨어집니다.",
+      "특정 테마나 활성화된 상업 지구가 아니므로, 고객 유인을 위한 명확한 상권 정체성이 부족합니다."
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "상왕십리역 3번",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

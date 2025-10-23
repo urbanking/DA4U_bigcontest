@@ -1,0 +1,244 @@
+{
+  "report_metadata": {
+    "store_code": "13D9737A1D",
+    "analysis_date": "2025-10-24 05:42:36",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "13D9737A1D",
+    "name": "공차******",
+    "address": "서울 성동구 왕십리광장로 17.",
+    "industry": "카페",
+    "brand": "차",
+    "commercial_area": "왕십리역(왕십리)",
+    "record_months": 24,
+    "operating_months": 36.7,
+    "store_age": "성숙 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "상승 추세",
+        "average": 269.2
+      },
+      "same_industry_sales_count": {
+        "trend": "상승 추세",
+        "average": 383.8
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 안정",
+        "average": 2.5
+      },
+      "commercial_rank": {
+        "trend": "순위 하락 (악화)",
+        "average": 13.1
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 3.7,
+      "grade_distribution": {
+        "4.0": 9,
+        "5.0": 6,
+        "2.0": 5,
+        "3.0": 4
+      },
+      "recommendation": "취소율이 높습니다. 주문 확인 프로세스 개선, 배달 시간 단축, 고객 서비스 강화를 권장합니다."
+    },
+    "delivery_analysis": {
+      "trend": "상승 추세",
+      "average": 14.8
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 31.0,
+      "female_ratio": 69.0
+    },
+    "age_group_distribution": {
+      "20대 이하": 40.4,
+      "30대": 26.7,
+      "40대": 17.1,
+      "50대": 12.5,
+      "60대 이상": 3.3
+    },
+    "detailed_customer_ratios": {
+      "여20대이하": 27.9,
+      "여30대": 18.4,
+      "남20대이하": 12.5,
+      "여40대": 11.8,
+      "여50대": 8.6,
+      "남30대": 8.3,
+      "남40대": 5.3,
+      "남50대": 3.9,
+      "여60대이상": 2.3,
+      "남60대이상": 1.0
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 6.1,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 22.8,
+        "trend": "안정 추세"
+      },
+      "customer_distribution": {
+        "residential": 49.4,
+        "workplace": 4.1,
+        "floating": 46.5
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "왕십리역(왕십리)",
+    "analysis_available": true,
+    "total_stores_in_area": 145,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "상승 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 9.89,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 18.8,
+      "남30대": 12.3,
+      "남40대": 8.1,
+      "남50대": 8.8,
+      "남60대이상": 5.4,
+      "여20대이하": 17.7,
+      "여30대": 10.9,
+      "여40대": 6.7,
+      "여50대": 7.0,
+      "여60대이상": 4.2
+    }
+  },
+  "industry_analysis": {
+    "industry": "카페",
+    "analysis_available": true,
+    "total_stores_in_industry": 550,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 15.17,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 13.17,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 12.8,
+      "남30대": 13.6,
+      "남40대": 7.6,
+      "남50대": 6.3,
+      "남60대이상": 3.2,
+      "여20대이하": 18.7,
+      "여30대": 17.4,
+      "여40대": 9.3,
+      "여50대": 7.3,
+      "여60대이상": 3.8
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 안정 추세",
+      "업종 내 순위: 순위 안정",
+      "주 고객층: 여성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [
+      "높은 취소율"
+    ],
+    "recommendations": [
+      {
+        "category": "운영 개선",
+        "priority": "높음",
+        "target": "전체 고객",
+        "action": "취소율 감소 프로그램",
+        "specific_actions": [
+          "주문 확인 시스템 개선 (2단계 확인)",
+          "예상 대기시간 정확한 안내",
+          "취소 시 포인트 적립 혜택 제공",
+          "배달 시간 단축 (30분 이내 목표)"
+        ],
+        "expected_impact": "취소율 3.7 → 2.0 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 13.2% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_sales_trend_20251024_054236.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_gender_pie_20251024_054236.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_age_pie_20251024_054236.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_detailed_pie_20251024_054236.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_ranking_trend_20251024_054236.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_customer_trends_20251024_054236.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\13D9737A1D_new_returning_trends_20251024_054236.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

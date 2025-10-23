@@ -326,22 +326,54 @@ class marketingagent:
             }
     
     def _extract_metrics_data(self, store_report: Dict[str, Any], diagnostic: Dict[str, Any]) -> Dict[str, Any]:
-        """매장 리포트와 진단 데이터에서 지표 추출"""
+        """매장 리포트와 진단 데이터에서 지표 추출 - 실제 Store Agent 데이터 구조 기반"""
         metrics_data = {}
         
-        # 매장 리포트에서 지표 추출
-        if "metrics" in store_report:
-            metrics = store_report["metrics"]
-            metrics_data.update({
-                "revisit_rate": metrics.get("revisit_rate", 0),
-                "delivery_ratio": metrics.get("delivery_ratio", 0),
-                "new_customer_trend": metrics.get("new_customer_trend", 0),
-                "cancellation_rate": metrics.get("cancellation_rate", 0),
-                "market_fit_score": metrics.get("market_fit_score", 0),
-                "business_churn_risk": metrics.get("business_churn_risk", 0)
-            })
+        # Store Agent 데이터 구조에서 실제 지표 추출
+        customer_analysis = store_report.get("customer_analysis", {})
+        sales_analysis = store_report.get("sales_analysis", {})
+        industry_analysis = store_report.get("industry_analysis", {})
         
-        # 진단 데이터에서 지표 추출
+        # 1. 재방문율 (실제 데이터)
+        customer_type_analysis = customer_analysis.get("customer_type_analysis", {})
+        returning_customers = customer_type_analysis.get("returning_customers", {})
+        revisit_rate = returning_customers.get("ratio", 0)
+        
+        # 2. 신규 고객 비율 (실제 데이터)
+        new_customers = customer_type_analysis.get("new_customers", {})
+        new_customer_ratio = new_customers.get("ratio", 0)
+        new_customer_trend = new_customers.get("trend", "안정 추세")
+        
+        # 3. 배달 비율 (업종 평균)
+        delivery_analysis = industry_analysis.get("delivery_analysis", {})
+        delivery_ratio = delivery_analysis.get("average_delivery_ratio", 0)
+        
+        # 4. 취소율 (업종 평균 - 실제 매장 취소율은 별도 계산 필요)
+        cancellation_rate = 0  # 실제 취소율 데이터가 없으므로 0으로 설정
+        
+        # 5. 매출 트렌드 분석
+        sales_trends = sales_analysis.get("trends", {})
+        sales_amount_trend = sales_trends.get("sales_amount", {}).get("trend", "안정 추세")
+        sales_count_trend = sales_trends.get("sales_count", {}).get("trend", "안정 추세")
+        
+        # 6. 고객 성장률 (고유 고객 트렌드)
+        unique_customers_trend = sales_trends.get("unique_customers", {}).get("trend", "안정 추세")
+        
+        # 실제 데이터로 업데이트
+        metrics_data.update({
+            "revisit_rate": revisit_rate,
+            "delivery_ratio": delivery_ratio,
+            "new_customer_ratio": new_customer_ratio,
+            "new_customer_trend": new_customer_trend,
+            "cancellation_rate": cancellation_rate,
+            "sales_amount_trend": sales_amount_trend,
+            "sales_count_trend": sales_count_trend,
+            "unique_customers_trend": unique_customers_trend,
+            "market_fit_score": 0,  # 계산 필요
+            "business_churn_risk": 0  # 계산 필요
+        })
+        
+        # 진단 데이터에서 지표 추출 (기존 로직 유지)
         if "diagnostic_results" in diagnostic:
             diag_results = diagnostic["diagnostic_results"]
             metrics_data.update({
@@ -351,167 +383,141 @@ class marketingagent:
                 "core_age_gap": diag_results.get("core_age_gap", 0)
             })
         
-        # market_fit_score와 business_churn_risk가 없는 경우 계산
-        if metrics_data.get("market_fit_score", 0) == 0:
-            metrics_data["market_fit_score"] = self._calculate_market_fit_score(store_report, diagnostic)
-        
-        if metrics_data.get("business_churn_risk", 0) == 0:
-            metrics_data["business_churn_risk"] = self._calculate_business_churn_risk(store_report, diagnostic)
+        # market_fit_score와 business_churn_risk 계산
+        metrics_data["market_fit_score"] = self._calculate_market_fit_score(store_report, diagnostic)
+        metrics_data["business_churn_risk"] = self._calculate_business_churn_risk(store_report, diagnostic)
         
         return metrics_data
     
     def _calculate_market_fit_score(self, store_report: Dict[str, Any], diagnostic: Dict[str, Any]) -> float:
-        """시장 적합도 점수 계산 - 실제 매장 데이터 기반"""
+        """시장 적합도 점수 계산 - 실제 Store Agent 데이터 구조 기반"""
         try:
-            # 매장 리포트에서 실제 데이터 추출
-            if "store_overview" in store_report:
-                store_data = store_report["store_overview"]
-                
-                # 재방문 고객 비율 (실제 데이터)
-                revisit_customers = store_data.get("재방문고객", 0)
-                
-                # 신규 고객 비율 (실제 데이터)
-                new_customers = store_data.get("신규고객", 0)
-                
-                # 취소율 (실제 데이터)
-                cancellation_rate = store_data.get("취소율", 0)
-                
-                # 매출 성장률 계산 (최근 3개월 평균)
-                sales_data = store_report.get("sales_analysis", {})
-                monthly_sales = sales_data.get("monthly_sales", [])
-                
-                # 고객 분석 데이터
-                customer_data = store_report.get("customer_analysis", {})
-                customer_growth = customer_data.get("customer_growth_rate", 0)
-                
-                # 시장 적합도 점수 계산 (가중치 적용)
-                score = 0.0
-                
-                # 1. 재방문 고객 비율 (30% 가중치)
-                if revisit_customers > 70:
-                    score += 30
-                elif revisit_customers > 50:
-                    score += 20
-                elif revisit_customers > 30:
-                    score += 10
-                
-                # 2. 취소율 (20% 가중치) - 낮을수록 좋음
-                if cancellation_rate < 5:
-                    score += 20
-                elif cancellation_rate < 10:
-                    score += 15
-                elif cancellation_rate < 15:
-                    score += 10
-                elif cancellation_rate < 20:
-                    score += 5
-                
-                # 3. 고객 성장률 (25% 가중치)
-                if customer_growth > 10:
-                    score += 25
-                elif customer_growth > 5:
-                    score += 20
-                elif customer_growth > 0:
-                    score += 15
-                elif customer_growth > -5:
-                    score += 10
-                elif customer_growth > -10:
-                    score += 5
-                
-                # 4. 매출 안정성 (25% 가중치)
-                if monthly_sales:
-                    recent_sales = monthly_sales[-3:] if len(monthly_sales) >= 3 else monthly_sales
-                    if recent_sales:
-                        avg_sales = sum(recent_sales) / len(recent_sales)
-                        sales_variance = sum((x - avg_sales) ** 2 for x in recent_sales) / len(recent_sales)
-                        sales_stability = max(0, 25 - (sales_variance / avg_sales) * 10) if avg_sales > 0 else 0
-                        score += sales_stability
-                
-                return min(100, max(0, score))
+            # 실제 Store Agent 데이터 구조에서 추출
+            customer_analysis = store_report.get("customer_analysis", {})
+            sales_analysis = store_report.get("sales_analysis", {})
             
-            # 기본값 반환 (데이터가 없는 경우)
-            return 50.0
+            # 재방문 고객 비율 (실제 데이터)
+            customer_type_analysis = customer_analysis.get("customer_type_analysis", {})
+            returning_customers = customer_type_analysis.get("returning_customers", {})
+            revisit_rate = returning_customers.get("ratio", 0)
+            
+            # 신규 고객 비율 (실제 데이터)
+            new_customers = customer_type_analysis.get("new_customers", {})
+            new_customer_ratio = new_customers.get("ratio", 0)
+            
+            # 매출 트렌드 분석
+            sales_trends = sales_analysis.get("trends", {})
+            sales_amount_trend = sales_trends.get("sales_amount", {}).get("trend", "안정 추세")
+            sales_count_trend = sales_trends.get("sales_count", {}).get("trend", "안정 추세")
+            unique_customers_trend = sales_trends.get("unique_customers", {}).get("trend", "안정 추세")
+            
+            # 시장 적합도 점수 계산 (가중치 적용)
+            score = 0.0
+            
+            # 1. 재방문 고객 비율 (40% 가중치) - 실제 데이터 기반
+            if revisit_rate > 50:
+                score += 40
+            elif revisit_rate > 30:
+                score += 30
+            elif revisit_rate > 20:
+                score += 20
+            elif revisit_rate > 10:
+                score += 10
+            else:
+                score += 0  # 재방문율이 매우 낮음
+            
+            # 2. 신규 고객 비율 (20% 가중치) - 적절한 수준이 좋음
+            if 10 <= new_customer_ratio <= 30:
+                score += 20
+            elif 5 <= new_customer_ratio <= 40:
+                score += 15
+            elif new_customer_ratio > 40:
+                score += 10  # 너무 높으면 불안정
+            else:
+                score += 5   # 너무 낮으면 성장성 부족
+            
+            # 3. 매출 트렌드 (20% 가중치)
+            if sales_amount_trend == "상승 추세":
+                score += 20
+            elif sales_amount_trend == "안정 추세":
+                score += 15
+            elif sales_amount_trend == "하락 추세":
+                score += 5
+            
+            # 4. 고객 트렌드 (20% 가중치)
+            if unique_customers_trend == "상승 추세":
+                score += 20
+            elif unique_customers_trend == "안정 추세":
+                score += 15
+            elif unique_customers_trend == "하락 추세":
+                score += 5
+            
+            return min(100, max(0, score))
             
         except Exception as e:
-            logging.warning(f"시장 적합도 점수 계산 중 오류: {e}")
+            print(f"[WARNING] Market fit score calculation failed: {e}")
+            # 기본값 반환 (데이터가 없는 경우)
             return 50.0
     
     def _calculate_business_churn_risk(self, store_report: Dict[str, Any], diagnostic: Dict[str, Any]) -> float:
-        """상권 해지 위험도 계산 - 실제 매장 데이터 기반"""
+        """상권 해지 위험도 계산 - 실제 Store Agent 데이터 구조 기반"""
         try:
-            # 매장 리포트에서 실제 데이터 추출
-            if "store_overview" in store_report:
-                store_data = store_report["store_overview"]
-                
-                # 해지 위험도 점수 (0-100, 높을수록 위험)
-                risk_score = 0.0
-                
-                # 1. 동종업계 해지 가맹점 비율 (25% 가중치)
-                same_industry_churn = store_data.get("동종해지가맹점", 0)
-                if same_industry_churn > 20:
-                    risk_score += 25
-                elif same_industry_churn > 15:
-                    risk_score += 20
-                elif same_industry_churn > 10:
-                    risk_score += 15
-                elif same_industry_churn > 5:
-                    risk_score += 10
-                
-                # 2. 동일상권 해지 가맹점 비중 (20% 가중치)
-                same_area_churn = store_data.get("동일상권해지가맹점비중", 0)
-                if same_area_churn > 15:
-                    risk_score += 20
-                elif same_area_churn > 10:
-                    risk_score += 15
-                elif same_area_churn > 5:
-                    risk_score += 10
-                
-                # 3. 매출 순위 하락 (20% 가중치)
-                sales_rank = store_data.get("동종매출순위%", 0)
-                if sales_rank > 80:  # 하위 20%
-                    risk_score += 20
-                elif sales_rank > 70:  # 하위 30%
-                    risk_score += 15
-                elif sales_rank > 60:  # 하위 40%
-                    risk_score += 10
-                elif sales_rank > 50:  # safety zone
-                    risk_score += 5
-                
-                # 4. 상권 내 매출 순위 (15% 가중치)
-                area_sales_rank = store_data.get("동일상권매출순위%", 0)
-                if area_sales_rank > 80:
-                    risk_score += 15
-                elif area_sales_rank > 70:
-                    risk_score += 12
-                elif area_sales_rank > 60:
-                    risk_score += 8
-                elif area_sales_rank > 50:
-                    risk_score += 5
-                
-                # 5. 운영 개월수 (10% 가중치) - 신규일수록 위험
-                operation_months = store_data.get("운영개월수", 0)
-                if operation_months < 6:  # 6개월 미만
-                    risk_score += 10
-                elif operation_months < 12:  # 1년 미만
-                    risk_score += 8
-                elif operation_months < 24:  # 2년 미만
-                    risk_score += 5
-                
-                # 6. 취소율 (10% 가중치)
-                cancellation_rate = store_data.get("취소율", 0)
-                if cancellation_rate > 20:
-                    risk_score += 10
-                elif cancellation_rate > 15:
-                    risk_score += 8
-                elif cancellation_rate > 10:
-                    risk_score += 5
-                
-                return min(100, max(0, risk_score))
+            # 실제 Store Agent 데이터 구조에서 추출
+            commercial_area_analysis = store_report.get("commercial_area_analysis", {})
+            industry_analysis = store_report.get("industry_analysis", {})
+            sales_analysis = store_report.get("sales_analysis", {})
             
-            # 기본값 반환 (데이터가 없는 경우)
-            return 30.0
+            # 해지 위험도 점수 (0-100, 높을수록 위험)
+            risk_score = 0.0
+            
+            # 1. 상권 해지율 (30% 가중치)
+            termination_analysis = commercial_area_analysis.get("termination_analysis", {})
+            termination_ratio = termination_analysis.get("termination_ratio", 0)
+            if termination_ratio > 15:
+                risk_score += 30
+            elif termination_ratio > 10:
+                risk_score += 25
+            elif termination_ratio > 5:
+                risk_score += 15
+            elif termination_ratio > 3:
+                risk_score += 10
+            
+            # 2. 업종 해지율 (25% 가중치)
+            industry_termination = industry_analysis.get("termination_analysis", {})
+            industry_termination_ratio = industry_termination.get("termination_ratio", 0)
+            if industry_termination_ratio > 20:
+                risk_score += 25
+            elif industry_termination_ratio > 15:
+                risk_score += 20
+            elif industry_termination_ratio > 10:
+                risk_score += 15
+            elif industry_termination_ratio > 5:
+                risk_score += 10
+            
+            # 3. 매출 트렌드 (25% 가중치)
+            sales_trends = sales_analysis.get("trends", {})
+            sales_amount_trend = sales_trends.get("sales_amount", {}).get("trend", "안정 추세")
+            if sales_amount_trend == "하락 추세":
+                risk_score += 25
+            elif sales_amount_trend == "안정 추세":
+                risk_score += 10
+            elif sales_amount_trend == "상승 추세":
+                risk_score += 0
+            
+            # 4. 고객 트렌드 (20% 가중치)
+            unique_customers_trend = sales_trends.get("unique_customers", {}).get("trend", "안정 추세")
+            if unique_customers_trend == "하락 추세":
+                risk_score += 20
+            elif unique_customers_trend == "안정 추세":
+                risk_score += 8
+            elif unique_customers_trend == "상승 추세":
+                risk_score += 0
+            
+            return min(100, max(0, risk_score))
             
         except Exception as e:
-            logging.warning(f"상권 해지 위험도 계산 중 오류: {e}")
+            print(f"[WARNING] Business churn risk calculation failed: {e}")
+            # 기본값 반환 (데이터가 없는 경우)
             return 30.0
     
     def _get_seasonal_context(self) -> str:
@@ -642,7 +648,7 @@ class marketingagent:
                 "chart_description": "신규 고객 유입률이 급격히 감소하고 있습니다"
             },
             "R2": {
-                "meaning": "낮은 재방문율",
+                "meaning": "업종평균 대비 낮은 재방문율",
                 "chart_type": "revisit_comparison",
                 "chart_title": "재방문율 비교 (업종 평균 vs 가게)",
                 "chart_description": "업종 평균 대비 재방문율이 낮습니다"

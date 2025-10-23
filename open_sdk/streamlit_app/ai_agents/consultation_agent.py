@@ -16,6 +16,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnableWithMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory, InMemoryChatMessageHistory
 
+
 # Langfuse tracing 추가 (올바른 방식)
 try:
     from langfuse import observe
@@ -43,6 +44,277 @@ if sys.platform == "win32":
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("[ERROR] GEMINI_API_KEY not found in environment")
+
+
+def load_agent_results(store_code: str) -> dict:
+    """
+    에이전트 결과 JSON 파일들을 로드하여 파싱
+    
+    Args:
+        store_code: 매장 코드
+        
+    Returns:
+        dict: 파싱된 에이전트 결과들
+    """
+    results = {
+        "marketing_result": None,
+        "new_product_result": None
+    }
+    
+    try:
+        from pathlib import Path
+        
+        # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
+        output_dir = Path(__file__).parent.parent.parent / "output"
+        store_folders = sorted(
+            [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
+            key=lambda x: x.name,
+            reverse=True
+        )
+        
+        if store_folders:
+            latest_folder = store_folders[0]
+            
+            # Marketing Agent 결과 로드
+            marketing_file = latest_folder / "marketing_result.json"
+            if marketing_file.exists():
+                with open(marketing_file, 'r', encoding='utf-8') as f:
+                    results["marketing_result"] = json.load(f)
+                print(f"[DEBUG] Marketing result loaded: {marketing_file.name}")
+            
+            # New Product Agent 결과 로드
+            new_product_file = latest_folder / "new_product_result.json"
+            if new_product_file.exists():
+                with open(new_product_file, 'r', encoding='utf-8') as f:
+                    results["new_product_result"] = json.load(f)
+                print(f"[DEBUG] New Product result loaded: {new_product_file.name}")
+                
+    except Exception as e:
+        print(f"[WARN] Failed to load agent results: {e}")
+    
+    return results
+
+def load_sns_segment_data() -> dict:
+    """
+    segment_sns.json 데이터를 로드하여 연령대별 SNS 채널 정보 반환
+    
+    Returns:
+        dict: 연령대별 SNS 채널 데이터
+    """
+    try:
+        from pathlib import Path
+        
+        # segment_sns.json 파일 경로
+        sns_file = Path(__file__).parent.parent.parent / "data" / "segment_sns.json"
+        
+        if sns_file.exists():
+            with open(sns_file, 'r', encoding='utf-8') as f:
+                sns_data = json.load(f)
+            print(f"[DEBUG] SNS segment data loaded: {sns_file.name}")
+            return sns_data
+        else:
+            print(f"[WARN] SNS segment file not found: {sns_file}")
+            return {}
+            
+    except Exception as e:
+        print(f"[WARN] Failed to load SNS segment data: {e}")
+        return {}
+
+def get_age_based_sns_recommendations(age_groups: list, sns_data: dict) -> str:
+    """
+    연령대별 SNS 채널 추천 정보 생성
+    
+    Args:
+        age_groups: 타겟 연령대 리스트 (예: ["20대", "30대"])
+        sns_data: segment_sns.json 데이터
+        
+    Returns:
+        str: 연령대별 SNS 채널 추천 정보
+    """
+    if not sns_data or "age_top5_channels" not in sns_data:
+        return "SNS 채널 데이터 없음"
+    
+    recommendations = []
+    age_channels = sns_data["age_top5_channels"]
+    
+    for age_group in age_groups:
+        age_key = f"연령-{age_group}"
+        if age_key in age_channels:
+            channels = age_channels[age_key]
+            age_info = f"**{age_group}**: "
+            top_channels = []
+            
+            for channel in channels[:3]:  # 상위 3개만
+                channel_name = channel["channel"]
+                usage_percent = channel["usage_percent"]
+                trend = channel["trend_label"]
+                top_channels.append(f"{channel_name}({usage_percent}%, {trend})")
+            
+            age_info += " / ".join(top_channels)
+            recommendations.append(age_info)
+    
+    if recommendations:
+        return "\n".join(recommendations)
+    else:
+        return "해당 연령대 SNS 데이터 없음"
+
+
+def analyze_flyer_marketing_potential(store_data: dict, panorama_data: dict) -> dict:
+    """
+    파노라마 데이터와 매장 데이터를 분석하여 전단지 마케팅 적합성 판단
+    
+    Args:
+        store_data: 매장 분석 데이터
+        panorama_data: 파노라마 분석 데이터
+        
+    Returns:
+        dict: 전단지 마케팅 추천 결과
+    """
+    # 매장 페르소나 분석
+    customer_analysis = store_data.get("customer_analysis", {})
+    age_distribution = customer_analysis.get("age_group_distribution", {})
+    
+    # 고령층 비율 계산 (50대 이상)
+    senior_ratio = (
+        age_distribution.get("50대", 0) + 
+        age_distribution.get("60대 이상", 0)
+    )
+    
+    # 신규 고객 비율
+    customer_type_analysis = customer_analysis.get("customer_type_analysis", {})
+    new_customer_ratio = customer_type_analysis.get("new_customers", {}).get("ratio", 0)
+    
+    # 상권 분석
+    commercial_area_analysis = store_data.get("commercial_area_analysis", {})
+    commercial_area = commercial_area_analysis.get("commercial_area", "")
+    
+    # 페르소나 판정
+    is_senior_heavy = senior_ratio >= 30  # 50대 이상 30% 이상
+    is_low_new_customer = new_customer_ratio <= 15  # 신규 고객 15% 이하
+    is_residential = "아파트" in commercial_area or "주거" in commercial_area or "단지" in commercial_area
+    
+    # 파노라마 데이터에서 상권 특성 추출
+    panorama_summary = panorama_data.get("synthesis", {})
+    area_character = panorama_summary.get("area_summary", {}).get("overall_character", "")
+    dominant_zone = panorama_summary.get("area_summary", {}).get("dominant_zone_type", "")
+    
+    # 전단지 마케팅 적합성 판단
+    needs_flyer_marketing = is_senior_heavy and is_low_new_customer and is_residential
+    
+    if not needs_flyer_marketing:
+        return {
+            "recommended": False,
+            "reason": "온라인 마케팅이 더 효과적입니다. 젊은 고객층이 많아 SNS 마케팅을 추천합니다.",
+            "alternative": "인스타그램, 페이스북 등 SNS 마케팅 전략을 추천합니다.",
+            "persona_analysis": {
+                "senior_ratio": senior_ratio,
+                "new_customer_ratio": new_customer_ratio,
+                "commercial_area": commercial_area,
+                "is_senior_heavy": is_senior_heavy,
+                "is_low_new_customer": is_low_new_customer,
+                "is_residential": is_residential
+            }
+        }
+    
+    # 전단지 마케팅 추천 위치들 (파노라마 분석 기반)
+    recommended_locations = []
+    
+    # 파노라마 분석에서 추출한 상권 특성에 따른 위치 추천
+    if "주거" in area_character or "아파트" in area_character:
+        recommended_locations.extend([
+            {
+                "location": "아파트 정문 북측 보도",
+                "position": "경비실 유리면에서 오른쪽 2m, 벽면쪽 0.6m",
+                "time_slot": "16-19시",
+                "reason": "앉아 쉬는 보호자·어르신 대기 많음(체류성↑) + 밝고 반사 적어 대화/읽기 쉬움",
+                "cautions": "문 전면 금지, 유모차 동선 주의"
+            },
+            {
+                "location": "동네 병원 앞 차양 아래",
+                "position": "차양 기둥과 1m 이격, 벽면쪽 0.5m",
+                "time_slot": "09-11시",
+                "reason": "병원·약국 대기 의자(정지 시간) → 설명 들을 여유 있음",
+                "cautions": "진입동선/휠체어 방해 금지"
+            }
+        ])
+    
+    if "공원" in area_character or "산책" in area_character:
+        recommended_locations.append({
+            "location": "공원 입구 그늘 면",
+            "position": "입구에서 2m 이격, 나무 그늘 아래 1m",
+            "time_slot": "16-19시",
+            "reason": "산책 귀가 동선 + 그늘에서 편안한 대화 가능",
+            "cautions": "산책로 차단 금지, 운동하는 사람들 주의"
+        })
+    
+    # 기본 추천 위치 (상권 특성과 관계없이)
+    if not recommended_locations:
+        recommended_locations = [
+            {
+                "location": "버스쉘터 측면 벤치 끝단",
+                "position": "벤치 끝단 옆 0.5m, 깔때기 동선 측면",
+                "time_slot": "16-19시",
+                "reason": "버스 대기 시간(4초 이상) → 높은 주목도 + 메시지 이해 시간 확보",
+                "cautions": "탑승문 전면 금지, 대기줄 방해 주의"
+            },
+            {
+                "location": "동네 마트 계산대 보이는 출입부",
+                "position": "출입구에서 1.5m 이격, 유리면 옆 0.8m",
+                "time_slot": "09-11시",
+                "reason": "쇼핑 후 휴식 시간 + 계산대 대기 중 자연스러운 접촉",
+                "cautions": "출입구 차단 금지, 장바구니 동선 주의"
+            }
+        ]
+    
+    # 업종별 스크립트
+    store_overview = store_data.get("store_overview", {})
+    industry = store_overview.get("industry", "기본")
+    
+    scripts = {
+        "카페": [
+            "동네 카페 새로 오픈했어요. 어르신 세트 할인권 드릴게요. 여기 QR로 안내됩니다.",
+            "맛있는 커피와 디저트로 모시겠습니다. 어르신들께 특별 할인 쿠폰 드려요.",
+            "편안한 분위기에서 차 한 잔 어떠세요? 신규 오픈 기념 쿠폰 드립니다."
+        ],
+        "식료품": [
+            "신선한 재료로 만든 건강한 음식입니다. 어르신들께 특별 할인 드려요.",
+            "동네 식료품점에서 신선한 채소와 과일을 만나보세요. 할인 쿠폰 드립니다."
+        ]
+    }
+    
+    industry_scripts = scripts.get(industry, scripts["카페"])
+    
+    # 스크립트를 각 위치에 추가
+    import random
+    for location in recommended_locations:
+        location["script"] = random.choice(industry_scripts)
+    
+    return {
+        "recommended": True,
+        "persona_analysis": {
+            "senior_ratio": senior_ratio,
+            "new_customer_ratio": new_customer_ratio,
+            "commercial_area": commercial_area,
+            "is_senior_heavy": is_senior_heavy,
+            "is_low_new_customer": is_low_new_customer,
+            "is_residential": is_residential
+        },
+        "panorama_insights": {
+            "area_character": area_character,
+            "dominant_zone": dominant_zone
+        },
+        "why_flyer_effective": f"고령층 비율 {senior_ratio:.1f}% + 신규 고객 비율 {new_customer_ratio:.1f}% + 주거형 상권으로 오프라인 접촉이 효과적",
+        "recommended_locations": recommended_locations[:3],  # 상위 3개만
+        "general_guidelines": [
+            "체류성 40점: 벤치/그늘(+10), 대기 흔적(+10), 유효폭≥2.5m(+8), 소음 낮음(+12)",
+            "가독성 30점: 적정 조도(+12), 글레어 낮음(+6), 시야 차단물 없음(+12)",
+            "안전 20점: 출입구·계단·차량동선과 이격(+12), 충돌 위험 없음(+8)",
+            "고령친화 10점: 의자·난간·평탄 포장 확인(+10)",
+            "70점↑ 우선 추천 / 60-69 조건부(시간대 제한) / 59↓ 제외",
+            "오전 9-11시: 병원/약국, 시장 입구, 경로당 주변",
+            "오후 4-7시: 아파트 정문, 공원 입구, 학원가 보호자 대기 구역"
+        ]
+    }
 
 
 def load_merged_analysis(analysis_dir: str) -> tuple:
@@ -93,12 +365,12 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
     try:
         print(f"[DEBUG] Creating consultation chain for store {store_code}")
         
-        # Gemini 모델 초기화 (출력 토큰 수 증가)
+        # Gemini 모델 초기화 (출력 토큰 수 대폭 증가)
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
             google_api_key=GEMINI_API_KEY,
             temperature=0.7,
-            max_output_tokens=4096  # 토큰 수 증가로 텍스트 잘림 방지
+            max_output_tokens=14192  # 토큰 수 대폭 증가로 텍스트 잘림 방지
         )
         
         # 메모리 초기화 (InMemoryChatMessageHistory)
@@ -109,18 +381,102 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         industry = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("industry", "N/A")
         commercial_area = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("commercial_area", "N/A")
         
-        # 마케팅 전략 추출
-        marketing_strategies = analysis_data.get("marketing_analysis", {}).get("marketing_strategies", [])
+        # 에이전트 결과 로드
+        agent_results = load_agent_results(store_code)
+        
+        # SNS 세그먼트 데이터 로드
+        sns_data = load_sns_segment_data()
+        
+        # 마케팅 전략 추출 (JSON 파일에서 로드)
+        marketing_strategies = []
+        marketing_personas = []
+        marketing_risks = []
+        if agent_results.get("marketing_result"):
+            marketing_data = agent_results["marketing_result"]
+            marketing_strategies = marketing_data.get("marketing_strategies", [])
+            marketing_personas = marketing_data.get("personas", [])
+            marketing_risks = marketing_data.get("risk_analysis", {}).get("detected_risks", [])
+        else:
+            # 기존 방식 (fallback)
+            marketing_data = analysis_data.get("marketing_analysis", {})
+            marketing_strategies = marketing_data.get("marketing_strategies", [])
+            marketing_personas = marketing_data.get("personas", [])
+            marketing_risks = marketing_data.get("risk_analysis", {}).get("detected_risks", [])
+        
+        # 마케팅 전략 간소화 (프롬프트 길이 제한)
         strategy_summary = "\n".join([
-            f"- {i+1}. {s.get('name', 'N/A')}: {s.get('description', 'N/A')}"
-            for i, s in enumerate(marketing_strategies[:5])
+            f"- {i+1}. **{s.get('name', 'N/A')}**: {s.get('description', 'N/A')[:100]}..."
+            for i, s in enumerate(marketing_strategies[:3])
         ]) if marketing_strategies else "마케팅 전략 정보 없음"
+        
+        # 페르소나 정보 간소화 및 SNS 채널 추천 생성
+        persona_summary = ""
+        sns_recommendations = ""
+        
+        if marketing_personas:
+            persona_details = []
+            age_groups = []
+            
+            for p in marketing_personas[:2]:
+                age_range = p.get('age_range', 'N/A')
+                persona_info = f"- **{p.get('name', 'N/A')}** ({age_range}, {p.get('gender', 'N/A')}): {p.get('characteristics', 'N/A')[:80]}..."
+                persona_details.append(persona_info)
+                
+                # 연령대 추출 (예: "20-30대" -> ["20대", "30대"])
+                if age_range and age_range != 'N/A':
+                    if "20대" in age_range:
+                        age_groups.append("20대")
+                    if "30대" in age_range:
+                        age_groups.append("30대")
+                    if "40대" in age_range:
+                        age_groups.append("40대")
+                    if "50대" in age_range:
+                        age_groups.append("50대")
+                    if "60대" in age_range:
+                        age_groups.append("60대")
+                    if "70대" in age_range:
+                        age_groups.append("70대 이상")
+            
+            persona_summary = "\n".join(persona_details)
+            
+            # 중복 제거 후 SNS 채널 추천 생성
+            unique_age_groups = list(set(age_groups))
+            if unique_age_groups and sns_data:
+                sns_recommendations = get_age_based_sns_recommendations(unique_age_groups, sns_data)
+        else:
+            persona_summary = "페르소나 정보 없음"
+        
+        # 위험 분석 정보 간소화
+        risk_summary = "\n".join([
+            f"- **{r.get('code', 'N/A')}**: {r.get('name', 'N/A')} ({r.get('level', 'N/A')}, {r.get('score', 'N/A')}/10) - {r.get('description', 'N/A')[:60]}..."
+            for r in marketing_risks[:3]
+        ]) if marketing_risks else "위험 분석 정보 없음"
+        
+        # 신제품 제안 추출 (JSON 파일에서 로드)
+        new_product_proposals = []
+        new_product_insights = {}
+        if agent_results.get("new_product_result") and agent_results["new_product_result"].get("activated"):
+            new_product_data = agent_results["new_product_result"]
+            new_product_proposals = new_product_data.get("proposals", [])
+            new_product_insights = new_product_data.get("insight", {})
+        
+        # 신제품 제안 간소화
+        new_product_summary = "\n".join([
+            f"- {i+1}. **{p.get('menu_name', 'N/A')}** ({p.get('category', 'N/A')}) - 타겟: {p.get('target', {}).get('gender', 'N/A')} {', '.join(p.get('target', {}).get('ages', []))} - 키워드: {p.get('evidence', {}).get('keyword', 'N/A')}"
+            for i, p in enumerate(new_product_proposals[:3])
+        ]) if new_product_proposals else "신제품 제안 정보 없음"
+        
+        # 신제품 인사이트 간소화
+        new_product_insight_summary = f"고객: {new_product_insights.get('gender_summary', 'N/A')}, {new_product_insights.get('age_summary', 'N/A')}" if new_product_insights else "신제품 인사이트 정보 없음"
         
         # 상권 분석 추출
         marketplace_name = analysis_data.get("marketplace_analysis", {}).get("상권명", "N/A")
         
         # 파노라마 분석 추출
         panorama_summary = analysis_data.get("panorama_analysis", {}).get("synthesis", {}).get("final_recommendation", "N/A")
+        
+        # 전단지 마케팅 분석은 질문 처리 시에만 조건부로 실행
+        # (상담 체인 생성 시에는 실행하지 않음)
         
         # MCP 검색 결과 처리 (안전하게)
         safe_mcp_content = ""
@@ -132,7 +488,12 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         # analysis_md에 JSON이 포함되어 있어 중괄호 문제 발생 가능
         safe_analysis_md = analysis_md[:3000].replace("{", "{{").replace("}", "}}")
         safe_strategy_summary = strategy_summary.replace("{", "{{").replace("}", "}}")
+        safe_persona_summary = persona_summary.replace("{", "{{").replace("}", "}}")
+        safe_risk_summary = risk_summary.replace("{", "{{").replace("}", "}}")
         safe_panorama_summary = panorama_summary[:500].replace("{", "{{").replace("}", "}}")
+        safe_new_product_summary = new_product_summary.replace("{", "{{").replace("}", "}}")
+        safe_new_product_insight = new_product_insight_summary.replace("{", "{{").replace("}", "}}")
+        safe_sns_recommendations = sns_recommendations.replace("{", "{{").replace("}", "}}")
         
         # MCP 섹션 조건부 추가
         mcp_section = ""
@@ -142,35 +503,33 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 {safe_mcp_content}...
 """
         
-        system_prompt = f"""당신은 매장 '{store_name}' (상점 코드: {store_code})의 전문 비즈니스 컨설턴트입니다.
+        system_prompt = f"""당신은 매장 '{store_name}' (업종: {industry}, 상권: {commercial_area})의 전문 비즈니스 컨설턴트입니다.
 
-## 매장 기본 정보
-- 상점명: {store_name}
-- 업종: {industry}
-- 상권: {commercial_area}
-- 상권명: {marketplace_name}
-
-## 📊 통합 분석 데이터
-다음은 5차원 분석 결과입니다. 답변 시 여러 출처를 **종합적으로 통합**하여 맥락 있는 인사이트를 제공하세요:
+## 📊 핵심 분석 데이터 (JSON 기반)
 {mcp_section}
-### 🗺️ Google Maps 리뷰 & 평가 - 출처: Google Maps API
-- 실제 고객들의 솔직한 리뷰와 평점 정보
-- 강점과 약점을 파악하는 가장 직접적인 데이터
-
-### 📈 마케팅 전략 (상위 5개) - 출처: marketing_analysis.json
+### 📈 마케팅 전략 - marketing_result.json
 {safe_strategy_summary}
-- 각 전략은 고객 페르소나 기반으로 설계됨
-- 실행 가능한 구체적인 액션 플랜 포함
 
-### 🌆 지역 특성 (파노라마 분석) - 출처: panorama_analysis.json
-{safe_panorama_summary}...
-- 300m 반경 내 5개 파노라마 이미지 AI 분석
-- 상권 분위기, 보행환경, 업종다양성 점수
+### 👥 고객 페르소나 - marketing_result.json  
+{safe_persona_summary}
 
-### 🏪 매장 성과 & 고객 분석 - 출처: store_analysis.json
-- 매출 트렌드, 고객 연령/성별 분포
-- 재방문율, 동종업계 순위
-- 고객 유형 분석 (유동 vs 정착)
+### 📱 SNS 채널 추천 - segment_sns.json 참고
+{safe_sns_recommendations}
+
+### ⚠️ 위험 분석 - marketing_result.json
+{safe_risk_summary}
+
+### 🍰 신제품 제안 - new_product_result.json
+{safe_new_product_summary}
+
+### 📊 신제품 인사이트 - new_product_result.json
+{safe_new_product_insight}
+
+### 🌆 지역 특성 - panorama_analysis.json
+{safe_panorama_summary[:200]}...
+
+### 🏪 매장 성과 - store_analysis.json
+- 매출 트렌드, 고객 분포, 재방문율, 동종업계 순위
 
 ### 🏬 상권 분석 - 출처: marketplace_analysis.json
 - 상권 규모, 경쟁 환경
@@ -179,6 +538,12 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 
 ### 📋 통합 리포트 - 출처: merged_analysis_full.md
 {safe_analysis_md}...
+
+### 📄 전단지 광고 위치 추천 - 출처: 파노라마 + 매장 데이터 분석
+- 고령층이 많은 매장을 위한 오프라인 마케팅 전략
+- 파노라마 이미지 분석을 통한 최적 배부 위치 제안
+- 시간대별, 위치별 구체적인 실행 가이드
+- *전단지 관련 질문 시 동적으로 분석 결과 제공*
 
 ## 🎯 상담 원칙
 
@@ -220,6 +585,15 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 - 긍정 리뷰: 강점으로 활용 → 마케팅 메시지화
 - 부정 리뷰: 개선 포인트 → 액션 플랜 수립
 
+### 7. **전단지 광고 전략 (고령층 타겟)**
+고객이 "전단지", "오프라인 마케팅", "배부", "광고 위치" 등을 언급하면:
+- **페르소나 분석**: 고령층 비율, 신규 고객 비율, 상권 특성 확인
+- **위치 추천**: 파노라마 분석 기반 구체적인 배부 위치 제시
+- **시간대 가이드**: 오전 9-11시, 오후 4-7시 등 최적 시간대 안내
+- **스크립트 제공**: 고령층에게 효과적인 대화 스크립트 제시
+- **주의사항**: 법적 제약, 민원 방지, 안전 수칙 안내
+- **대안 제시**: 전단지가 부적합한 경우 온라인 마케팅 대안 제시
+
 ## 📋 출처 표기 (필수)
 모든 답변 마지막에:
 📋 **참고 자료:**
@@ -227,6 +601,7 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 - marketing_analysis.json: [전략 번호]
 - panorama_analysis.json: [항목명]
 - store_analysis.json: [섹션명]
+- 전단지 위치 추천: [파노라마 + 매장 데이터 분석]
 
 ## 🗣️ 답변 스타일
 - 친절하지만 전문적
@@ -256,7 +631,7 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 
 
 @observe()
-def chat_with_consultant(chain, chat_history, user_message: str) -> str:
+def chat_with_consultant(chain, chat_history, user_message: str, store_data: dict = None, panorama_data: dict = None) -> str:
     """
     상담 체인과 대화 (Langfuse tracing 포함)
     
@@ -271,13 +646,59 @@ def chat_with_consultant(chain, chat_history, user_message: str) -> str:
     try:
         print(f"[DEBUG] User: {user_message}")
         
+        # 전단지 관련 질문인지 확인
+        flyer_keywords = ["전단지", "오프라인", "배부", "광고", "전단", "배포", "홍보"]
+        is_flyer_question = any(keyword in user_message.lower() for keyword in flyer_keywords)
+        
+        # 전단지 관련 질문이 있고 데이터가 있으면 동적 분석 수행
+        flyer_analysis = ""
+        if is_flyer_question and store_data and panorama_data:
+            print(f"[DEBUG] 전단지 관련 질문 감지 - 동적 분석 실행")
+            flyer_recommendation = analyze_flyer_marketing_potential(store_data, panorama_data)
+            
+            if flyer_recommendation.get("recommended", False):
+                persona = flyer_recommendation['persona_analysis']
+                panorama_insights = flyer_recommendation['panorama_insights']
+                
+                flyer_analysis = f"""
+
+### 📄 전단지 광고 위치 추천 (고령층 타겟)
+**매장 페르소나:** 고령층 {persona['senior_ratio']:.1f}% + 신규고객 {persona['new_customer_ratio']:.1f}% + {persona['commercial_area']}
+**파노라마 분석:** {panorama_insights['area_character'][:100]}...
+
+**전단지가 효과적인 이유:** {flyer_recommendation['why_flyer_effective']}
+
+**추천 위치:**
+"""
+                for i, location in enumerate(flyer_recommendation['recommended_locations'], 1):
+                    flyer_analysis += f"""
+{i}. **{location['location']}**
+   - 서 있을 위치: {location['position']}
+   - 시간대: {location['time_slot']}
+   - 효과적 이유: {location['reason']}
+   - 스크립트: "{location['script']}"
+   - 주의사항: {location['cautions']}
+"""
+            else:
+                flyer_analysis = f"""
+
+### 📄 전단지 광고 추천 결과
+{flyer_recommendation.get('reason', '전단지 광고가 적합하지 않습니다.')}
+**대안:** {flyer_recommendation.get('alternative', '온라인 마케팅을 추천합니다.')}
+"""
+        
         # 기존 대화 기록 가져오기
         history_messages = chat_history.messages
         
         # 체인 실행 (chat_history와 input 전달)
+        # 전단지 분석 결과가 있으면 사용자 메시지에 추가
+        enhanced_message = user_message
+        if flyer_analysis:
+            enhanced_message = f"{user_message}\n\n{flyer_analysis}"
+        
         response = chain.invoke({
             "chat_history": history_messages,
-            "input": user_message
+            "input": enhanced_message
         })
         
         # 대화 기록에 추가

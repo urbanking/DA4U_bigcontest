@@ -2,7 +2,7 @@
 
 ## 기본 정보
 - 상점 코드: 309BDE407B
-- 분석 일시: 2025-10-24T03:55:33.121704
+- 분석 일시: 2025-10-24T05:37:43.098631
 - 분석 디렉토리: C:\ㅈ\DA4U\bigcontest_ai_agent\open_sdk\output\analysis_309BDE407B_20251024_035533
 
 ---
@@ -10,7 +10,7 @@
 ## 1. 매장 분석 (Store Analysis)
 
 ### 기본 정보
-## 2. 상권 분석 (Marketplace Analysis)
+## 3. 상권 분석 (Marketplace Analysis)
 
 ### 기본 정보
 - 상권명: 경수초등학교

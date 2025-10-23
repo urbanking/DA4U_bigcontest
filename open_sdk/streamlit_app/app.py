@@ -2875,10 +2875,16 @@ with col1:
                 with st.spinner("상담사가 답변을 준비중입니다..."):
                     try:
                         print(f"[INFO] 상담 질문 처리 중: {prompt[:50]}...")
+                        # 상담에 필요한 데이터 전달
+                        store_data = st.session_state.merged_data.get("store_analysis", {}) if st.session_state.merged_data else {}
+                        panorama_data = st.session_state.merged_data.get("panorama_analysis", {}) if st.session_state.merged_data else {}
+                        
                         response = chat_with_consultant(
                             st.session_state.consultation_chain,
                             st.session_state.consultation_memory,
-                            prompt
+                            prompt,
+                            store_data,
+                            panorama_data
                         )
                         print(f"[SUCCESS] 상담 답변 생성 완료")
                         st.session_state.messages.append({"role": "assistant", "content": response})
@@ -3091,40 +3097,38 @@ with col2:
                                                     # analysis_data에 추가
                                                     analysis_data["marketing_analysis"] = marketing_result
                                                     
-                                                    # Marketing Agent 결과를 파일로 저장
-                                                    try:
-                                                        from pathlib import Path
-                                                        import json
-                                                        from datetime import datetime
-                                                        
-                                                        # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
-                                                        output_dir = Path(__file__).parent.parent / "output"
-                                                        store_folders = sorted(
-                                                            [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
-                                                            key=lambda x: x.name,
-                                                            reverse=True
-                                                        )
-                                                        
-                                                        if store_folders:
-                                                            latest_folder = store_folders[0]
-                                                            marketing_file = latest_folder / "marketing_strategy.json"
-                                                            
-                                                            with open(marketing_file, 'w', encoding='utf-8') as f:
-                                                                json.dump(marketing_result, f, ensure_ascii=False, indent=2)
-                                                            
-                                                            log_capture.add_log(f"Marketing Agent 결과 저장: {marketing_file.name}", "OK")
-                                                        else:
-                                                            log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
-                                                    except Exception as save_error:
-                                                        log_capture.add_log(f"Marketing Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                                # Marketing Agent 결과를 파일로 저장
+                                                try:
+                                                    from pathlib import Path
+                                                    import json
+                                                    from datetime import datetime
                                                     
-                                                    log_capture.add_log("✅ Marketing Agent 완료!", "SUCCESS")
-                                                else:
-                                                    log_capture.add_log("Marketing Agent 실패", "WARN")
+                                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
+                                                    output_dir = Path(__file__).parent.parent / "output"
+                                                    store_folders = sorted(
+                                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
+                                                        key=lambda x: x.name,
+                                                        reverse=True
+                                                    )
+                                                    
+                                                    if store_folders:
+                                                        latest_folder = store_folders[0]
+                                                        marketing_file = latest_folder / "marketing_result.json"  # 파일명 변경
+                                                        
+                                                        with open(marketing_file, 'w', encoding='utf-8') as f:
+                                                            json.dump(marketing_result, f, ensure_ascii=False, indent=2)
+                                                        
+                                                        log_capture.add_log(f"Marketing Agent 결과 저장: {marketing_file.name}", "OK")
+                                                    else:
+                                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
+                                                except Exception as save_error:
+                                                    log_capture.add_log(f"Marketing Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                                
+                                                log_capture.add_log("✅ Marketing Agent 완료!", "SUCCESS")
                                             else:
-                                                log_capture.add_log("Store report 변환 실패", "WARN")
+                                                log_capture.add_log("Marketing Agent 실패", "WARN")
                                         else:
-                                            log_capture.add_log("Store 분석 결과 없음 또는 Marketing Agent 비활성화", "WARN")
+                                            log_capture.add_log("Store report 변환 실패", "WARN")
                                     except Exception as e:
                                         log_capture.add_log(f"❌ Marketing Agent 오류: {str(e)}", "ERROR")
                                         import traceback
@@ -3211,6 +3215,33 @@ with col2:
                                             
                                             if new_product_result:
                                                 analysis_data["new_product_result"] = new_product_result
+                                                
+                                                # New Product Agent 결과를 파일로 저장
+                                                try:
+                                                    from pathlib import Path
+                                                    import json
+                                                    
+                                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
+                                                    output_dir = Path(__file__).parent.parent / "output"
+                                                    store_folders = sorted(
+                                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
+                                                        key=lambda x: x.name,
+                                                        reverse=True
+                                                    )
+                                                    
+                                                    if store_folders:
+                                                        latest_folder = store_folders[0]
+                                                        new_product_file = latest_folder / "new_product_result.json"
+                                                        
+                                                        with open(new_product_file, 'w', encoding='utf-8') as f:
+                                                            json.dump(new_product_result, f, ensure_ascii=False, indent=2)
+                                                        
+                                                        log_capture.add_log(f"New Product Agent 결과 저장: {new_product_file.name}", "OK")
+                                                    else:
+                                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
+                                                except Exception as save_error:
+                                                    log_capture.add_log(f"New Product Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                                
                                                 if new_product_result.get("activated"):
                                                     log_capture.add_log(f"New Product Agent - {len(new_product_result.get('proposals', []))}개 제안", "SUCCESS")
                                                 else:

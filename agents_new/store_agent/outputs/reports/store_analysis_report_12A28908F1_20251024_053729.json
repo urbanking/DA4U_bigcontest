@@ -1,0 +1,242 @@
+{
+  "report_metadata": {
+    "store_code": "12A28908F1",
+    "analysis_date": "2025-10-24 05:37:29",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "12A28908F1",
+    "name": "바나********",
+    "address": "서울 성동구 왕십리로 315",
+    "industry": "카페",
+    "brand": "카페",
+    "commercial_area": "행당시장상점가",
+    "record_months": 12,
+    "operating_months": 89.8,
+    "store_age": "기존 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "하락 추세",
+        "stability": "불안정",
+        "data_points": 12
+      },
+      "sales_count": {
+        "trend": "하락 추세",
+        "stability": "불안정",
+        "data_points": 12
+      },
+      "unique_customers": {
+        "trend": "하락 추세",
+        "stability": "불안정",
+        "data_points": 12
+      },
+      "avg_transaction": {
+        "trend": "상승 추세",
+        "stability": "매우 안정적",
+        "data_points": 12
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "상승 추세",
+        "average": 153.7
+      },
+      "same_industry_sales_count": {
+        "trend": "상승 추세",
+        "average": 272.7
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 34.0
+      },
+      "commercial_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 42.5
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 2.4,
+      "grade_distribution": {
+        "2.0": 6,
+        "3.0": 3,
+        "1.0": 1,
+        "4.0": 1
+      },
+      "recommendation": "취소율이 보통 수준입니다. 지속적인 모니터링과 개선이 필요합니다."
+    },
+    "delivery_analysis": {
+      "trend": "데이터 부족",
+      "average": 0
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 38.9,
+      "female_ratio": 61.1
+    },
+    "age_group_distribution": {
+      "20대 이하": 35.6,
+      "30대": 32.7,
+      "40대": 13.0,
+      "50대": 11.3,
+      "60대 이상": 7.4
+    },
+    "detailed_customer_ratios": {
+      "여20대이하": 21.8,
+      "여30대": 20.0,
+      "남20대이하": 13.8,
+      "남30대": 12.7,
+      "여40대": 7.9,
+      "여50대": 6.9,
+      "남40대": 5.1,
+      "여60대이상": 4.5,
+      "남50대": 4.4,
+      "남60대이상": 2.9
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 6.4,
+        "trend": "하락 추세"
+      },
+      "returning_customers": {
+        "ratio": 29.8,
+        "trend": "상승 추세"
+      },
+      "customer_distribution": {
+        "residential": 32.7,
+        "workplace": 10.9,
+        "floating": 56.4
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "행당시장상점가",
+    "analysis_available": true,
+    "total_stores_in_area": 104,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "상승 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 9.57,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 11.1,
+      "남30대": 13.1,
+      "남40대": 9.0,
+      "남50대": 12.4,
+      "남60대이상": 9.6,
+      "여20대이하": 9.4,
+      "여30대": 9.1,
+      "여40대": 6.7,
+      "여50대": 10.8,
+      "여60대이상": 8.8
+    }
+  },
+  "industry_analysis": {
+    "industry": "카페",
+    "analysis_available": true,
+    "total_stores_in_industry": 357,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 15.31,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 15.29,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 11.7,
+      "남30대": 12.6,
+      "남40대": 7.0,
+      "남50대": 6.1,
+      "남60대이상": 3.2,
+      "여20대이하": 20.0,
+      "여30대": 18.1,
+      "여40대": 9.3,
+      "여50대": 7.7,
+      "여60대이상": 4.3
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 하락 추세",
+      "업종 내 순위: 순위 상승 (개선)",
+      "주 고객층: 여성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": [
+      {
+        "category": "운영 개선",
+        "priority": "높음",
+        "target": "전체 고객",
+        "action": "취소율 감소 프로그램",
+        "specific_actions": [
+          "주문 확인 시스템 개선 (2단계 확인)",
+          "예상 대기시간 정확한 안내",
+          "취소 시 포인트 적립 혜택 제공",
+          "배달 시간 단축 (30분 이내 목표)"
+        ],
+        "expected_impact": "취소율 2.4 → 2.0 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 15.3% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_sales_trend_20251024_053729.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_gender_pie_20251024_053729.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_age_pie_20251024_053729.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_detailed_pie_20251024_053729.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_ranking_trend_20251024_053729.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_customer_trends_20251024_053729.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\12A28908F1_new_returning_trends_20251024_053729.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

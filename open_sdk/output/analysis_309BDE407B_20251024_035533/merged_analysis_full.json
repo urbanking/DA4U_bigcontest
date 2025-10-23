@@ -1,6 +1,6 @@
 {
   "store_code": "309BDE407B",
-  "analysis_timestamp": "2025-10-24T03:55:33.121704",
+  "analysis_timestamp": "2025-10-24T05:37:43.098631",
   "analysis_directory": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_309BDE407B_20251024_035533",
   "store_analysis": {
     "report_metadata": {
@@ -242,6 +242,7 @@
       "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
     }
   },
+  "marketing_analysis": {},
   "marketplace_analysis": {
     "상권명": "경수초등학교",
     "분석일시": "2025-10-12T17:24:58.199557",

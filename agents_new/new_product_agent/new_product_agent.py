@@ -151,20 +151,29 @@ class NewProductAgent:
                     {"category": "음료", "rank": 3, "keyword": "아메리카노"},
                     {"category": "과자/베이커리", "rank": 1, "keyword": "크로와상"},
                     {"category": "과자/베이커리", "rank": 2, "keyword": "마카롱"},
-                    {"category": "과자/베이커리", "rank": 3, "keyword": "케이크"}
+                    {"category": "과자/베이커리", "rank": 3, "keyword": "케이크"},
+                    {"category": "농산물", "rank": 1, "keyword": "바나나"},
+                    {"category": "농산물", "rank": 2, "keyword": "딸기"},
+                    {"category": "농산물", "rank": 3, "keyword": "블루베리"}
                 ],
                 "디저트": [
                     {"category": "과자/베이커리", "rank": 1, "keyword": "수제 케이크"},
                     {"category": "과자/베이커리", "rank": 2, "keyword": "마카롱"},
                     {"category": "과자/베이커리", "rank": 3, "keyword": "티라미수"},
                     {"category": "음료", "rank": 1, "keyword": "프라푸치노"},
-                    {"category": "음료", "rank": 2, "keyword": "밀크셰이크"}
+                    {"category": "음료", "rank": 2, "keyword": "밀크셰이크"},
+                    {"category": "농산물", "rank": 1, "keyword": "무화과"},
+                    {"category": "농산물", "rank": 2, "keyword": "망고"},
+                    {"category": "농산물", "rank": 3, "keyword": "아보카도"}
                 ],
                 "베이커리": [
                     {"category": "과자/베이커리", "rank": 1, "keyword": "수제 빵"},
                     {"category": "과자/베이커리", "rank": 2, "keyword": "크로와상"},
                     {"category": "과자/베이커리", "rank": 3, "keyword": "도넛"},
-                    {"category": "과자/베이커리", "rank": 4, "keyword": "쿠키"}
+                    {"category": "과자/베이커리", "rank": 4, "keyword": "쿠키"},
+                    {"category": "농산물", "rank": 1, "keyword": "바나나"},
+                    {"category": "농산물", "rank": 2, "keyword": "사과"},
+                    {"category": "농산물", "rank": 3, "keyword": "호두"}
                 ],
                 "카페·디저트": [
                     {"category": "음료", "rank": 1, "keyword": "콜드브루"},
@@ -173,7 +182,10 @@ class NewProductAgent:
                     {"category": "과자/베이커리", "rank": 1, "keyword": "수제 빵"},
                     {"category": "과자/베이커리", "rank": 2, "keyword": "마카롱"},
                     {"category": "과자/베이커리", "rank": 3, "keyword": "크로와상"},
-                    {"category": "과자/베이커리", "rank": 4, "keyword": "케이크"}
+                    {"category": "과자/베이커리", "rank": 4, "keyword": "케이크"},
+                    {"category": "농산물", "rank": 1, "keyword": "바나나"},
+                    {"category": "농산물", "rank": 2, "keyword": "딸기"},
+                    {"category": "농산물", "rank": 3, "keyword": "무화과"}
                 ]
             }
             

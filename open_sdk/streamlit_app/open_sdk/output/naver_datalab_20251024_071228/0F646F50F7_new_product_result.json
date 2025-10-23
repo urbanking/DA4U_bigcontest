@@ -1,0 +1,242 @@
+{
+  "store_code": "0F646F50F7",
+  "activated": true,
+  "audience_filters": {
+    "gender": "여성",
+    "ages": [
+      "30대",
+      "10대",
+      "20대"
+    ],
+    "store_age": {
+      "10대": 0.0,
+      "20대": 0.0,
+      "20대 이하": 22.9,
+      "30대": 38.0,
+      "40대": 19.4,
+      "50대": 14.7,
+      "60대 이상": 5.0
+    }
+  },
+  "used_categories": [
+    "농산물",
+    "음료",
+    "과자/베이커리"
+  ],
+  "keywords_top": [
+    {
+      "category": "농산물",
+      "rank": 1,
+      "keyword": "무화과"
+    },
+    {
+      "category": "농산물",
+      "rank": 2,
+      "keyword": "쌀20kg"
+    },
+    {
+      "category": "농산물",
+      "rank": 3,
+      "keyword": "곶감"
+    },
+    {
+      "category": "농산물",
+      "rank": 4,
+      "keyword": "과일선물세트"
+    },
+    {
+      "category": "농산물",
+      "rank": 5,
+      "keyword": "사과"
+    },
+    {
+      "category": "농산물",
+      "rank": 6,
+      "keyword": "쌀10kg"
+    },
+    {
+      "category": "농산물",
+      "rank": 7,
+      "keyword": "딸기"
+    },
+    {
+      "category": "농산물",
+      "rank": 8,
+      "keyword": "수향미"
+    },
+    {
+      "category": "농산물",
+      "rank": 9,
+      "keyword": "복숭아"
+    },
+    {
+      "category": "농산물",
+      "rank": 10,
+      "keyword": "샤인머스켓"
+    },
+    {
+      "category": "음료",
+      "rank": 1,
+      "keyword": "레몬즙"
+    },
+    {
+      "category": "음료",
+      "rank": 2,
+      "keyword": "두유"
+    },
+    {
+      "category": "음료",
+      "rank": 3,
+      "keyword": "생수"
+    },
+    {
+      "category": "음료",
+      "rank": 4,
+      "keyword": "맥심모카골드"
+    },
+    {
+      "category": "음료",
+      "rank": 5,
+      "keyword": "그릭요거트"
+    },
+    {
+      "category": "음료",
+      "rank": 6,
+      "keyword": "멸균우유"
+    },
+    {
+      "category": "음료",
+      "rank": 7,
+      "keyword": "쌍화차"
+    },
+    {
+      "category": "음료",
+      "rank": 8,
+      "keyword": "커피믹스"
+    },
+    {
+      "category": "음료",
+      "rank": 9,
+      "keyword": "생강청"
+    },
+    {
+      "category": "음료",
+      "rank": 10,
+      "keyword": "탄산수"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 1,
+      "keyword": "두바이쫀득쿠키"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 2,
+      "keyword": "쫀득빵"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 3,
+      "keyword": "화과자"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 4,
+      "keyword": "두바이초콜릿"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 5,
+      "keyword": "마가렛트고구마"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 6,
+      "keyword": "구황작물빵"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 7,
+      "keyword": "도라지정과"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 8,
+      "keyword": "스쿱당"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 9,
+      "keyword": "칸쵸"
+    },
+    {
+      "category": "과자/베이커리",
+      "rank": 10,
+      "keyword": "약과"
+    }
+  ],
+  "insight": {
+    "store_code": "0F646F50F7",
+    "gender_summary": "남성이 43.8%로 높습니다",
+    "age_summary": "10·20대와 50대 비중이 큽니다",
+    "reasoning": {
+      "gender_rule": "55% 우세 규칙 적용",
+      "age_rule": "최소 칸(≤3)로 누적 ≥50% 규칙",
+      "numbers": {
+        "store_gender": {
+          "male": 43.8,
+          "female": 56.2
+        },
+        "industry_gender": {
+          "male": 40.6,
+          "female": 59.4
+        },
+        "store_age": {
+          "10대": 0.0,
+          "20대": 0.0,
+          "20대 이하": 22.9,
+          "30대": 38.0,
+          "40대": 19.4,
+          "50대": 14.7,
+          "60대 이상": 5.0
+        },
+        "industry_age": {
+          "10대": 0.0,
+          "20대": 0.0,
+          "20대 이하": 31.7,
+          "30대": 30.700000000000003,
+          "40대": 16.3,
+          "50대": 13.8,
+          "60대 이상": 7.5
+        }
+      }
+    }
+  },
+  "proposals": [
+    {
+      "menu_name": "무화과 스무디",
+      "category": "농산물",
+      "target": {
+        "gender": "여성",
+        "ages": [
+          "30대",
+          "10대",
+          "20대"
+        ]
+      },
+      "evidence": {
+        "category": "농산물",
+        "keyword": "무화과",
+        "rank": 1,
+        "data_source": "네이버 데이터랩 쇼핑인사이트",
+        "rationale": "무화과는 농산물 카테고리에서 1위로 높은 인기를 보이고 있습니다."
+      },
+      "data_backing": {
+        "customer_fit": "여성 30대, 10대, 20대 타겟과 매칭",
+        "trend_score": "순위 1위 = 높은 검색 빈도",
+        "market_gap": "매장 여성 56.2% vs 업종 평균"
+      },
+      "template_ko": "여성과 30대, 10대, 20대의 사람들은 네이버 쇼핑에서 농산물 카테고리에서 '무화과' 키워드를 많이 찾았습니다(순위 1).\n\n**데이터 근거:**\n- 고객 적합도: 여성 30대, 10대, 20대 타겟과 매칭\n- 트렌드 점수: 순위 1위 = 높은 검색 빈도\n- 시장 격차: 매장 여성 56.2% vs 업종 평균\n\n따라서 이를 결합한 '무화과 콘셉트' 메뉴를 개발해보는 것을 추천드립니다."
+    }
+  ]
+}
