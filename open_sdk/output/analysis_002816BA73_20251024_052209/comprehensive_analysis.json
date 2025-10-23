@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "store_code": "002816BA73",
+    "analysis_timestamp": "20251024_052209",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울 성동구 청계천로10나길 78",
+    "coordinates": [
+      37.5700669,
+      127.0370927
+    ],
+    "administrative_dong": "마장동",
+    "marketplace": {
+      "상권명": "R",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "자갈***********",
+    "industry": "요리주점",
+    "commercial_area": "마장축산물시장",
+    "quality_score": 0.87
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 생활 밀착형 상업시설과 주요 도로변 상업시설이 혼재된 과도기적 상권으로 평가됩니다. 현재 진행 중인 건설 및 개발이 상권의 전반적인 분위기와 보행 환경에 부정적인 영향을 미치고 있으나, 이는 동시에 미래 성장 잠재력을 내포하고 있습니다.",
+    "marketplace_type": "근린형 생활상가 및 도로변 혼합 상업지구",
+    "scores": {
+      "commercial_atmosphere": 6,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 5,
+      "safety_perception": 6,
+      "business_diversity": 7,
+      "residential_suitability": 6,
+      "commercial_suitability": 7
+    },
+    "strengths": [
+      "다양한 생활 밀착형 업종 구성으로 안정적인 지역 수요 확보",
+      "주요 도로변 및 간선도로 인접으로 높은 차량 접근성과 가시성",
+      "진행 중인 건설 및 개발로 인한 미래 상권 활성화 잠재력"
+    ],
+    "weaknesses": [
+      "지속적인 공사 현장으로 인한 현재 상권 분위기 저해 및 보행 환경 악화",
+      "전반적으로 '차분함'이 지배적인 상권 에너지로 활기 부족",
+      "차량 통행 위주의 도로 환경으로 보행자 유입 및 체류 시간 제한"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

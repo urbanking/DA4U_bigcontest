@@ -1,0 +1,387 @@
+{
+  "metadata": {
+    "input_address": "서울 성동구 행당로 87 .",
+    "center_coordinates": {
+      "longitude": 127.0271186,
+      "latitude": 37.5579013
+    },
+    "buffer_meters": 300,
+    "total_images_found": 5,
+    "images_analyzed": 5,
+    "analysis_timestamp": "2025-10-24T03:57:12.854606"
+  },
+  "individual_analyses": [
+    {
+      "point_id": 4284,
+      "pano_id": "EVglWQdYjKkRwxkfvrhDEQ",
+      "lon": 127.0282493,
+      "lat": 37.5568143,
+      "distance_m": 156.58114319963616,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_4\\point_4284_pano_EVglWQdYjKkRwxkfvrhDEQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "주거단지 인근의 생활 밀착형 상업 가로",
+          "overall_impression_prose": "고층 아파트 단지에 둘러싸인 주거 밀집 지역의 간선 도로변 상권입니다. 전반적으로 차분하고 생활 편의 위주의 상점들이 자리하고 있으며, 보행 환경은 평이하나 활기는 다소 부족해 보입니다. 주거 배후 수요를 기반으로 한 안정적인 상권으로 판단됩니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로 양편으로 고층 아파트 단지들이 밀집해 있으며, 일부 아파트 단지의 저층부와 별도의 상가 건물에 상업 시설이 입점해 있습니다. 건물들은 대체로 현대적인 외관을 가지고 있으나, 일부 상가 건물은 연식이 느껴집니다. 도로는 왕복 4차선 이상의 넓은 간선 도로로 보입니다.",
+            "street_details": "도로는 아스팔트 포장 상태가 양호하며 차선 및 횡단보도 표시가 명확합니다. 보도는 콘크리트 블록으로 포장되어 있으며, 폭은 적당하나 가로수나 벤치 등 보행자를 위한 편의시설은 거의 보이지 않습니다. 가로등과 상점 홍보용 배너가 설치된 기둥이 눈에 띕니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 회색(도로, 아파트 건물), 베이지색(일부 상가 건물) 계열의 무채색이 지배적이며, 간판과 배너에서 일부 원색이 보입니다. 재질감은 아스팔트, 콘크리트, 유리 등 도시적인 단단한 느낌이 강하며, 깔끔하지만 다소 단조로운 인상을 줍니다.",
+            "imagined_sounds": "주변의 넓은 도로를 지나는 차량들의 소음이 주를 이룰 것으로 예상됩니다. 간간이 보행자들의 대화 소리나 상점에서 흘러나오는 소리가 들릴 수 있으나, 전반적으로 조용하고 차분한 분위기일 것으로 상상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사진 내에 보행자가 거의 보이지 않습니다. 멀리 한두 명의 보행자가 포착되지만, 특정 유형이나 특징을 파악하기는 어렵습니다. 전반적으로 유동 인구가 적은 시간대이거나, 차량 위주의 이동이 많은 지역으로 보입니다.",
+          "street_energy_level": "조용함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "미용실, 공구상(TOOLGUY), 그리고 정확한 업종 파악이 어려운 일반 상점들이 혼재되어 있습니다. 주로 주거 생활에 필요한 편의 업종들이 입점해 있는 것으로 보입니다.",
+          "signs_of_change_or_stability": "눈에 띄는 신규 개업이나 폐업 흔적은 보이지 않으며, 건물 외관이나 간판 상태로 미루어 보아 전반적으로 안정적으로 운영되는 상권으로 판단됩니다. 일부 간판은 다소 오래되어 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "생활 밀착형 카페 또는 소규모 음식점",
+            "narrative_insight": "주변 아파트 단지 주민들을 주 타겟으로 하여, 편안하고 아늑한 분위기의 카페나 가족 단위로 방문하기 좋은 캐주얼한 음식점이 적합합니다. 주거지 상권의 특성을 살려, 테이크아웃 및 배달 서비스를 강화하고 지역 커뮤니티와의 연계를 통해 단골 고객을 확보하는 전략이 필요합니다. 접근성 좋은 위치에 주차 편의성을 확보하는 것도 중요합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 상권은 고층 아파트 단지를 배후에 둔 전형적인 주거 밀착형 상권입니다. 유동 인구는 많지 않지만, 안정적인 주거 인구를 기반으로 한 생활 편의 업종에 대한 수요는 꾸준할 것으로 예상됩니다. 신규 창업 시에는 높은 임대료 부담을 피하고, 지역 주민의 니즈를 정확히 파악하여 차별화된 컨셉과 서비스로 접근하는 것이 중요합니다. 특히, 주차 편의성 및 배달 서비스 연계 여부가 성공의 핵심 요소가 될 수 있으며, 주말 및 저녁 시간대 가족 단위 고객 유치 전략을 고려해야 합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 7,
+            "Operational_Status": 7,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 2
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 4234,
+      "pano_id": "6x2UpstEbapwBM0UEetvkw",
+      "lon": 127.0280458,
+      "lat": 37.5566305,
+      "distance_m": 163.04894782323183,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_4\\point_4234_pano_6x2UpstEbapwBM0UEetvkw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "주요 간선도로변의 업무 및 상업 복합 지역",
+          "overall_impression_prose": "넓은 도로와 높은 건물들이 주를 이루는 기능적인 공간입니다. 차량 통행이 원활해 보이며, 보행자보다는 차량 중심의 설계가 돋보입니다. 전반적으로 차분하고 정돈된 분위기이며, 대형 오피스 및 주거 복합 시설이 혼재된 것으로 추정됩니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "시야에 보이는 건물들은 대부분 현대적인 고층 건물로, 업무용 오피스 또는 주거 복합 시설로 보입니다. 좌측 건물은 비교적 낮은 층수로 넓게 퍼져 있으며, 우측 건물들은 유리와 석재 마감의 고층 빌딩 형태입니다. 건물들은 도로를 따라 일렬로 배치되어 있으며, 전반적으로 깔끔하게 관리된 외관을 보여줍니다.",
+            "street_details": "도로는 아스팔트 포장된 넓은 다차선 도로로, 차선 표시가 명확하며 차량 통행이 원활해 보입니다. 보도는 양쪽에 비교적 넓게 확보되어 있으며, 보도블럭으로 포장되어 있습니다. 가로수는 드문드문 심어져 있어 녹지 공간이 부족하며, 벤치나 기타 편의시설은 눈에 띄지 않습니다. 표준형 가로등과 교통 신호등이 설치되어 있습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "이 공간을 지배하는 색감은 회색(도로, 건물 외벽), 흰색(하늘, 일부 건물), 그리고 약간의 녹색(가로수)입니다. 전반적으로 차분하고 중립적인 색조를 띠며, 아스팔트, 콘크리트, 유리, 석재 등 현대적이고 매끄러운 재질감이 주를 이룹니다. 깨끗하고 정돈된 느낌을 줍니다.",
+            "imagined_sounds": "주로 차량 통행 소리, 엔진음, 간헐적인 경적 소리가 들릴 것으로 예상됩니다. 보행자가 적어 사람들의 대화 소리는 거의 들리지 않으며, 전반적으로 도시의 기능적인 소음이 지배적일 것입니다. 비교적 조용하고 차분한 도시 환경의 소리가 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "오토바이 운전자 한 명과 멀리 보도에 몇몇 사람이 보이지만, 전반적으로 보행자의 수가 매우 적습니다. 주로 차량을 이용하는 직장인이나 거주민으로 추정되며, 특정 유형의 집단보다는 개별적인 통행이 주를 이룹니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "편의점(GS25), 부동산 중개업소 등 생활 편의 및 서비스 업종이 일부 보입니다. 대형 건물 내부에 입점한 오피스 관련 서비스나 식음료 매장이 있을 것으로 추정되나, 외부에서는 명확히 확인하기 어렵습니다.",
+          "signs_of_change_or_stability": "전반적으로 건물들이 현대적이고 잘 관리되어 있어 안정적인 상권으로 보입니다. 신규 개업이나 폐업의 명확한 흔적은 보이지 않으며, 대형 건물 위주의 상권 특성상 급격한 변화보다는 안정성이 높은 편입니다. 리모델링 흔적도 특별히 눈에 띄지 않습니다.",
+          "opportunity_for_target_business": {
+            "business_category": "고급 카페 또는 간편식 전문점",
+            "narrative_insight": "이 지역은 차량 통행량이 많고 대형 오피스 및 주거 복합 건물이 많으므로, 바쁜 직장인이나 거주민을 위한 빠르고 편리하면서도 품질 좋은 서비스를 제공하는 업종이 적합합니다. 예를 들어, 고급 원두를 사용한 테이크아웃 중심의 카페나 건강하고 신선한 재료로 만든 샐러드, 샌드위치 등 간편식 전문점은 점심시간이나 출퇴근 시간에 높은 수요를 기대할 수 있습니다. 쾌적하고 모던한 인테리어로 짧은 휴식을 제공하는 컨셉도 좋습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 넓은 도로와 현대적인 고층 건물들이 특징인 차량 중심의 상권입니다. 보행자 유동 인구는 적지만, 주변 대형 오피스 및 주거 복합 시설의 고정 수요가 있을 것으로 예상됩니다. 따라서 창업자나 투자자는 불특정 다수를 대상으로 한 스트리트형 상점보다는, 주변 직장인 및 거주민의 특정 니즈(예: 점심 식사, 커피, 편의 서비스)를 충족시키는 업종에 집중해야 합니다. 접근성과 편리성을 최우선으로 고려하고, 배달 또는 테이크아웃 서비스를 강화하는 전략이 효과적일 것입니다. 대형 건물 내 입점도 고려해볼 만합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 2,
+            "Operational_Status": 2,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 1
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 2,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 1
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 2,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 2
+          }
+        }
+      }
+    },
+    {
+      "point_id": 4232,
+      "pano_id": "Z8yJPQ559-CX6fkeguGg_w",
+      "lon": 127.0278102,
+      "lat": 37.5565155,
+      "distance_m": 165.43938919160473,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_4\\point_4232_pano_Z8yJPQ559-CX6fkeguGg_w.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "주거와 상업이 혼재된 생활 밀착형 도로변 상권",
+          "overall_impression_prose": "전반적으로 평범한 도심의 도로변 상권으로, 주거 단지와 상업 시설이 혼재되어 있습니다. 특별한 활기나 개성은 느껴지지 않지만, 일상적인 생활 편의를 제공하는 기능적인 공간으로 보입니다. 차량 통행이 주를 이루며 보행자 친화적인 요소는 다소 부족합니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "왕복 4차선 도로를 중심으로 양쪽에 상업 및 주거 건물이 늘어서 있습니다. 건물들은 주로 3~5층 높이이며, 후면에는 고층 아파트 단지가 보입니다. 1층은 상업 시설로 활용되고 있으며, 상층부는 주거 또는 사무실 용도로 추정됩니다. 전반적으로 오래된 건물들이 많으나 일부는 리모델링된 흔적이 보입니다.",
+            "street_details": "도로 중앙에는 붉은색 버스 전용차선이 명확하게 표시되어 있습니다. 보도는 비교적 좁은 편이며, 보도블록은 양호해 보입니다. 가로수는 드문드문 심어져 있으나 풍성한 느낌은 아닙니다. 일반적인 가로등이 설치되어 있으며, 벤치나 특별한 편의시설은 눈에 띄지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 회색, 갈색 등 무채색 계열의 건물이 주를 이루며, 상점 간판에서만 밝은 색상이 눈에 띕니다. 건물 외벽은 콘크리트나 벽돌 재질이 많고, 도로는 아스팔트와 붉은색 버스 전용차선으로 구성되어 있습니다. 깨끗한 느낌보다는 다소 낡고 평범한 인상입니다.",
+            "imagined_sounds": "차량 통행 소리, 버스 소리, 간간이 들리는 사람들의 대화 소리, 상점 내부에서 새어 나오는 생활 소음 등이 들릴 것으로 상상됩니다. 전반적으로 시끄럽지 않고 차분한 도심의 소음 수준일 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "몇몇 보행자들이 보도 위를 걷고 있으며, 주로 성인으로 보입니다. 특별한 연령대나 집단은 관찰되지 않으며, 유동 인구가 많지 않은 편입니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "부동산, 미용실, 음식점, 편의점, 일반 소매점",
+          "signs_of_change_or_stability": "눈에 띄는 신규 개업이나 폐업 흔적은 보이지 않습니다. 간판들이 비교적 오래된 것과 새로운 것이 혼재되어 있어, 상권이 급격히 변화하기보다는 안정적으로 유지되고 있는 것으로 판단됩니다.",
+          "opportunity_for_target_business": {
+            "business_category": "캐주얼 다이닝 또는 생활 서비스업",
+            "narrative_insight": "이 지역은 주거 인구가 많고 일상적인 유동 인구가 있는 만큼, 편안하고 접근성 좋은 캐주얼 다이닝이나 생활 밀착형 서비스업이 적합해 보입니다. 특별한 컨셉보다는 실용성과 가성비를 중시하며, 지역 주민들의 반복적인 방문을 유도할 수 있는 친근한 분위기로 접근하는 것이 중요합니다. 예를 들어, 건강한 한 끼 식사를 제공하는 샐러드 전문점이나, 가족 단위 고객을 위한 동네 맛집 컨셉이 효과적일 수 있습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 상권은 주거 밀집 지역에 위치하여 안정적인 배후 수요를 가지고 있으나, 특별한 목적성을 띠는 방문객을 유치하기보다는 지역 주민의 일상적인 소비에 의존하는 경향이 강합니다. 따라서 창업자나 투자자는 높은 수익률을 기대하기보다는 꾸준하고 안정적인 매출을 목표로 해야 합니다. 독특한 컨셉보다는 실용성과 편의성을 강조한 업종이 유리하며, 특히 주차 공간 확보 및 접근성 개선에 신경 써야 할 것입니다. 장기적인 관점에서 지역 주민과의 유대감을 형성하는 마케팅 전략이 중요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 10,
+            "Operational_Status": 10,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 5
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 1
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 4286,
+      "pano_id": "vjvuJARKf3HxU9-fe1owmQ",
+      "lon": 127.0284724,
+      "lat": 37.5568536,
+      "distance_m": 166.76069449719103,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_4\\point_4286_pano_vjvuJARKf3HxU9-fe1owmQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T12:34:56Z"
+        },
+        "visit_summary": {
+          "location_headline": "대규모 아파트 단지를 배후에 둔 주거지 상권의 주요 간선도로",
+          "overall_impression_prose": "대규모 아파트 단지 사이에 위치한 넓은 도로로, 주로 주거민을 위한 생활 편의시설이 자리 잡고 있는 것으로 보인다. 전반적으로 차분하고 정돈된 분위기이며, 보행자보다는 차량 통행에 더 중점을 둔 듯한 인상을 준다. 안정적인 주거 수요를 기반으로 한 상권으로 판단된다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "좌우로 15층 이상의 고층 아파트 단지들이 길게 늘어서 있으며, 그 아래 저층부에는 상업시설이 입점해 있다. 건물들은 대체로 회색빛의 현대적인 외관을 유지하고 있으며, 일관된 주거단지의 모습을 보여준다. 도로 폭이 넓고 건물 간 간격이 충분하여 개방감이 느껴진다.",
+            "street_details": "왕복 4차선 이상의 넓은 도로가 중앙에 위치하며, 노란색 횡단보도와 정지선이 선명하게 표시되어 있다. 보도는 아스팔트 도로와 구분되어 보도블럭으로 포장되어 있으며, 가로수가 드문드문 심겨져 있다. 신호등과 가로등이 설치되어 있으나, 벤치나 기타 휴식 시설은 보이지 않는다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "회색빛의 아파트 건물과 아스팔트 도로가 주를 이루며, 노란색 횡단보도와 신호등의 붉은색이 대비를 이룬다. 전반적으로 차분하고 기능적인 색감이며, 콘크리트와 아스팔트의 단단하고 거친 질감이 지배적이다. 겨울철이라 나뭇가지가 앙상하여 다소 황량한 느낌도 있다.",
+            "imagined_sounds": "차량 통행이 주를 이루는 도로이므로, 자동차 엔진 소리, 타이어 마찰음, 간헐적인 경적 소리가 들릴 것이다. 신호 대기 중인 차량의 정숙함과 다시 출발하는 소리, 그리고 멀리서 들려오는 도시의 미미한 소음이 예상된다. 보행자가 적어 사람들의 대화 소리는 크게 들리지 않을 것으로 보인다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "좌측 보도에 몇 명의 보행자가 보일 뿐, 거리에 눈에 띄는 인파는 없다. 주로 인근 아파트 단지 주민들이 이동하는 모습으로 추정되며, 특정 연령대나 목적을 가진 집단은 확인하기 어렵다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "우측 저층 상가에 '부동산', '마트' 등으로 추정되는 간판이 보이며, 그 외에도 생활 밀착형 서비스업(세탁소, 미용실 등)이나 소규모 음식점 등이 입점해 있을 가능성이 높다. 대형 프랜차이즈보다는 지역 주민을 위한 독립 상점이나 소규모 체인점이 주를 이룰 것으로 예상된다.",
+          "signs_of_change_or_stability": "전반적으로 안정적인 주거 상권의 모습을 보이며, 신규 개업이나 폐업의 명확한 흔적은 보이지 않는다. 건물 외관이나 간판 등에서 급격한 변화보다는 꾸준한 유지보수가 이루어지는 것으로 판단된다.",
+          "opportunity_for_target_business": {
+            "business_category": "생활 밀착형 카페 또는 베이커리",
+            "narrative_insight": "대규모 아파트 단지 주민들을 주 타겟으로 하여, 편안하고 아늑한 분위기의 카페나 신선한 빵을 제공하는 베이커리가 적합할 것으로 보인다. 단순히 음료나 빵을 판매하는 것을 넘어, 주민들이 잠시 쉬어가거나 이웃과 교류할 수 있는 '사랑방' 같은 역할을 하는 커뮤니티 공간으로 컨셉을 잡는다면 안정적인 수요를 확보할 수 있을 것이다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지역은 대규모 아파트 단지를 배후에 둔 안정적인 주거 상권으로, 고정적인 주민 수요가 강점이다. 다만, 차량 중심의 넓은 도로와 다소 부족한 보행 환경은 유동 인구를 끌어들이는 데 한계가 될 수 있다. 따라서, 외부 유입보다는 아파트 주민들의 일상생활에 깊숙이 파고드는 생활 밀착형 업종으로 접근하는 것이 성공 확률을 높일 것이다. 편의성, 친근함, 그리고 커뮤니티 기능을 강조하는 전략이 필요하다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 7,
+            "Operational_Status": 7,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 2
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 4288,
+      "pano_id": "IVPIaUF-LcR2iSDlrfo1xA",
+      "lon": 127.0287301,
+      "lat": 37.5570233,
+      "distance_m": 172.47588039851237,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_4\\point_4288_pano_IVPIaUF-LcR2iSDlrfo1xA.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "주거단지와 연결된 차량 중심의 간선도로변",
+          "overall_impression_prose": "이 장소는 고층 아파트 단지를 배경으로 하는 넓은 왕복 도로로, 주로 차량 통행에 중점을 둔 도시 경관을 보여줍니다. 직접적인 상업 활동은 거의 보이지 않으며, 전반적으로 차분하고 기능적인 분위기가 지배적입니다. 보행자보다는 운전자의 시선에 더 익숙한 공간으로 느껴집니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "넓은 4차선 이상의 왕복 도로가 중앙에 위치하며, 양 옆으로는 고층 아파트 건물들이 밀집해 있습니다. 일부 건물은 저층부에 상업 공간이 있을 법한 구조를 보이나, 명확한 상점 간판은 확인되지 않습니다. 건물들은 현대적이고 깔끔한 외관을 유지하고 있으며, 전반적으로 주거 용도의 비중이 높습니다.",
+            "street_details": "도로는 아스팔트 포장 상태가 양호하며, 차선 및 노면 표시가 명확합니다. 보도는 도로와 낮은 펜스로 분리되어 있으며, 폭이 아주 넓지는 않습니다. 보도블럭은 비교적 깨끗하게 유지된 것으로 보입니다. 가로수는 한 그루가 눈에 띄며, 한쪽에 버스 정류장 시설이 설치되어 있습니다. 벤치나 기타 편의시설은 거의 보이지 않습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "회색 아스팔트와 콘크리트 건물 외벽이 주를 이루며, 녹색 가로수와 흰색/노란색 도로 표지판이 대비를 이룹니다. 전반적으로 도시의 기능적인 색감과 매끄러운 재질감이 지배적입니다. 밝고 깨끗한 느낌을 주지만, 동시에 다소 단조롭고 차가운 인상도 있습니다.",
+            "imagined_sounds": "주로 차량 통행 소리(엔진음, 타이어 마찰음)가 지배적일 것으로 예상됩니다. 버스 정류장 근처에서는 간헐적인 버스 도착 및 출발 소리가 들릴 수 있습니다. 보행자가 적어 사람들의 대화 소리나 상점의 활기찬 소리는 거의 들리지 않을 것으로 보이며, 전반적으로 조용한 도시 소음이 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사진상으로는 극히 소수의 보행자(버스 정류장 근처)와 차량 운전자들만 보입니다. 특정 유형의 집단보다는 개별적인 통행자들이 대부분일 것으로 추정됩니다. 사람이 거의 없어 특정 '부족'을 묘사하기 어렵습니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "상점 없음",
+          "signs_of_change_or_stability": "사진상으로는 신규 개업, 폐업, 리모델링 등의 명확한 상권 변화 신호는 보이지 않습니다. 고층 아파트 단지가 안정적으로 자리 잡은 주거 지역의 간선도로변으로, 상업적으로는 비교적 안정적이지만 활발한 변화는 없는 상태로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "편의점, 소규모 카페 (테이크아웃 중심), 세탁소 등 생활 밀착형 서비스",
+            "narrative_insight": "이 지역은 고층 주거 단지의 배후 수요를 기반으로 하지만, 보행자 유동 인구가 적고 차량 통행이 많다는 특성을 고려해야 합니다. 따라서 주민들의 일상생활에 필수적인 편의 시설이나, 차량으로 접근하기 용이하며 빠르고 간편하게 이용할 수 있는 테이크아웃 중심의 소규모 카페 또는 세탁소와 같은 생활 밀착형 서비스 업종이 적합할 것입니다. 대형 상업 시설보다는 효율적인 공간 활용과 접근성을 최우선으로 하는 컨셉으로 접근해야 합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지점은 대규모 주거 단지를 배후에 둔 간선도로변으로, 차량 통행량은 많으나 보행자 유동 인구는 현저히 낮습니다. 상업적 가치는 직접적인 '거리 상권'으로서의 매력보다는 '주거 배후 상권'으로서의 잠재력에 집중해야 합니다. 창업자나 투자자는 높은 임대료를 감수하고 불특정 다수를 대상으로 하는 업종보다는, 인근 주민들의 고정적인 수요를 충족시킬 수 있는 생활 편의 시설이나 특정 니즈를 겨냥한 서비스 업종을 고려하는 것이 현명합니다. 주차 편의성 확보와 가시성 높은 간판 설치가 성공의 핵심 요소가 될 것입니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 0,
+            "Operational_Status": 0,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 0
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 1,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    }
+  ],
+  "synthesis": {
+    "area_summary": {
+      "overall_character": "이 지역은 대규모 주거단지를 배후에 둔 생활 밀착형 상업 가로가 주를 이루는 곳입니다. 주로 지역 주민의 일상생활에 필요한 편의 업종과 서비스업이 혼재되어 있으며, 전반적으로 조용하고 차분한 분위기를 유지하고 있습니다. 일부 간선도로변은 차량 중심의 통과 동선이 강하여 상업적 활력이 낮은 지점도 관찰됩니다.",
+      "dominant_zone_type": "혼합지역",
+      "primary_commercial_type": "근린형 생활상가"
+    },
+    "comprehensive_scores": {
+      "commercial_atmosphere": 5,
+      "street_atmosphere": 6,
+      "cleanliness": 7,
+      "maintenance": 7,
+      "walkability": 6,
+      "safety_perception": 7,
+      "business_diversity": 4,
+      "residential_suitability": 8,
+      "commercial_suitability": 6
+    },
+    "detailed_assessment": {
+      "strengths": [
+        "안정적인 배후 주거 수요: 대규모 아파트 단지 및 주거단지를 배후에 두어 기본적인 생활 편의 서비스에 대한 고정적인 수요가 확보됩니다.",
+        "생활 밀착형 업종의 높은 적합성: 미용실, 편의점, 부동산, 소규모 마트 등 지역 주민의 일상생활에 필수적인 업종들이 잘 자리 잡을 수 있는 환경입니다.",
+        "차분하고 안정적인 상권 분위기: 과도한 경쟁이나 유동인구의 급변동 없이 안정적으로 운영될 수 있는 환경을 제공합니다."
+      ],
+      "weaknesses": [
+        "낮은 상업적 활력 및 에너지: 전반적으로 '조용함' 또는 '차분함'으로 묘사되어 상권의 활력이 낮고, 새로운 고객 유입을 위한 매력도가 부족합니다.",
+        "제한적인 업종 다양성 및 특색 부족: 대부분 생활 편의 업종에 집중되어 있어, 차별화된 경험이나 목적성 방문을 유도할 만한 독특한 업종이 부족합니다.",
+        "차량 중심의 도로 구조 및 보행자 편의성 한계: 일부 지점은 차량 중심의 간선도로변에 위치하여 보행자 유입이 어렵고, 상권 전체의 보행 편의성이 낮을 수 있습니다."
+      ],
+      "recommended_business_types": [
+        "프리미엄 생활 서비스 (예: 고급 세탁소, 반려동물 미용/용품점)",
+        "테이크아웃/배달 전문 소규모 식음료점 (예: 샐러드 전문점, 베이커리 카페)",
+        "키즈/교육 관련 서비스 (예: 소규모 학원, 미술/음악 교습소)"
+      ],
+      "foot_traffic_estimate": "중",
+      "competition_level": "보통"
+    },
+    "final_recommendation": "이 지역은 안정적인 주거 배후 수요를 기반으로 하는 전형적인 근린형 생활 상권으로 평가됩니다. 대규모 아파트 단지와 주거 지역이 인접해 있어 생활 편의 및 서비스 업종에 대한 고정적인 수요가 강점이지만, 전반적으로 낮은 상업적 활력과 제한적인 업종 다양성은 약점으로 작용합니다. 따라서 이 상권에 진입하려는 창업자나 투자자는 과도한 유동인구에 의존하기보다는 지역 주민의 생활 패턴과 소비 성향을 면밀히 분석하여 고정 고객 확보에 중점을 두어야 합니다. 추천 업종으로는 기존 생활 서비스의 질을 높인 프리미엄 서비스나, 배달 및 테이크아웃에 특화된 소규모 식음료점, 그리고 주거 단지의 자녀 교육 수요를 공략하는 키즈/교육 관련 서비스가 적합합니다. 성공을 위한 구체적인 전략은 높은 임대료를 지양하고, 지역 커뮤니티와의 유대감을 형성하며, 온라인 배달 플랫폼 활용을 통한 접근성 강화에 집중하는 것입니다. 예상 투자 규모는 대형 상권 대비 낮을 수 있으나, 수익성은 안정적이나 폭발적이지 않을 것으로 예상됩니다. 결론적으로, 이 지역은 높은 성장 잠재력보다는 안정적인 운영을 목표로 하는 생활 밀착형 사업에 대해 '조건부 추천'하며, 철저한 시장 조사와 지역 맞춤형 전략 수립이 필수적입니다."
+  },
+  "summary": {
+    "area_characteristics": "혼합지역",
+    "commercial_type": "N/A",
+    "scores": {
+      "commercial_atmosphere": 5,
+      "street_atmosphere": 6,
+      "cleanliness": 7,
+      "maintenance": 7,
+      "walkability": 6,
+      "safety_perception": 7,
+      "business_diversity": 4,
+      "residential_suitability": 8,
+      "commercial_suitability": 6
+    },
+    "strengths": [],
+    "weaknesses": [],
+    "recommended_industries": [],
+    "expert_opinion": ""
+  }
+}

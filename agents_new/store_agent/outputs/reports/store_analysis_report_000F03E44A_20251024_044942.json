@@ -1,0 +1,254 @@
+{
+  "report_metadata": {
+    "store_code": "000F03E44A",
+    "analysis_date": "2025-10-24 04:49:42",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "000F03E44A",
+    "name": "육육**",
+    "address": "서울 성동구 왕십리로4가길 9",
+    "industry": "중식",
+    "brand": "브랜드 없음",
+    "commercial_area": "서울숲역 1번",
+    "record_months": 24,
+    "operating_months": 70.8,
+    "store_age": "기존 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "하락 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "하락 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "하락 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "하락 추세",
+        "stability": "보통",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "상승 추세",
+        "average": 1.7
+      },
+      "same_industry_sales_count": {
+        "trend": "상승 추세",
+        "average": 2.5
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 92.7
+      },
+      "commercial_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 70.9
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 1.3,
+      "grade_distribution": {
+        "1.0": 15,
+        "6.0": 1
+      },
+      "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+    },
+    "delivery_analysis": {
+      "trend": "상승 추세",
+      "average": 69.3
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 55.5,
+      "female_ratio": 44.5
+    },
+    "age_group_distribution": {
+      "20대 이하": 25.0,
+      "30대": 20.0,
+      "40대": 10.0,
+      "50대": 25.0,
+      "60대 이상": 20.0
+    },
+    "detailed_customer_ratios": {
+      "남20대이하": 13.9,
+      "남50대": 13.9,
+      "여20대이하": 11.1,
+      "여50대": 11.1,
+      "남30대": 11.1,
+      "남60대이상": 11.1,
+      "여30대": 8.9,
+      "여60대이상": 8.9,
+      "남40대": 5.6,
+      "여40대": 4.4
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 6.5,
+        "trend": "하락 추세"
+      },
+      "returning_customers": {
+        "ratio": 10.9,
+        "trend": "상승 추세"
+      },
+      "customer_distribution": {
+        "residential": 0.0,
+        "workplace": 25.0,
+        "floating": 75.0
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "서울숲역 1번",
+    "analysis_available": true,
+    "total_stores_in_area": 20,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "하락 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 8.14,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 14.7,
+      "남30대": 16.1,
+      "남40대": 6.4,
+      "남50대": 5.5,
+      "남60대이상": 2.5,
+      "여20대이하": 19.4,
+      "여30대": 18.3,
+      "여40대": 7.8,
+      "여50대": 6.7,
+      "여60대이상": 2.5
+    }
+  },
+  "industry_analysis": {
+    "industry": "중식",
+    "analysis_available": true,
+    "total_stores_in_industry": 106,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "하락 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 16.99,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 28.66,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 13.0,
+      "남30대": 15.0,
+      "남40대": 12.9,
+      "남50대": 12.6,
+      "남60대이상": 8.0,
+      "여20대이하": 10.5,
+      "여30대": 9.1,
+      "여40대": 7.6,
+      "여50대": 7.3,
+      "여60대이상": 4.1
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 하락 추세",
+      "업종 내 순위: 순위 상승 (개선)",
+      "주 고객층: 남성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [
+      "업종 내 낮은 순위"
+    ],
+    "recommendations": [
+      {
+        "category": "마케팅 전략",
+        "priority": "높음",
+        "target": "남20대이하",
+        "action": "SNS 마케팅 강화",
+        "specific_actions": [
+          "인스타그램/틱톡 이벤트 진행",
+          "20대 인플루언서 협업",
+          "점심시간 할인 프로모션 (11:30-14:00)"
+        ],
+        "expected_impact": "주 고객층 유지 및 신규 고객 확보"
+      },
+      {
+        "category": "경쟁력 강화",
+        "priority": "높음",
+        "target": "업종 내 경쟁력",
+        "action": "차별화 전략 수립",
+        "specific_actions": [
+          "시그니처 메뉴 개발",
+          "고객 리뷰 관리 시스템 구축",
+          "로열티 프로그램 도입",
+          "경쟁사 대비 가격 경쟁력 분석"
+        ],
+        "expected_impact": "업종 내 순위 92.7% → 30% 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 28.7% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_sales_trend_20251024_044942.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_gender_pie_20251024_044942.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_age_pie_20251024_044942.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_detailed_pie_20251024_044942.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_ranking_trend_20251024_044942.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_customer_trends_20251024_044942.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\000F03E44A_new_returning_trends_20251024_044942.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

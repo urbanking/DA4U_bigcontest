@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 import json
 import random
+from pathlib import Path
 
 
 @dataclass
@@ -46,6 +47,7 @@ class StrategyGenerator:
         self.strategy_templates = self._load_strategy_templates()
         self.channel_strategies = self._load_channel_strategies()
         self.seasonal_factors = self._load_seasonal_factors()
+        self.age_channel_insights = self._load_age_channel_insights()
     
     def _load_strategy_templates(self) -> Dict[str, List[Dict[str, Any]]]:
         """전략 템플릿 로드"""
@@ -213,6 +215,218 @@ class StrategyGenerator:
                 "recommended_strategies": ["따뜻한 메뉴 강조", "연말 프로모션", "모임 마케팅"],
                 "target_segments": ["가족", "친구", "동료"]
             }
+        }
+    
+    def _load_age_channel_insights(self) -> Dict[str, Any]:
+        """
+        연령대별 SNS 채널 인사이트 로드 (data/segment_sns.json)
+        
+        Returns:
+            연령대별 채널 정보 (top 5 채널, 트렌드, 피해야 할 채널)
+        """
+        try:
+            # data/segment_sns.json 경로 찾기
+            json_path = Path(__file__).parent.parent.parent / "data" / "segment_sns.json"
+            
+            if not json_path.exists():
+                print(f"[WARNING] segment_sns.json not found at {json_path}")
+                return self._get_default_channel_insights()
+            
+            with open(json_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            # 연령대별로 파싱
+            age_top5 = data.get("age_top5_channels", {})
+            
+            insights = {}
+            for age_key, channels in age_top5.items():
+                # "연령-20대" → "20대" 변환
+                age = age_key.replace("연령-", "")
+                
+                if not channels:
+                    continue
+                
+                # Top 1 채널 (가장 많이 사용)
+                top1 = channels[0]
+                primary_channel = top1["channel"]
+                usage_rate = top1["usage_percent"]
+                
+                # Top 2 채널 (상승 추세인 경우에만)
+                secondary_channel = None
+                if len(channels) >= 2:
+                    top2 = channels[1]
+                    if top2.get("trend_label") in ["대폭 상승", "소폭 상승"]:
+                        secondary_channel = top2["channel"]
+                
+                # 피해야 할 채널 (하락 추세)
+                avoid_channels = [
+                    ch["channel"] for ch in channels 
+                    if ch.get("trend_label") in ["대폭 하락", "소폭 하락"]
+                ]
+                
+                # 전체 채널 정보 (근거 제시용)
+                all_channels = [
+                    {
+                        "rank": ch["rank"],
+                        "channel": ch["channel"],
+                        "usage_percent": ch["usage_percent"],
+                        "trend_label": ch.get("trend_label", ""),
+                        "total_change": ch.get("total_change", 0)
+                    }
+                    for ch in channels[:5]  # Top 5만
+                ]
+                
+                insights[age] = {
+                    "primary_channel": primary_channel,
+                    "usage_rate": usage_rate,
+                    "secondary_channel": secondary_channel,
+                    "avoid_channels": avoid_channels,
+                    "all_channels": all_channels  # 근거 제시용
+                }
+            
+            return insights
+            
+        except Exception as e:
+            print(f"[ERROR] Failed to load segment_sns.json: {e}")
+            return self._get_default_channel_insights()
+    
+    def _get_default_channel_insights(self) -> Dict[str, Any]:
+        """기본 채널 인사이트 (fallback)"""
+        return {
+            "20대": {
+                "primary_channel": "인스타그램",
+                "usage_rate": 87.4,
+                "secondary_channel": None,
+                "avoid_channels": ["카카오스토리", "페이스북"],
+                "all_channels": []
+            },
+            "30대": {
+                "primary_channel": "인스타그램",
+                "usage_rate": 72.2,
+                "secondary_channel": None,
+                "avoid_channels": ["카카오스토리"],
+                "all_channels": []
+            },
+            "40대": {
+                "primary_channel": "인스타그램",
+                "usage_rate": 60.1,
+                "secondary_channel": "페이스북",
+                "avoid_channels": ["카카오스토리"],
+                "all_channels": []
+            },
+            "50대": {
+                "primary_channel": "네이버밴드",
+                "usage_rate": 51.2,
+                "secondary_channel": "인스타그램",
+                "avoid_channels": ["카카오스토리"],
+                "all_channels": []
+            },
+            "60대": {
+                "primary_channel": "네이버밴드",
+                "usage_rate": 59.8,
+                "secondary_channel": "인스타그램",
+                "avoid_channels": ["카카오스토리"],
+                "all_channels": []
+            }
+        }
+    
+    def _select_optimal_channel(self, age_group: str, delivery_ratio: float = 0.0) -> Dict[str, Any]:
+        """
+        연령대와 배달율을 고려한 최적 채널 선택 (1-2개로 한정) + 근거 제시
+        
+        Args:
+            age_group: 주요 연령대 (20대, 30대, 40대, 50대, 60대, 70대이상)
+            delivery_ratio: 배달 비율 (0-100)
+            
+        Returns:
+            {
+                "channels": "선택된 채널 (1-2개)",
+                "primary_channel": "주 채널",
+                "usage_rate": 사용률,
+                "reasoning": "추천 근거",
+                "avoid_channels": ["피해야 할 채널"],
+                "channel_data": [채널별 상세 데이터]
+            }
+        """
+        # 연령대별 인사이트 가져오기
+        insights = self.age_channel_insights.get(age_group, self.age_channel_insights.get("30대", {}))
+        
+        if not insights:
+            return {
+                "channels": "인스타그램",
+                "primary_channel": "인스타그램",
+                "usage_rate": 60.0,
+                "reasoning": "기본 추천 채널",
+                "avoid_channels": [],
+                "channel_data": []
+            }
+        
+        primary = insights.get("primary_channel", "인스타그램")
+        secondary = insights.get("secondary_channel")
+        usage_rate = insights.get("usage_rate", 0)
+        avoid_channels = insights.get("avoid_channels", [])
+        all_channels = insights.get("all_channels", [])
+        
+        # 채널 선택 및 근거 생성
+        selected_channels = ""
+        reasoning = ""
+        
+        # 배달율이 50% 이상이면 배달앱 우선
+        if delivery_ratio >= 50:
+            selected_channels = "배달앱 (배달의민족, 쿠팡이츠, 요기요)"
+            reasoning = f"{age_group} 고객의 경우 {primary}({usage_rate}%) 사용률이 가장 높지만, 배달 비율이 {delivery_ratio:.1f}%로 높아 배달앱을 최우선 채널로 추천합니다."
+            
+        # 배달율이 30-50% 사이면 배달앱 + 주 채널
+        elif 30 <= delivery_ratio < 50:
+            selected_channels = f"배달앱 + {primary}"
+            reasoning = f"{age_group} 고객의 {primary} 사용률이 {usage_rate:.1f}%로 가장 높고, 배달 비율({delivery_ratio:.1f}%)도 높아 두 채널을 병행 추천합니다."
+            
+        # 일반적인 경우: SNS 채널
+        else:
+            # Secondary 채널이 있고 오프라인 강조가 필요한 경우
+            if secondary and delivery_ratio < 20:
+                selected_channels = f"{primary} + 오프라인"
+                reasoning = f"{age_group} 고객의 {primary} 사용률이 {usage_rate:.1f}%로 가장 높습니다. 배달 비율({delivery_ratio:.1f}%)이 낮아 오프라인 채널도 병행 추천합니다."
+            
+            # 주 채널 1개만
+            else:
+                selected_channels = primary
+                reasoning = f"{age_group} 고객의 {primary} 사용률이 {usage_rate:.1f}%로 압도적으로 높습니다."
+        
+        # 피해야 할 채널에 대한 경고 추가
+        if avoid_channels:
+            avoid_text = ", ".join(avoid_channels[:3])  # 최대 3개만
+            reasoning += f"\n⚠️ 주의: {avoid_text}는 사용률 하락 추세이므로 채널로 사용 시 유의하세요."
+        
+        # 채널 상세 데이터 (그래프 근거용)
+        channel_data_with_reasoning = []
+        for ch in all_channels:
+            trend_emoji = {
+                "대폭 상승": "📈",
+                "소폭 상승": "↗️",
+                "변화 없음": "➡️",
+                "소폭 하락": "↘️",
+                "대폭 하락": "📉"
+            }.get(ch.get("trend_label", ""), "")
+            
+            channel_data_with_reasoning.append({
+                "rank": ch["rank"],
+                "channel": ch["channel"],
+                "usage_percent": ch["usage_percent"],
+                "trend_label": ch.get("trend_label", ""),
+                "trend_emoji": trend_emoji,
+                "total_change": ch.get("total_change", 0),
+                "recommendation": "추천" if ch["channel"] == primary else "피하기" if ch["channel"] in avoid_channels else "보통"
+            })
+        
+        return {
+            "channels": selected_channels,
+            "primary_channel": primary,
+            "usage_rate": usage_rate,
+            "reasoning": reasoning,
+            "avoid_channels": avoid_channels,
+            "channel_data": channel_data_with_reasoning,
+            "source": "2024년 미디어통계포털 - 주로 이용하는 SNS 계정 1,2,3위"
         }
     
     def expand_channel_details(self, channel_string: str) -> Dict[str, Any]:
@@ -509,12 +723,6 @@ class StrategyGenerator:
         # 타임라인 생성
         timeline = self._generate_campaign_timeline(strategies, campaign_duration)
         
-        # 예상 KPI 계산
-        expected_kpis = self._calculate_expected_kpis(strategies)
-        
-        # 성공 확률 계산
-        success_probability = self._calculate_success_probability(strategies)
-        
         campaign_plan = CampaignPlan(
             campaign_id=campaign_id,
             name=campaign_name,
@@ -523,8 +731,8 @@ class StrategyGenerator:
             strategies=strategies,
             budget_allocation=budget_allocation,
             timeline=timeline,
-            expected_kpis=expected_kpis,
-            success_probability=success_probability
+            expected_kpis={},
+            success_probability=0.0
         )
         
         return campaign_plan
@@ -594,46 +802,4 @@ class StrategyGenerator:
             })
         
         return timeline
-    
-    def _calculate_expected_kpis(self, strategies: List[MarketingStrategy]) -> Dict[str, Any]:
-        """예상 KPI 계산"""
-        kpis = {
-            "매출_증가율": 0,
-            "신규_고객_증가율": 0,
-            "재방문율_개선": 0,
-            "리뷰_점수_개선": 0,
-            "SNS_팔로워_증가율": 0
-        }
-        
-        for strategy in strategies:
-            if "매출" in strategy.expected_impact:
-                kpis["매출_증가율"] += 10
-            if "신규" in strategy.expected_impact:
-                kpis["신규_고객_증가율"] += 15
-            if "재방문" in strategy.expected_impact:
-                kpis["재방문율_개선"] += 5
-            if "리뷰" in strategy.expected_impact:
-                kpis["리뷰_점수_개선"] += 0.5
-            if "SNS" in strategy.expected_impact:
-                kpis["SNS_팔로워_증가율"] += 20
-        
-        return kpis
-    
-    def _calculate_success_probability(self, strategies: List[MarketingStrategy]) -> float:
-        """성공 확률 계산"""
-        base_probability = 70.0  # 기본 성공 확률
-        
-        # 전략 수에 따른 조정
-        strategy_bonus = min(len(strategies) * 5, 20)
-        
-        # 우선순위에 따른 조정
-        priority_bonus = 0
-        for strategy in strategies:
-            if strategy.priority == 1:
-                priority_bonus += 5
-            elif strategy.priority == 2:
-                priority_bonus += 3
-        
-        total_probability = base_probability + strategy_bonus + priority_bonus
-        return min(total_probability, 95.0)  # 최대 95%
 

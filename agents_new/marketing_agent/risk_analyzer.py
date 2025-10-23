@@ -119,6 +119,15 @@ class RiskAnalyzer:
                 threshold_value=1.5,
                 priority=1,
                 impact_score=9.5
+            ),
+            "R10": RiskCode(
+                code="R10",
+                name="재방문율 낮음",
+                description="재방문율이 절대적으로 낮음 (30% 이하)",
+                trigger_condition="revisit_rate <= 30%",
+                threshold_value=30.0,
+                priority=2,
+                impact_score=7.8
             )
         }
     
@@ -207,6 +216,13 @@ class RiskAnalyzer:
                 "경쟁사 분석 강화",
                 "차별화 포인트 강화",
                 "지역 밀착형 마케팅"
+            ],
+            "R10": [
+                "스탬프 적립 프로그램 도입",
+                "재방문 고객 전용 할인 쿠폰",
+                "회원 멤버십 혜택 확대",
+                "단골 고객 감사 이벤트",
+                "생일/기념일 특별 혜택"
             ]
         }
     
@@ -289,6 +305,8 @@ class RiskAnalyzer:
                 return await self._check_market_fit(risk_def, store_data, metrics_data)
             elif risk_code == "R9":
                 return await self._check_business_churn_risk(risk_def, store_data, metrics_data)
+            elif risk_code == "R10":
+                return await self._check_low_revisit_rate(risk_def, store_data, metrics_data)
             else:
                 return {"detected": False, "level": RiskLevel.LOW, "score": 0.0, "evidence": ""}
                 
@@ -471,6 +489,34 @@ class RiskAnalyzer:
             score = min(severity * 5, 100)
             
             evidence = f"상권 해지 위험도 {churn_risk:.1f} (업종평균+1.5σ: {threshold:.1f})"
+            
+            return {
+                "detected": True,
+                "level": level,
+                "score": score,
+                "evidence": evidence
+            }
+        
+        return {"detected": False, "level": RiskLevel.LOW, "score": 0.0, "evidence": ""}
+    
+    async def _check_low_revisit_rate(self, risk_def: RiskCode, store_data: Dict[str, Any], metrics_data: Dict[str, Any]) -> Dict[str, Any]:
+        """재방문율 30% 이하 체크 (R10)"""
+        revisit_rate = metrics_data.get("revisit_rate", 0)
+        industry = store_data.get("industry", "한식")
+        industry_avg = self.industry_averages.get(industry, {}).get("avg_revisit_rate", 40)
+        
+        # 재방문율이 30% 이하인지 체크
+        if revisit_rate <= risk_def.threshold_value:
+            # R2 (재방문율 저하)는 트리거되지 않았지만 절대값이 낮은 경우
+            severity = risk_def.threshold_value - revisit_rate
+            level = self._determine_risk_level(severity)
+            score = min(severity * 6, 100)
+            
+            # R2 위험요소가 없는지 확인 (동종 업종 대비 낮지 않음)
+            if revisit_rate > industry_avg - 3:  # R2 조건에 해당하지 않음
+                evidence = f"재방문율 {revisit_rate:.1f}% (업종평균: {industry_avg:.1f}% - 동종 업종 대비 낮지는 않으나 절대값 30% 이하)"
+            else:
+                evidence = f"재방문율 {revisit_rate:.1f}% (기준: 30% 이하)"
             
             return {
                 "detected": True,

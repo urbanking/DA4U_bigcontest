@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "store_code": "309BDE407B",
+    "analysis_timestamp": "20251024_035533",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 아차산로17길 48",
+    "coordinates": [
+      37.5466713,
+      127.0661249
+    ],
+    "administrative_dong": "성수2가3동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "쥬스************",
+    "industry": "카페",
+    "commercial_area": "성수초등학교",
+    "quality_score": 0.87
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 도심의 주요 간선도로변에 위치한 현대적이고 정돈된 비즈니스 및 업무 중심 지구입니다. 전반적으로 차분하고 전문적인 분위기가 지배적이며, 오피스 빌딩과 지원 시설이 밀집해 있습니다. 주로 직장인과 비즈니스 방문객을 위한 상업적 기능이 강조됩니다.",
+    "marketplace_type": "업무지구 지원형 상권 및 고급 리테일/F&B 혼합 상권",
+    "scores": {
+      "commercial_atmosphere": 6,
+      "street_atmosphere": 8,
+      "cleanliness": 8,
+      "maintenance": 8,
+      "walkability": 7,
+      "safety_perception": 8,
+      "business_diversity": 6,
+      "residential_suitability": 3,
+      "commercial_suitability": 8
+    },
+    "strengths": [
+      "오피스 빌딩 및 호텔에서 발생하는 안정적인 주중 주간 유동인구 (직장인, 비즈니스 방문객)",
+      "현대적이고 정돈된 건물 및 거리 환경으로 인한 쾌적하고 전문적인 분위기",
+      "고급 카페, 레스토랑, 브랜드 쇼룸 등 프리미엄 상업시설 입점 및 성장 잠재력"
+    ],
+    "weaknesses": [
+      "전반적으로 '차분함'과 '조용함'으로 인한 낮은 상업적 활력 및 유흥 요소 부족",
+      "직장인 대상 편의시설 및 특정 고급 업종에 집중되어 일반 소비자를 위한 업종 다양성 부족",
+      "업무지구 특성상 주말 및 야간 유동인구 급감 가능성 및 그에 따른 매출 변동성"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

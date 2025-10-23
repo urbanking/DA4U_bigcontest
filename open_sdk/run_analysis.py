@@ -330,157 +330,6 @@ def convert_absolute_to_relative_path(absolute_path: str) -> str:
         return absolute_path
 
 
-def convert_store_to_marketing_format(store_analysis: Dict[str, Any]) -> Dict[str, Any]:
-    """Step 2: Convert Store Agent results to Marketing Agent input format"""
-    print("\n" + "="*60)
-    print("[Step 2] Data Format Conversion (Store -> Marketing)")
-    print("="*60)
-    
-    try:
-        json_output = store_analysis["json_output"]
-        store_overview = json_output["store_overview"]
-        sales_analysis = json_output["sales_analysis"]
-        customer_analysis = json_output["customer_analysis"]
-        
-        # Gender analysis
-        gender_dist = customer_analysis["gender_distribution"]
-        main_gender = "Male" if gender_dist["male_ratio"] > 50 else "Female"
-        
-        # Age group analysis
-        age_dist = customer_analysis["age_group_distribution"]
-        main_age = max(age_dist, key=age_dist.get)
-        
-        # Customer type
-        customer_dist = customer_analysis["customer_type_analysis"]["customer_distribution"]
-        if customer_dist["floating"] > 50:
-            customer_type = "Floating"
-        elif customer_dist["workplace"] > 50:
-            customer_type = "Workplace"
-        else:
-            customer_type = "Residential"
-        
-        # Trend conversion
-        new_customer_trend_raw = customer_analysis["customer_type_analysis"]["new_customers"]["trend"]
-        revisit_trend_raw = customer_analysis["customer_type_analysis"]["returning_customers"]["trend"]
-        
-        new_customer_trend = "Increasing" if "상승" in new_customer_trend_raw else "Decreasing" if "하락" in new_customer_trend_raw else "Stable"
-        revisit_trend = "Increasing" if "상승" in revisit_trend_raw else "Decreasing" if "하락" in revisit_trend_raw else "Stable"
-        
-        # Franchise check
-        is_franchise = (store_overview.get("brand", "브랜드 없음") != "브랜드 없음")
-        
-        # Convert to Marketing Agent format
-        marketing_input = {
-            "store_code": store_overview["code"],
-            "store_name": store_overview["name"],
-            "address": store_overview["address"],
-            "industry": store_overview["industry"],
-            "commercial_zone": store_overview["commercial_area"],
-            "store_age": store_overview["store_age"],
-            "is_franchise": is_franchise,
-            "operating_months": store_overview["operating_months"],
-            
-            "customer_demographics": {
-                "gender": main_gender,
-                "age_group": main_age
-            },
-            
-            "customer_type": customer_type,
-            
-            "trends": {
-                "new_customer": new_customer_trend,
-                "revisit": revisit_trend
-            },
-            
-            "delivery_ratio": sales_analysis["delivery_analysis"]["average"],
-            
-            "metrics": {
-                "revisit_rate": _calculate_revisit_rate(json_output),
-                "delivery_ratio": sales_analysis["delivery_analysis"]["average"],
-                "cancellation_rate": _calculate_cancellation_rate(json_output),
-                "market_fit_score": _calculate_market_fit_score(json_output),
-                "business_churn_risk": _calculate_business_churn_risk(json_output),
-                "new_customer_trend": customer_analysis["customer_type_analysis"]["new_customers"]["ratio"]
-            }
-        }
-        
-        print(f"[OK] Conversion completed")
-        print(f"   Store name: {marketing_input['store_name']}")
-        print(f"   Main customer: {marketing_input['customer_demographics']['gender']} {marketing_input['customer_demographics']['age_group']}")
-        print(f"   Customer type: {marketing_input['customer_type']}")
-        print(f"   Market fit score: {marketing_input['metrics']['market_fit_score']:.1f}")
-        print(f"   Business churn risk: {marketing_input['metrics']['business_churn_risk']:.1f}")
-        
-        return marketing_input
-        
-    except Exception as e:
-        print(f"[ERROR] Data conversion failed: {e}")
-        import traceback
-        traceback.print_exc()
-        return None
-
-
-def _calculate_market_fit_score(json_output: Dict[str, Any]) -> float:
-    """시장 적합도 점수 계산 (순위 기반)"""
-    try:
-        rankings = json_output["sales_analysis"]["rankings"]
-        industry_rank = rankings["industry_rank"]["average"]
-        commercial_rank = rankings["commercial_rank"]["average"]
-        
-        # 순위를 백분율로 변환 (높을수록 나쁨)
-        market_fit_score = (industry_rank * 0.6 + commercial_rank * 0.4)
-        return market_fit_score
-    except:
-        return 50.0  # 기본값
-
-
-def _calculate_business_churn_risk(json_output: Dict[str, Any]) -> float:
-    """폐업 위험도 계산 (해지율 기반)"""
-    try:
-        commercial_termination = json_output["commercial_area_analysis"]["termination_analysis"]["termination_ratio"]
-        industry_termination = json_output["industry_analysis"]["termination_analysis"]["termination_ratio"]
-        
-        # 가중 평균
-        business_churn_risk = (commercial_termination * 0.4 + industry_termination * 0.6)
-        return business_churn_risk
-    except:
-        return 10.0  # 기본값
-
-
-def _calculate_revisit_rate(json_output: Dict[str, Any]) -> float:
-    """재방문율 계산 (customer_type_analysis에서 추출)"""
-    try:
-        returning_ratio = json_output["customer_analysis"]["customer_type_analysis"]["returning_customers"]["ratio"]
-        return returning_ratio
-    except:
-        return 50.0  # 기본값
-
-
-def _calculate_cancellation_rate(json_output: Dict[str, Any]) -> float:
-    """취소율 계산 (cancellation_analysis에서 추출)"""
-    try:
-        cancel_grade = json_output["sales_analysis"]["cancellation_analysis"]["average_grade"]
-        # 등급을 비율로 변환 (1등급=1%, 6등급=10%)
-        cancellation_rate = (cancel_grade - 1) * 2 + 1
-        return cancellation_rate
-    except:
-        return 2.0  # 기본값
-
-
-def _convert_enums_to_strings(obj):
-    """Enum 객체를 문자열로 재귀적으로 변환"""
-    if isinstance(obj, dict):
-        return {k: _convert_enums_to_strings(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [_convert_enums_to_strings(item) for item in obj]
-    elif hasattr(obj, '__class__') and hasattr(obj.__class__, '__bases__'):
-        # Enum 체크
-        from enum import Enum
-        if isinstance(obj, Enum):
-            return obj.value
-    return obj
-
-
 async def run_mobility_analysis(address: str, dong: str = None) -> Dict[str, Any]:
     """Step 4: Mobility Analysis (Mandatory) - Copy JSON + PNG from data outputs"""
     print("\n" + "="*60)
@@ -802,8 +651,7 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
                 mobility_result: Dict[str, Any] = None,
                 panorama_result: Dict[str, Any] = None,
                 marketplace_result: Dict[str, Any] = None,
-                spatial_info: Dict[str, Any] = None,
-                new_product_result: Dict[str, Any] = None) -> str:
+                spatial_info: Dict[str, Any] = None) -> str:
     """Step 8: Save results to open_sdk/output"""
     print("\n" + "="*60)
     print("[Step 8] Saving Results")
@@ -871,12 +719,6 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
             "mobility_summary": {
                 "analysis_period": mobility_result.get("data", {}).get("분석_기간") if mobility_result else None,
                 "total_charts": len(mobility_result.get("chart_files", [])) if mobility_result else 0
-            },
-            "new_product_summary": {
-                "activated": new_product_result.get("activated") if new_product_result else False,
-                "proposal_count": len(new_product_result.get("proposals", [])) if new_product_result else 0,
-                "target_audience": new_product_result.get("audience_filters", {}) if new_product_result else {},
-                "used_categories": new_product_result.get("used_categories", []) if new_product_result else []
             }
         }
         
@@ -914,13 +756,6 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
                     shutil.copy2(chart_path, dest)
             
             print(f"[OK] Store charts: {len(chart_files)} -> store_charts/")
-        
-        # Save New Product Agent results
-        if new_product_result and new_product_result.get("activated"):
-            new_product_file = result_dir / f"{store_code}_new_product_recommendations.json"
-            with open(new_product_file, 'w', encoding='utf-8') as f:
-                json.dump(new_product_result, f, ensure_ascii=False, indent=2)
-            print(f"[OK] New Product recommendations: {store_code}_new_product_recommendations.json")
         
         # Copy Mobility charts (already in open_sdk/output)
         if mobility_result and mobility_result.get("output_dir"):
@@ -1035,95 +870,9 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
     print("[Step 2] Marketing Agent Analysis - SKIPPED")
     print("="*60)
     print("[INFO] Marketing Agent는 app.py에서 직접 호출됩니다")
+    print("[INFO] New Product Agent는 상담 시작 시 실행됩니다")
     
-    # Step 3: New Product Agent (if applicable)
-    print("\n" + "="*60)
-    print("[Step 3] New Product Agent")
-    print("="*60)
-    
-    new_product_result = None
-    
-    # Check industry from CSV data instead of analysis_result.json
-    try:
-        import pandas as pd
-        csv_path = project_root / "agents_new" / "store_agent" / "store_data" / "final_merged_data.csv"
-        
-        if csv_path.exists():
-            # Read CSV and find store data
-            df = pd.read_csv(csv_path)
-            store_data = df[df['코드'] == store_code]
-            
-            if not store_data.empty:
-                # Get the latest record (last row)
-                latest_record = store_data.iloc[-1]
-                
-                # Extract industry categories
-                industry_large = latest_record.get('업종_대분류', '')
-                industry_medium = latest_record.get('업종_중분류', '')
-                industry_small = latest_record.get('업종_소분류', '')
-                
-                print(f"[INFO] CSV에서 업종 정보 조회:")
-                print(f"  - 대분류: {industry_large}")
-                print(f"  - 중분류: {industry_medium}")
-                print(f"  - 소분류: {industry_small}")
-                
-                # Check if any category matches allowed list
-                ALLOWED_INDUSTRIES = {
-                    "카페", "디저트", "커피전문점", "베이커리", 
-                    "떡/한과 제조", "아이스크림/빙수", "차",
-                    "마카롱", "탕후루", "도너츠", "주스", 
-                    "떡/한과", "테이크아웃커피", "테마카페", "와플/크로플",
-                    "카페·디저트"  # CSV에 있는 형태 추가
-                }
-                
-                # Check if any of the three categories match
-                matched_industry = None
-                if industry_large in ALLOWED_INDUSTRIES:
-                    matched_industry = industry_large
-                elif industry_medium in ALLOWED_INDUSTRIES:
-                    matched_industry = industry_medium
-                elif industry_small in ALLOWED_INDUSTRIES:
-                    matched_industry = industry_small
-                
-                if matched_industry:
-                    if IS_CLOUD:
-                        print(f"[SKIP] 업종 '{matched_industry}' 확인 - 클라우드 환경으로 New Product Agent 비활성화")
-                    else:
-                        print(f"[OK] 업종 '{matched_industry}' 확인 - New Product Agent 활성화")
-                        try:
-                            from agents_new.new_product_agent.new_product_agent import NewProductAgent
-                            
-                            # Initialize New Product Agent
-                            new_product_agent = NewProductAgent(headless=True, save_outputs=True)
-                            
-                            # Run new product analysis
-                            new_product_result = await new_product_agent.run(store_analysis)
-                            
-                            if new_product_result and new_product_result.get('activated'):
-                                print(f"[OK] New Product Agent: {len(new_product_result.get('proposals', []))} proposals generated")
-                            else:
-                                print(f"[WARN] New Product Agent: No proposals generated")
-                                
-                        except Exception as e:
-                            print(f"[ERROR] New Product Agent failed: {e}")
-                            import traceback
-                            traceback.print_exc()
-                            new_product_result = None
-                else:
-                    print(f"[SKIP] 업종이 허용 목록에 없음 - New Product Agent 비활성화")
-                    print(f"  - 대분류 '{industry_large}' ❌")
-                    print(f"  - 중분류 '{industry_medium}' ❌")
-                    print(f"  - 소분류 '{industry_small}' ❌")
-            else:
-                print(f"[SKIP] CSV에서 매장코드 '{store_code}'를 찾을 수 없음 - New Product Agent 비활성화")
-        else:
-            print(f"[SKIP] CSV 파일을 찾을 수 없음: {csv_path}")
-            
-    except Exception as e:
-        print(f"[ERROR] CSV 업종 조회 실패: {e}")
-        print(f"[SKIP] New Product Agent 비활성화")
-    
-    # Step 5: Mobility analysis
+    # Step 3: Mobility analysis
     mobility_result = await run_mobility_analysis(address, dong)
     
     # Step 6: Panorama analysis (클라우드 환경에서는 자동 스킵)
@@ -1139,8 +888,7 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
         mobility_result,
         panorama_result,
         marketplace_result,
-        spatial_info=spatial_info if 'spatial_info' in locals() else None,
-        new_product_result=new_product_result
+        spatial_info=spatial_info if 'spatial_info' in locals() else None
     )
     
     # Completion summary
@@ -1150,8 +898,8 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
     print(f"\n[SUMMARY] Results Summary:")
     print(f"   [OK] Address analysis: Completed (dong: {dong})")
     print(f"   [OK] Store analysis: Completed")
-    print(f"   [INFO] Marketing strategy: Handled by app.py")
-    print(f"   [OK] New Product Agent: {'Completed' if new_product_result and new_product_result.get('activated') else 'Skipped'}")
+    print(f"   [INFO] Marketing strategy: Handled by app.py (상담 시작 시)")
+    print(f"   [INFO] New Product Agent: Handled by app.py (상담 시작 시)")
     print(f"   [WARN] Mobility: {mobility_result.get('status', 'unknown')}")
     print(f"   [WARN] Panorama: {panorama_result.get('status', 'unknown')}")
     print(f"   [INFO] Marketplace: {marketplace_result.get('status', 'unknown')}")
@@ -1170,7 +918,6 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
         "store_code": store_code,
         "output_file": output_file,
         "store_analysis": store_analysis,
-        "new_product_result": new_product_result,
         "spatial_info": spatial_info if 'spatial_info' in locals() else None
     }
 

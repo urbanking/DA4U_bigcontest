@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "input_address": "서울 성동구 청계천로10나길 78",
+    "center_coordinates": {
+      "longitude": 127.0370927,
+      "latitude": 37.5700669
+    },
+    "buffer_meters": 300,
+    "total_images_found": 5,
+    "images_analyzed": 5,
+    "analysis_timestamp": "2025-10-24T05:22:09.335254"
+  },
+  "individual_analyses": [
+    {
+      "point_id": 8836,
+      "pano_id": "hlTkd2O5hptz9s1QKqfhqQ",
+      "lon": 127.0372998,
+      "lat": 37.5701836,
+      "distance_m": 22.40796941865731,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_9\\point_8836_pano_hlTkd2O5hptz9s1QKqfhqQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "생활 밀착형 상업지역의 활기찬 골목길",
+          "overall_impression_prose": "이 장소는 오래된 건물과 현대적인 상점들이 어우러진 전형적인 주거지 인근 상업 골목입니다. 주민들의 일상적인 필요를 충족시키는 데 중점을 둔 분위기로, 특별한 트렌디함보다는 실용성과 접근성이 돋보입니다. 전반적으로 차분하지만 꾸준한 유동 인구가 예상되는 공간입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "건물들은 주로 2층에서 4층 높이로, 대부분 오래된 외관을 가지고 있습니다. 일부 건물은 1층 상점 부분만 리모델링되어 현대적인 간판을 달고 있습니다. 건물 형태는 직사각형의 일반적인 상가 주택 형태이며, 도로를 따라 밀집해 배치되어 있습니다. 좌측에는 파리바게뜨와 같은 프랜차이즈가 입점해 있고, 우측에는 소규모 상점들이 보입니다.",
+            "street_details": "도로는 아스팔트로 포장되어 있으며, 차량 통행과 보행자 통행이 혼재된 형태입니다. 보도는 좁은 편이며, 회색 보도블럭으로 마감되어 있습니다. 가로수는 보이지 않으며, 벤치나 별도의 휴식 공간은 없습니다. 전봇대와 전선이 복잡하게 얽혀 있으며, 일반적인 가로등은 사진상으로는 확인하기 어렵습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "공간을 지배하는 색감은 건물 외벽의 회색, 흰색, 갈색 등 전반적으로 차분하고 무채색 계열입니다. 파리바게뜨의 파란색 간판과 일부 상점의 녹색 간판이 포인트 색상으로 작용합니다. 재질감은 오래된 콘크리트, 벽돌, 아스팔트 등 다소 거칠고 낡은 느낌이 지배적이지만, 상점 간판은 비교적 깔끔한 금속 및 플라스틱 재질입니다.",
+            "imagined_sounds": "이곳에서는 차량의 엔진 소리, 오토바이 소리, 그리고 사람들의 대화 소리가 주로 들릴 것으로 상상됩니다. 상점 내부에서 흘러나오는 음악 소리나 조리 소리도 간간이 섞일 수 있습니다. 전반적으로 소음이 아주 크지는 않지만, 도시의 일상적인 소음이 꾸준히 존재하는 환경일 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사진에는 여러 명의 성인 보행자들이 보입니다. 캐주얼한 복장을 하고 있으며, 주로 일상적인 활동을 하는 지역 주민이나 방문객으로 추정됩니다. 특정 연령대나 집단보다는 다양한 연령대의 사람들이 섞여 있는 모습입니다. 한 명은 양산을 쓰고 있습니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "베이커리/카페 (파리바게뜨), 음식점 (삼겹살 전문점), 기타 소매점 및 식당으로 추정되는 상점들",
+          "signs_of_change_or_stability": "파리바게뜨와 같은 대형 프랜차이즈의 입점은 상권의 기본적인 안정성을 보여줍니다. 하지만 전반적인 건물 외관은 노후화되어 있어, 상권 전체의 큰 변화보다는 기존 상점들의 꾸준한 운영에 의존하는 안정적인 상태로 보입니다. 신규 개업이나 폐업의 명확한 흔적은 보이지 않습니다.",
+          "opportunity_for_target_business": {
+            "business_category": "생활 밀착형 서비스 또는 캐주얼 다이닝",
+            "narrative_insight": "이 지역은 주민들의 일상적인 필요를 충족시키는 데 중점을 둔 상권으로 보입니다. 따라서 신선한 식료품점, 소규모 반찬가게, 또는 가족 단위 고객을 위한 캐주얼한 한식/분식점이 잘 어울릴 것입니다. 현대적인 인테리어보다는 친근하고 실용적인 컨셉으로 접근하여 지역 주민들의 단골 가게가 되는 것을 목표로 해야 합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 장소는 안정적인 주거지 기반의 생활 상권으로, 높은 성장 잠재력보다는 꾸준한 수요를 기대할 수 있는 곳입니다. 창업자나 투자자는 지역 주민들의 연령대와 소비 패턴을 면밀히 분석하여 필수 소비재나 가성비 좋은 외식업에 집중하는 것이 현명합니다. 화려한 인테리어나 유행을 좇기보다는, 친근하고 신뢰할 수 있는 서비스와 품질로 지역 커뮤니티에 깊이 뿌리내리는 전략이 성공 가능성을 높일 것입니다. 장기적인 관점에서 안정적인 수익을 추구하는 사업에 적합합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 5,
+            "Operational_Status": 5,
+            "Customer_Presence": 1,
+            "Promotional_Activity": 3
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 1
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 6544,
+      "pano_id": "JjOR4CxXPyDS1zBNSAGrYQ",
+      "lon": 127.0374761,
+      "lat": 37.5698902,
+      "distance_m": 39.12384581011806,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_6\\point_6544_pano_JjOR4CxXPyDS1zBNSAGrYQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "건설 현장과 상업 시설이 혼재된 주요 도로변",
+          "overall_impression_prose": "이 장소는 넓은 왕복 도로를 중심으로 한 상업 지역으로 보이나, 한쪽에는 대규모 건설 현장이 진행 중이어서 다소 어수선하고 활기가 저하된 인상입니다. 차량 통행량은 많아 보이지만, 보행자 친화적인 환경은 아닙니다. 전반적으로 정돈되지 않은 과도기적인 분위기가 지배적입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로는 왕복 4차선 이상으로 보이며, 중앙에는 빨간색으로 표시된 차선이 있습니다. 도로의 왼쪽에는 대규모 건설 현장이 길게 이어져 있으며, 높은 가림막으로 둘러싸여 있습니다. 오른쪽에는 2~3층 높이의 상업용 건물들이 줄지어 서 있습니다. 건물들은 대체로 오래된 외관을 가지고 있으며, 다양한 상점들이 입점해 있습니다. 건물 높이는 비교적 균일한 편입니다.",
+            "street_details": "도로는 아스팔트 포장 상태가 양호해 보이나, 보도블럭은 일부 파손되거나 정돈되지 않은 부분이 보입니다. 가로수는 보이지 않으며, 벤치나 가로등과 같은 보행자 편의시설도 눈에 띄지 않습니다. 보도는 좁고, 상점 앞에는 입간판이나 적치물, 공사 관련 물품(주황색 고깔) 등이 놓여 있어 보행에 불편을 줄 수 있습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 회색빛 하늘과 도로, 그리고 건물들의 무채색 계열이 지배적입니다. 건설 현장의 가림막과 도로의 빨간색 표시가 대비를 이루며, 건물 외벽의 콘크리트, 벽돌, 금속 패널 등의 다양한 질감이 느껴집니다. 깨끗하기보다는 다소 낡고 거친 느낌이 강합니다.",
+            "imagined_sounds": "주요 도로변이므로 끊임없이 이어지는 차량 통행 소리, 버스 엔진 소리가 가장 지배적일 것입니다. 건설 현장에서 발생하는 중장비 소음, 망치 소리, 작업자들의 목소리 등도 크게 들릴 것으로 예상됩니다. 보행자가 적어 사람들의 대화 소리는 거의 들리지 않을 것 같습니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사진상으로는 보행자가 거의 보이지 않습니다. 멀리 버스 정류장으로 보이는 곳에 한두 명의 사람이 서 있는 것이 전부입니다. 상점 내부에도 고객의 모습은 확인되지 않습니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "오른쪽 건물에 'DALCOM CAFE'라는 간판이 명확히 보이며, 그 외에도 식당이나 일반 소매점처럼 보이는 상점들이 있습니다. 왼쪽은 건설 현장으로 상점은 없습니다. 따라서 카페, 일반 소매점, 음식점 등이 주를 이룰 것으로 보입니다.",
+          "signs_of_change_or_stability": "도로 좌측의 대규모 건설 현장은 이 지역에 큰 변화가 진행 중임을 명확히 보여줍니다. 이는 장기적으로 유동 인구와 상권의 성격에 큰 영향을 미칠 수 있습니다. 우측의 기존 상점들은 비교적 안정적으로 운영되는 듯 보이지만, 전반적인 상권의 활력은 건설 현장의 영향으로 인해 다소 침체되어 있을 가능성이 있습니다.",
+          "opportunity_for_target_business": {
+            "business_category": "테이크아웃 전문점 (음료/간식)",
+            "narrative_insight": "현재 건설 현장으로 인해 보행 환경이 좋지 않고, 차량 통행이 많으므로 빠르고 간편하게 이용할 수 있는 테이크아웃 전문점이 적합합니다. 건설 현장 작업자나 차량 이용객을 대상으로 한 접근성 좋은 메뉴와 컨셉으로, 대기 시간을 최소화하고 이동 중에도 쉽게 즐길 수 있는 제품을 제공해야 합니다. 향후 건설이 완료되면 유동 인구 증가에 맞춰 매장 내 취식 공간을 확장하는 전략도 고려할 수 있습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지점은 현재 대규모 건설 현장의 영향으로 보행 환경이 열악하고 상권의 활력이 저하된 상태입니다. 단기적인 관점에서는 투자 매력이 낮을 수 있으나, 건설이 완료된 후의 개발 계획과 주변 인프라 변화를 면밀히 분석한다면 장기적인 성장 잠재력을 가질 수 있습니다. 현재는 차량 통행량이 많다는 점을 활용하여 드라이브 스루나 픽업 서비스에 특화된 업종을 고려하거나, 건설 현장 관련 수요를 타겟으로 하는 전략이 유효할 것입니다. 성급한 투자는 지양하고, 미래 개발 계획에 대한 심층적인 조사가 선행되어야 합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 3,
+            "Operational_Status": 2,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 2
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 1
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 0
+          }
+        }
+      }
+    },
+    {
+      "point_id": 8829,
+      "pano_id": "JjOR4CxXPyDS1zBNSAGrYQ",
+      "lon": 127.0374761,
+      "lat": 37.5698902,
+      "distance_m": 39.12384581011806,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_9\\point_8829_pano_JjOR4CxXPyDS1zBNSAGrYQ.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:00:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "공사 중인 도로변에 위치한 소규모 상업지구",
+          "overall_impression_prose": "이 장소는 주요 도로변에 위치한 소규모 상업 지구로, 한쪽에서는 대규모 공사가 진행 중이며 다른 한쪽에는 몇몇 상점들이 자리하고 있습니다. 전반적으로 차분하고 다소 정돈되지 않은 분위기를 풍기며, 현재는 보행자 중심의 활기보다는 차량 통행이 주를 이루는 모습입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로를 중심으로 양쪽에 건물이 위치하며, 좌측에는 대규모 공사 현장이 길게 이어져 있습니다. 우측에는 2~3층 높이의 저층 상업 건물들이 연속적으로 늘어서 있으며, 대부분은 상점과 주거가 혼합된 형태입니다. 건물들은 대체로 평범한 외관을 가지고 있습니다.",
+            "street_details": "도로는 왕복 4차선 정도로 넓으며, 차량 통행이 활발해 보입니다. 보도는 우측에만 형성되어 있으며 폭이 좁고, 일부 상점 앞에 야외 테이블이 놓여 있습니다. 보도블럭은 비교적 평범하며, 가로수나 벤치 등 보행자를 위한 편의시설은 거의 보이지 않습니다. 가로등은 확인하기 어렵습니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 회색빛 하늘과 아스팔트, 콘크리트 구조물로 인해 차분하고 다소 어두운 색감이 지배적입니다. 건물 외벽은 흰색, 회색, 갈색 등 무채색 계열이 많으며, 일부 상점 간판에서 포인트 색상이 보입니다. 재질감은 콘크리트, 금속, 유리 등이 혼합되어 있습니다.",
+            "imagined_sounds": "주요 도로변이므로 끊임없이 이어지는 차량 통행 소음이 가장 지배적일 것입니다. 좌측 공사 현장에서 발생하는 중장비 소음이나 작업 소리도 들릴 수 있으며, 상점가에서는 간헐적인 사람들의 대화 소리나 매장 음악 소리가 들릴 수 있으나, 전반적으로는 차량 소음이 우세할 것으로 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "사람 없음",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "카페 (DALCOM CAFE), 음식점, 소매점",
+          "signs_of_change_or_stability": "좌측의 대규모 공사 현장은 이 지역에 상당한 변화가 진행 중임을 명확히 보여줍니다. 이는 장기적으로 상권의 유동인구나 접근성에 큰 영향을 미칠 수 있습니다. 우측 상점들은 비교적 안정적으로 운영되는 듯 보이나, 공사로 인한 일시적인 영향은 있을 수 있습니다.",
+          "opportunity_for_target_business": {
+            "business_category": "간편식/테이크아웃 전문점",
+            "narrative_insight": "현재 공사 현장과 차량 통행이 많은 점을 고려할 때, 공사 관계자나 차량 이용객을 대상으로 한 간편하고 빠른 식사 또는 테이크아웃 전문점이 적합할 수 있습니다. 바쁜 일상 속에서 빠르고 효율적인 식사를 원하는 이들을 위한 건강하고 신선한 샐러드, 샌드위치, 김밥 등의 컨셉으로 접근하여, 공사 완료 후 유동인구 증가 시에도 지속 가능한 수요를 확보할 수 있습니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지역은 현재 대규모 공사로 인해 상권의 잠재력이 일시적으로 가려져 있는 상태입니다. 장기적인 관점에서 공사 완료 후의 변화를 예측하고 투자하는 전략이 필요합니다. 현재는 차량 통행이 주를 이루고 보행 환경이 좋지 않으므로, 공사 관계자나 차량 이용객을 타겟으로 한 비즈니스가 유리합니다. 미래에는 공사 완료 후 유동인구 증가와 함께 보행 환경 개선이 이루어진다면, 더욱 다양한 업종의 기회가 생길 수 있으므로 지속적인 모니터링이 중요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 5,
+            "Operational_Status": 5,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 2
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 1
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 1,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 2229,
+      "pano_id": "H2KPhozL6dXQpokXZAkZuw",
+      "lon": 127.0375629,
+      "lat": 37.5701456,
+      "distance_m": 42.43107785173123,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_2\\point_2229_pano_H2KPhozL6dXQpokXZAkZuw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "공사 중인 간선도로변의 혼재된 상업 지역",
+          "overall_impression_prose": "이 장소는 넓은 간선도로변에 위치하며, 현재 도로 및 기반 시설 공사가 진행 중입니다. 전반적으로 기능적인 도시 경관을 보여주며, 오래된 건물과 현대적인 건물이 혼재되어 있습니다. 공사로 인해 보행 환경이 다소 어수선하고, 상업적 활기는 아직 두드러지지 않습니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "도로는 다수의 차선을 가진 넓은 간선도로로 보이며, 중앙에는 버스 전용차선 또는 BRT 관련 공사가 진행 중인 듯한 구조물이 있습니다. 양쪽 건물은 주로 2~4층 높이로, 상업 시설과 주거 시설이 혼합된 형태입니다. 우측 건물들은 비교적 오래되어 보이며, 좌측은 일부 현대적인 고층 건물도 보이나 전면에는 낮은 건물과 공사 현장이 있습니다.",
+            "street_details": "도로는 아스팔트 포장 상태이며, 중앙에는 주황색 공사 방호벽이 길게 설치되어 있습니다. 보도는 우측에 일부 보이나 오토바이가 주차되어 있고, 좌측 보도는 공사 가림막으로 인해 명확히 보이지 않습니다. 가로수나 벤치와 같은 보행자 편의시설은 눈에 띄지 않으며, 가로등은 일반적인 도시형 가로등으로 추정됩니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "전반적으로 회색빛 하늘과 아스팔트, 베이지색 및 흰색 계열의 건물 외벽, 그리고 주황색 공사 방호벽이 주를 이룹니다. 재질감은 콘크리트, 아스팔트, 벽돌 등 도시의 전형적인 단단한 재질이 지배적입니다. 다소 건조하고 기능적인 색감과 질감을 가집니다.",
+            "imagined_sounds": "차량 통행량이 많은 간선도로인 만큼 자동차 엔진 소리, 버스 소리, 경적 소리 등 교통 소음이 지배적일 것입니다. 공사 현장에서 발생하는 장비 소음이나 작업자들의 소리도 들릴 수 있으며, 보행자가 적어 사람들의 대화 소리는 크게 들리지 않을 것으로 예상됩니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "오토바이에 앉아있는 한 명의 사람과 보도에 서 있는 한 명의 사람이 보입니다. 전반적으로 보행자의 수는 매우 적습니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "부동산, 의류점, 소규모 식당 또는 편의점으로 추정되는 상점들이 보입니다. 특정 업종이 압도적으로 많지는 않습니다.",
+          "signs_of_change_or_stability": "도로 중앙의 대규모 공사는 이 지역의 교통 흐름 및 보행 환경에 큰 변화를 가져올 것임을 시사합니다. 일부 상점의 간판은 오래되어 보이며, 신규 개업이나 폐업의 명확한 흔적은 보이지 않아 상권의 큰 변화보다는 공사로 인한 일시적 정체 상태로 보입니다.",
+          "opportunity_for_target_business": {
+            "business_category": "편의점 또는 테이크아웃 중심의 간이 식음료점",
+            "narrative_insight": "이 지역은 간선도로변에 위치하여 차량 통행량이 많고, 대중교통 이용객의 잠재적 유동 인구가 존재합니다. 현재 보행 환경이 좋지 않으므로, 빠르고 편리하게 이용할 수 있는 편의점이나 테이크아웃 중심의 카페/음식점이 적합합니다. 공사로 인한 불편함을 상쇄하고, 접근성과 효율성을 강조한 컨셉으로 승부해야 할 것입니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "현재 공사로 인해 보행 환경이 저해되어 상업적 매력이 일시적으로 낮아 보입니다. 하지만 간선도로변이라는 입지적 특성상 차량 통행량과 잠재적 유동 인구는 높습니다. 공사 완료 후 보행 환경 개선 여부에 따라 상권 가치가 크게 달라질 수 있으므로, 장기적인 관점에서 접근하고 공사 진행 상황을 면밀히 주시해야 합니다. 초기 투자 비용을 낮추고 효율적인 운영이 가능한 업종을 고려하는 것이 현명하며, 공사 완료 후 유입될 새로운 유동 인구를 타겟으로 한 전략 수립이 필요합니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 7,
+            "Operational_Status": 6,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 3
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 1,
+            "Design_Diversity": 1,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 1,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    },
+    {
+      "point_id": 6545,
+      "pano_id": "H2KPhozL6dXQpokXZAkZuw",
+      "lon": 127.0375629,
+      "lat": 37.5701456,
+      "distance_m": 42.43107785173123,
+      "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_6\\point_6545_pano_H2KPhozL6dXQpokXZAkZuw.jpg",
+      "analysis": {
+        "report_metadata": {
+          "analyst_persona": "상권 전략 컨설턴트",
+          "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+          "analysis_timestamp": "2023-10-27T10:30:00Z"
+        },
+        "visit_summary": {
+          "location_headline": "차량 통행이 많은 구도심 상업 도로",
+          "overall_impression_prose": "이 장소는 차량 통행량이 많은 주요 도로변에 위치한 구도심 상업 지역으로 보입니다. 전반적으로 건물이 노후화되어 있고, 도로 공사로 인해 다소 어수선한 분위기입니다. 보행 환경보다는 차량 이동에 중점을 둔 공간으로 느껴지며, 상권의 활력은 중간 정도입니다."
+        },
+        "virtual_walkthrough_notes": {
+          "objective_sketch": {
+            "space_and_buildings": "넓은 다차선 도로가 중앙에 위치하며, 양 옆으로 2층에서 4층 높이의 건물들이 연속적으로 늘어서 있습니다. 건물들은 대부분 오래된 외관을 가지고 있으며, 일부는 페인트가 벗겨지거나 노후화된 모습을 보입니다. 1층은 상업용으로 사용되는 것으로 보이며, 상층부는 주거 또는 사무실 용도로 추정됩니다. 건물들의 형태는 비교적 단조롭고 통일성이 부족합니다.",
+            "street_details": "도로는 아스팔트 포장되어 있으며, 중앙에는 차량 통행 방향을 분리하는 임시 가드레일과 공사 자재들이 놓여 있습니다. 도로 일부에는 붉은색으로 칠해진 구간이 있어 버스 전용 차선 등을 암시합니다. 보도는 비교적 좁고, 전봇대와 같은 시설물로 인해 보행 공간이 더욱 제약되어 보입니다. 가로수나 벤치와 같은 편의시설은 거의 보이지 않습니다. 전반적으로 도로와 보도 모두 정비가 필요한 상태입니다."
+          },
+          "sensory_experience": {
+            "dominant_colors_and_textures": "이 공간을 지배하는 색감은 회색(도로, 하늘), 베이지색 또는 옅은 갈색(오래된 건물 외벽), 그리고 파란색(버스, 일부 간판)입니다. 전반적으로 밝기보다는 다소 탁하고 어두운 느낌을 줍니다. 재질감은 아스팔트, 콘크리트, 오래된 벽돌, 금속 간판 등 거칠고 실용적인 요소들이 주를 이루며, 깨끗하기보다는 다소 낡고 거친 느낌을 줍니다.",
+            "imagined_sounds": "이곳에서는 끊임없이 차량이 오가는 소리(자동차, 버스, 오토바이), 도로 공사로 인한 기계음이나 작업 소리, 그리고 멀리서 들려오는 도시의 소음이 지배적일 것으로 상상됩니다. 보행자가 적어 사람들의 대화 소리는 거의 들리지 않을 것이며, 전반적으로 소음이 많은 환경일 것입니다."
+          }
+        },
+        "people_and_energy": {
+          "observed_tribes_description": "오토바이를 탄 한 명의 사람과 보도에 희미하게 보이는 한 명의 보행자가 전부입니다. 전반적으로 사람의 왕래가 매우 적어 보이며, 특정 유형의 사람들을 파악하기 어렵습니다.",
+          "street_energy_level": "차분함"
+        },
+        "commercial_ecosystem_insight": {
+          "dominant_store_types": "의류점, 소규모 식당 또는 일반 상점 등 다양한 독립 소매점",
+          "signs_of_change_or_stability": "건물들의 노후화된 외관은 상권의 오랜 안정성을 시사합니다. 신규 개업이나 대규모 리모델링 흔적은 보이지 않으며, 도로 공사가 진행 중인 것이 유일한 변화의 신호입니다. 이는 상권이 급격한 변화보다는 현상 유지를 하고 있음을 나타냅니다.",
+          "opportunity_for_target_business": {
+            "business_category": "편의점",
+            "narrative_insight": "이 지역은 차량 통행량이 많고 주변 건물이 오래되어 주민들의 일상적인 필요를 충족시키는 편의점 입점에 적합해 보입니다. 현대적이고 깔끔한 인테리어로 주변 환경과 대비되는 쾌적함을 제공하며, 바쁜 통행객들이 빠르고 편리하게 이용할 수 있는 거점 역할을 할 수 있을 것입니다. 간단한 식사나 음료를 제공하여 주변 직장인이나 주민들의 수요를 흡수하는 전략이 유효합니다."
+          }
+        },
+        "final_verdict_from_expert": {
+          "recommendation_prose": "이 지역은 주요 도로변에 위치하여 높은 차량 통행량을 자랑하지만, 보행자 유동 인구는 상대적으로 적고 상권의 노후화가 진행된 상태입니다. 신규 창업을 고려한다면, 대규모 유동 인구를 기대하기보다는 차량 접근성을 활용한 드라이브 스루(Drive-Thru) 형태나 지역 주민의 생활 밀착형 수요를 공략하는 업종이 유리합니다. 초기 투자 비용을 최소화하고, 주변 환경과 차별화되는 깔끔하고 실용적인 컨셉으로 접근하여 안정적인 수익을 추구하는 것이 현명할 것입니다. 장기적인 관점에서 도로 정비 및 보행 환경 개선 여부를 주시할 필요가 있습니다."
+        },
+        "quantitative_audit": {
+          "commercial_vitality": {
+            "Storefront_Count": 6,
+            "Operational_Status": 5,
+            "Customer_Presence": 0,
+            "Promotional_Activity": 2
+          },
+          "street_attractiveness": {
+            "Facade_Condition": 0,
+            "Design_Diversity": 0,
+            "Amenity_Presence": 0,
+            "Brand_Type": 0
+          },
+          "pedestrian_experience": {
+            "Sidewalk_Clutter": 0,
+            "Weather_Protection": 0,
+            "Lighting_Proxy": 1
+          }
+        }
+      }
+    }
+  ],
+  "synthesis": {
+    "area_summary": {
+      "overall_character": "이 지역은 생활 밀착형 상업시설과 주요 도로변 상업시설이 혼재된 과도기적 상권으로 평가됩니다. 현재 진행 중인 건설 및 개발이 상권의 전반적인 분위기와 보행 환경에 부정적인 영향을 미치고 있으나, 이는 동시에 미래 성장 잠재력을 내포하고 있습니다.",
+      "dominant_zone_type": "혼합지역",
+      "primary_commercial_type": "근린형 생활상가 및 도로변 혼합 상업지구"
+    },
+    "comprehensive_scores": {
+      "commercial_atmosphere": 6,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 5,
+      "safety_perception": 6,
+      "business_diversity": 7,
+      "residential_suitability": 6,
+      "commercial_suitability": 7
+    },
+    "detailed_assessment": {
+      "strengths": [
+        "다양한 생활 밀착형 업종 구성으로 안정적인 지역 수요 확보",
+        "주요 도로변 및 간선도로 인접으로 높은 차량 접근성과 가시성",
+        "진행 중인 건설 및 개발로 인한 미래 상권 활성화 잠재력"
+      ],
+      "weaknesses": [
+        "지속적인 공사 현장으로 인한 현재 상권 분위기 저해 및 보행 환경 악화",
+        "전반적으로 '차분함'이 지배적인 상권 에너지로 활기 부족",
+        "차량 통행 위주의 도로 환경으로 보행자 유입 및 체류 시간 제한"
+      ],
+      "recommended_business_types": [
+        "데일리 베이커리/카페 및 캐주얼 다이닝",
+        "생활 편의 서비스업 (예: 세탁소, 미용실, 소규모 병원)",
+        "신규 주거/업무 시설 입주자를 위한 전문 서비스업 (예: 부동산, 인테리어, 소형 오피스)"
+      ],
+      "foot_traffic_estimate": "중",
+      "competition_level": "보통"
+    },
+    "final_recommendation": "이 지역은 생활 밀착형 상업시설과 주요 도로변 상업시설이 혼재된 과도기적 상권으로 평가됩니다. 현재 진행 중인 건설 및 개발이 상권의 전반적인 분위기와 보행 환경에 부정적인 영향을 미치고 있으나, 이는 동시에 미래 성장 잠재력을 내포하고 있습니다. 강점으로는 다양한 업종 구성으로 안정적인 지역 수요를 확보하고 있으며, 주요 도로변에 인접하여 차량 접근성과 가시성이 우수하다는 점을 들 수 있습니다. 하지만 '차분함'이 지배적인 상권 에너지와 공사로 인한 불편함은 단기적인 활성화에 걸림돌이 됩니다. 따라서 창업자나 투자자는 현재의 불편함을 감수하고 중장기적인 관점에서 접근해야 합니다. 추천 업종으로는 기존 수요를 기반으로 한 데일리 베이커리/카페, 캐주얼 다이닝, 그리고 생활 편의 서비스업이 적합하며, 향후 개발 완료 시 유입될 신규 인구를 겨냥한 전문 서비스업도 고려할 만합니다. 성공적인 안착을 위해서는 안정적인 운영을 통해 지역 주민과의 유대감을 형성하고, 공사 완료 후 변화할 상권 환경에 유연하게 대응할 수 있는 전략이 필요합니다. 예상 투자 규모는 중소형 점포 기준으로 보통 수준이 될 것이며, 단기적인 높은 수익성보다는 꾸준하고 안정적인 수익을 목표로 해야 합니다. 현재는 다소 도전적인 환경이지만, 미래 성장 가능성을 고려할 때 신중한 접근과 장기적인 비전을 가진 투자자에게는 긍정적인 기회가 될 수 있습니다."
+  }
+}

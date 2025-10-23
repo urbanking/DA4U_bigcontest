@@ -1,0 +1,222 @@
+{
+  "report_metadata": {
+    "store_code": "00646B6673",
+    "analysis_date": "2025-10-24 02:08:43",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "00646B6673",
+    "name": "봉밀******",
+    "address": "서울 성동구 고산자로 164",
+    "industry": "한식-냉면",
+    "brand": "브랜드 없음",
+    "commercial_area": "중심상권 아님",
+    "record_months": 24,
+    "operating_months": 70.0,
+    "store_age": "기존 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "하락 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "하락 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "하락 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "하락 추세",
+        "stability": "보통",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "상승 추세",
+        "average": 82.0
+      },
+      "same_industry_sales_count": {
+        "trend": "상승 추세",
+        "average": 91.7
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 상승 (개선)",
+        "average": 30.5
+      },
+      "commercial_rank": {
+        "trend": "순위 안정",
+        "average": 0.0
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 2.5,
+      "grade_distribution": {
+        "1.0": 15,
+        "5.0": 5,
+        "4.0": 2,
+        "6.0": 2
+      },
+      "recommendation": "취소율이 보통 수준입니다. 지속적인 모니터링과 개선이 필요합니다."
+    },
+    "delivery_analysis": {
+      "trend": "하락 추세",
+      "average": 72.2
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 50.6,
+      "female_ratio": 49.4
+    },
+    "age_group_distribution": {
+      "20대 이하": 6.8,
+      "30대": 26.2,
+      "40대": 29.9,
+      "50대": 21.0,
+      "60대 이상": 16.1
+    },
+    "detailed_customer_ratios": {
+      "남40대": 15.1,
+      "여40대": 14.8,
+      "남30대": 13.3,
+      "여30대": 12.9,
+      "남50대": 10.6,
+      "여50대": 10.4,
+      "남60대이상": 8.1,
+      "여60대이상": 8.0,
+      "남20대이하": 3.4,
+      "여20대이하": 3.4
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 6.2,
+        "trend": "하락 추세"
+      },
+      "returning_customers": {
+        "ratio": 26.1,
+        "trend": "상승 추세"
+      },
+      "customer_distribution": {
+        "residential": 69.0,
+        "workplace": 8.6,
+        "floating": 22.4
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "중심상권 아님",
+    "analysis_available": false,
+    "total_stores_in_area": 0,
+    "average_sales_analysis": {},
+    "termination_analysis": {},
+    "average_customer_segments": {}
+  },
+  "industry_analysis": {
+    "industry": "한식-냉면",
+    "analysis_available": true,
+    "total_stores_in_industry": 17,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "상승 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 17.25,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 28.58,
+      "delivery_trend": "하락 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 9.6,
+      "남30대": 12.5,
+      "남40대": 11.5,
+      "남50대": 14.9,
+      "남60대이상": 12.0,
+      "여20대이하": 6.2,
+      "여30대": 8.3,
+      "여40대": 7.7,
+      "여50대": 9.5,
+      "여60대이상": 7.9
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 하락 추세",
+      "업종 내 순위: 순위 상승 (개선)",
+      "주 고객층: 남성 고객 중심",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": [
+      {
+        "category": "운영 개선",
+        "priority": "높음",
+        "target": "전체 고객",
+        "action": "취소율 감소 프로그램",
+        "specific_actions": [
+          "주문 확인 시스템 개선 (2단계 확인)",
+          "예상 대기시간 정확한 안내",
+          "취소 시 포인트 적립 혜택 제공",
+          "배달 시간 단축 (30분 이내 목표)"
+        ],
+        "expected_impact": "취소율 2.5 → 2.0 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 28.6% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_sales_trend_20251024_020843.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_gender_pie_20251024_020843.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_age_pie_20251024_020843.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_detailed_pie_20251024_020843.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_ranking_trend_20251024_020843.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_customer_trends_20251024_020843.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\00646B6673_new_returning_trends_20251024_020843.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}

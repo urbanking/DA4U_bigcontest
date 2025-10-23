@@ -1,0 +1,801 @@
+{
+  "metadata": {
+    "store_code": "382A324F7A",
+    "analysis_timestamp": "20251024_035712",
+    "pipeline_version": "1.0"
+  },
+  "store_analysis": {
+    "report_metadata": {
+      "store_code": "382A324F7A",
+      "analysis_date": "2025-10-24 03:54:06",
+      "agent_name": "StoreAgent",
+      "report_version": "1.0",
+      "quality_score": 0.8700000000000001
+    },
+    "store_overview": {
+      "code": "382A324F7A",
+      "name": "낙원**",
+      "address": "서울 성동구 행당로 87 .",
+      "industry": "떡/한과 제조",
+      "brand": "브랜드 없음",
+      "commercial_area": "행당",
+      "record_months": 24,
+      "operating_months": 37.5,
+      "store_age": "성숙 매장"
+    },
+    "sales_analysis": {
+      "trends": {
+        "sales_amount": {
+          "trend": "하락 추세",
+          "stability": "불안정",
+          "data_points": 24
+        },
+        "sales_count": {
+          "trend": "안정 추세",
+          "stability": "불안정",
+          "data_points": 24
+        },
+        "unique_customers": {
+          "trend": "안정 추세",
+          "stability": "불안정",
+          "data_points": 24
+        },
+        "avg_transaction": {
+          "trend": "하락 추세",
+          "stability": "보통",
+          "data_points": 24
+        }
+      },
+      "industry_comparison": {
+        "same_industry_sales_amount": {
+          "trend": "상승 추세",
+          "average": 731.4
+        },
+        "same_industry_sales_count": {
+          "trend": "상승 추세",
+          "average": 761.6
+        }
+      },
+      "rankings": {
+        "industry_rank": {
+          "trend": "순위 안정",
+          "average": 0.8
+        },
+        "commercial_rank": {
+          "trend": "순위 안정",
+          "average": 6.8
+        }
+      },
+      "cancellation_analysis": {
+        "average_grade": 2.2,
+        "grade_distribution": {
+          "3.0": 9,
+          "1.0": 8,
+          "2.0": 5,
+          "5.0": 1,
+          "4.0": 1
+        },
+        "recommendation": "취소율이 보통 수준입니다. 지속적인 모니터링과 개선이 필요합니다."
+      },
+      "delivery_analysis": {
+        "trend": "데이터 부족",
+        "average": 0
+      }
+    },
+    "customer_analysis": {
+      "gender_distribution": {
+        "male_ratio": 34.4,
+        "female_ratio": 65.7
+      },
+      "age_group_distribution": {
+        "20대 이하": 2.8,
+        "30대": 12.2,
+        "40대": 24.3,
+        "50대": 31.0,
+        "60대 이상": 29.8
+      },
+      "detailed_customer_ratios": {
+        "여50대": 20.3,
+        "여60대이상": 19.5,
+        "여40대": 15.9,
+        "남50대": 10.7,
+        "남60대이상": 10.3,
+        "남40대": 8.4,
+        "여30대": 8.0,
+        "남30대": 4.2,
+        "여20대이하": 1.8,
+        "남20대이하": 1.0
+      },
+      "customer_type_analysis": {
+        "new_customers": {
+          "ratio": 5.5,
+          "trend": "안정 추세"
+        },
+        "returning_customers": {
+          "ratio": 45.5,
+          "trend": "상승 추세"
+        },
+        "customer_distribution": {
+          "residential": 78.9,
+          "workplace": 3.6,
+          "floating": 17.4
+        }
+      }
+    },
+    "commercial_area_analysis": {
+      "commercial_area": "행당",
+      "analysis_available": true,
+      "total_stores_in_area": 65,
+      "average_sales_analysis": {
+        "sales_amount_trend": "상승 추세",
+        "sales_count_trend": "상승 추세",
+        "unique_customers_trend": "상승 추세",
+        "avg_transaction_trend": "안정 추세"
+      },
+      "termination_analysis": {
+        "termination_ratio": 9.57,
+        "area_health": "건전한 상권"
+      },
+      "average_customer_segments": {
+        "남20대이하": 4.5,
+        "남30대": 8.2,
+        "남40대": 11.8,
+        "남50대": 9.8,
+        "남60대이상": 7.4,
+        "여20대이하": 5.8,
+        "여30대": 10.4,
+        "여40대": 15.7,
+        "여50대": 14.7,
+        "여60대이상": 11.6
+      }
+    },
+    "industry_analysis": {
+      "industry": "떡/한과 제조",
+      "analysis_available": true,
+      "total_stores_in_industry": 23,
+      "average_sales_analysis": {
+        "sales_amount_trend": "하락 추세",
+        "sales_count_trend": "안정 추세",
+        "unique_customers_trend": "안정 추세",
+        "avg_transaction_trend": "하락 추세"
+      },
+      "termination_analysis": {
+        "termination_ratio": 6.34,
+        "industry_health": "건전한 업종"
+      },
+      "delivery_analysis": {
+        "average_delivery_ratio": 13.55,
+        "delivery_trend": "안정 추세"
+      },
+      "average_customer_segments": {
+        "남20대이하": 2.2,
+        "남30대": 4.6,
+        "남40대": 6.3,
+        "남50대": 9.1,
+        "남60대이상": 11.2,
+        "여20대이하": 4.3,
+        "여30대": 9.2,
+        "여40대": 12.7,
+        "여50대": 18.5,
+        "여60대이상": 21.9
+      }
+    },
+    "summary": {
+      "key_insights": [
+        "매출 트렌드: 하락 추세",
+        "업종 내 순위: 순위 안정",
+        "주 고객층: 여성 고객 중심",
+        "상권 건강도: 건전한 상권",
+        "업종 건강도: 건전한 업종"
+      ],
+      "main_problems": [],
+      "recommendations": [
+        {
+          "category": "운영 개선",
+          "priority": "높음",
+          "target": "전체 고객",
+          "action": "취소율 감소 프로그램",
+          "specific_actions": [
+            "주문 확인 시스템 개선 (2단계 확인)",
+            "예상 대기시간 정확한 안내",
+            "취소 시 포인트 적립 혜택 제공",
+            "배달 시간 단축 (30분 이내 목표)"
+          ],
+          "expected_impact": "취소율 2.2 → 2.0 이하"
+        },
+        {
+          "category": "배달 서비스",
+          "priority": "중간",
+          "target": "배달 매출 확대",
+          "action": "배달 서비스 강화",
+          "specific_actions": [
+            "배달 전용 메뉴 개발",
+            "배달 앱 최적화",
+            "배달 포장재 개선",
+            "배달료 할인 이벤트"
+          ],
+          "expected_impact": "배달 매출 비율 13.6% → 40% 이상"
+        }
+      ]
+    },
+    "visualizations": {
+      "chart_files": {
+        "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_sales_trend_20251024_035406.png",
+        "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_gender_pie_20251024_035406.png",
+        "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_age_pie_20251024_035406.png",
+        "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_detailed_pie_20251024_035406.png",
+        "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_ranking_trend_20251024_035406.png",
+        "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_customer_trends_20251024_035406.png",
+        "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\382A324F7A_new_returning_trends_20251024_035406.png"
+      },
+      "available_charts": [
+        "sales_trend",
+        "gender_pie",
+        "age_pie",
+        "detailed_pie",
+        "ranking_trend",
+        "customer_trends",
+        "new_returning_trends"
+      ]
+    },
+    "evaluation": {
+      "quality_score": 0.87,
+      "completeness": 1.0,
+      "accuracy": 0.9,
+      "relevance": 0.7,
+      "actionability": 0.8,
+      "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+    }
+  },
+  "mobility_analysis": {
+    "target_dong": "행당2동",
+    "timestamp": "20251012_174014",
+    "analysis": {
+      "part1_move_types": {
+        "유출": 6268,
+        "유입": 5859,
+        "내부이동": 512
+      },
+      "part2_time_pattern": {
+        "0": 82,
+        "1": 127,
+        "2": 108,
+        "3": 97,
+        "4": 136,
+        "5": 258,
+        "6": 371,
+        "7": 589,
+        "8": 856,
+        "9": 922,
+        "10": 802,
+        "11": 759,
+        "12": 780,
+        "13": 768,
+        "14": 729,
+        "15": 765,
+        "16": 760,
+        "17": 911,
+        "18": 793,
+        "19": 717,
+        "20": 517,
+        "21": 479,
+        "22": 268,
+        "23": 45
+      },
+      "part3_purpose": {
+        "기타": 6328,
+        "쇼핑/여가/관광": 5006,
+        "출근": 1059,
+        "등교": 156,
+        "쇼핑": 82,
+        "병원": 5,
+        "관광": 3
+      },
+      "part4_transport": {
+        "지하철": 4956,
+        "차량": 4294,
+        "도보": 3010,
+        "일반버스": 1769,
+        "기타": 1634,
+        "광역버스": 20
+      },
+      "part5_age": {
+        "00대": 210,
+        "10대": 2015,
+        "20대": 2875,
+        "30대": 4083,
+        "40대": 4189,
+        "50대": 5023,
+        "60대": 4384,
+        "70대 이상": 3104
+      },
+      "part5_2_age_purpose": {
+        "00대": {
+          "top_purpose": "기타",
+          "percentage": 49.16864608076009
+        },
+        "10대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 52.343025015755806
+        },
+        "20대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 62.85545353366723
+        },
+        "30대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 68.3804318815668
+        },
+        "40대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 66.84574426191948
+        },
+        "50대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 62.55865296753657
+        },
+        "60대": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 57.85284007837216
+        },
+        "70대 이상": {
+          "top_purpose": "쇼핑/여가/관광",
+          "percentage": 57.834181537074016
+        }
+      },
+      "part5_3_age_time": {
+        "00대": {
+          "peak_hour": 9,
+          "peak_count": 27.0
+        },
+        "10대": {
+          "peak_hour": 22,
+          "peak_count": 201.96
+        },
+        "20대": {
+          "peak_hour": 18,
+          "peak_count": 309.56
+        },
+        "30대": {
+          "peak_hour": 18,
+          "peak_count": 625.0
+        },
+        "40대": {
+          "peak_hour": 18,
+          "peak_count": 499.12
+        },
+        "50대": {
+          "peak_hour": 18,
+          "peak_count": 497.78000000000003
+        },
+        "60대": {
+          "peak_hour": 16,
+          "peak_count": 399.70000000000005
+        },
+        "70대 이상": {
+          "peak_hour": 17,
+          "peak_count": 286.54
+        }
+      },
+      "part5_4_top3_purposes": {
+        "00대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 103
+          },
+          "rank_2": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 93
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 13
+          }
+        },
+        "10대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1054
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 776
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 180
+          }
+        },
+        "20대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1807
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 930
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 98
+          }
+        },
+        "30대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 2792
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1076
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 204
+          }
+        },
+        "40대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 2800
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1157
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 231
+          }
+        },
+        "50대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 3142
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1482
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 398
+          }
+        },
+        "60대": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 2536
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 1370
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 477
+          }
+        },
+        "70대 이상": {
+          "rank_1": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1795
+          },
+          "rank_2": {
+            "purpose": "기타",
+            "count": 998
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 310
+          }
+        }
+      },
+      "part5_5_3d_analysis": {
+        "50대": {
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 396.84
+          },
+          "기타": {
+            "peak_hour": 9,
+            "peak_count": 119.11
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 116.9
+          }
+        },
+        "60대": {
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 297.95
+          },
+          "기타": {
+            "peak_hour": 16,
+            "peak_count": 128.82
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 130.95
+          }
+        },
+        "40대": {
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 431.55999999999995
+          },
+          "기타": {
+            "peak_hour": 16,
+            "peak_count": 109.75
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 42.199999999999996
+          }
+        }
+      }
+    }
+  },
+  "panorama_analysis": {
+    "area_summary": {
+      "overall_character": "이 지역은 대규모 주거단지를 배후에 둔 생활 밀착형 상업 가로가 주를 이루는 곳입니다. 주로 지역 주민의 일상생활에 필요한 편의 업종과 서비스업이 혼재되어 있으며, 전반적으로 조용하고 차분한 분위기를 유지하고 있습니다. 일부 간선도로변은 차량 중심의 통과 동선이 강하여 상업적 활력이 낮은 지점도 관찰됩니다.",
+      "dominant_zone_type": "혼합지역",
+      "primary_commercial_type": "근린형 생활상가"
+    },
+    "comprehensive_scores": {
+      "commercial_atmosphere": 5,
+      "street_atmosphere": 6,
+      "cleanliness": 7,
+      "maintenance": 7,
+      "walkability": 6,
+      "safety_perception": 7,
+      "business_diversity": 4,
+      "residential_suitability": 8,
+      "commercial_suitability": 6
+    },
+    "detailed_assessment": {
+      "strengths": [
+        "안정적인 배후 주거 수요: 대규모 아파트 단지 및 주거단지를 배후에 두어 기본적인 생활 편의 서비스에 대한 고정적인 수요가 확보됩니다.",
+        "생활 밀착형 업종의 높은 적합성: 미용실, 편의점, 부동산, 소규모 마트 등 지역 주민의 일상생활에 필수적인 업종들이 잘 자리 잡을 수 있는 환경입니다.",
+        "차분하고 안정적인 상권 분위기: 과도한 경쟁이나 유동인구의 급변동 없이 안정적으로 운영될 수 있는 환경을 제공합니다."
+      ],
+      "weaknesses": [
+        "낮은 상업적 활력 및 에너지: 전반적으로 '조용함' 또는 '차분함'으로 묘사되어 상권의 활력이 낮고, 새로운 고객 유입을 위한 매력도가 부족합니다.",
+        "제한적인 업종 다양성 및 특색 부족: 대부분 생활 편의 업종에 집중되어 있어, 차별화된 경험이나 목적성 방문을 유도할 만한 독특한 업종이 부족합니다.",
+        "차량 중심의 도로 구조 및 보행자 편의성 한계: 일부 지점은 차량 중심의 간선도로변에 위치하여 보행자 유입이 어렵고, 상권 전체의 보행 편의성이 낮을 수 있습니다."
+      ],
+      "recommended_business_types": [
+        "프리미엄 생활 서비스 (예: 고급 세탁소, 반려동물 미용/용품점)",
+        "테이크아웃/배달 전문 소규모 식음료점 (예: 샐러드 전문점, 베이커리 카페)",
+        "키즈/교육 관련 서비스 (예: 소규모 학원, 미술/음악 교습소)"
+      ],
+      "foot_traffic_estimate": "중",
+      "competition_level": "보통"
+    },
+    "final_recommendation": "이 지역은 안정적인 주거 배후 수요를 기반으로 하는 전형적인 근린형 생활 상권으로 평가됩니다. 대규모 아파트 단지와 주거 지역이 인접해 있어 생활 편의 및 서비스 업종에 대한 고정적인 수요가 강점이지만, 전반적으로 낮은 상업적 활력과 제한적인 업종 다양성은 약점으로 작용합니다. 따라서 이 상권에 진입하려는 창업자나 투자자는 과도한 유동인구에 의존하기보다는 지역 주민의 생활 패턴과 소비 성향을 면밀히 분석하여 고정 고객 확보에 중점을 두어야 합니다. 추천 업종으로는 기존 생활 서비스의 질을 높인 프리미엄 서비스나, 배달 및 테이크아웃에 특화된 소규모 식음료점, 그리고 주거 단지의 자녀 교육 수요를 공략하는 키즈/교육 관련 서비스가 적합합니다. 성공을 위한 구체적인 전략은 높은 임대료를 지양하고, 지역 커뮤니티와의 유대감을 형성하며, 온라인 배달 플랫폼 활용을 통한 접근성 강화에 집중하는 것입니다. 예상 투자 규모는 대형 상권 대비 낮을 수 있으나, 수익성은 안정적이나 폭발적이지 않을 것으로 예상됩니다. 결론적으로, 이 지역은 높은 성장 잠재력보다는 안정적인 운영을 목표로 하는 생활 밀착형 사업에 대해 '조건부 추천'하며, 철저한 시장 조사와 지역 맞춤형 전략 수립이 필수적입니다."
+  },
+  "marketplace_analysis": {
+    "상권명": "한양대역 4번",
+    "분석일시": "2025-10-12T17:24:58.608954",
+    "총_페이지": 22,
+    "추출_페이지": 11,
+    "데이터": [
+      {
+        "페이지": 1,
+        "유형": "표지",
+        "상권유형": "분석일자",
+        "분석지역": "골목상권",
+        "분석업종": "골목상권",
+        "분석일자": "골목상권"
+      },
+      {
+        "페이지": 2,
+        "유형": "종합의견",
+        "면적": {
+          "선택": 29267,
+          "분석": 29267,
+          "단위": "㎡"
+        },
+        "종합의견": [
+          "한양대역4번의업종전체"
+        ],
+        "점포수": {
+          "현재": {
+            "값": 55,
+            "단위": "개",
+            "기준": "2025년2분기"
+          },
+          "전분기대비": {
+            "변화": -5,
+            "단위": "개"
+          },
+          "전년동분기대비": {
+            "변화": -6,
+            "단위": "개"
+          },
+          "순위": "11/17"
+        },
+        "매출액": {
+          "현재": {
+            "값": 518,
+            "단위": "만원",
+            "기준": "2025년2분기"
+          },
+          "전분기대비": {
+            "변화": 71,
+            "단위": "만원"
+          },
+          "전년동분기대비": {
+            "변화": -227,
+            "단위": "만원"
+          },
+          "순위": "11/17"
+        },
+        "유동인구": {
+          "현재": {
+            "값": 71164,
+            "단위": "명",
+            "기준": "2025년2분기"
+          },
+          "전분기대비": {
+            "변화": 7040,
+            "단위": "명"
+          },
+          "전년동분기대비": {
+            "변화": -2119,
+            "단위": "명"
+          },
+          "순위": "11/17"
+        }
+      },
+      {
+        "페이지": 3,
+        "유형": "Best_분석"
+      },
+      {
+        "페이지": 4,
+        "제목": "점포수",
+        "점포수": {
+          "값": 55,
+          "단위": "개"
+        },
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "-6",
+            "단위": "개"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "-5",
+            "단위": "개"
+          }
+        ],
+        "설명": [
+          "개\n선택상권의업종전체점포수가전년동기에비해감소하고있습니다. 상권이쇠퇴하는시기인경우창업에유의하셔야합니다."
+        ]
+      },
+      {
+        "페이지": 5,
+        "제목": "신생기업생존율(3년)",
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "0",
+            "단위": "%"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "-14.28",
+            "단위": "%"
+          },
+          {
+            "기준": "자치구대비",
+            "변화": "0",
+            "단위": "년"
+          },
+          {
+            "기준": "서울시대비",
+            "변화": "-0.2",
+            "단위": "년"
+          }
+        ],
+        "설명": [
+          "년생존율이높을수록좋은상권입니다.",
+          "평균영업기간이길수록좋\n은상권입니다. 해당상권은서울시평균보다낮은상권이므로정확한원인분석이필요합니다."
+        ]
+      },
+      {
+        "페이지": 6,
+        "제목": "개업현황",
+        "페업수": {
+          "값": 7,
+          "단위": "개"
+        },
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "2",
+            "단위": "개"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "-2",
+            "단위": "개"
+          },
+          {
+            "기준": "전년동분기대비",
+            "변화": "6",
+            "단위": "개"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "4",
+            "단위": "개"
+          }
+        ],
+        "설명": [
+          "상권이쇠퇴기인것으로예상됩니다. 창업에유의하세요.",
+          "상권이쇠퇴기인것으로예상됩니다. 창업에유의하세요."
+        ]
+      },
+      {
+        "페이지": 7,
+        "제목": "업종분포",
+        "설명": [
+          "가밀집한상권입니다. 창업하시려는업종과의관련성에유의하세요. 외식업종세분류의증감추세를보다세심히분석하세요\n."
+        ]
+      },
+      {
+        "페이지": 8,
+        "제목": "매출액",
+        "점포당월평균매출건수": {
+          "값": 460,
+          "단위": "건"
+        },
+        "비교": [
+          {
+            "기준": "전년동분기대비",
+            "변화": "-227",
+            "단위": "만원"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "71",
+            "단위": "만원"
+          },
+          {
+            "기준": "전년동분기대비",
+            "변화": "-209",
+            "단위": "건"
+          },
+          {
+            "기준": "전분기대비",
+            "변화": "154",
+            "단위": "건"
+          }
+        ]
+      },
+      {
+        "페이지": 9,
+        "제목": "요일별매출",
+        "설명": [
+          "고객이중요한상권이므로고정고객확보에유의하세요.",
+          "오후와저녁시간대가활발한상권입니다."
+        ]
+      },
+      {
+        "페이지": 10,
+        "제목": "성별매출",
+        "설명": [
+          "고객이많은상권입니다. 남성고객의방문에도움이되는요소에보다많은투자를고려하세요."
+        ]
+      },
+      {
+        "페이지": 11,
+        "제목": "연령대별매출"
+      }
+    ]
+  }
+}

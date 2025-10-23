@@ -5,6 +5,7 @@ from typing import Dict, Any, List, Optional
 from datetime import datetime
 import json
 import logging
+from enum import Enum
 try:
     # 패키지로 실행될 때
     from .persona_engine import PersonaEngine, PersonaComponents
@@ -15,6 +16,32 @@ except ImportError:
     from persona_engine import PersonaEngine, PersonaComponents
     from risk_analyzer import RiskAnalyzer
     from strategy_generator import StrategyGenerator, MarketingStrategy, CampaignPlan
+
+
+def convert_enums_to_json_serializable(obj: Any) -> Any:
+    """
+    재귀적으로 모든 Enum 객체를 JSON 직렬화 가능한 형태로 변환
+    
+    Args:
+        obj: 변환할 객체 (dict, list, Enum 등)
+        
+    Returns:
+        JSON 직렬화 가능한 객체
+    """
+    if isinstance(obj, Enum):
+        return obj.value
+    elif isinstance(obj, dict):
+        return {key: convert_enums_to_json_serializable(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_enums_to_json_serializable(item) for item in obj]
+    elif isinstance(obj, tuple):
+        return tuple(convert_enums_to_json_serializable(item) for item in obj)
+    elif hasattr(obj, '__dict__'):
+        # dataclass나 일반 객체의 경우
+        return {key: convert_enums_to_json_serializable(value) 
+                for key, value in obj.__dict__.items() if not key.startswith('_')}
+    else:
+        return obj
 
 
 class marketingagent:
@@ -93,6 +120,23 @@ class marketingagent:
                 persona_type, persona_template, strategies, store_report
             )
             
+            # Step 8.5: 최적 채널 추천 (데이터 기반)
+            main_age = persona_components.main_customer_age  # "20대", "30대" 등
+            delivery_ratio_text = persona_components.delivery_ratio  # "높음", "중간", "낮음"
+            
+            # 배달율을 숫자로 변환
+            delivery_ratio_numeric = {
+                "높음": 60.0,
+                "중간": 40.0,
+                "낮음": 15.0
+            }.get(delivery_ratio_text, 40.0)
+            
+            # segment_sns.json 기반 채널 추천
+            channel_recommendation = self.strategy_generator._select_optimal_channel(
+                age_group=main_age,
+                delivery_ratio=delivery_ratio_numeric
+            )
+            
             # Step 9: 결과 통합
             result = {
                 "store_code": self.store_code,
@@ -122,7 +166,13 @@ class marketingagent:
                 },
                 "risk_analysis": {
                     "overall_risk_level": risk_analysis["overall_risk_level"].value if hasattr(risk_analysis["overall_risk_level"], 'value') else str(risk_analysis["overall_risk_level"]),
-                    "detected_risks": risk_analysis["detected_risks"],
+                    "detected_risks": [
+                        {
+                            **risk,
+                            "level": risk["level"].value if hasattr(risk["level"], 'value') else str(risk["level"])
+                        }
+                        for risk in risk_analysis["detected_risks"]
+                    ],
                     "analysis_summary": risk_analysis["analysis_summary"]
                 },
                 "marketing_strategies": [
@@ -151,6 +201,7 @@ class marketingagent:
                     "expected_kpis": campaign_plan.expected_kpis,
                     "success_probability": campaign_plan.success_probability
                 },
+                "channel_recommendation": channel_recommendation,  # 데이터 기반 채널 추천
                 "marketing_focus_points": marketing_focus_points,
                 "social_content": social_content,  # SNS 포스트 및 프로모션 문구
                 "recommendations": self._generate_recommendations(
@@ -160,6 +211,9 @@ class marketingagent:
             
             # 구조화된 출력 텍스트 추가
             result["formatted_output"] = self.format_marketing_output(result)
+            
+            # 🔥 모든 Enum을 JSON 직렬화 가능한 형태로 변환
+            result = convert_enums_to_json_serializable(result)
             
             return result
             
@@ -546,12 +600,24 @@ class marketingagent:
             },
             "charts": {
                 "customer_demographics": {
-                    "gender": persona_components.main_customer_gender,
-                    "age": persona_components.main_customer_age
+                    "type": "gender_age_distribution",
+                    "title": "성별 & 연령 분포",
+                    "description": "고객 분석 결과에서 가져온 성별 및 연령대별 분포",
+                    "source": "store_analysis - customer_analysis",
+                    "data": {
+                        "gender": persona_components.main_customer_gender,
+                        "age": persona_components.main_customer_age
+                    }
                 },
                 "customer_trends": {
-                    "new_customer": persona_components.new_customer_trend,
-                    "revisit": persona_components.revisit_trend
+                    "type": "new_returning_pie",
+                    "title": "신규 유입 & 재방문 파이 차트",
+                    "description": "신규 고객과 재방문 고객의 비율",
+                    "source": "store_analysis - customer_trends",
+                    "data": {
+                        "new_customer": persona_components.new_customer_trend,
+                        "revisit": persona_components.revisit_trend
+                    }
                 }
             }
         }
@@ -567,29 +633,92 @@ class marketingagent:
         else:
             risk_summary = "현재 파악된 위험 요소는 없습니다. 페르소나에 기반한 타겟팅 마케팅 전략을 도출합니다."
         
-        # 위험 코드별 상세 정보
+        # 위험 코드별 상세 정보 (그래프 매핑 포함)
         risk_code_info = {
-            "R1": {"meaning": "신규유입 급감", "chart_type": "trend"},
-            "R2": {"meaning": "낮은 재방문율", "chart_type": "comparison"},
-            "R3": {"meaning": "장기매출침체", "chart_type": "trend"},
-            "R4": {"meaning": "단기매출하락", "chart_type": "trend"},
-            "R5": {"meaning": "배달매출하락", "chart_type": "trend"},
-            "R6": {"meaning": "취소율 급등", "chart_type": "trend"},
-            "R7": {"meaning": "핵심연령괴리", "chart_type": "comparison"},
-            "R8": {"meaning": "시장부적합", "chart_type": "analysis"},
-            "R9": {"meaning": "상권해지위험", "chart_type": "analysis"}
+            "R1": {
+                "meaning": "신규유입 급감",
+                "chart_type": "new_customer_trend",
+                "chart_title": "신규 유입 추세 (전 분기 대비)",
+                "chart_description": "신규 고객 유입률이 급격히 감소하고 있습니다"
+            },
+            "R2": {
+                "meaning": "낮은 재방문율",
+                "chart_type": "revisit_comparison",
+                "chart_title": "재방문율 비교 (업종 평균 vs 가게)",
+                "chart_description": "업종 평균 대비 재방문율이 낮습니다"
+            },
+            "R3": {
+                "meaning": "장기매출침체",
+                "chart_type": "sales_trend",
+                "chart_title": "장기 매출 추세",
+                "chart_description": "장기간 매출이 정체 또는 감소하고 있습니다"
+            },
+            "R4": {
+                "meaning": "단기매출하락",
+                "chart_type": "sales_trend",
+                "chart_title": "단기 매출 추세",
+                "chart_description": "단기간 매출이 급격히 하락하고 있습니다"
+            },
+            "R5": {
+                "meaning": "배달매출하락",
+                "chart_type": "delivery_trend",
+                "chart_title": "배달 매출 추세",
+                "chart_description": "배달 매출이 감소하고 있습니다"
+            },
+            "R6": {
+                "meaning": "취소율 급등",
+                "chart_type": "cancellation_trend",
+                "chart_title": "취소율 추세",
+                "chart_description": "주문 취소율이 급격히 증가하고 있습니다"
+            },
+            "R7": {
+                "meaning": "핵심연령괴리",
+                "chart_type": "age_distribution",
+                "chart_title": "연령대별 분포",
+                "chart_description": "핵심 고객 연령층과 괴리가 발생하고 있습니다"
+            },
+            "R8": {
+                "meaning": "시장부적합",
+                "chart_type": "market_fit_analysis",
+                "chart_title": "시장 적합도 분석",
+                "chart_description": "시장 적합도가 낮아지고 있습니다"
+            },
+            "R9": {
+                "meaning": "상권해지위험",
+                "chart_type": "churn_risk_analysis",
+                "chart_title": "상권 해지 위험도",
+                "chart_description": "상권 내 경쟁력이 약화되고 있습니다"
+            },
+            "R10": {
+                "meaning": "재방문율 낮음 (30% 이하)",
+                "chart_type": "revisit_rate_absolute",
+                "chart_title": "재방문율 절대값",
+                "chart_description": "재방문율이 절대적으로 낮습니다 (30% 이하)"
+            }
         }
         
         risk_table_data = []
         for risk in detected_risks:
             code = risk["code"]
-            risk_info = risk_code_info.get(code, {"meaning": "알 수 없는 위험", "chart_type": "unknown"})
+            risk_info = risk_code_info.get(code, {
+                "meaning": "알 수 없는 위험",
+                "chart_type": "unknown",
+                "chart_title": "분석 필요",
+                "chart_description": "상세 분석이 필요합니다"
+            })
+            
             risk_table_data.append({
                 "code": code,
                 "meaning": risk_info["meaning"],
-                "severity": risk.get("severity", "unknown"),
+                "level": risk.get("level", "알 수 없음"),
+                "score": risk.get("score", 0),
                 "description": risk.get("description", ""),
-                "chart_type": risk_info["chart_type"]
+                "evidence": risk.get("evidence", ""),
+                "chart_type": risk_info["chart_type"],
+                "chart_title": risk_info["chart_title"],
+                "chart_description": risk_info["chart_description"],
+                "priority": risk.get("priority", 5),
+                "impact_score": risk.get("impact_score", 0)
             })
         
         # 전체 위험 수준 처리
@@ -1375,13 +1504,13 @@ class marketingagent:
 """
             
             response = client.chat.completions.create(
-                model="gemini-2.0-flash-exp",
+                model="gemini-2.5-flash",
                 messages=[
                     {"role": "system", "content": "당신은 마케팅 전략 분석 전문가입니다. 데이터를 바탕으로 자연스럽고 전문적인 한국어 분석 보고서를 작성합니다."},
                     {"role": "user", "content": prompt}
                 ],
                 temperature=0.7,
-                max_tokens=8000  # 2000 → 8000으로 증가
+                max_tokens=16000  # 8000 → 16000으로 증가 (토큰 부족 방지)
             )
             
             return response.choices[0].message.content

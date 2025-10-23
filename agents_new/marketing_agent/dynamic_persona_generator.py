@@ -68,7 +68,7 @@ except ImportError:
                 
                 async with aiohttp.ClientSession() as session:
                     async with session.post(
-                        f"{self.base_url}/models/gemini-2.0-flash-exp:generateContent",
+                        f"{self.base_url}/models/gemini-2.5-flash:generateContent",
                         headers=headers,
                         json=data
                     ) as response:

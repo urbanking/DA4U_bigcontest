@@ -79,6 +79,34 @@ class LogCapture:
 # 전역 로그 캡처 인스턴스
 log_capture = LogCapture()
 
+# 누락된 함수들 정의
+def convert_store_to_marketing_format(store_analysis):
+    """Store 분석 결과를 마케팅 에이전트용 포맷으로 변환"""
+    if not store_analysis:
+        return None
+    
+    # 기본 변환 로직
+    marketing_format = {
+        "store_code": store_analysis.get("store_code", ""),
+        "store_overview": store_analysis.get("store_overview", {}),
+        "sales_analysis": store_analysis.get("sales_analysis", {}),
+        "customer_analysis": store_analysis.get("customer_analysis", {}),
+        "analysis_timestamp": datetime.now().isoformat()
+    }
+    
+    return marketing_format
+
+def _convert_enums_to_strings(obj):
+    """Enum 객체를 문자열로 변환"""
+    if isinstance(obj, dict):
+        return {key: _convert_enums_to_strings(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [_convert_enums_to_strings(item) for item in obj]
+    elif hasattr(obj, 'value'):  # Enum 객체
+        return obj.value
+    else:
+        return obj
+
 # 분석 진행 상황 업데이트 함수
 def update_analysis_progress(step: str, status: str = "in_progress"):
     """분석 진행 상황 업데이트"""
@@ -110,7 +138,7 @@ print("[OK] Matplotlib loaded successfully")
 # run_analysis.py 직접 import
 sys.path.insert(0, str(Path(__file__).parent.parent))  # open_sdk 디렉토리 추가
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "agents_new"))  # agents_new 추가
-from run_analysis import run_full_analysis_pipeline, convert_store_to_marketing_format, _convert_enums_to_strings
+from run_analysis import run_full_analysis_pipeline
 
 # Marketing Agent import
 MARKETING_AGENT_AVAILABLE = False
@@ -1663,6 +1691,110 @@ def display_marketplace_analysis(analysis_data):
     with st.expander("📄 원본 JSON 데이터 보기"):
         st.json(marketplace_data)
 
+def display_risk_analysis(marketing_data):
+    """위험 분석 섹션 표시"""
+    risk_analysis = marketing_data.get("risk_analysis", {})
+    if not risk_analysis:
+        return
+    
+    st.markdown("### ⚠️ 위험 진단")
+    
+    # 전체 위험 수준
+    overall_risk_level = risk_analysis.get("overall_risk_level", "N/A")
+    if overall_risk_level == "위험":
+        st.error(f"**전체 위험 수준:** {overall_risk_level} 🔴")
+    elif overall_risk_level == "주의":
+        st.warning(f"**전체 위험 수준:** {overall_risk_level} 🟡")
+    elif overall_risk_level == "양호":
+        st.success(f"**전체 위험 수준:** {overall_risk_level} 🟢")
+    else:
+        st.info(f"**전체 위험 수준:** {overall_risk_level}")
+    
+    # 위험 요소 개수 및 요약
+    detected_risks = risk_analysis.get("detected_risks", [])
+    risk_count = len(detected_risks)
+    
+    if risk_count > 0:
+        risk_codes = [risk.get("code", "") for risk in detected_risks]
+        st.write(f"이 가게에서 파악된 위험 요소는 {', '.join(risk_codes)}로 {risk_count}개의 요소가 있습니다")
+        
+        # 위험 요소 표
+        st.markdown("#### 📊 위험 요소 상세")
+        
+        # 표 헤더
+        col1, col2, col3, col4, col5 = st.columns([1, 2, 1, 1, 1])
+        with col1:
+            st.markdown("**코드**")
+        with col2:
+            st.markdown("**의미**")
+        with col3:
+            st.markdown("**수준**")
+        with col4:
+            st.markdown("**점수**")
+        with col5:
+            st.markdown("**우선순위**")
+        
+        # 위험 요소들 표시
+        for risk in detected_risks:
+            code = risk.get("code", "N/A")
+            name = risk.get("name", "N/A")
+            level = risk.get("level", "N/A")
+            score = risk.get("score", 0)
+            priority = risk.get("priority", "N/A")
+            
+            col1, col2, col3, col4, col5 = st.columns([1, 2, 1, 1, 1])
+            
+            with col1:
+                st.write(f"**{code}**")
+            with col2:
+                st.write(name)
+            with col3:
+                if level == "위험":
+                    st.error(level)
+                elif level == "주의":
+                    st.warning(level)
+                else:
+                    st.info(level)
+            with col4:
+                st.write(f"{score}")
+            with col5:
+                st.write(f"{priority}")
+        
+        # 분석 요약
+        analysis_summary = risk_analysis.get("analysis_summary", "")
+        if analysis_summary:
+            st.markdown("#### 📋 위험 분석 요약")
+            st.write(analysis_summary)
+        
+        # 각 위험 요소별 상세 정보 (expander로)
+        st.markdown("#### 🔍 위험 요소 상세 분석")
+        for risk in detected_risks:
+            code = risk.get("code", "N/A")
+            name = risk.get("name", "N/A")
+            description = risk.get("description", "")
+            evidence = risk.get("evidence", "")
+            impact_score = risk.get("impact_score", 0)
+            
+            with st.expander(f"**{code}: {name}**", expanded=False):
+                st.write(f"**설명:** {description}")
+                if evidence:
+                    st.write(f"**증거:** {evidence}")
+                if impact_score > 0:
+                    st.write(f"**영향도 점수:** {impact_score}/10")
+                
+                # 차트 타입이 있으면 표시
+                chart_type = risk.get("chart_type", "")
+                chart_title = risk.get("chart_title", "")
+                chart_description = risk.get("chart_description", "")
+                
+                if chart_type and chart_title:
+                    st.write(f"**추천 차트:** {chart_title}")
+                    if chart_description:
+                        st.caption(f"({chart_description})")
+    else:
+        st.success("✅ 특별한 위험 요소가 감지되지 않았습니다.")
+        st.info("위험 요소가 없는 경우 페르소나에 기반한 타겟팅 마케팅 전략만 도출합니다.")
+
 def display_marketing_analysis(analysis_data):
     """마케팅 분석 탭 - formatted_output 우선 표시"""
     
@@ -1670,6 +1802,9 @@ def display_marketing_analysis(analysis_data):
     if not marketing_data:
         st.info("마케팅 분석 데이터가 없습니다.")
         return
+    
+    # 위험 분석 섹션 먼저 표시
+    display_risk_analysis(marketing_data)
     
     # formatted_output이 있으면 그대로 표시 (최우선!)
     formatted_output = marketing_data.get("formatted_output")
@@ -2831,71 +2966,7 @@ with col2:
             # 분석 실행
             result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
             
-            # Marketing Agent 실행 (app.py에서 직접)
-            marketing_result = None
-            if result and result.get("status") == "success" and MARKETING_AGENT_AVAILABLE:
-                try:
-                    log_capture.add_log("Marketing Agent 분석 시작...", "INFO")
-                    
-                    # Store analysis에서 marketing format으로 변환
-                    store_analysis = result.get("store_analysis")
-                    if store_analysis:
-                        store_report = convert_store_to_marketing_format(store_analysis)
-                        
-                        if store_report:
-                            # Marketing Agent 실행
-                            store_code = st.session_state.store_code
-                            agent = marketingagent(store_code)
-                            
-                            diagnostic = {
-                                "overall_risk_level": "MEDIUM",
-                                "detected_risks": [],
-                                "diagnostic_results": {}
-                            }
-                            
-                            marketing_result = asyncio.run(agent.run_marketing(store_report, diagnostic))
-                            
-                            if marketing_result and not marketing_result.get("error"):
-                                # Enum을 문자열로 변환
-                                marketing_result = _convert_enums_to_strings(marketing_result)
-                                
-                                # result에 추가
-                                result["marketing_result"] = marketing_result
-                                
-                                # Marketing Agent 결과를 파일로 저장
-                                try:
-                                    from pathlib import Path
-                                    import json
-                                    from datetime import datetime
-                                    
-                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
-                                    output_dir = Path(__file__).parent.parent / "output"
-                                    store_folders = sorted(
-                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
-                                        key=lambda x: x.name,
-                                        reverse=True
-                                    )
-                                    
-                                    if store_folders:
-                                        latest_folder = store_folders[0]
-                                        marketing_file = latest_folder / "marketing_strategy.json"
-                                        
-                                        with open(marketing_file, 'w', encoding='utf-8') as f:
-                                            json.dump(marketing_result, f, ensure_ascii=False, indent=2)
-                                        
-                                        log_capture.add_log(f"Marketing Agent 결과 저장: {marketing_file.name}", "OK")
-                                    else:
-                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
-                                except Exception as save_error:
-                                    log_capture.add_log(f"Marketing Agent 결과 저장 실패: {str(save_error)}", "WARN")
-                                
-                                log_capture.add_log("Marketing Agent 완료!", "SUCCESS")
-                            else:
-                                log_capture.add_log("Marketing Agent 실패", "WARN")
-                except Exception as e:
-                    log_capture.add_log(f"Marketing Agent 오류: {str(e)}", "ERROR")
-                    import traceback
-                    traceback.print_exc()
+            # Marketing Agent는 상담 시작 단계에서 실행되도록 이동
             
             # 분석 완료 후 결과 로드
             if result and result.get("status") == "success":
@@ -2974,11 +3045,11 @@ with col2:
             # 상담 시작 버튼
             st.markdown("---")
             if not st.session_state.consultation_mode:
-                if st.button("💬 상담 시작", type="primary", use_container_width=True):
+                if st.button("💬 상담 시작 (마케팅→MCP→크롤링)", type="primary", use_container_width=True):
                     print(f"[INFO] 상담 모드 시작 요청: {store_code}")
                     if AGENTS_AVAILABLE:
                         print(f"[INFO] Langchain AI Agents 사용하여 상담 시스템 준비 중...")
-                        with st.spinner("상담 시스템을 준비중입니다..."):
+                        with st.spinner("마케팅 전략 → MCP 검색 → 크롤링 → 상담 시스템 준비 중..."):
                             try:
                                 # 통합 분석 파일 로드
                                 log_capture.add_log("통합 분석 파일 로드 중...", "INFO")
@@ -2989,12 +3060,82 @@ with col2:
                                     log_capture.add_log(f"Analysis Dir: {analysis_data['analysis_dir']}", "DEBUG")
                                     log_capture.add_log(f"MD 파일 크기: {len(merged_md)} bytes", "DEBUG")
                                     
-                                    # ===== 1단계: MCP 매장 검색 먼저 실행 =====
+                                    # ===== 1단계: Marketing Agent 실행 =====
                                     print("\n" + "="*60)
-                                    print("[1/2] MCP 매장 검색 먼저 실행!")
+                                    print("[1/3] Marketing Agent 실행!")
                                     print("="*60)
                                     try:
-                                        log_capture.add_log(f"[1/2] MCP 매장 검색 시작: {store_code}", "INFO")
+                                        log_capture.add_log("[1/3] Marketing Agent 분석 시작...", "INFO")
+                                        
+                                        # Store analysis에서 marketing format으로 변환
+                                        store_analysis = analysis_data.get("store_analysis")
+                                        if store_analysis and MARKETING_AGENT_AVAILABLE:
+                                            store_report = convert_store_to_marketing_format(store_analysis)
+                                            
+                                            if store_report:
+                                                # Marketing Agent 실행
+                                                agent = marketingagent(store_code)
+                                                
+                                                diagnostic = {
+                                                    "overall_risk_level": "MEDIUM",
+                                                    "detected_risks": [],
+                                                    "diagnostic_results": {}
+                                                }
+                                                
+                                                marketing_result = asyncio.run(agent.run_marketing(store_report, diagnostic))
+                                                
+                                                if marketing_result and not marketing_result.get("error"):
+                                                    # Enum을 문자열로 변환
+                                                    marketing_result = _convert_enums_to_strings(marketing_result)
+                                                    
+                                                    # analysis_data에 추가
+                                                    analysis_data["marketing_analysis"] = marketing_result
+                                                    
+                                                    # Marketing Agent 결과를 파일로 저장
+                                                    try:
+                                                        from pathlib import Path
+                                                        import json
+                                                        from datetime import datetime
+                                                        
+                                                        # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
+                                                        output_dir = Path(__file__).parent.parent / "output"
+                                                        store_folders = sorted(
+                                                            [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
+                                                            key=lambda x: x.name,
+                                                            reverse=True
+                                                        )
+                                                        
+                                                        if store_folders:
+                                                            latest_folder = store_folders[0]
+                                                            marketing_file = latest_folder / "marketing_strategy.json"
+                                                            
+                                                            with open(marketing_file, 'w', encoding='utf-8') as f:
+                                                                json.dump(marketing_result, f, ensure_ascii=False, indent=2)
+                                                            
+                                                            log_capture.add_log(f"Marketing Agent 결과 저장: {marketing_file.name}", "OK")
+                                                        else:
+                                                            log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
+                                                    except Exception as save_error:
+                                                        log_capture.add_log(f"Marketing Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                                    
+                                                    log_capture.add_log("✅ Marketing Agent 완료!", "SUCCESS")
+                                                else:
+                                                    log_capture.add_log("Marketing Agent 실패", "WARN")
+                                            else:
+                                                log_capture.add_log("Store report 변환 실패", "WARN")
+                                        else:
+                                            log_capture.add_log("Store 분석 결과 없음 또는 Marketing Agent 비활성화", "WARN")
+                                    except Exception as e:
+                                        log_capture.add_log(f"❌ Marketing Agent 오류: {str(e)}", "ERROR")
+                                        import traceback
+                                        traceback.print_exc()
+                                    
+                                    # ===== 2단계: MCP 매장 검색 실행 =====
+                                    print("\n" + "="*60)
+                                    print("[2/3] MCP 매장 검색 실행!")
+                                    print("="*60)
+                                    try:
+                                        log_capture.add_log(f"[2/3] MCP 매장 검색 시작: {store_code}", "INFO")
                                         print(f"🔍 MCP 검색 중: {store_code}")
                                         
                                         # StoreSearchProcessor import (절대 경로 사용)
@@ -3028,14 +3169,14 @@ with col2:
                                         import traceback
                                         traceback.print_exc()
                                     
-                                    # ===== 2단계: New Product Agent 실행 (크롤링) =====
+                                    # ===== 3단계: New Product Agent 실행 (크롤링) =====
                                     print("\n" + "="*60)
-                                    print("[2/2] New Product Agent 실행 (네이버 크롤링)")
+                                    print("[3/3] New Product Agent 실행 (네이버 크롤링)")
                                     print("="*60)
                                     # New Product Agent 실행 (Store 분석 결과가 있을 때만)
                                     if analysis_data.get("store_analysis"):
                                         try:
-                                            log_capture.add_log("[2/2] New Product Agent 실행 중 (네이버 크롤링)...", "INFO")
+                                            log_capture.add_log("[3/3] New Product Agent 실행 중 (네이버 크롤링)...", "INFO")
                                             
                                             # New Product Agent import 및 실행
                                             import sys
@@ -3085,7 +3226,7 @@ with col2:
                                     else:
                                         log_capture.add_log("Store 분석 결과 없음 - New Product Agent 건너뜀", "INFO")
                                     
-                                    # ===== 3단계: Langchain Consultation Chain 생성 =====
+                                    # ===== 4단계: Langchain Consultation Chain 생성 =====
                                     # Langchain Consultation Chain 생성
                                     log_capture.add_log("Langchain Consultation Chain 생성 중...", "INFO")
                                     
@@ -3113,7 +3254,7 @@ with col2:
                                         
                                         st.session_state.messages.append({
                                             "role": "assistant",
-                                            "content": "상담을 시작합니다! 통합 분석 결과를 바탕으로 무엇이든 물어보세요. 📊"
+                                            "content": "✅ 상담 준비 완료! 마케팅 전략, MCP 검색, 크롤링 결과를 바탕으로 무엇이든 물어보세요. 📊"
                                         })
                                         st.success("✅ 상담 모드가 활성화되었습니다!")
                                         st.rerun()

@@ -1,0 +1,79 @@
+{
+  "store_code": "011E53BB76",
+  "analysis_timestamp": "2025-10-24T03:08:31.985581",
+  "persona_analysis": {
+    "persona_type": "정성 가득, 우리 동네 깐깐한 주부 미식가",
+    "persona_description": "바쁜 일상 속에서도 가족의 건강과 식사를 꼼꼼히 챙기며, '정성'이 담긴 집밥처럼 편안하고 믿을 수 있는 한 끼를 중요하게 생각하는 30~50대 여성 고객입니다. 동네 맛집에 대한 애착이 강하며, 합리적인 가격에 만족스러운 식사를 기대합니다.",
+    "components": {
+      "industry": "한식",
+      "commercial_zone": "주거형",
+      "is_franchise": false,
+      "store_age": "안정기",
+      "customer_demographics": {
+        "gender": "혼합",
+        "age": "혼합"
+      },
+      "customer_type": "거주형",
+      "trends": {
+        "new_customer": "정체",
+        "revisit": "정체"
+      },
+      "delivery_ratio": "중간"
+    },
+    "marketing_tone": "따뜻하고 진솔하며, 가족의 건강을 생각하는 마음을 담은 '정성'을 강조하는 톤. 신뢰감 있고 친근한 어조로 소통.",
+    "key_channels": [
+      "배달 앱 프로모션 및 광고 (신규 고객 유치 및 객단가 상승을 위한 세트 메뉴 개발)",
+      "네이버 플레이스/카카오맵 최적화 (상세 메뉴 정보, 실제 고객 리뷰 관리, 이벤트 공지)",
+      "지역 기반 커뮤니티 마케팅 (맘카페, 동네 커뮤니티 게시판 활용 및 제휴)",
+      "매장 내/외부 홍보 (신메뉴, 제철 메뉴, 가족 세트 메뉴 포스터 및 배너)",
+      "단골 고객 대상 멤버십/포인트 적립 프로그램 (재방문율 및 객단가 상승 유도)",
+      "SNS (인스타그램) 활용 (먹음직스러운 음식 사진, 조리 과정, 위생 강조, 고객 참여 이벤트)",
+      "주문 및 배달 현황 알림 메시지 강화 (정확한 예상 대기 시간 안내로 취소율 감소)"
+    ],
+    "core_insights": {
+      "persona": {
+        "summary": "이 가게는 혼합이 높고, 혼합가 주를 이루고 있고, 유동인구가 많은 \"정성 가득, 우리 동네 깐깐한 주부 미식가\"형 가게입니다",
+        "table_data": {
+          "업종": "한식",
+          "상권": "주거형",
+          "프랜차이즈 여부": "N",
+          "신규·노점 여부": "안정기",
+          "주요 고객": "혼합 혼합",
+          "고객유형": "거주형",
+          "고객관계": "신규유입정체 / 재방문정체",
+          "배달비중": "중간"
+        },
+        "charts": {
+          "customer_demographics": {
+            "gender": "혼합",
+            "age": "혼합"
+          },
+          "customer_trends": {
+            "new_customer": "정체",
+            "revisit": "정체"
+          }
+        }
+      },
+      "risk_diagnosis": {
+        "summary": "이 가게에서 파악된 위험 요소는 재방문 고객 비율이 감소하고 있음로 1개의 요소가 있습니다",
+        "table_data": [
+          {
+            "code": "R2",
+            "meaning": "낮은 재방문율",
+            "severity": "unknown",
+            "description": "재방문 고객 비율이 감소하고 있음",
+            "chart_type": "comparison"
+          }
+        ],
+        "overall_risk_level": "위험"
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_level": "위험",
+    "detected_risks": [
+      {
+        "code": "R2",
+        "name": "재방문율 저하",
+        "description": "재방문 고객 비율이 감소하고 있음",
+        "level": 
