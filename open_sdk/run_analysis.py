@@ -53,17 +53,26 @@ except ImportError:
 import warnings
 import logging
 
+# matplotlib 로딩 전에 환경변수 설정으로 폰트 검색 억제
+os.environ['MPLCONFIGDIR'] = '/tmp/matplotlib'
+os.environ['MPLBACKEND'] = 'Agg'
+
 # matplotlib 관련 모든 경고 억제
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore', category=UserWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
+warnings.filterwarnings('ignore', message='.*font.*')
+warnings.filterwarnings('ignore', message='.*findfont.*')
+logging.getLogger().setLevel(logging.ERROR)
 logging.getLogger('matplotlib').setLevel(logging.ERROR)
 logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+logging.getLogger('PIL').setLevel(logging.ERROR)
 
 import matplotlib
 matplotlib.use('Agg')  # GUI 백엔드 비활성화
 import matplotlib.pyplot as plt
 import platform
 
-# 한글 폰트 설정
+# 한글 폰트 설정 (경고 완전 억제)
 system = platform.system()
 try:
     if system == "Windows":
@@ -71,28 +80,13 @@ try:
     elif system == "Darwin":
         plt.rcParams['font.family'] = 'AppleGothic'
     else:
-        # Linux (Streamlit Cloud) - 폰트 검색 없이 바로 설정
-        # packages.txt에서 설치된 폰트 직접 사용
-        import matplotlib.font_manager as fm
-        
-        # 폰트 캐시 강제 갱신 (한 번만)
-        try:
-            fm._load_fontmanager(try_read_cache=False)
-        except:
-            pass
-        
-        # DejaVu Sans를 기본으로 사용 (항상 존재)
-        plt.rcParams['font.family'] = 'DejaVu Sans'
-        
-        # NanumGothic이 있으면 사용 (경고 없이)
-        try:
-            font_list = {f.name for f in fm.fontManager.ttflist}
-            if 'NanumGothic' in font_list:
-                plt.rcParams['font.family'] = 'NanumGothic'
-            elif 'NanumBarunGothic' in font_list:
-                plt.rcParams['font.family'] = 'NanumBarunGothic'
-        except:
-            pass  # 폰트 검색 실패 시 DejaVu Sans 유지
+        # Linux (Streamlit Cloud) - 폰트 검색 완전 억제
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            
+            # DejaVu Sans만 사용 (항상 존재, 경고 없음)
+            plt.rcParams['font.family'] = 'DejaVu Sans'
+            plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
     
     matplotlib.rcParams['axes.unicode_minus'] = False
     
@@ -101,6 +95,14 @@ except Exception:
     pass
 
 print("[OK] Matplotlib loaded in run_analysis")
+
+# Import Marketing Agent at module level
+try:
+    from agents_new.marketing_agent.marketing_agent import MarketingAgent
+    print("[OK] MarketingAgent imported successfully")
+except ImportError as e:
+    print(f"[WARN] MarketingAgent import failed: {e}")
+    MarketingAgent = None
 
 
 async def run_store_analysis(store_code: str) -> Dict[str, Any]:
@@ -479,8 +481,10 @@ async def run_marketing_analysis(store_report: Dict[str, Any]) -> Dict[str, Any]
     print("="*60)
     
     try:
-        # Marketing Agent import - use direct import
-        from agents_new.marketing_agent.marketing_agent import MarketingAgent
+        # Check if MarketingAgent is available
+        if MarketingAgent is None:
+            print("[ERROR] MarketingAgent not available")
+            return None
         
         # Initialize Marketing Agent
         store_code = store_report["store_code"]
