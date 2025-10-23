@@ -47,23 +47,24 @@ ENV/
 htmlcov/
 *.cover
 
-# Logs
-*.log
-logs/
-outputs/logs/
+# Logs (keep if you don't want logs in repo)
+# *.log
+# logs/
+# outputs/logs/
 
 # Database
 *.db
 *.sqlite
 *.sqlite3
 
-# Output files (선택적으로 제외)
-outputs/reports/*.json
-outputs/metrics/*.json
-outputs/diagnostics/*.json
-outputs/marketing/*.json
-outputs/charts/**/*.png
-outputs/charts/**/*.jpg
+# Output files (allow committing all artifacts, including CSV/JSON/images)
+# If you want to exclude any heavy folders later, uncomment selectively.
+# outputs/reports/*.json
+# outputs/metrics/*.json
+# outputs/diagnostics/*.json
+# outputs/marketing/*.json
+# outputs/charts/**/*.png
+# outputs/charts/**/*.jpg
 
 # Keep .gitkeep files
 !.gitkeep
@@ -74,11 +75,7 @@ outputs/charts/**/*.jpg
 # Windows
 Thumbs.db
 
-# Additional secrets and outputs
+# Additional secrets (keep these ignored)
 streamlit_app/.streamlit/secrets.toml
-open_sdk/output/
-agents_new/data outputs/
-agents_new/store_agent/outputs/
-panorama_img_anal/downloaded_img/
-store_space/matched_store_results.csv
+
 

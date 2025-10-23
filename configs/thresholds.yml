@@ -1,0 +1,52 @@
+# 경고 기준값 설정
+
+# CVI 임계값
+cvi_thresholds:
+  critical: 40.0
+  warning: 60.0
+  good: 75.0
+  excellent: 90.0
+
+# ASI 임계값
+asi_thresholds:
+  critical: 40.0
+  warning: 60.0
+  good: 75.0
+  excellent: 90.0
+
+# SCI 임계값
+sci_thresholds:
+  critical: 40.0
+  warning: 60.0
+  good: 75.0
+  excellent: 90.0
+
+# GMI 임계값
+gmi_thresholds:
+  critical: 40.0
+  warning: 60.0
+  good: 75.0
+  excellent: 90.0
+
+# 종합 건강도 기준
+overall_health:
+  healthy: 
+    min_score: 75.0
+    max_critical_issues: 0
+    max_warning_issues: 1
+  
+  attention_needed:
+    min_score: 60.0
+    max_critical_issues: 0
+    max_warning_issues: 2
+  
+  warning:
+    min_score: 45.0
+    max_critical_issues: 0
+    max_warning_issues: 3
+  
+  critical:
+    min_score: 0.0
+    max_critical_issues: 1
+    max_warning_issues: 999
+

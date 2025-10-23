@@ -1,0 +1,101 @@
+# 지표 → 액션 매핑
+
+# CVI 관련 처방
+cvi_prescriptions:
+  low_cvi:
+    condition: "below"
+    threshold: 60.0
+    severity: "warning"
+    actions:
+      - "더 활성화된 상권으로 이전 검토"
+      - "온라인 마케팅을 통한 고객 유입 증대"
+      - "인근 오피스/주거지역 대상 프로모션 강화"
+    
+  critical_cvi:
+    condition: "below"
+    threshold: 40.0
+    severity: "critical"
+    actions:
+      - "즉시 입지 재평가 및 이전 검토 필요"
+      - "배달/온라인 채널로 사업 모델 전환 고려"
+
+# ASI 관련 처방
+asi_prescriptions:
+  low_asi:
+    condition: "below"
+    threshold: 60.0
+    severity: "warning"
+    actions:
+      - "주차 공간 확보 또는 주차 제휴 서비스 제공"
+      - "대중교통 이용 고객 대상 할인 프로모션"
+      - "배달 서비스 강화로 접근성 한계 극복"
+      - "안내 표지판 및 간판 시인성 개선"
+  
+  critical_asi:
+    condition: "below"
+    threshold: 40.0
+    severity: "critical"
+    actions:
+      - "입지 변경 고려 또는 배달 전문으로 전환"
+      - "픽업 서비스 강화"
+
+# SCI 관련 처방
+sci_prescriptions:
+  low_sci:
+    condition: "below"
+    threshold: 60.0
+    severity: "warning"
+    actions:
+      - "차별화된 메뉴/상품 개발"
+      - "고객 서비스 품질 개선"
+      - "브랜드 아이덴티티 강화"
+      - "가격 경쟁력 재검토"
+      - "고객 리뷰 관리 강화"
+  
+  critical_sci:
+    condition: "below"
+    threshold: 40.0
+    severity: "critical"
+    actions:
+      - "사업 모델 전면 재검토"
+      - "컨설팅 전문가 자문 필요"
+
+# GMI 관련 처방
+gmi_prescriptions:
+  low_gmi:
+    condition: "below"
+    threshold: 60.0
+    severity: "warning"
+    actions:
+      - "신규 고객층 타겟 마케팅"
+      - "제품/서비스 라인 확장 검토"
+      - "트렌드 분석 및 신메뉴 개발"
+      - "온라인 채널 확대"
+  
+  critical_gmi:
+    condition: "below"
+    threshold: 40.0
+    severity: "critical"
+    actions:
+      - "업종 전환 또는 사업 다각화 검토"
+      - "시장 조사 및 재포지셔닝 필요"
+
+# 복합 처방 (여러 지표 동시 저조 시)
+combined_prescriptions:
+  all_low:
+    conditions:
+      - metric: "cvi"
+        operator: "below"
+        value: 60.0
+      - metric: "asi"
+        operator: "below"
+        value: 60.0
+      - metric: "sci"
+        operator: "below"
+        value: 60.0
+    severity: "critical"
+    actions:
+      - "사업 지속 가능성 전면 재검토 필요"
+      - "전문 경영 컨설팅 필수"
+      - "출구 전략 수립 검토"
+
