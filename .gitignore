@@ -78,15 +78,4 @@ Thumbs.db
 # Additional secrets (keep these ignored)
 streamlit_app/.streamlit/secrets.toml
 
-# Panorama images (too large for GitHub - split into 9 folders)
-agents_new/panorama_img_anal/downloaded_img_1/
-agents_new/panorama_img_anal/downloaded_img_2/
-agents_new/panorama_img_anal/downloaded_img_3/
-agents_new/panorama_img_anal/downloaded_img_4/
-agents_new/panorama_img_anal/downloaded_img_5/
-agents_new/panorama_img_anal/downloaded_img_6/
-agents_new/panorama_img_anal/downloaded_img_7/
-agents_new/panorama_img_anal/downloaded_img_8/
-agents_new/panorama_img_anal/downloaded_img_9/
-
 
