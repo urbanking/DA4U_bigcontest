@@ -13,6 +13,14 @@ from typing import Dict, Any
 # Add project root to Python path
 project_root = Path(__file__).parent.parent
 
+# Add paths before importing MarketingAgent
+sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(project_root / "agents_new"))
+sys.path.insert(0, str(project_root / "agents_new" / "marketing_agent"))
+
+# Import MarketingAgent directly
+from agents_new.marketing_agent.marketing_agent import MarketingAgent
+
 # Global environment detection
 def is_cloud_environment() -> bool:
     """클라우드 환경 감지 (Streamlit Cloud, etc.)"""
@@ -30,10 +38,9 @@ if IS_CLOUD:
     print("[INFO] 클라우드 환경 감지됨 - 일부 Agent 비활성화됨")
 else:
     print("[INFO] 로컬 환경에서 실행 중")
-sys.path.insert(0, str(project_root))
-sys.path.insert(0, str(project_root / "agents_new"))
+
+# Add remaining paths
 sys.path.insert(0, str(project_root / "agents_new" / "store_agent" / "report_builder"))
-sys.path.insert(0, str(project_root / "agents_new" / "marketing_agent"))
 sys.path.insert(0, str(project_root / "agents_new" / "panorama_img_anal"))
 sys.path.insert(0, str(project_root / "agents_new" / "new_product_agent"))
 sys.path.insert(0, str(project_root / "open_sdk"))  # For spatial_matcher module
@@ -53,56 +60,46 @@ except ImportError:
 import warnings
 import logging
 
-# matplotlib 로딩 전에 환경변수 설정으로 폰트 검색 억제
+# 환경변수로 matplotlib 설정
 os.environ['MPLCONFIGDIR'] = '/tmp/matplotlib'
 os.environ['MPLBACKEND'] = 'Agg'
 
-# matplotlib 관련 모든 경고 억제
-warnings.filterwarnings('ignore', category=UserWarning)
-warnings.filterwarnings('ignore', category=FutureWarning)
-warnings.filterwarnings('ignore', message='.*font.*')
-warnings.filterwarnings('ignore', message='.*findfont.*')
+# 모든 경고 완전 차단
+warnings.filterwarnings('ignore')
+logging.basicConfig(level=logging.ERROR)
 logging.getLogger().setLevel(logging.ERROR)
-logging.getLogger('matplotlib').setLevel(logging.ERROR)
-logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
-logging.getLogger('PIL').setLevel(logging.ERROR)
 
 import matplotlib
 matplotlib.use('Agg')  # GUI 백엔드 비활성화
+
+# matplotlib 로거 완전 차단
+for logger_name in ['matplotlib', 'matplotlib.font_manager', 'matplotlib.pyplot', 'PIL']:
+    logging.getLogger(logger_name).setLevel(logging.CRITICAL)
+    logging.getLogger(logger_name).propagate = False
+
 import matplotlib.pyplot as plt
 import platform
 
-# 한글 폰트 설정 (경고 완전 억제)
+# 한글 폰트 설정 (경고 없이)
 system = platform.system()
 try:
-    if system == "Windows":
-        plt.rcParams['font.family'] = 'Malgun Gothic'
-    elif system == "Darwin":
-        plt.rcParams['font.family'] = 'AppleGothic'
-    else:
-        # Linux (Streamlit Cloud) - 폰트 검색 완전 억제
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            
-            # DejaVu Sans만 사용 (항상 존재, 경고 없음)
-            plt.rcParams['font.family'] = 'DejaVu Sans'
-            plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
-    
-    matplotlib.rcParams['axes.unicode_minus'] = False
-    
-except Exception:
-    # 모든 에러 무시
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        
+        if system == "Windows":
+            plt.rcParams['font.family'] = 'Malgun Gothic'
+        elif system == "Darwin":
+            plt.rcParams['font.family'] = 'AppleGothic'
+        else:
+            # Linux - DejaVu Sans 사용 (NanumGothic 검색 안 함)
+            plt.rcParams['font.family'] = 'sans-serif'
+            plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'Helvetica']
+        
+        matplotlib.rcParams['axes.unicode_minus'] = False
+except:
     pass
 
 print("[OK] Matplotlib loaded in run_analysis")
-
-# Import Marketing Agent at module level
-try:
-    from agents_new.marketing_agent.marketing_agent import MarketingAgent
-    print("[OK] MarketingAgent imported successfully")
-except ImportError as e:
-    print(f"[WARN] MarketingAgent import failed: {e}")
-    MarketingAgent = None
 
 
 async def run_store_analysis(store_code: str) -> Dict[str, Any]:
@@ -481,12 +478,7 @@ async def run_marketing_analysis(store_report: Dict[str, Any]) -> Dict[str, Any]
     print("="*60)
     
     try:
-        # Check if MarketingAgent is available
-        if MarketingAgent is None:
-            print("[ERROR] MarketingAgent not available")
-            return None
-        
-        # Initialize Marketing Agent
+        # Initialize Marketing Agent (imported at top of file)
         store_code = store_report["store_code"]
         agent = MarketingAgent(store_code)
         
