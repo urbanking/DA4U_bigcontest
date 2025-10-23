@@ -35,15 +35,41 @@ import matplotlib
 import matplotlib.pyplot as plt
 import platform
 
-# 한글 폰트 설정
+# 한글 폰트 설정 (폰트 경고 억제)
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib')
+
 system = platform.system()
-if system == "Windows":
-    plt.rcParams['font.family'] = 'Malgun Gothic'
-elif system == "Darwin":
-    plt.rcParams['font.family'] = 'AppleGothic'
-else:
-    plt.rcParams['font.family'] = 'NanumGothic'
-matplotlib.rcParams['axes.unicode_minus'] = False
+try:
+    if system == "Windows":
+        plt.rcParams['font.family'] = 'Malgun Gothic'
+    elif system == "Darwin":
+        plt.rcParams['font.family'] = 'AppleGothic'
+    else:
+        # Linux (Streamlit Cloud)
+        import matplotlib.font_manager as fm
+        font_list = [f.name for f in fm.fontManager.ttflist]
+        
+        # Try multiple Korean fonts in order of preference
+        korean_fonts = ['NanumGothic', 'NanumBarunGothic', 'NanumSquare', 'DejaVu Sans']
+        font_found = False
+        
+        for font in korean_fonts:
+            if font in font_list:
+                plt.rcParams['font.family'] = font
+                font_found = True
+                print(f"[OK] Using font: {font}")
+                break
+        
+        if not font_found:
+            print("[WARN] No Korean font found, using default (Korean characters may not display)")
+            plt.rcParams['font.family'] = 'DejaVu Sans'
+    
+    matplotlib.rcParams['axes.unicode_minus'] = False
+except Exception as e:
+    print(f"[WARN] Font setup warning: {e}")
+    # Use default font as fallback
+    pass
 
 print("[OK] Matplotlib loaded in run_analysis")
 
@@ -424,9 +450,8 @@ async def run_marketing_analysis(store_report: Dict[str, Any]) -> Dict[str, Any]
     print("="*60)
     
     try:
-        # Marketing Agent import (already added to sys.path - Line 17)
-        import marketing_agent  # type: ignore
-        MarketingAgent = marketing_agent.MarketingAgent
+        # Marketing Agent import - use direct import
+        from agents_new.marketing_agent.marketing_agent import MarketingAgent
         
         # Initialize Marketing Agent
         store_code = store_report["store_code"]
@@ -576,6 +601,14 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
         import importlib.util
         import shutil
         from datetime import datetime
+        import os
+        
+        # Check if running in Streamlit Cloud (network restrictions)
+        is_streamlit_cloud = os.path.exists('/mount/src') or os.getenv('STREAMLIT_SHARING_MODE')
+        
+        if is_streamlit_cloud:
+            print(f"[SKIP] Streamlit Cloud 환경에서는 Panorama Analysis 비활성화 (외부 API 접근 제한)")
+            return {"status": "skipped", "reason": "Streamlit Cloud network restrictions"}
         
         spec = importlib.util.spec_from_file_location(
             "analyze_area_by_address",
@@ -1103,24 +1136,33 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
                     matched_industry = industry_small
                 
                 if matched_industry:
-                    print(f"[OK] 업종 '{matched_industry}'이 허용 목록에 있음 - New Product Agent 활성화")
-                    try:
-                        from agents_new.new_product_agent.new_product_agent import NewProductAgent
-                        
-                        # Initialize New Product Agent
-                        new_product_agent = NewProductAgent(headless=True, save_outputs=True)
-                        
-                        # Run new product analysis
-                        new_product_result = await new_product_agent.run(store_analysis)
-                        
-                        if new_product_result and new_product_result.get('activated'):
-                            print(f"[OK] New Product Agent: {len(new_product_result.get('proposals', []))} proposals generated")
-                        else:
-                            print(f"[WARN] New Product Agent: No proposals generated")
+                    print(f"[INFO] 업종 '{matched_industry}'이 허용 목록에 있음")
+                    
+                    # Check if running in Streamlit Cloud (no Selenium support)
+                    import os
+                    is_streamlit_cloud = os.path.exists('/mount/src') or os.getenv('STREAMLIT_SHARING_MODE')
+                    
+                    if is_streamlit_cloud:
+                        print(f"[SKIP] Streamlit Cloud 환경에서는 New Product Agent 비활성화 (Selenium 미지원)")
+                    else:
+                        print(f"[OK] New Product Agent 활성화")
+                        try:
+                            from agents_new.new_product_agent.new_product_agent import NewProductAgent
                             
-                    except Exception as e:
-                        print(f"[ERROR] New Product Agent failed: {e}")
-                        new_product_result = None
+                            # Initialize New Product Agent
+                            new_product_agent = NewProductAgent(headless=True, save_outputs=True)
+                            
+                            # Run new product analysis
+                            new_product_result = await new_product_agent.run(store_analysis)
+                            
+                            if new_product_result and new_product_result.get('activated'):
+                                print(f"[OK] New Product Agent: {len(new_product_result.get('proposals', []))} proposals generated")
+                            else:
+                                print(f"[WARN] New Product Agent: No proposals generated")
+                                
+                        except Exception as e:
+                            print(f"[ERROR] New Product Agent failed: {e}")
+                            new_product_result = None
                 else:
                     print(f"[SKIP] 업종이 허용 목록에 없음 - New Product Agent 비활성화")
                     print(f"  - 대분류 '{industry_large}' ❌")
