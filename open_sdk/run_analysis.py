@@ -799,7 +799,6 @@ def get_marketplace_json(address: str, spatial_info: Dict[str, Any] = None) -> D
 
 
 def save_results(store_code: str, store_analysis: Dict[str, Any], 
-                marketing_result: Dict[str, Any], 
                 mobility_result: Dict[str, Any] = None,
                 panorama_result: Dict[str, Any] = None,
                 marketplace_result: Dict[str, Any] = None,
@@ -831,7 +830,6 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
                 "pipeline_version": "1.0"
             },
             "store_analysis": store_analysis["json_output"] if store_analysis else None,
-            "marketing_strategy": marketing_result,
             "mobility_analysis": mobility_result.get("data") if mobility_result and mobility_result.get("data") else None,
             "panorama_analysis": panorama_result.get("synthesis") if panorama_result and panorama_result.get("synthesis") else None,
             "marketplace_analysis": marketplace_result.get("data") if marketplace_result and marketplace_result.get("data") else None
@@ -855,12 +853,6 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
                 "industry": store_analysis["json_output"]["store_overview"]["industry"] if store_analysis and store_analysis.get("json_output") else None,
                 "commercial_area": store_analysis["json_output"]["store_overview"]["commercial_area"] if store_analysis and store_analysis.get("json_output") else None,
                 "quality_score": store_analysis["json_output"]["evaluation"]["quality_score"] if store_analysis and store_analysis.get("json_output") else None
-            },
-            "marketing_summary": {
-                "persona_type": marketing_result.get("persona_analysis", {}).get("persona_type") if marketing_result else None,
-                "risk_level": marketing_result.get("risk_analysis", {}).get("overall_risk_level") if marketing_result else None,
-                "strategy_count": len(marketing_result.get("strategies", [])) if marketing_result else 0,
-                "campaign_count": len(marketing_result.get("campaigns", [])) if marketing_result else 0
             },
             "panorama_summary": {
                 "area_characteristics": panorama_result.get("synthesis", {}).get("area_summary", {}).get("overall_character") if panorama_result else None,
@@ -922,13 +914,6 @@ def save_results(store_code: str, store_analysis: Dict[str, Any],
                     shutil.copy2(chart_path, dest)
             
             print(f"[OK] Store charts: {len(chart_files)} -> store_charts/")
-        
-        # Save Marketing Agent results
-        if marketing_result and marketing_result.get("persona_analysis"):
-            marketing_file = result_dir / "marketing_strategy.json"
-            with open(marketing_file, 'w', encoding='utf-8') as f:
-                json.dump(marketing_result, f, ensure_ascii=False, indent=2)
-            print(f"[OK] Marketing strategy: marketing_strategy.json")
         
         # Save New Product Agent results
         if new_product_result and new_product_result.get("activated"):
@@ -1045,22 +1030,15 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
         print("\n[ERROR] Pipeline interrupted due to Store Agent analysis failure")
         return {"status": "failed", "step": "store_analysis"}
     
-    # Step 2: Data conversion
-    store_report = convert_store_to_marketing_format(store_analysis)
-    if not store_report:
-        print("\n[ERROR] Pipeline interrupted due to data conversion failure")
-        return {"status": "failed", "step": "data_conversion"}
-    
-    # Step 3: Marketing Agent analysis - SKIPPED (handled by app.py)
+    # Step 2: Marketing Agent analysis - SKIPPED (handled by app.py)
     print("\n" + "="*60)
-    print("[Step 3] Marketing Agent Analysis - SKIPPED")
+    print("[Step 2] Marketing Agent Analysis - SKIPPED")
     print("="*60)
     print("[INFO] Marketing Agent는 app.py에서 직접 호출됩니다")
-    marketing_result = {"status": "skipped", "reason": "Handled by app.py"}
     
-    # Step 4: New Product Agent (if applicable)
+    # Step 3: New Product Agent (if applicable)
     print("\n" + "="*60)
-    print("[Step 4] New Product Agent")
+    print("[Step 3] New Product Agent")
     print("="*60)
     
     new_product_result = None
@@ -1158,7 +1136,6 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
     output_file = save_results(
         store_code, 
         store_analysis, 
-        marketing_result,
         mobility_result,
         panorama_result,
         marketplace_result,
@@ -1173,7 +1150,7 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
     print(f"\n[SUMMARY] Results Summary:")
     print(f"   [OK] Address analysis: Completed (dong: {dong})")
     print(f"   [OK] Store analysis: Completed")
-    print(f"   [OK] Marketing strategy: {'Completed' if marketing_result and marketing_result.get('persona_analysis') else 'Failed'}")
+    print(f"   [INFO] Marketing strategy: Handled by app.py")
     print(f"   [OK] New Product Agent: {'Completed' if new_product_result and new_product_result.get('activated') else 'Skipped'}")
     print(f"   [WARN] Mobility: {mobility_result.get('status', 'unknown')}")
     print(f"   [WARN] Panorama: {panorama_result.get('status', 'unknown')}")
@@ -1193,7 +1170,6 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
         "store_code": store_code,
         "output_file": output_file,
         "store_analysis": store_analysis,
-        "marketing_result": marketing_result,
         "new_product_result": new_product_result,
         "spatial_info": spatial_info if 'spatial_info' in locals() else None
     }

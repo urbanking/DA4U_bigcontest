@@ -17,7 +17,7 @@ except ImportError:
     from strategy_generator import StrategyGenerator, MarketingStrategy, CampaignPlan
 
 
-class MarketingAgent:
+class marketingagent:
     """페르소나 기반 마케팅 전략 에이전트"""
     
     def __init__(self, store_code: str):

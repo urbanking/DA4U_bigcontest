@@ -115,7 +115,7 @@ from run_analysis import run_full_analysis_pipeline, convert_store_to_marketing_
 # Marketing Agent import
 MARKETING_AGENT_AVAILABLE = False
 try:
-    from agents_new.marketing_agent.marketing_agent import MarketingAgent
+    from agents_new.marketing_agent.marketing_agent import marketingagent
     MARKETING_AGENT_AVAILABLE = True
     print("[OK] Marketing Agent loaded successfully")
 except ImportError as e:
@@ -2845,7 +2845,7 @@ with col2:
                         if store_report:
                             # Marketing Agent 실행
                             store_code = st.session_state.store_code
-                            agent = MarketingAgent(store_code)
+                            agent = marketingagent(store_code)
                             
                             diagnostic = {
                                 "overall_risk_level": "MEDIUM",
