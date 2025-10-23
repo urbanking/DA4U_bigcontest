@@ -27,13 +27,13 @@ class Message:
         self.content = content
 try:
     # 패키지로 실행될 때
-    from .marketing_agent import MarketingAgent
+    from .marketing_agent import marketingagent
     from .persona_engine import PersonaEngine
     from .risk_analyzer import RiskAnalyzer
     from .strategy_generator import StrategyGenerator
 except ImportError:
     # 독립 실행될 때
-    from marketing_agent import MarketingAgent
+    from marketing_agent import marketingagent
     from persona_engine import PersonaEngine
     from risk_analyzer import RiskAnalyzer
     from strategy_generator import StrategyGenerator
@@ -45,7 +45,7 @@ class MarketingAgentWrapper:
     
     def __init__(self, store_code: str):
         self.store_code = store_code
-        self.marketing_agent = MarketingAgent(store_code)
+        self.marketing_agent = marketingagent(store_code)
         self.agent = self._create_agent()
     
     def _create_agent(self) -> Agent:
