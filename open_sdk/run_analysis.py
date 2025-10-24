@@ -38,11 +38,8 @@ def is_cloud_environment() -> bool:
     
     return False
 
-IS_CLOUD = is_cloud_environment()
-if IS_CLOUD:
-    print("[INFO] 클라우드 환경 감지됨 - 일부 Agent 비활성화됨")
-else:
-    print("[INFO] 로컬 환경에서 실행 중")
+# 클라우드 환경 제한 제거 - 모든 환경에서 실행 가능
+IS_CLOUD = False
 
 # Add remaining paths
 sys.path.insert(0, str(project_root / "agents_new" / "store_agent" / "report_builder"))
@@ -429,8 +426,8 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
     print("[Step 5] Panorama Analysis")
     print("="*60)
     
-    # Panorama analysis는 Google Street View API를 사용하므로 클라우드 환경에서도 실행 가능
-    # API 키만 설정되어 있으면 정상 작동
+    # Panorama analysis는 모든 환경에서 실행 가능
+    # 이미지 파일을 사용하므로 API 제한 없음
     
     try:
         import importlib.util
@@ -868,7 +865,7 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
     # Step 3: Mobility analysis
     mobility_result = await run_mobility_analysis(address, dong)
     
-    # Step 6: Panorama analysis (클라우드 환경에서는 자동 스킵)
+    # Step 5: Panorama analysis (모든 환경에서 실행)
     panorama_result = await run_panorama_analysis(address)
     
     # Step 7: Marketplace analysis - Using spatial_matcher result
