@@ -48,8 +48,21 @@ from streamlit_autorefresh import st_autorefresh
 
 
 # .env 파일 로드
-
 load_dotenv()
+
+# 파노라마 분석 초기화 (앱 시작 시 실행)
+def initialize_panorama_analysis():
+    """앱 시작 시 파노라마 분석 모듈 초기화"""
+    try:
+        from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
+        print("[OK] 파노라마 분석 모듈 초기화 완료")
+        return True
+    except Exception as e:
+        print(f"[WARN] 파노라마 분석 모듈 초기화 실패: {e}")
+        return False
+
+# 파노라마 분석 모듈 초기화
+PANORAMA_ANALYSIS_AVAILABLE = initialize_panorama_analysis()
 
 
 # 한글 폰트 설정
@@ -393,8 +406,7 @@ except Exception as e:
 
     traceback.print_exc()
 
-# Panorama Analysis status (run_analysis.py에서 자동 실행됨)
-PANORAMA_ANALYSIS_AVAILABLE = True  # run_analysis.py에서 실행되므로 항상 True
+# Panorama Analysis는 위에서 초기화됨
 
 # Langchain AI Agents import
 
@@ -3539,7 +3551,8 @@ with st.sidebar:
     st.markdown("## 🏙️ 파노라마 분석")
     
     if PANORAMA_ANALYSIS_AVAILABLE:
-        st.success("✅ 파노라마 분석 자동 실행 (상점 코드 입력 시)")
+        st.success("✅ 파노라마 분석 모듈 로드 완료")
+        st.info("상점 코드 입력 시 자동으로 파노라마 분석이 실행됩니다")
     else:
         st.error("❌ 파노라마 분석 모듈을 사용할 수 없습니다.")
     
