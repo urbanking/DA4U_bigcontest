@@ -393,7 +393,8 @@ except Exception as e:
 
     traceback.print_exc()
 
-
+# Panorama Analysis status (run_analysis.py에서 자동 실행됨)
+PANORAMA_ANALYSIS_AVAILABLE = True  # run_analysis.py에서 실행되므로 항상 True
 
 # Langchain AI Agents import
 
@@ -3533,6 +3534,15 @@ with st.sidebar:
         """)
         st.markdown("---")
     
+    # 파노라마 분석 상태 표시
+    st.markdown("---")
+    st.markdown("## 🏙️ 파노라마 분석")
+    
+    if PANORAMA_ANALYSIS_AVAILABLE:
+        st.success("✅ 파노라마 분석 자동 실행 (상점 코드 입력 시)")
+    else:
+        st.error("❌ 파노라마 분석 모듈을 사용할 수 없습니다.")
+    
     # 분석 상태 표시
 
     if st.session_state.get('is_analyzing', False):
@@ -4296,8 +4306,8 @@ with col2:
                                         if MCP_LOOKUP_AVAILABLE:
                                             # CSV 경로: agents_new/google_map_mcp/matched_store_results.csv
                                             csv_path = Path(__file__).parent.parent.parent / "agents_new" / "google_map_mcp" / "matched_store_results.csv"
-                                            
-                                            if csv_path.exists():
+
+                                        if csv_path.exists():
                                                 # 출력 경로: 현재 분석 디렉토리 우선 사용
                                                 out_dir = Path(analysis_data.get("analysis_dir") or (Path(__file__).parent.parent / "output"))
                                                 out_dir.mkdir(parents=True, exist_ok=True)
@@ -4323,11 +4333,11 @@ with col2:
 
                                                 # 결과 저장 (성공/실패 관계없이 세부 내용 유지)
                                                 analysis_data["mcp_search_result"] = mcp_result
-                                            else:
-                                                log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
+                                        else:
+                                            log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
                                         else:
                                             log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
-                                        
+
                                     except Exception as e:
                                         log_capture.add_log(f"❌ MCP 매장 검색 오류: {e}", "ERROR")
                                         import traceback
@@ -4339,20 +4349,20 @@ with col2:
                                     print("\n" + "="*60)
                                     print("[3/3] New Product Agent 실행 (간소화)")
                                     print("="*60)
-                                    
+
                                     # New Product Agent 간소화 실행
                                     try:
                                         log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
                                         
                                         # 간소화된 New Product Agent 실행
                                         new_product_result = {"activated": False, "reason": "간소화된 버전"}
-                                        analysis_data["new_product_result"] = new_product_result
-                                        
+                                                analysis_data["new_product_result"] = new_product_result
+
                                         log_capture.add_log("✅ New Product Agent 완료 (간소화)", "SUCCESS")
-                                        
-                                    except Exception as e:
-                                        log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
-                                        analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
+
+                                        except Exception as e:
+                                            log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
+                                            analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
 
                                     
 
@@ -4472,9 +4482,9 @@ with col2:
 
             # 탭으로 상세 결과 표시 (시각화 탭 제거)
 
-            tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+            tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
 
-                "개요", "고객 분석", "이동 패턴", "지역 분석", "상권 분석", "마케팅", "신메뉴 추천"
+                "개요", "고객 분석", "이동 패턴", "지역 분석", "상권 분석", "마케팅", "신메뉴 추천", "파노라마 분석"
 
             ])
 
@@ -4605,6 +4615,91 @@ with col2:
                         st.json(new_product_data)
                 else:
                     st.info("신메뉴 추천 데이터가 없습니다.")
+
+            with tab8:
+                st.markdown("#### 🏙️ 파노라마 분석")
+                
+                # 기존 분석 결과에서 파노라마 분석 데이터 확인
+                if "panorama_analysis" in analysis_data:
+                    panorama_data = analysis_data["panorama_analysis"]
+                    
+                    if "error" not in panorama_data:
+                        # 메타데이터 표시
+                        if "metadata" in panorama_data:
+                            metadata = panorama_data["metadata"]
+                            col1, col2 = st.columns(2)
+                            
+                            with col1:
+                                st.metric("분석 주소", metadata.get("input_address", "N/A"))
+                                st.metric("분석 반경", f"{metadata.get('buffer_meters', 0)}m")
+                            
+                            with col2:
+                                st.metric("발견된 이미지", f"{metadata.get('total_images_found', 0)}개")
+                                st.metric("분석된 이미지", f"{metadata.get('images_analyzed', 0)}개")
+                        
+                        # 종합 분석 결과 표시
+                        if "synthesis" in panorama_data:
+                            synthesis = panorama_data["synthesis"]
+                            
+                            if "area_summary" in synthesis:
+                                area_summary = synthesis["area_summary"]
+                                st.markdown("##### 📍 지역 특성")
+                                st.write(f"**지역 유형:** {area_summary.get('dominant_zone_type', 'N/A')}")
+                                st.write(f"**상권 유형:** {area_summary.get('primary_commercial_type', 'N/A')}")
+                                st.write(f"**전체 특성:** {area_summary.get('overall_character', 'N/A')}")
+                            
+                            if "comprehensive_scores" in synthesis:
+                                scores = synthesis["comprehensive_scores"]
+                                st.markdown("##### 📊 종합 점수")
+                                
+                                col1, col2, col3 = st.columns(3)
+                                
+                                with col1:
+                                    st.metric("상권 분위기", f"{scores.get('commercial_atmosphere', 0)}/10")
+                                    st.metric("도로 분위기", f"{scores.get('street_atmosphere', 0)}/10")
+                                
+                                with col2:
+                                    st.metric("청결도", f"{scores.get('cleanliness', 0)}/10")
+                                    st.metric("보행 편의성", f"{scores.get('walkability', 0)}/10")
+                                
+                                with col3:
+                                    st.metric("업종 다양성", f"{scores.get('business_diversity', 0)}/10")
+                                    st.metric("상업 적합도", f"{scores.get('commercial_suitability', 0)}/10")
+                            
+                            if "detailed_assessment" in synthesis:
+                                assess = synthesis["detailed_assessment"]
+                                
+                                col1, col2 = st.columns(2)
+                                
+                                with col1:
+                                    st.markdown("##### 💪 강점")
+                                    for strength in assess.get('strengths', [])[:3]:
+                                        st.write(f"• {strength}")
+                                
+                                with col2:
+                                    st.markdown("##### ⚠️ 약점")
+                                    for weakness in assess.get('weaknesses', [])[:3]:
+                                        st.write(f"• {weakness}")
+                                
+                                st.markdown("##### 🏪 추천 업종")
+                                for biz in assess.get('recommended_business_types', [])[:3]:
+                                    st.write(f"• {biz}")
+                            
+                            if "final_recommendation" in synthesis:
+                                st.markdown("##### 💡 전문가 종합 의견")
+                                st.write(synthesis["final_recommendation"])
+                        
+                        # 지도 링크 표시
+                        if "output_folder" in panorama_data:
+                            output_folder = panorama_data["output_folder"]
+                            map_path = f"{output_folder}/analysis_map.html"
+                            if os.path.exists(map_path):
+                                st.markdown("##### 🗺️ 분석 지도")
+                                st.markdown(f"[지도 보기]({map_path})")
+                    else:
+                        st.error(f"파노라마 분석 실패: {panorama_data['error']}")
+                else:
+                    st.info("파노라마 분석 데이터가 없습니다. 상점 코드를 입력하면 자동으로 파노라마 분석이 실행됩니다.")
 
     
 
