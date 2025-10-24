@@ -4307,7 +4307,7 @@ with col2:
                                             # CSV 경로: agents_new/google_map_mcp/matched_store_results.csv
                                             csv_path = Path(__file__).parent.parent.parent / "agents_new" / "google_map_mcp" / "matched_store_results.csv"
 
-                                        if csv_path.exists():
+                                            if csv_path.exists():
                                                 # 출력 경로: 현재 분석 디렉토리 우선 사용
                                                 out_dir = Path(analysis_data.get("analysis_dir") or (Path(__file__).parent.parent / "output"))
                                                 out_dir.mkdir(parents=True, exist_ok=True)
@@ -4333,8 +4333,8 @@ with col2:
 
                                                 # 결과 저장 (성공/실패 관계없이 세부 내용 유지)
                                                 analysis_data["mcp_search_result"] = mcp_result
-                                        else:
-                                            log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
+                                            else:
+                                                log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
                                         else:
                                             log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
 
