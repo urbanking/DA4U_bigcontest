@@ -445,7 +445,7 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
             max_images=5,
             create_map=True,
             data_csv_path=str(project_root / "agents_new" / "panorama_img_anal" / "Step1_Result_final (1).csv"),
-            image_folder=str(project_root / "agents_new" / "panorama_img_anal" / "downloaded_img_1")
+            image_folder=str(project_root / "agents_new" / "panorama_img_anal" / "downloaded_img")
         )
         
         if result.get("error"):
