@@ -84,4 +84,7 @@ webdriver-manager==4.0.1
 
 # MCP (Model Context Protocol)
 mcp>=1.0.0
+langchain-mcp-adapters==0.0.9
+langgraph==0.2.52
+anyio==4.8.0
 
