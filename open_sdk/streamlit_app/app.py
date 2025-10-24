@@ -3019,9 +3019,6 @@ def display_panorama_analysis(analysis_data):
 
     
 
-    if not store_charts and not mobility_charts and not panorama_images and not spatial_files:
-
-        st.info("표시할 시각화 파일이 없습니다.")
 
 
 
@@ -4299,10 +4296,8 @@ with col2:
                                         if MCP_LOOKUP_AVAILABLE:
                                             # CSV 경로: agents_new/google_map_mcp/matched_store_results.csv
                                             csv_path = Path(__file__).parent.parent.parent / "agents_new" / "google_map_mcp" / "matched_store_results.csv"
-                                        
-
-                                        if csv_path.exists():
-
+                                            
+                                            if csv_path.exists():
                                                 # 출력 경로: 현재 분석 디렉토리 우선 사용
                                                 out_dir = Path(analysis_data.get("analysis_dir") or (Path(__file__).parent.parent / "output"))
                                                 out_dir.mkdir(parents=True, exist_ok=True)
@@ -4328,10 +4323,10 @@ with col2:
 
                                                 # 결과 저장 (성공/실패 관계없이 세부 내용 유지)
                                                 analysis_data["mcp_search_result"] = mcp_result
-
+                                            else:
+                                                log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
                                         else:
-                                            log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")                                    else:
-                                        log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
+                                            log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
                                         
                                     except Exception as e:
                                         log_capture.add_log(f"❌ MCP 매장 검색 오류: {e}", "ERROR")
@@ -4510,20 +4505,25 @@ with col2:
             
 
             with tab5:
-
-                display_marketplace_analysis(analysis_data)
-
-            
+                st.markdown("#### 🏪 상권 분석")
+                if "marketplace_analysis" in analysis_data:
+                    st.json(analysis_data["marketplace_analysis"])
+                else:
+                    st.info("상권 분석 데이터가 없습니다.")
 
             with tab6:
-
-                display_marketing_analysis(analysis_data)
-
-            
+                st.markdown("#### 📈 마케팅 분석")
+                if "marketing_analysis" in analysis_data:
+                    st.json(analysis_data["marketing_analysis"])
+                else:
+                    st.info("마케팅 분석 데이터가 없습니다.")
 
             with tab7:
-
-                display_new_product_recommendations(analysis_data)
+                st.markdown("#### 🍽️ 신메뉴 추천")
+                if "new_product_result" in analysis_data:
+                    st.json(analysis_data["new_product_result"])
+                else:
+                    st.info("신메뉴 추천 데이터가 없습니다.")
 
     
 
