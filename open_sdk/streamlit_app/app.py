@@ -4027,6 +4027,32 @@ with col2:
             try:
                 result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
                 print(f"[DEBUG] run_full_analysis_pipeline 결과: {result}")
+                
+                # 파노라마 분석 직접 실행
+                if result and result.get("status") == "success":
+                    print("[INFO] 파노라마 분석 시작...")
+                    try:
+                        from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
+                        
+                        # 주소 가져오기 (result에서 또는 직접)
+                        address = result.get("address", "서울특별시 성동구")
+                        
+                        # 파노라마 분석 실행
+                        panorama_result = analyze_area_by_address(
+                            address=address,
+                            buffer_meters=300,
+                            max_images=5,
+                            create_map=True
+                        )
+                        
+                        # 결과를 result에 추가
+                        result["panorama_analysis"] = panorama_result
+                        print(f"[OK] 파노라마 분석 완료: {panorama_result.get('output_folder', 'N/A')}")
+                        
+                    except Exception as e:
+                        print(f"[ERROR] 파노라마 분석 오류: {e}")
+                        result["panorama_analysis"] = {"error": str(e)}
+                
             except Exception as e:
                 print(f"[ERROR] run_full_analysis_pipeline 실행 오류: {e}")
                 import traceback

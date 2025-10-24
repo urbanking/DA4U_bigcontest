@@ -420,101 +420,6 @@ async def run_mobility_analysis(address: str, dong: str = None) -> Dict[str, Any
         return {"status": "failed", "error": str(e)}
 
 
-async def run_panorama_analysis(address: str) -> Dict[str, Any]:
-    """Step 5: Panorama Analysis (Mandatory)"""
-    print("\n" + "="*60)
-    print("[Step 5] Panorama Analysis")
-    print("="*60)
-    
-    # Panorama analysis는 모든 환경에서 실행 가능
-    # 이미지 파일을 사용하므로 API 제한 없음
-    
-    try:
-        import shutil
-        from datetime import datetime
-        from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
-        
-        print(f"Address: {address}")
-        print("Analyzing panorama images... (3-5 minutes)")
-        
-        # Execute Panorama analysis (use default parameters)
-        result = analyze_area_by_address(
-            address=address,
-            buffer_meters=300,
-            max_images=5,
-            create_map=True
-        )
-        
-        if result.get("error"):
-            print(f"[ERROR] Panorama analysis failed: {result['error']}")
-            return {"status": "failed", "error": result["error"]}
-        
-        # Copy results to open_sdk/output
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(__file__).parent / "output" / f"panorama_{timestamp}"
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
-        original_folder = Path(result.get('output_folder', ''))
-        if original_folder.exists():
-            # Generate comprehensive analysis summary
-            synthesis = result.get("synthesis", {})
-            summary = {
-                "area_characteristics": synthesis.get('area_summary', {}).get('dominant_zone_type', 'N/A'),
-                "commercial_type": synthesis.get('area_summary', {}).get('overall_commercial_type', 'N/A'),
-                "scores": synthesis.get('comprehensive_scores', {}),
-                "strengths": synthesis.get('strengths', []),
-                "weaknesses": synthesis.get('weaknesses', []),
-                "recommended_industries": synthesis.get('recommended_business_types', []),
-                "expert_opinion": synthesis.get('expert_opinion', '')
-            }
-            
-            # Load JSON file and add summary
-            json_file = original_folder / "analysis_result.json"
-            if json_file.exists():
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    full_data = json.load(f)
-                
-                # Add summary
-                full_data['summary'] = summary
-                
-                # Save to new file
-                dest_json = output_dir / "analysis_result.json"
-                with open(dest_json, 'w', encoding='utf-8') as f:
-                    json.dump(full_data, f, ensure_ascii=False, indent=2)
-                
-                print(f"   [OK] Comprehensive summary added")
-            
-            # Copy HTML map
-            html_file = original_folder / "analysis_map.html"
-            if html_file.exists():
-                shutil.copy2(html_file, output_dir / "analysis_map.html")
-            
-            # Copy images folder
-            images_folder = original_folder / "images"
-            if images_folder.exists():
-                dest_images = output_dir / "images"
-                shutil.copytree(images_folder, dest_images, dirs_exist_ok=True)
-            
-            print(f"   Results copied: {output_dir}")
-        
-        synthesis = result.get("synthesis", {})
-        print(f"[OK] Panorama analysis completed")
-        print(f"   Area type: {synthesis.get('area_summary', {}).get('dominant_zone_type', 'N/A')}")
-        print(f"   Commercial atmosphere: {synthesis.get('comprehensive_scores', {}).get('commercial_atmosphere', 'N/A')}/10")
-        print(f"   Saved to: {output_dir}")
-        
-        # Add copied path to result
-        result['copied_output_folder'] = str(output_dir)
-        
-        return result
-        
-    except Exception as e:
-        print(f"[ERROR] Panorama analysis error: {e}")
-        import traceback
-        traceback.print_exc()
-        return {"status": "failed", "error": str(e)}
-
-
 def load_latest_spatial_analysis() -> Dict[str, Any]:
     """가장 최근 spatial_matcher JSON 결과 로드"""
     try:
@@ -856,8 +761,8 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
     # Step 3: Mobility analysis
     mobility_result = await run_mobility_analysis(address, dong)
     
-    # Step 5: Panorama analysis (모든 환경에서 실행)
-    panorama_result = await run_panorama_analysis(address)
+    # Step 5: Panorama analysis - handled by app.py
+    panorama_result = {"status": "handled_by_app", "message": "Panorama analysis will be handled by app.py"}
     
     # Step 7: Marketplace analysis - Using spatial_matcher result
     marketplace_result = get_marketplace_json(address, spatial_info)
