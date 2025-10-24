@@ -31,24 +31,33 @@ class GoogleMapsAgent:
         - Gemini 2.5 Flash (OpenAI SDK) 설정
         - MCP Google Maps 서버 설정
         """
-        # 환경 변수 로드
-        load_dotenv()
-        
+        # 환경 변수 로드 (agents_new/.env에서 강제 파싱)
+        import pathlib
+        from dotenv import dotenv_values
+        env_path = pathlib.Path(__file__).parent.parent / "agents_new" / ".env"
+        env_vars = {}
+        if env_path.exists():
+            env_vars = dotenv_values(str(env_path))
+            for k, v in env_vars.items():
+                os.environ[k] = v or os.environ.get(k, "")
+        else:
+            load_dotenv()
+
         # API 키 확인 (.env 파일의 실제 변수명 사용)
         self.google_maps_api_key = os.getenv("Google_Map_API_KEY")
         self.google_api_key = os.getenv("GEMINI_API_KEY")  # .env의 GEMINI_API_KEY 사용
-        
+
         if not self.google_maps_api_key:
-            raise ValueError("Google_Map_API_KEY가 .env 파일에 설정되지 않았습니다.")
+            raise ValueError("Google_Map_API_KEY가 agents_new/.env 또는 환경변수에 설정되지 않았습니다.")
         if not self.google_api_key:
-            raise ValueError("GEMINI_API_KEY가 .env 파일에 설정되지 않았습니다.")
+            raise ValueError("GEMINI_API_KEY가 agents_new/.env 또는 환경변수에 설정되지 않았습니다.")
         
         # Gemini 2.5 Flash 설정 (OpenAI SDK 호환 모드)
         # Google AI Studio의 OpenAI 호환 엔드포인트 사용
         self.llm = ChatOpenAI(
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
             api_key=self.google_api_key,
-            model="gemini-2.0-flash-exp",  # Gemini 2.5 Flash
+            model="gemini-2.5-flash-exp",  # Gemini 2.5 Flash
             temperature=0.3,
             max_tokens=2000,
         )

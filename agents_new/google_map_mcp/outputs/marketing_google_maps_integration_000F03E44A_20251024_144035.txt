@@ -1,0 +1,92 @@
+================================================================================
+마케팅 & Google Maps 통합 분석 결과
+상점 코드: 000F03E44A
+생성 시간: 2025-10-24 14:40:35
+================================================================================
+
+📊 마케팅 분석 결과
+----------------------------------------
+마케팅 전략 수: 2
+1. 온라인 마케팅 강화
+   - 설명: SNS와 온라인 플랫폼을 통한 홍보
+   - 예상 효과: 고객 유입 증가
+
+2. 지역 커뮤니티 참여
+   - 설명: 지역 이벤트 및 커뮤니티 활동 참여
+   - 예상 효과: 지역 인지도 향상
+
+타겟 고객: 20-30대 직장인
+추천사항: 디지털 마케팅 전략 수립 및 지역 특성 활용
+
+================================================================================
+
+🗺️ Google Maps 정보
+----------------------------------------
+매장명: 육육**
+매칭 매장명: 육육면관
+주소: 서울특별시 성동구 왕십리로4가길 9
+Place ID: ChIJSxPPaEylfDURPCE88aWGIUE
+
+📍 상세 정보:
+정식 매장명: 육육면관
+주소: 9 Wangsimni-ro 4ga-gil, Seongdong-gu, Seoul, South Korea
+전화번호: 02-497-6266
+웹사이트: N/A
+평점: 4.3/5.0
+리뷰 수: 20개
+
+🕐 영업시간:
+  Monday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Tuesday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Wednesday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Thursday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Friday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Saturday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Sunday: Closed
+
+💬 리뷰 (최대 5개):
+1. JaySee Asia ⭐ 5/5.0
+   The PERFECT chinese ramen which you must not miss! VERY VERY GOOD!
+
+2. S Y ⭐ 4/5.0
+   You can see the menu from outside the restaurant. Inside, there were even instructions on how to enjoy it.
+
+You can order and pay at your seat at the kiosk. The double portion and regular portions are the same price. So, I'll go with the double portion!
+
+My companion told me they often come here and usually order the Hong Kong-style dan dan noodles. So, I decided to try the tried-and-true Hong Kong-style dan dan noodles (9,000 won).
+
+At first glance, it looked like a noodle dish with a red broth, but when I mixed it, I realized it had a lot of peanut sauce. It was a bit thick, almost like a green onion, but it was savory and delicious. It was a bit salty, so I added water and it tasted even better.
+
+My companion, who always ordered dan dan noodles, ordered the Mala Beef Noodles (9,900 won). It tasted like the beef noodle soup we'd had in Taiwan, but with a touch of mala.
+
+Since we were in such an exotic restaurant, we also ordered the Xiao Long Bao (5,500 won). It was lighter than expected, but the broth was juicy and satisfying. I almost regretted not eating there.
+
+The interior has a clean, typical restaurant feel, but the tables and small decorations add a touch of exoticism. Yukyukmyeon-gwan has unique tables, with mahjong tiles placed under glass, adding to the exotic atmosphere.
+
+Since Seoul Forest Station is nearby, it was even better to take a walk through Seoul Forest after eating.
+Soju 5,000 won
+Chinese beer 7,000 won
+Taiwanese beer 8,000 won
+
+3. K.H. Jin ⭐ 3/5.0
+   I don't know about the udon noodles, but the eggplant rice bowl is not that great. It's salty and costs 10,500 won for that kind of taste... It seems like they don't cook it right away, but just have a part-timer heat it up.
+
+4. 전영혁 ⭐ 4/5.0
+   The food was above average, but I was disappointed that the rice orders were blocked today.
+
+5. NF ⭐ 5/5.0
+   It's been a while since I've had udon noodles, and they were absolutely delicious!
+
+The dumplings were delicious, and the service was also satisfactory.
+
+
+================================================================================
+
+🎯 통합 분석 및 추천
+----------------------------------------
+1. 제안된 2개의 마케팅 전략을 Google Maps 정보와 연계하여 실행하세요.
+2. 타겟 고객 '20-30대 직장인'에게 맞는 Google Maps 최적화를 고려하세요.
+
+================================================================================
+분석 완료
+================================================================================
