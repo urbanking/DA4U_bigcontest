@@ -20,13 +20,23 @@ sys.path.insert(0, str(project_root / "agents_new"))
 # Global environment detection
 def is_cloud_environment() -> bool:
     """클라우드 환경 감지 (Streamlit Cloud, etc.)"""
-    return (
-        os.path.exists('/mount/src') or 
-        os.path.exists('/home/appuser') or
-        os.getenv('STREAMLIT_SHARING_MODE') is not None or
-        os.getenv('HOME') == '/home/appuser' or
-        os.path.exists('/app')  # Heroku, Cloud Run 등
-    )
+    # Streamlit Cloud 환경 감지
+    if os.getenv('STREAMLIT_SHARING_MODE') is not None:
+        return True
+    
+    # Streamlit Cloud 특정 경로들
+    if os.path.exists('/mount/src') or os.path.exists('/home/appuser'):
+        return True
+    
+    # Heroku, Cloud Run 등
+    if os.path.exists('/app') and os.getenv('HOME') == '/app':
+        return True
+    
+    # 기타 클라우드 환경 감지
+    if os.getenv('HOME') == '/home/appuser':
+        return True
+    
+    return False
 
 IS_CLOUD = is_cloud_environment()
 if IS_CLOUD:
