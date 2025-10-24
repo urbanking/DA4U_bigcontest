@@ -430,22 +430,15 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
     # 이미지 파일을 사용하므로 API 제한 없음
     
     try:
-        import importlib.util
         import shutil
         from datetime import datetime
-        
-        spec = importlib.util.spec_from_file_location(
-            "analyze_area_by_address",
-            project_root / "agents_new" / "panorama_img_anal" / "analyze_area_by_address.py"
-        )
-        panorama_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(panorama_module)
+        from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
         
         print(f"Address: {address}")
         print("Analyzing panorama images... (3-5 minutes)")
         
         # Execute Panorama analysis (save to default path)
-        result = panorama_module.analyze_area_by_address(
+        result = analyze_area_by_address(
             address=address,
             buffer_meters=300,
             max_images=5,
