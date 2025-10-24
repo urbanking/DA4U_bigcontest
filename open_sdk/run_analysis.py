@@ -420,10 +420,8 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
     print("[Step 5] Panorama Analysis")
     print("="*60)
     
-    # Skip in cloud environment due to network restrictions
-    if IS_CLOUD:
-        print(f"[SKIP] 클라우드 환경 - Panorama Analysis 비활성화 (외부 API 접근 제한)")
-        return {"status": "skipped", "reason": "Cloud environment - network restrictions"}
+    # Panorama analysis는 Google Street View API를 사용하므로 클라우드 환경에서도 실행 가능
+    # API 키만 설정되어 있으면 정상 작동
     
     try:
         import importlib.util
