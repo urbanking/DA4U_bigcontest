@@ -4356,13 +4356,13 @@ with col2:
                                         
                                         # 간소화된 New Product Agent 실행
                                         new_product_result = {"activated": False, "reason": "간소화된 버전"}
-                                                analysis_data["new_product_result"] = new_product_result
+                                        analysis_data["new_product_result"] = new_product_result
 
                                         log_capture.add_log("✅ New Product Agent 완료 (간소화)", "SUCCESS")
 
-                                        except Exception as e:
-                                            log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
-                                            analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
+                                    except Exception as e:
+                                        log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
+                                        analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
 
                                     
 
