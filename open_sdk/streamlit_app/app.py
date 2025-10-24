@@ -50,19 +50,6 @@ from streamlit_autorefresh import st_autorefresh
 # .env 파일 로드
 load_dotenv()
 
-# 파노라마 분석 초기화 (앱 시작 시 실행)
-def initialize_panorama_analysis():
-    """앱 시작 시 파노라마 분석 모듈 초기화"""
-    try:
-        from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
-        print("[OK] 파노라마 분석 모듈 초기화 완료")
-        return True
-    except Exception as e:
-        print(f"[WARN] 파노라마 분석 모듈 초기화 실패: {e}")
-        return False
-
-# 파노라마 분석 모듈 초기화
-PANORAMA_ANALYSIS_AVAILABLE = initialize_panorama_analysis()
 
 
 # 한글 폰트 설정
@@ -3546,15 +3533,6 @@ with st.sidebar:
         """)
         st.markdown("---")
     
-    # 파노라마 분석 상태 표시
-    st.markdown("---")
-    st.markdown("## 🏙️ 파노라마 분석")
-    
-    if PANORAMA_ANALYSIS_AVAILABLE:
-        st.success("✅ 파노라마 분석 모듈 로드 완료")
-        st.info("상점 코드 입력 시 자동으로 파노라마 분석이 실행됩니다")
-    else:
-        st.error("❌ 파노라마 분석 모듈을 사용할 수 없습니다.")
     
     # 분석 상태 표시
 
@@ -4028,30 +4006,6 @@ with col2:
                 result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
                 print(f"[DEBUG] run_full_analysis_pipeline 결과: {result}")
                 
-                # 파노라마 분석 직접 실행
-                if result and result.get("status") == "success":
-                    print("[INFO] 파노라마 분석 시작...")
-                    try:
-                        from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
-                        
-                        # 주소 가져오기 (result에서 또는 직접)
-                        address = result.get("address", "서울특별시 성동구")
-                        
-                        # 파노라마 분석 실행
-                        panorama_result = analyze_area_by_address(
-                            address=address,
-                            buffer_meters=300,
-                            max_images=5,
-                            create_map=True
-                        )
-                        
-                        # 결과를 result에 추가
-                        result["panorama_analysis"] = panorama_result
-                        print(f"[OK] 파노라마 분석 완료: {panorama_result.get('output_folder', 'N/A')}")
-                        
-                    except Exception as e:
-                        print(f"[ERROR] 파노라마 분석 오류: {e}")
-                        result["panorama_analysis"] = {"error": str(e)}
                 
             except Exception as e:
                 print(f"[ERROR] run_full_analysis_pipeline 실행 오류: {e}")
@@ -4218,20 +4172,41 @@ with col2:
 
             if not st.session_state.consultation_mode:
 
-                if st.button("💬 상담 시작 (마케팅→MCP→크롤링)", type="primary", use_container_width=True):
+                if st.button("💬 상담 시작 (파노라마→마케팅→MCP→크롤링)", type="primary", use_container_width=True):
                     print(f"[INFO] 상담 모드 시작 요청: {store_code}")
 
                     if AGENTS_AVAILABLE:
 
                         print(f"[INFO] Langchain AI Agents 사용하여 상담 시스템 준비 중...")
 
-                        with st.spinner("마케팅 전략 → MCP 검색 → 크롤링 → 상담 시스템 준비 중..."):
+                        with st.spinner("파노라마 분석 → 마케팅 전략 → MCP 검색 → 크롤링 → 상담 시스템 준비 중..."):
                             try:
+                                # 1. 파노라마 분석 먼저 실행
+                                log_capture.add_log("파노라마 분석 시작...", "INFO")
+                                try:
+                                    from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
+                                    
+                                    # 주소 가져오기
+                                    address = analysis_data.get("address", "서울특별시 성동구")
+                                    
+                                    # 파노라마 분석 실행
+                                    panorama_result = analyze_area_by_address(
+                                        address=address,
+                                        buffer_meters=300,
+                                        max_images=5,
+                                        create_map=True
+                                    )
+                                    
+                                    # 결과를 analysis_data에 저장
+                                    analysis_data["panorama_analysis"] = panorama_result
+                                    log_capture.add_log(f"파노라마 분석 완료: {panorama_result.get('output_folder', 'N/A')}", "OK")
+                                    
+                                except Exception as e:
+                                    log_capture.add_log(f"파노라마 분석 오류: {e}", "ERROR")
+                                    analysis_data["panorama_analysis"] = {"error": str(e)}
 
-                                # 통합 분석 파일 로드
-
+                                # 2. 통합 분석 파일 로드
                                 log_capture.add_log("통합 분석 파일 로드 중...", "INFO")
-
                                 merged_data, merged_md = load_merged_analysis(analysis_data["analysis_dir"])
 
                                 
