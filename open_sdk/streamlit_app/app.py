@@ -4011,8 +4011,14 @@ with col2:
             
 
             # 분석 실행
-
-            result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
+            try:
+                result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
+                print(f"[DEBUG] run_full_analysis_pipeline 결과: {result}")
+            except Exception as e:
+                print(f"[ERROR] run_full_analysis_pipeline 실행 오류: {e}")
+                import traceback
+                traceback.print_exc()
+                result = {"status": "failed", "error": str(e)}
 
             
 
