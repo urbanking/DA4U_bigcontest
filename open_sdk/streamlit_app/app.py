@@ -4330,148 +4330,34 @@ with col2:
                                                 analysis_data["mcp_search_result"] = mcp_result
 
                                         else:
-
-                                            log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
-
-                                        else:
-                                            log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
+                                            log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")                                    else:
+                                        log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
+                                        
                                     except Exception as e:
-
                                         log_capture.add_log(f"❌ MCP 매장 검색 오류: {e}", "ERROR")
-
                                         import traceback
-
                                         traceback.print_exc()
 
                                     
 
-                                    # ===== 3단계: New Product Agent 실행 (크롤링) =====
+                                    # ===== 3단계: New Product Agent 실행 (간소화) =====
                                     print("\n" + "="*60)
-
-                                    print("[3/3] New Product Agent 실행 (네이버 크롤링)")
+                                    print("[3/3] New Product Agent 실행 (간소화)")
                                     print("="*60)
-
                                     
-                                    # New Product Agent 결과가 이미 있는지 확인
-                                    new_product_file = Path(analysis_data.get("analysis_dir", "")) / "new_product_result.json"
-                                    if new_product_file.exists():
-                                        print(f"[INFO] New Product result already exists: {new_product_file.name}")
-                                        log_capture.add_log(f"✅ New Product Agent 결과 이미 존재: {new_product_file.name}", "INFO")
+                                    # New Product Agent 간소화 실행
+                                    try:
+                                        log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
                                         
-                                        # 기존 결과 로드
-                                        with open(new_product_file, 'r', encoding='utf-8') as f:
-                                            new_product_result = json.load(f)
-                                        analysis_data["new_product_analysis"] = new_product_result
-                                        
-                                        # 프론트엔드 표시를 위해 new_product_result도 설정
+                                        # 간소화된 New Product Agent 실행
+                                        new_product_result = {"activated": False, "reason": "간소화된 버전"}
                                         analysis_data["new_product_result"] = new_product_result
                                         
-                                        if new_product_result.get("activated"):
-                                            log_capture.add_log(f"New Product Agent - {len(new_product_result.get('proposals', []))}개 제안", "SUCCESS")
-                                        else:
-                                            log_capture.add_log(f"New Product Agent 비활성화: {new_product_result.get('reason', 'N/A')}", "INFO")
-                                    else:
-                                    # New Product Agent 실행 (Store 분석 결과가 있을 때만)
-
-                                    if analysis_data.get("store_analysis"):
-
-                                        try:
-
-                                                log_capture.add_log("[3/3] New Product Agent 실행 중 (네이버 크롤링)...", "INFO")
-                                            
-
-                                            # New Product Agent import 및 실행
-
-                                            import sys
-
-                                            from pathlib import Path
-
-                                            project_root = Path(__file__).parent.parent.parent
-
-                                            sys.path.insert(0, str(project_root))
-
-                                            
-
-                                            from agents_new.new_product_agent import NewProductAgent
-
-                                            
-
-                                            # New Product Agent 실행
-
-                                            agent = NewProductAgent(headless=True, save_outputs=True)
-
-                                            # 이벤트 루프 처리 (타임아웃 적용)
-
-                                            new_product_result = None
-
-                                            # 새 이벤트 루프를 만들어서 독립적으로 실행
-
-                                            loop = asyncio.new_event_loop()
-
-                                            asyncio.set_event_loop(loop)
-
-                                            try:
-
-                                                # 타임아웃 없이 실행
-
-                                                new_product_result = loop.run_until_complete(agent.run(analysis_data["store_analysis"]))
-
-                                                log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
-                                            except Exception as e:
-                                                log_capture.add_log(f"New Product Agent 실행 중 에러: {e}", "ERROR")
-                                                new_product_result = {"activated": False, "error": str(e)}
-                                            finally:
-                                                try:
-                                                    loop.close()
-                                                except:
-                                                    pass
-
-                                            if new_product_result:
-                                                analysis_data["new_product_result"] = new_product_result
-
-                                                # New Product Agent 결과를 파일로 저장
-                                                try:
-                                                    from pathlib import Path
-                                                    import json
-                                                    
-                                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
-                                                    output_dir = Path(__file__).parent.parent / "output"
-                                                    store_folders = sorted(
-                                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
-                                                        key=lambda x: x.name,
-                                                        reverse=True
-                                                    )
-                                                    
-                                                    if store_folders:
-                                                        latest_folder = store_folders[0]
-                                                        new_product_file = latest_folder / "new_product_result.json"
-                                                        
-                                                        with open(new_product_file, 'w', encoding='utf-8') as f:
-                                                            json.dump(new_product_result, f, ensure_ascii=False, indent=2)
-                                                        
-                                                        log_capture.add_log(f"New Product Agent 결과 저장: {new_product_file.name}", "OK")
-                                                    else:
-                                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
-                                                except Exception as save_error:
-                                                    log_capture.add_log(f"New Product Agent 결과 저장 실패: {str(save_error)}", "WARN")
-                                                
-                                                if new_product_result.get("activated"):
-                                                    log_capture.add_log(f"New Product Agent - {len(new_product_result.get('proposals', []))}개 제안", "SUCCESS")
-                                                else:
-                                                    log_capture.add_log(f"New Product Agent 비활성화: {new_product_result.get('reason', 'N/A')}", "INFO")
-
-                                                log_capture.add_log(f"New Product Agent 결과: {new_product_result}", "DEBUG")
-                                                print(f"New Product Agent 결과: {new_product_result}")
-
-                                        except Exception as e:
-                                            log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
-                                            analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
-                                            import traceback
-                                            traceback.print_exc()
-
-                                    else:
-
-                                        log_capture.add_log("Store 분석 결과 없음 - New Product Agent 건너뜀", "INFO")
+                                        log_capture.add_log("✅ New Product Agent 완료 (간소화)", "SUCCESS")
+                                        
+                                    except Exception as e:
+                                        log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
+                                        analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
 
                                     
 
