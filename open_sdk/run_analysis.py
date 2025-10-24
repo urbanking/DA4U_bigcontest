@@ -437,14 +437,12 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
         print(f"Address: {address}")
         print("Analyzing panorama images... (3-5 minutes)")
         
-        # Execute Panorama analysis (save to default path)
+        # Execute Panorama analysis (use default parameters)
         result = analyze_area_by_address(
             address=address,
             buffer_meters=300,
             max_images=5,
-            create_map=True,
-            data_csv_path=str(project_root / "agents_new" / "panorama_img_anal" / "Step1_Result_final (1).csv"),
-            image_folder=str(project_root / "agents_new" / "panorama_img_anal" / "downloaded_img")
+            create_map=True
         )
         
         if result.get("error"):
