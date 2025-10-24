@@ -1,0 +1,229 @@
+{
+  "store_code": "TEST001",
+  "strategies": [
+    {
+      "strategy_id": "DYNAMIC_STRAT_1",
+      "name": "전략 1",
+      "description": "1.  **[전략명] 시즌 한정 시그니처 메뉴 & 비주얼 챌린지 (R2, R10 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "1.  **[전략명] 시즌 한정 시그니처 메뉴 & 비주얼 챌린지 (R2, R10 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 1
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_2",
+      "name": "전략 2",
+      "description": "2.  **[전략명] '단골 생활자' 멤버십 & 카카오톡 채널 연동 (R10 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "2.  **[전략명] '단골 생활자' 멤버십 & 카카오톡 채널 연동 (R10 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 2
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_3",
+      "name": "전략 3",
+      "description": "3.  **[전략명] '힙한 감성' 인테리어 & 포토존 주기적 업데이트 (R2, R10 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "3.  **[전략명] '힙한 감성' 인테리어 & 포토존 주기적 업데이트 (R2, R10 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 3
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_4",
+      "name": "전략 4",
+      "description": "4.  **[전략명] '바리스타의 한 잔' 스토리텔링 마케팅 (R2, R10 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "4.  **[전략명] '바리스타의 한 잔' 스토리텔링 마케팅 (R2, R10 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 4
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_5",
+      "name": "전략 5",
+      "description": "5.  **[전략명] '역세권 생활자의 갓성비' 배달/테이크아웃 프로모션 (편의성, 가심비 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "5.  **[전략명] '역세권 생활자의 갓성비' 배달/테이크아웃 프로모션 (편의성, 가심비 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 5
+    },
+    {
+      "strategy_id": "DYNAMIC_STRAT_6",
+      "name": "전략 6",
+      "description": "6.  **[전략명] '나만의 커피' 원데이 클래스/워크숍 운영 (R2, R10 해결)**",
+      "risk_codes": [],
+      "channel": "다양한 채널",
+      "tactics": [
+        "6.  **[전략명] '나만의 커피' 원데이 클래스/워크숍 운영 (R2, R10 해결)**"
+      ],
+      "expected_impact": "매출 증대 및 고객 만족도 향상",
+      "implementation_time": "1-2주",
+      "budget_estimate": "중간",
+      "success_metrics": [
+        "매출 증가",
+        "고객 수 증가",
+        "재방문율 향상"
+      ],
+      "priority": 6
+    }
+  ],
+  "campaign_plan": {
+    "campaign_id": "CAMP_20251024_123801",
+    "name": "테스트 카페 마케팅 캠페인",
+    "description": "6개 전략을 포함한 종합 마케팅 캠페인",
+    "duration": "1개월",
+    "budget_allocation": {
+      "다양한 채널": 100.0
+    },
+    "timeline": [
+      {
+        "week": 1,
+        "strategy_name": "전략 1",
+        "activities": [
+          "1.  **[전략명] 시즌 한정 시그니처 메뉴 & 비주얼 챌린지 (R2, R10 해결)**"
+        ],
+        "milestones": [
+          "전략 1 기획 완료",
+          "전략 1 실행 시작",
+          "전략 1 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 1 결과 보고서",
+          "전략 1 개선 방안"
+        ]
+      },
+      {
+        "week": 2,
+        "strategy_name": "전략 2",
+        "activities": [
+          "2.  **[전략명] '단골 생활자' 멤버십 & 카카오톡 채널 연동 (R10 해결)**"
+        ],
+        "milestones": [
+          "전략 2 기획 완료",
+          "전략 2 실행 시작",
+          "전략 2 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 2 결과 보고서",
+          "전략 2 개선 방안"
+        ]
+      },
+      {
+        "week": 3,
+        "strategy_name": "전략 3",
+        "activities": [
+          "3.  **[전략명] '힙한 감성' 인테리어 & 포토존 주기적 업데이트 (R2, R10 해결)**"
+        ],
+        "milestones": [
+          "전략 3 기획 완료",
+          "전략 3 실행 시작",
+          "전략 3 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 3 결과 보고서",
+          "전략 3 개선 방안"
+        ]
+      },
+      {
+        "week": 4,
+        "strategy_name": "전략 4",
+        "activities": [
+          "4.  **[전략명] '바리스타의 한 잔' 스토리텔링 마케팅 (R2, R10 해결)**"
+        ],
+        "milestones": [
+          "전략 4 기획 완료",
+          "전략 4 실행 시작",
+          "전략 4 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 4 결과 보고서",
+          "전략 4 개선 방안"
+        ]
+      },
+      {
+        "week": 5,
+        "strategy_name": "전략 5",
+        "activities": [
+          "5.  **[전략명] '역세권 생활자의 갓성비' 배달/테이크아웃 프로모션 (편의성, 가심비 해결)**"
+        ],
+        "milestones": [
+          "전략 5 기획 완료",
+          "전략 5 실행 시작",
+          "전략 5 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 5 결과 보고서",
+          "전략 5 개선 방안"
+        ]
+      },
+      {
+        "week": 6,
+        "strategy_name": "전략 6",
+        "activities": [
+          "6.  **[전략명] '나만의 커피' 원데이 클래스/워크숍 운영 (R2, R10 해결)**"
+        ],
+        "milestones": [
+          "전략 6 기획 완료",
+          "전략 6 실행 시작",
+          "전략 6 중간 점검"
+        ],
+        "expected_deliverables": [
+          "전략 6 결과 보고서",
+          "전략 6 개선 방안"
+        ]
+      }
+    ],
+    "expected_kpis": {},
+    "success_probability": 0.0
+  },
+  "timestamp": "2025-10-24T12:38:26.433301"
+}

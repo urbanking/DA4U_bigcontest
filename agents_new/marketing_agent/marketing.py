@@ -3,6 +3,8 @@ Marketing Module - 통합 마케팅 에이전트
 모든 마케팅 관련 로직을 통합하여 marketing_result.json과 marketing_strategy.json을 생성
 """
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 import json
 import asyncio
 from pathlib import Path
@@ -27,6 +29,10 @@ except ImportError:
     from risk_analyzer import RiskAnalyzer
     from strategy_generator import StrategyGenerator
     from dynamic_persona_generator import DynamicPersonaGenerator
+
+# Load .env from agents_new/.env to get GEMINI_API_KEY
+ENV_PATH = Path(__file__).parent.parent / ".env"
+load_dotenv(dotenv_path=ENV_PATH)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -63,14 +69,14 @@ class MarketingModule:
         self.store_code = store_code
         self.analysis_dir = Path(analysis_dir)
         
-        # Gemini API 키 확인 및 클라이언트 초기화
+        # Gemini API 키 확인 및 클라이언트 초기화 (.env 포함)
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             logger.warning("GEMINI_API_KEY or GOOGLE_API_KEY not found. Marketing Module will use basic functionality.")
             self.client = None
         else:
             try:
-                # OpenAI SDK로 Gemini 2.5 Flash 사용
+                # OpenAI 호환 엔드포인트로 Gemini 사용
                 self.client = OpenAI(
                     api_key=api_key,
                     base_url="https://generativelanguage.googleapis.com/v1beta"
@@ -208,7 +214,7 @@ class MarketingModule:
             content_prompt = self._create_social_content_prompt(store_analysis, persona_result)
             
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gemini-2.5-flash",
                 messages=[
                     {"role": "system", "content": "당신은 전문적인 소셜미디어 마케터입니다. 매장의 특성과 페르소나에 맞는 매력적인 소셜 콘텐츠를 생성해주세요."},
                     {"role": "user", "content": content_prompt}
@@ -310,7 +316,7 @@ class MarketingModule:
             report_prompt = self._create_report_prompt(store_analysis, persona_result, risk_result, strategy_result)
             
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gemini-2.5-flash",
                 messages=[
                     {"role": "system", "content": "당신은 전문적인 마케팅 컨설턴트입니다. 매장 분석 데이터를 바탕으로 상세하고 실용적인 마케팅 보고서를 작성해주세요."},
                     {"role": "user", "content": report_prompt}

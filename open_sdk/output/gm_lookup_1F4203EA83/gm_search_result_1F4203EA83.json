@@ -1,0 +1,26 @@
+{
+  "code": "1F4203EA83",
+  "input_address": "서울특별시 성동구 행당로1길 21-10",
+  "input_store_name": "카페**",
+  "matched_store_name": "카페 타운",
+  "place_id": "ChIJi_Q9YzKjfDURh0L3FCdrseg",
+  "search_query": "카페 타운 서울특별시 성동구 행당로1길 21-10",
+  "agent_output": null,
+  "csv_row": {
+    "코드": "1F4203EA83",
+    "입력_주소": "서울특별시 성동구 행당로1길 21-10",
+    "입력_가맹점명": "카페**",
+    "추출_접두어": "카페",
+    "시도한_방법": "text",
+    "매칭방식": "text_search",
+    "place_id": "ChIJi_Q9YzKjfDURh0L3FCdrseg",
+    "매칭_상호명": "카페 타운",
+    "매칭_주소": "대한민국 서울특별시 성동구 행당동 168-78",
+    "lat": "37.5608476",
+    "lng": "127.0392299",
+    "types": "cafe,food,point_of_interest,store,establishment",
+    "성공": "True",
+    "실패사유": "",
+    "raw": "{\"business_status\": \"OPERATIONAL\", \"formatted_address\": \"대한민국 서울특별시 성동구 행당동 168-78\", \"geometry\": {\"location\": {\"lat\": 37.5608476, \"lng\": 127.0392299}, \"viewport\": {\"northeast\": {\"lat\": 37.56219742989271, \"lng\": 127.0405797298927}, \"southwest\": {\"lat\": 37.55949777010726, \"lng\": 127.0378800701073}}}, \"icon\": \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png\", \"icon_background_color\": \"#FF9E67\", \"icon_mask_base_uri\": \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet\", \"name\": \"카페 타운\", \"photos\": [{\"height\": 1500, \"html_attributions\": [\"<a href=\\\"https://maps.google.com/maps/contrib/115531701134637305447\\\">twily</a>\"], \"photo_reference\": \"AciIO2fHXhH3Dy1oPmiYIfyPEXBw7n0ju-frf2EcICEZxjGGg_jMdEBUft_GL0g4uBlexn7VKPZTJ61EfkcQXwjhK0s0F6dX9LcTunPqo7EAeIZ0JNlRMGSbMwbapEjhoCAWga-bGNzrlJKtwYCE4L_irkWrunJd1Dd5pspkARenAbjtX0LlxFgj3uhpJJ5rbWs-I2HM03-GQnrXxNEjfc6md390Jz4cGClbg1Ae4NIqqDNIpC_Em3IoXkyAp92Kxws70eXmL80xUciYEnttP1UimyfKIXVI9ZBfYZfx3ItsSba-0cH0i01B8A6fuYWOAovTDHWr7nHc7O3OF0iO7lnKVSlWJhKjuiIj5OaNe2sok6Bj03IAWkKtVCSqx_xZ-OP5basgG6X8wKrDHMKcR80BkRNMEDm1AJmJEZIVasn8ryMHJt1TWydfnAnpah8mCz6G6XDBmrH0XE1wp5ThebJleHBQ2VSeMLWh1pAhUfwJ4uiqn8MgCnfiRHPK-YXPRpxOHSq30QjRRADHOPGpoNSSdsQn273sPyDojLSltT_XW1lxv2-zXv81CQ_KdCKVvpydosi1ffCUY_RbNA\", \"width\": 1125}], \"place_id\": \"ChIJi_Q9YzKjfDURh0L3FCdrseg\", \"plus_code\": {\"compound_code\": \"H26Q+8M 서울특별시\", \"global_code\": \"8Q99H26Q+8M\"}, \"rating\": 4.5, \"reference\": \"ChIJi_Q9YzKjfDURh0L3FCdrseg\", \"types\": [\"cafe\", \"food\", \"point_of_interest\", \"store\", \"establishment\"], \"user_ratings_total\": 2}"
+  }
+}

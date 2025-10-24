@@ -1,0 +1,17 @@
+{
+  "address": "서울특별시 성동구 상원10길 7",
+  "coordinates": [
+    37.5493694,
+    127.048681
+  ],
+  "dong": "성수1가2동",
+  "marketplace": {
+    "상권명": "R",
+    "거리_m": 0
+  },
+  "visualization": {
+    "map_file": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\spatial_visualization\\spatial_map_20251024_130852.html",
+    "chart_file": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\spatial_visualization\\spatial_analysis_20251024_130853.png"
+  },
+  "status": "success"
+}

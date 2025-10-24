@@ -1,0 +1,1113 @@
+{
+  "store_code": "9A750B743F",
+  "analysis_timestamp": "2025-10-24T13:11:05.655087",
+  "analysis_directory": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105",
+  "store_analysis": {
+    "report_metadata": {
+      "store_code": "9A750B743F",
+      "analysis_date": "2025-10-24 13:08:58",
+      "agent_name": "StoreAgent",
+      "report_version": "1.0",
+      "quality_score": 0.8300000000000001
+    },
+    "store_overview": {
+      "code": "9A750B743F",
+      "name": "시원********",
+      "address": "서울 성동구 상원10길 7",
+      "industry": "백반/가정식",
+      "brand": "브랜드 없음",
+      "commercial_area": "뚝섬역상점가",
+      "record_months": 24,
+      "operating_months": 59.4,
+      "store_age": "성숙 매장"
+    },
+    "sales_analysis": {
+      "trends": {
+        "sales_amount": {
+          "trend": "상승 추세",
+          "stability": "보통",
+          "data_points": 24
+        },
+        "sales_count": {
+          "trend": "상승 추세",
+          "stability": "불안정",
+          "data_points": 24
+        },
+        "unique_customers": {
+          "trend": "상승 추세",
+          "stability": "불안정",
+          "data_points": 24
+        },
+        "avg_transaction": {
+          "trend": "안정 추세",
+          "stability": "매우 안정적",
+          "data_points": 24
+        }
+      },
+      "industry_comparison": {
+        "same_industry_sales_amount": {
+          "trend": "하락 추세",
+          "average": 230.2
+        },
+        "same_industry_sales_count": {
+          "trend": "하락 추세",
+          "average": 275.4
+        }
+      },
+      "rankings": {
+        "industry_rank": {
+          "trend": "순위 안정",
+          "average": 6.6
+        },
+        "commercial_rank": {
+          "trend": "순위 안정",
+          "average": 11.2
+        }
+      },
+      "cancellation_analysis": {
+        "average_grade": 1.9,
+        "grade_distribution": {
+          "1.0": 17,
+          "5.0": 4,
+          "3.0": 3
+        },
+        "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+      },
+      "delivery_analysis": {
+        "trend": "상승 추세",
+        "average": 26.8
+      }
+    },
+    "customer_analysis": {
+      "gender_distribution": {
+        "male_ratio": 53.0,
+        "female_ratio": 47.0
+      },
+      "age_group_distribution": {
+        "20대 이하": 11.8,
+        "30대": 26.5,
+        "40대": 19.4,
+        "50대": 24.5,
+        "60대 이상": 17.8
+      },
+      "detailed_customer_ratios": {
+        "남30대": 14.0,
+        "남50대": 13.0,
+        "여30대": 12.5,
+        "여50대": 11.5,
+        "남40대": 10.3,
+        "남60대이상": 9.4,
+        "여40대": 9.1,
+        "여60대이상": 8.4,
+        "남20대이하": 6.3,
+        "여20대이하": 5.5
+      },
+      "customer_type_analysis": {
+        "new_customers": {
+          "ratio": 5.6,
+          "trend": "안정 추세"
+        },
+        "returning_customers": {
+          "ratio": 27.0,
+          "trend": "안정 추세"
+        },
+        "customer_distribution": {
+          "residential": 41.8,
+          "workplace": 28.4,
+          "floating": 29.9
+        }
+      }
+    },
+    "commercial_area_analysis": {
+      "commercial_area": "뚝섬역상점가",
+      "analysis_available": true,
+      "total_stores_in_area": 71,
+      "average_sales_analysis": {
+        "sales_amount_trend": "상승 추세",
+        "sales_count_trend": "상승 추세",
+        "unique_customers_trend": "상승 추세",
+        "avg_transaction_trend": "안정 추세"
+      },
+      "termination_analysis": {
+        "termination_ratio": 8.06,
+        "area_health": "건전한 상권"
+      },
+      "average_customer_segments": {
+        "남20대이하": 11.4,
+        "남30대": 16.0,
+        "남40대": 9.5,
+        "남50대": 8.4,
+        "남60대이상": 5.5,
+        "여20대이하": 12.7,
+        "여30대": 15.6,
+        "여40대": 8.4,
+        "여50대": 7.5,
+        "여60대이상": 4.9
+      }
+    },
+    "industry_analysis": {
+      "industry": "백반/가정식",
+      "analysis_available": true,
+      "total_stores_in_industry": 346,
+      "average_sales_analysis": {
+        "sales_amount_trend": "안정 추세",
+        "sales_count_trend": "안정 추세",
+        "unique_customers_trend": "안정 추세",
+        "avg_transaction_trend": "안정 추세"
+      },
+      "termination_analysis": {
+        "termination_ratio": 19.53,
+        "industry_health": "보통 업종"
+      },
+      "delivery_analysis": {
+        "average_delivery_ratio": 33.71,
+        "delivery_trend": "안정 추세"
+      },
+      "average_customer_segments": {
+        "남20대이하": 9.7,
+        "남30대": 13.4,
+        "남40대": 12.9,
+        "남50대": 15.7,
+        "남60대이상": 13.4,
+        "여20대이하": 6.4,
+        "여30대": 8.0,
+        "여40대": 6.7,
+        "여50대": 7.7,
+        "여60대이상": 6.1
+      }
+    },
+    "summary": {
+      "key_insights": [
+        "매출 트렌드: 상승 추세",
+        "업종 내 순위: 순위 안정",
+        "주 고객층: 남성 고객 중심",
+        "상권 건강도: 건전한 상권",
+        "업종 건강도: 보통 업종"
+      ],
+      "main_problems": [],
+      "recommendations": []
+    },
+    "visualizations": {
+      "chart_files": {
+        "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_sales_trend_20251024_130858.png",
+        "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_gender_pie_20251024_130858.png",
+        "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_age_pie_20251024_130858.png",
+        "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_detailed_pie_20251024_130858.png",
+        "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_ranking_trend_20251024_130858.png",
+        "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_customer_trends_20251024_130858.png",
+        "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_new_returning_trends_20251024_130858.png"
+      },
+      "available_charts": [
+        "sales_trend",
+        "gender_pie",
+        "age_pie",
+        "detailed_pie",
+        "ranking_trend",
+        "customer_trends",
+        "new_returning_trends"
+      ]
+    },
+    "evaluation": {
+      "quality_score": 0.83,
+      "completeness": 1.0,
+      "accuracy": 0.9,
+      "relevance": 0.7,
+      "actionability": 0.6,
+      "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.6"
+    }
+  },
+  "marketing_analysis": {},
+  "marketplace_analysis": {},
+  "panorama_analysis": {
+    "metadata": {
+      "input_address": "서울특별시 성동구 상원10길 7",
+      "center_coordinates": {
+        "longitude": 127.048681,
+        "latitude": 37.5493694
+      },
+      "buffer_meters": 300,
+      "total_images_found": 5,
+      "images_analyzed": 5,
+      "analysis_timestamp": "2025-10-24T13:11:05.429598"
+    },
+    "individual_analyses": [
+      {
+        "point_id": 6472,
+        "pano_id": "lbn9gjkpp4uLATuKsQY0eQ",
+        "lon": 127.0485697,
+        "lat": 37.5494698,
+        "distance_m": 14.857155416051489,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_6\\point_6472_pano_lbn9gjkpp4uLATuKsQY0eQ.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2023-10-27T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "조용하고 오래된 주택가 골목길",
+            "overall_impression_prose": "이 장소는 전형적인 주택가 골목길로, 오래된 붉은 벽돌 건물들이 주를 이루며 차분하고 조용한 분위기를 자아냅니다. 상업적 활기는 거의 느껴지지 않으며, 주로 거주민들의 통행을 위한 공간으로 보입니다. 전반적으로 정돈된 느낌보다는 세월의 흔적이 느껴지는 공간입니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "양쪽에 2-3층 높이의 붉은 벽돌 건물들이 밀집해 있으며, 전형적인 주택가 형태를 띠고 있습니다. 건물들은 대체로 오래되어 보이며, 일부는 에어컨 실외기가 외부에 노출되어 있습니다. 건물 간 간격이 좁고, 도로 폭도 좁은 편입니다. 상업용으로 보이는 건물은 없습니다.",
+              "street_details": "도로는 아스팔트로 포장되어 있으며, 중앙에 보수된 듯한 검은색 아스팔트 부분이 있습니다. 보도는 매우 좁거나 거의 없으며, 맨홀 뚜껑과 전봇대가 보입니다. 가로수나 벤치, 가로등 같은 편의시설은 눈에 띄지 않습니다. 전선들이 복잡하게 얽혀 있습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "붉은 벽돌색과 회색 아스팔트가 주를 이루며, 전반적으로 차분하고 다소 낡은 느낌을 줍니다. 건물 외벽의 질감은 거칠고 오래된 느낌을 주며, 일부 벽면은 페인트칠이 벗겨진 흔적도 보입니다.",
+              "imagined_sounds": "주택가 특유의 조용함이 지배적일 것으로 예상됩니다. 간간이 들리는 차량 소리나 사람들의 발걸음 소리, 멀리서 들리는 생활 소음 정도가 있을 것이며, 상업 시설에서 발생하는 소음은 거의 없을 것입니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "한 명의 보행자가 걸어가고 있으며, 한 명의 사람이 건물 옆에 앉아 있습니다. 주로 거주민으로 보이는 사람들입니다.",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "상점 없음",
+            "signs_of_change_or_stability": "상업적 변화의 징후는 보이지 않으며, 주거 지역으로서의 안정성이 유지되고 있는 것으로 판단됩니다. 특별한 신규 개업이나 폐업 흔적은 없습니다. 건물들의 노후화가 진행되고 있습니다.",
+            "opportunity_for_target_business": {
+              "business_category": "무인 편의점 또는 소규모 공유 주방/작업실",
+              "narrative_insight": "이 지역은 주거 밀집 지역이므로, 주민들의 일상적인 필요를 충족시키거나 조용히 집중할 수 있는 공간이 적합합니다. 무인 편의점은 늦은 시간에도 편리함을 제공할 수 있으며, 소규모 공유 주방이나 작업실은 주거 공간 내에서 찾기 어려운 독립적인 활동 공간을 제공하여 주민들의 삶의 질을 향상시키는 컨셉으로 접근할 수 있습니다. 높은 임대료를 감당하기 어려운 구조이므로, 효율적인 운영 모델이 필수적입니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 지역은 전형적인 주택가 골목으로, 상업적 활기는 매우 낮습니다. 대규모 상업 시설보다는 주민들의 편의를 위한 소규모 생활 밀착형 서비스나 주거 환경과 조화를 이루는 조용한 컨셉의 사업을 고려해야 합니다. 높은 유동인구를 기대하기 어렵기 때문에, 고정적인 수요를 창출하거나 온라인과 연계된 비즈니스 모델이 유리할 것입니다. 장기적인 관점에서 주거 환경 개선과 연계된 투자를 고려하는 것이 현명하며, 초기 투자 비용을 최소화하는 전략이 필요합니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 0,
+              "Operational_Status": 0,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 0
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 0,
+              "Design_Diversity": 0,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 0,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 6471,
+        "pano_id": "LeXvqCQpG_w6rZm-CJWYhg",
+        "lon": 127.0486117,
+        "lat": 37.5492187,
+        "distance_m": 17.804929392141048,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_6\\point_6471_pano_LeXvqCQpG_w6rZm-CJWYhg.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2023-10-27T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "조용한 주택가 이면에 위치한 소규모 상업 골목",
+            "overall_impression_prose": "이 장소는 주택가 깊숙이 자리한 좁은 골목길로, 전반적으로 차분하고 조용한 분위기를 풍깁니다. 오래된 건물들이 주를 이루며, 일부 1층에 소규모 상점들이 입점해 있어 지역 주민들을 위한 생활 밀착형 상권의 특성을 보입니다. 활기보다는 안정감과 소박함이 느껴지는 공간입니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "대부분 3~4층 높이의 건물들이 양쪽에 밀집해 있으며, 주로 벽돌 또는 페인트 마감의 콘크리트 구조입니다. 상층부는 주거용으로 보이며, 1층에 간헐적으로 상업 시설이 위치합니다. 건물들은 대체로 노후화되었으나 관리가 이루어지고 있는 모습입니다. 골목은 좁은 편으로 차량 1대가 겨우 지나갈 수 있는 폭입니다.",
+              "street_details": "도로는 아스팔트 포장으로, 일부 구간에 주차선으로 보이는 흰색 선이 그려져 있습니다. 보도는 오른쪽에 매우 좁게 형성되어 있으며, 왼쪽에는 별도의 보도 없이 건물과 도로가 바로 연결됩니다. 가로수나 벤치와 같은 편의시설은 보이지 않으며, 전봇대와 복잡한 전선들이 눈에 띕니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "전반적으로 회색 아스팔트, 베이지색/갈색 벽돌, 흰색/옅은 회색 페인트 벽 등 차분하고 무채색 계열의 색감이 지배적입니다. 건물 외벽은 다소 낡고 세월의 흔적이 느껴지는 질감을 가지고 있습니다. 전체적으로 밝고 화사하기보다는 차분하고 정돈된 느낌입니다.",
+              "imagined_sounds": "차량 통행이 많지 않아 조용할 것으로 예상됩니다. 간헐적으로 지나가는 차량 소리, 멀리서 들려오는 도시의 소음, 그리고 상점 내부나 주택가에서 들려오는 생활 소음 정도가 주를 이룰 것입니다. 사람들의 활기찬 대화나 발걸음 소리는 거의 들리지 않을 듯합니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사람 없음",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "베이커리/카페, 소규모 지역 상점",
+            "signs_of_change_or_stability": "건물들의 외관은 전반적으로 안정적이나, 신규 개업이나 대규모 리모델링의 흔적은 보이지 않습니다. 상권의 큰 변화보다는 기존의 생활 밀착형 상점들이 꾸준히 운영되는 안정적인 상태로 보입니다. 노후화된 건물들이 많아 잠재적인 변화의 가능성은 있으나, 현재로서는 정체된 모습입니다.",
+            "opportunity_for_target_business": {
+              "business_category": "동네 카페 또는 소규모 식료품점",
+              "narrative_insight": "이 지역은 대규모 유동 인구를 기대하기 어렵지만, 주변 주거민들을 대상으로 한 '아지트' 같은 공간을 만들기에 적합합니다. 아늑하고 편안한 분위기의 동네 카페는 주민들의 휴식처이자 소통 공간이 될 수 있으며, 신선하고 특색 있는 소규모 식료품점은 일상생활에 필요한 고품질 제품을 제공하며 지역 커뮤니티의 중심 역할을 할 수 있습니다. 대형 프랜차이즈보다는 개성과 진정성을 담은 독립적인 컨셉이 성공 가능성이 높습니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 골목은 높은 유동 인구를 기대하기 어려운 이면 상권으로, 대규모 투자를 통한 광역 상권 개발보다는 지역 주민을 위한 니치 마켓 공략에 적합합니다. 창업자나 투자자는 높은 임대료 부담을 피하고, 주변 주거 환경과 조화를 이루는 독특하고 진정성 있는 컨셉을 개발해야 합니다. 보행 환경이 열악하고 편의시설이 부족하므로, 고객 유치를 위한 마케팅 전략과 함께 공간 자체의 매력도를 높이는 데 집중해야 할 것입니다. 장기적인 관점에서 지역 커뮤니티와의 유대감을 형성하는 것이 중요합니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 2,
+              "Operational_Status": "N/A",
+              "Customer_Presence": 0,
+              "Promotional_Activity": 1
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 0,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 0
+            }
+          }
+        }
+      },
+      {
+        "point_id": 6949,
+        "pano_id": "k0YFiSqj7N6WH7XFm2R_DA",
+        "lon": 127.0489041,
+        "lat": 37.5493874,
+        "distance_m": 19.808143732579357,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_7\\point_6949_pano_k0YFiSqj7N6WH7XFm2R_DA.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2024-07-29T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "조용하고 정돈된 주거-상업 혼합 골목",
+            "overall_impression_prose": "이 장소는 오래된 주거 건물과 소규모 상점이 혼재된 조용한 골목길입니다. 전반적으로 차분하고 정돈된 분위기를 풍기며, 높은 유동인구보다는 지역 주민을 대상으로 하는 상권의 특성을 보입니다. 번잡함 없이 안정적인 느낌을 줍니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "거리는 비교적 좁은 왕복 1차선 정도로 보이며, 양 옆으로는 3~4층 높이의 건물들이 밀집해 있습니다. 대부분의 건물은 오래된 벽돌 또는 콘크리트 구조로, 주거용과 상업용이 혼합된 형태입니다. 건물들은 서로 가깝게 붙어 있으며, 특별히 눈에 띄는 현대적인 건축물은 보이지 않습니다.",
+              "street_details": "도로는 아스팔트 포장으로 비교적 양호한 상태를 유지하고 있습니다. 보도는 좁은 편이며, 콘크리트 블록으로 되어 있습니다. 가로수나 벤치 같은 편의시설은 보이지 않으며, 전봇대와 전선들이 복잡하게 얽혀 있어 시야를 다소 방해합니다. 일부 상점 앞에 입간판이나 물건이 나와 있어 보행 공간이 더 좁아 보입니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "전반적으로 회색, 베이지색, 갈색 등 차분하고 무채색 계열의 색감이 지배적입니다. 건물 외벽의 콘크리트와 벽돌, 상점의 목재 간판 등 낡고 투박하지만 안정적인 재질감이 느껴집니다. 밝고 화려하기보다는 다소 어둡고 차분한 인상입니다.",
+              "imagined_sounds": "이곳에서는 주로 차량이 지나가는 소리나 멀리서 들려오는 도시의 소음, 그리고 간간히 들리는 사람들의 낮은 대화 소리 정도가 들릴 것으로 상상됩니다. 활기찬 상업지구의 소음보다는 조용하고 차분한 분위기가 예상됩니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사람 없음",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "음식점 (일본식 식당)",
+            "signs_of_change_or_stability": "건물들의 외관은 전반적으로 오래되었으나, 특별히 폐업했거나 신규 개업한 흔적은 보이지 않습니다. 기존 상점들이 안정적으로 운영되고 있는 것으로 보이며, 상권의 큰 변화보다는 현상 유지가 이루어지고 있는 것으로 판단됩니다.",
+            "opportunity_for_target_business": {
+              "business_category": "소규모 전문 음식점 또는 아늑한 카페",
+              "narrative_insight": "이 지역은 높은 유동인구보다는 고정된 지역 주민이나 특정 목적을 가진 방문객을 타겟으로 하는 비즈니스에 적합합니다. '숨겨진 맛집'이나 '아지트 같은 카페' 컨셉으로, 독특한 메뉴와 아늑한 분위기를 제공하여 입소문을 통해 고객을 유치하는 전략이 필요합니다. 대형 프랜차이즈보다는 개성 있고 전문성을 갖춘 독립 상점이 성공할 가능성이 높습니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 장소는 조용하고 안정적인 분위기의 골목 상권으로, 대규모 유동인구를 기대하기는 어렵습니다. 따라서 창업자나 투자자는 높은 임대료를 감당해야 하는 업종보다는, 낮은 고정비로 운영 가능한 소규모 전문점이나 지역 주민 밀착형 서비스를 고려해야 합니다. 독특한 컨셉과 높은 품질로 고객 충성도를 확보하고, 온라인 마케팅 및 입소문 전략을 통해 잠재 고객을 유치하는 것이 중요합니다. 서두르기보다는 장기적인 관점에서 접근해야 할 상권입니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 2,
+              "Operational_Status": 1,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 2
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 6950,
+        "pano_id": "pv4emm-14ITUClzrN6vCOw",
+        "lon": 127.0488692,
+        "lat": 37.5496007,
+        "distance_m": 30.576045922454686,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_7\\point_6950_pano_pv4emm-14ITUClzrN6vCOw.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2024-07-29T10:00:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "조용하고 주거지 특성이 강한 골목 상권",
+            "overall_impression_prose": "이 장소는 주거와 소규모 상업 시설이 혼재된 조용한 골목길입니다. 전반적으로 차분하고 일상적인 분위기가 지배적이며, 특별한 활기나 유동 인구의 흔적은 보이지 않습니다. 오래된 건물들이 소박하게 늘어서 있어 지역 주민들의 생활 공간으로서의 특징이 강합니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "거리는 비교적 좁은 왕복 1차선 도로로 보이며, 양 옆으로는 3~4층 높이의 건물들이 밀집해 있습니다. 건물들은 주로 벽돌과 타일, 페인트 마감으로 되어 있으며, 주거용과 상업용이 혼합된 형태로 보입니다. 일부 건물은 창문이 크고 현대적인 느낌을 주지만, 전반적으로는 연식이 느껴지는 외관입니다.",
+              "street_details": "도로는 아스팔트 포장 상태가 양호해 보이며, 중앙선이나 차선 표시는 없습니다. 보도는 건물과 인접하여 좁게 형성되어 있으며, 보도블럭은 비교적 깨끗하게 유지되어 있습니다. 가로수나 벤치와 같은 편의시설은 보이지 않으며, 전봇대와 전선이 복잡하게 얽혀 있습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "공간을 지배하는 색감은 회색빛 아스팔트, 붉은 벽돌, 그리고 건물 외벽의 베이지색과 흰색입니다. 전반적으로 채도가 낮고 차분한 느낌을 주며, 재질감은 오래된 벽돌과 콘크리트, 유리창이 혼합되어 다소 낡고 평범한 인상을 줍니다.",
+              "imagined_sounds": "이곳에서는 주로 차량이 지나가는 소리, 멀리서 들리는 사람들의 일상적인 대화 소리, 그리고 간혹 들리는 생활 소음(예: 문 여닫는 소리, 에어컨 실외기 소리)이 들릴 것으로 상상됩니다. 전반적으로 조용하고 한적한 분위기일 것입니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사진 내에는 사람이 보이지 않습니다.",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "미용실 (하나미용실), 기타 소규모 상점 (정확한 업종 식별 불가)",
+            "signs_of_change_or_stability": "눈에 띄는 신규 개업이나 폐업 흔적은 보이지 않으며, 전반적으로 안정적이지만 역동적이지 않은 상권으로 보입니다. 건물 외관이나 간판에서 큰 변화의 움직임은 감지되지 않습니다.",
+            "opportunity_for_target_business": {
+              "business_category": "소규모 카페 또는 베이커리",
+              "narrative_insight": "이 지역은 주거 밀집 지역의 특성을 고려할 때, 주민들의 일상에 스며들 수 있는 소규모 카페나 베이커리가 적합할 것입니다. '아지트' 같은 편안하고 아늑한 컨셉으로, 동네 주민들이 가볍게 들러 커피 한 잔이나 빵을 구매하며 소통할 수 있는 공간을 제공한다면 안정적인 수요를 확보할 수 있을 것입니다. 특별한 유동 인구보다는 고정적인 지역 주민을 타겟으로 해야 합니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 장소는 높은 유동 인구를 기대하기 어려운 주거 밀집형 골목 상권입니다. 창업자나 투자자는 대규모 상업 시설보다는 지역 주민의 생활 편의를 증진시키는 소규모 서비스업이나 F&B 업종에 집중해야 합니다. 임대료가 저렴하다면 안정적인 운영을 기대할 수 있으나, 마케팅은 온라인 커뮤니티나 입소문에 의존하는 전략이 효과적일 것입니다. 상권의 확장성보다는 '동네 사랑방' 같은 고정 고객 확보에 주력하는 것이 성공의 열쇠입니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 2,
+              "Operational_Status": 1,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 1
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 1
+            }
+          }
+        }
+      },
+      {
+        "point_id": 5956,
+        "pano_id": "HBX8Z4WkWLs6oGOn4cacIw",
+        "lon": 127.0488844,
+        "lat": 37.5491454,
+        "distance_m": 30.666432441625805,
+        "image_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\panorama_img_anal\\downloaded_img_6\\point_5956_pano_HBX8Z4WkWLs6oGOn4cacIw.jpg",
+        "analysis": {
+          "report_metadata": {
+            "analyst_persona": "상권 전략 컨설턴트",
+            "analysis_type": "정성적 서술 및 정량적 감사를 결합한 하이브리드 시각 분석",
+            "analysis_timestamp": "2023-10-27T10:30:00Z"
+          },
+          "visit_summary": {
+            "location_headline": "조용하고 한적한 주거지역 이면도로",
+            "overall_impression_prose": "이 장소는 주거 건물들이 밀집해 있는 조용한 이면도로로 보입니다. 상업적 활기는 거의 느껴지지 않으며, 전반적으로 차분하고 정돈된 분위기입니다. 주로 거주민들의 통행에 사용될 것으로 예상됩니다."
+          },
+          "virtual_walkthrough_notes": {
+            "objective_sketch": {
+              "space_and_buildings": "도로 양쪽으로 3~5층 높이의 건물들이 늘어서 있습니다. 대부분 주거용으로 보이는 빌라나 다세대 주택 형태이며, 일부 건물은 벽돌 마감, 다른 건물은 회색 외벽 마감으로 되어 있습니다. 건물들은 비교적 밀집해 있으며, 전선과 전봇대가 눈에 띕니다. 도로 폭은 차량 한 대가 지나갈 수 있는 정도이며, 양쪽에 좁은 보도가 있습니다.",
+              "street_details": "도로는 아스팔트 포장으로 비교적 깨끗해 보이며, 보도는 회색 보도블럭으로 되어 있습니다. 가로수나 벤치와 같은 편의시설은 보이지 않습니다. 배수구와 맨홀 뚜껑이 보도에 설치되어 있습니다. 가로등은 명확히 식별되지 않습니다."
+            },
+            "sensory_experience": {
+              "dominant_colors_and_textures": "전반적으로 회색, 베이지색, 갈색 등 차분하고 무채색 계열의 색감이 지배적입니다. 건물 외벽의 벽돌과 콘크리트, 아스팔트 도로, 보도블럭 등 거칠고 단단한 재질감이 주를 이룹니다. 전체적으로 밝지만, 다소 낡고 오래된 느낌도 공존합니다.",
+              "imagined_sounds": "이곳에서는 차량 통행 소리보다는 사람들의 발걸음 소리, 멀리서 들려오는 생활 소음, 간헐적인 차량 통행 소리 등이 들릴 것으로 상상됩니다. 전반적으로 조용하고 평화로운 분위기일 것입니다."
+            }
+          },
+          "people_and_energy": {
+            "observed_tribes_description": "사진에 보이는 사람은 없습니다.",
+            "street_energy_level": "조용함"
+          },
+          "commercial_ecosystem_insight": {
+            "dominant_store_types": "상점 없음",
+            "signs_of_change_or_stability": "눈에 띄는 신규 개업이나 폐업 흔적은 보이지 않으며, 건물들은 비교적 안정적으로 유지되고 있는 것으로 보입니다. 상업적 변화의 동력은 거의 없는 상태입니다.",
+            "opportunity_for_target_business": {
+              "business_category": "조용한 카페 또는 소규모 공방/스튜디오",
+              "narrative_insight": "이 지역은 유동인구가 적고 조용하기 때문에, 대중적인 상업 시설보다는 특정 고객층을 대상으로 하는 니치 비즈니스에 적합합니다. 아늑하고 조용한 분위기를 선호하는 고객을 위한 '숨겨진' 카페나, 집중을 요하는 작업을 위한 소규모 공방/스튜디오가 좋은 컨셉이 될 수 있습니다. 주거 지역의 특성을 살려 지역 주민들에게 편안한 휴식 공간이나 취미 활동 공간을 제공하는 방향으로 접근해야 할 것입니다."
+            }
+          },
+          "final_verdict_from_expert": {
+            "recommendation_prose": "이 장소는 전형적인 주거지역 이면도로로, 일반적인 상업적 가치는 매우 낮습니다. 유동인구가 거의 없어 불특정 다수를 대상으로 하는 업종은 성공하기 어렵습니다. 창업자나 투자자는 낮은 임대료를 활용하여 독특한 컨셉과 강력한 온라인 마케팅을 통해 고객을 유인하는 '데스티네이션'형 비즈니스를 고려해야 합니다. 지역 주민과의 유대감을 형성하고, 조용한 환경을 강점으로 내세울 수 있는 소규모 특화 업종에 집중하는 것이 현명합니다."
+          },
+          "quantitative_audit": {
+            "commercial_vitality": {
+              "Storefront_Count": 0,
+              "Operational_Status": 0,
+              "Customer_Presence": 0,
+              "Promotional_Activity": 0
+            },
+            "street_attractiveness": {
+              "Facade_Condition": 1,
+              "Design_Diversity": 1,
+              "Amenity_Presence": 0,
+              "Brand_Type": 0
+            },
+            "pedestrian_experience": {
+              "Sidewalk_Clutter": 1,
+              "Weather_Protection": 0,
+              "Lighting_Proxy": 0
+            }
+          }
+        }
+      }
+    ],
+    "synthesis": {
+      "area_summary": {
+        "overall_character": "이 지역은 전반적으로 조용하고 오래된 주택가 골목길과 이면도로로 이루어진 주거 중심의 공간입니다. 상업 시설은 극히 제한적이며, 소수의 근린형 상점들이 띄엄띄엄 위치해 있어 상권으로서의 활력은 매우 낮습니다. 전체적인 분위기는 차분하고 한적하며, 상업적 에너지보다는 주거지의 평온함이 지배적입니다.",
+        "dominant_zone_type": "혼합지역",
+        "primary_commercial_type": "근린형 생활상가"
+      },
+      "comprehensive_scores": {
+        "commercial_atmosphere": 2,
+        "street_atmosphere": 5,
+        "cleanliness": 6,
+        "maintenance": 6,
+        "walkability": 6,
+        "safety_perception": 6,
+        "business_diversity": 2,
+        "residential_suitability": 8,
+        "commercial_suitability": 3
+      },
+      "detailed_assessment": {
+        "strengths": [
+          "조용하고 쾌적한 주거 환경: 전반적으로 조용하고 주거지 특성이 강해 거주민들에게는 쾌적한 생활 환경을 제공합니다.",
+          "잠재적 고정 수요층: 주택가 이면에 위치하여 기존 거주민이라는 고정적인 잠재 고객층이 존재합니다.",
+          "낮은 경쟁 강도: 현재 상업 시설이 매우 적어 특정 업종에 대한 경쟁이 거의 없습니다."
+        ],
+        "weaknesses": [
+          "극히 낮은 유동 인구: 모든 지점에서 '조용함'이 강조되며, 상점 수가 적어 유동 인구 자체가 매우 적을 것으로 예상됩니다.",
+          "제한적인 상업적 가시성 및 접근성: 골목길이나 이면도로에 위치하여 외부에서의 시인성이 낮고, 상권으로의 접근성이 떨어집니다.",
+          "부족한 상권 형성 및 시너지 효과: 개별 상점들이 띄엄띄엄 존재하여 상권으로서의 집객력이나 시너지 효과를 기대하기 어렵습니다."
+        ],
+        "recommended_business_types": [
+          "주민 밀착형 생활 서비스업: 세탁소, 소규모 반찬가게, 수선집 등 주거민의 일상생활에 필수적인 서비스업.",
+          "배달 및 테이크아웃 전문 소규모 음식점: 낮은 유동 인구를 보완하고 주거지 배달 수요를 공략할 수 있는 업종.",
+          "조용하고 아늑한 분위기의 개인 카페/공방: 주거지 특성을 살려 조용함을 선호하는 고객을 위한 아늑한 공간."
+        ],
+        "foot_traffic_estimate": "하",
+        "competition_level": "낮음"
+      },
+      "final_recommendation": "이 지역은 상업적 침투가 미미한 조용한 주거 지역으로, 대부분의 전통적인 소매 또는 F&B 사업에는 매우 도전적인 환경입니다. 상권으로서의 활력은 거의 없으며, 유동 인구는 극히 낮아 외부 고객 유입을 통한 매출 증대는 기대하기 어렵습니다. 강점으로는 조용한 주거 환경과 기존 거주민이라는 잠재적 고정 수요층, 그리고 낮은 경쟁 강도를 꼽을 수 있습니다. 그러나 낮은 유동 인구, 떨어지는 상업적 가시성 및 접근성, 그리고 상권 시너지 부재는 사업 성공에 큰 리스크로 작용할 것입니다. 따라서 이 지역에 창업을 고려한다면, 대규모 투자를 통한 일반적인 상업 시설보다는 주거민의 생활 편의를 증진시키는 밀착형 서비스업이나 배달/테이크아웃 전문점, 또는 조용한 분위기를 활용한 소규모 공방이나 개인 카페 등 니치 마켓을 공략하는 전략이 필요합니다. 성공을 위해서는 온라인 마케팅과 지역 주민과의 긴밀한 소통을 통한 단골 확보가 필수적이며, 높은 임대료를 감당하기 어려운 구조이므로 소규모 자본으로 시작하는 것이 현명합니다. 예상 투자 규모는 매우 작아야 하며, 수익성은 초기에는 낮을 수 있으나 안정적인 단골 확보 시 점진적으로 개선될 여지가 있습니다. 종합적으로 볼 때, 일반적인 상업적 투자를 위한 지역으로는 부적합하며, 특정 비즈니스 모델과 소규모 투자를 전제로 매우 신중한 접근이 필요하므로, 대부분의 창업자에게는 추천하기 어렵습니다."
+    },
+    "summary": {
+      "area_characteristics": "혼합지역",
+      "commercial_type": "N/A",
+      "scores": {
+        "commercial_atmosphere": 2,
+        "street_atmosphere": 5,
+        "cleanliness": 6,
+        "maintenance": 6,
+        "walkability": 6,
+        "safety_perception": 6,
+        "business_diversity": 2,
+        "residential_suitability": 8,
+        "commercial_suitability": 3
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "recommended_industries": [],
+      "expert_opinion": ""
+    }
+  },
+  "mobility_analysis": {
+    "target_dong": "성수1가2동",
+    "timestamp": "20251012_174149",
+    "analysis": {
+      "part1_move_types": {
+        "유입": 9961,
+        "유출": 9689,
+        "내부이동": 560
+      },
+      "part2_time_pattern": {
+        "0": 117,
+        "1": 201,
+        "2": 127,
+        "3": 122,
+        "4": 158,
+        "5": 293,
+        "6": 410,
+        "7": 594,
+        "8": 915,
+        "9": 1261,
+        "10": 1193,
+        "11": 1229,
+        "12": 1355,
+        "13": 1319,
+        "14": 1347,
+        "15": 1378,
+        "16": 1491,
+        "17": 1618,
+        "18": 1498,
+        "19": 1312,
+        "20": 1020,
+        "21": 842,
+        "22": 360,
+        "23": 50
+      },
+      "part3_purpose": {
+        "기타": 11900,
+        "쇼핑/여가/관광": 6320,
+        "출근": 1712,
+        "등교": 168,
+        "쇼핑": 99,
+        "병원": 9,
+        "관광": 2
+      },
+      "part4_transport": {
+        "차량": 11891,
+        "지하철": 11758,
+        "기타": 3905,
+        "도보": 3481,
+        "일반버스": 2736,
+        "광역버스": 86
+      },
+      "part5_age": {
+        "00대": 229,
+        "10대": 2418,
+        "20대": 12893,
+        "30대": 14774,
+        "40대": 9315,
+        "50대": 7690,
+        "60대": 5110,
+        "70대 이상": 2271
+      },
+      "part5_2_age_purpose": {
+        "00대": {
+          "top_purpose": "기타",
+          "percentage": 70.58823529411765
+        },
+        "10대": {
+          "top_purpose": "기타",
+          "percentage": 74.7520228895587
+        },
+        "20대": {
+          "top_purpose": "기타",
+          "percentage": 56.688071971459586
+        },
+        "30대": {
+          "top_purpose": "기타",
+          "percentage": 46.96723985526571
+        },
+        "40대": {
+          "top_purpose": "기타",
+          "percentage": 50.86882358056008
+        },
+        "50대": {
+          "top_purpose": "기타",
+          "percentage": 50.873723030189545
+        },
+        "60대": {
+          "top_purpose": "기타",
+          "percentage": 52.29293530157636
+        },
+        "70대 이상": {
+          "top_purpose": "기타",
+          "percentage": 48.19681223341741
+        }
+      },
+      "part5_3_age_time": {
+        "00대": {
+          "peak_hour": 14,
+          "peak_count": 27.0
+        },
+        "10대": {
+          "peak_hour": 13,
+          "peak_count": 272.5
+        },
+        "20대": {
+          "peak_hour": 9,
+          "peak_count": 1621.6100000000001
+        },
+        "30대": {
+          "peak_hour": 8,
+          "peak_count": 2161.43
+        },
+        "40대": {
+          "peak_hour": 8,
+          "peak_count": 1204.05
+        },
+        "50대": {
+          "peak_hour": 8,
+          "peak_count": 892.97
+        },
+        "60대": {
+          "peak_hour": 8,
+          "peak_count": 392.90999999999997
+        },
+        "70대 이상": {
+          "peak_hour": 11,
+          "peak_count": 182.91
+        }
+      },
+      "part5_4_top3_purposes": {
+        "00대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 162
+          },
+          "rank_2": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 63
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 4
+          }
+        },
+        "10대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 1807
+          },
+          "rank_2": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 462
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 112
+          }
+        },
+        "20대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 7309
+          },
+          "rank_2": {
+            "purpose": "출근",
+            "count": 2729
+          },
+          "rank_3": {
+            "purpose": "등교",
+            "count": 1549
+          }
+        },
+        "30대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 6939
+          },
+          "rank_2": {
+            "purpose": "출근",
+            "count": 5473
+          },
+          "rank_3": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 2048
+          }
+        },
+        "40대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 4738
+          },
+          "rank_2": {
+            "purpose": "출근",
+            "count": 3052
+          },
+          "rank_3": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1524
+          }
+        },
+        "50대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 3912
+          },
+          "rank_2": {
+            "purpose": "출근",
+            "count": 2110
+          },
+          "rank_3": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1667
+          }
+        },
+        "60대": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 2672
+          },
+          "rank_2": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 1510
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 927
+          }
+        },
+        "70대 이상": {
+          "rank_1": {
+            "purpose": "기타",
+            "count": 1094
+          },
+          "rank_2": {
+            "purpose": "쇼핑/여가/관광",
+            "count": 843
+          },
+          "rank_3": {
+            "purpose": "출근",
+            "count": 333
+          }
+        }
+      },
+      "part5_5_3d_analysis": {
+        "30대": {
+          "기타": {
+            "peak_hour": 12,
+            "peak_count": 809.6800000000001
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 1824.79
+          },
+          "쇼핑/여가/관광": {
+            "peak_hour": 18,
+            "peak_count": 311.08000000000004
+          }
+        },
+        "20대": {
+          "기타": {
+            "peak_hour": 18,
+            "peak_count": 899.3000000000001
+          },
+          "출근": {
+            "peak_hour": 9,
+            "peak_count": 848.05
+          },
+          "쇼핑/여가/관광": {
+            "peak_hour": 22,
+            "peak_count": 169.45
+          }
+        },
+        "40대": {
+          "기타": {
+            "peak_hour": 12,
+            "peak_count": 582.94
+          },
+          "출근": {
+            "peak_hour": 8,
+            "peak_count": 1067.93
+          },
+          "쇼핑/여가/관광": {
+            "peak_hour": 19,
+            "peak_count": 214.72000000000003
+          }
+        }
+      }
+    }
+  },
+  "comprehensive_analysis": {
+    "metadata": {
+      "store_code": "9A750B743F",
+      "analysis_timestamp": "20251024_131105",
+      "analysis_type": "comprehensive_analysis"
+    },
+    "spatial_analysis": {
+      "address": "서울특별시 성동구 상원10길 7",
+      "coordinates": [
+        37.5493694,
+        127.048681
+      ],
+      "administrative_dong": "성수1가2동",
+      "marketplace": {
+        "상권명": "R",
+        "거리_m": 0
+      }
+    },
+    "store_summary": {
+      "store_name": "시원********",
+      "industry": "백반/가정식",
+      "commercial_area": "뚝섬역상점가",
+      "quality_score": 0.83
+    },
+    "panorama_summary": {
+      "area_characteristics": "이 지역은 전반적으로 조용하고 오래된 주택가 골목길과 이면도로로 이루어진 주거 중심의 공간입니다. 상업 시설은 극히 제한적이며, 소수의 근린형 상점들이 띄엄띄엄 위치해 있어 상권으로서의 활력은 매우 낮습니다. 전체적인 분위기는 차분하고 한적하며, 상업적 에너지보다는 주거지의 평온함이 지배적입니다.",
+      "marketplace_type": "근린형 생활상가",
+      "scores": {
+        "commercial_atmosphere": 2,
+        "street_atmosphere": 5,
+        "cleanliness": 6,
+        "maintenance": 6,
+        "walkability": 6,
+        "safety_perception": 6,
+        "business_diversity": 2,
+        "residential_suitability": 8,
+        "commercial_suitability": 3
+      },
+      "strengths": [
+        "조용하고 쾌적한 주거 환경: 전반적으로 조용하고 주거지 특성이 강해 거주민들에게는 쾌적한 생활 환경을 제공합니다.",
+        "잠재적 고정 수요층: 주택가 이면에 위치하여 기존 거주민이라는 고정적인 잠재 고객층이 존재합니다.",
+        "낮은 경쟁 강도: 현재 상업 시설이 매우 적어 특정 업종에 대한 경쟁이 거의 없습니다."
+      ],
+      "weaknesses": [
+        "극히 낮은 유동 인구: 모든 지점에서 '조용함'이 강조되며, 상점 수가 적어 유동 인구 자체가 매우 적을 것으로 예상됩니다.",
+        "제한적인 상업적 가시성 및 접근성: 골목길이나 이면도로에 위치하여 외부에서의 시인성이 낮고, 상권으로의 접근성이 떨어집니다.",
+        "부족한 상권 형성 및 시너지 효과: 개별 상점들이 띄엄띄엄 존재하여 상권으로서의 집객력이나 시너지 효과를 기대하기 어렵습니다."
+      ],
+      "recommended_industries": null,
+      "expert_opinion": null
+    },
+    "marketplace_summary": {
+      "marketplace_name": null,
+      "store_count": null,
+      "sales_volume": null
+    },
+    "mobility_summary": {
+      "analysis_period": null,
+      "total_charts": 0
+    }
+  },
+  "visualizations": {
+    "store_charts": [
+      {
+        "name": "9A750B743F_age_pie_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_age_pie_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_age_pie_20251024_130858.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "9A750B743F_customer_trends_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_customer_trends_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_customer_trends_20251024_130858.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "9A750B743F_detailed_pie_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_detailed_pie_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_detailed_pie_20251024_130858.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "9A750B743F_gender_pie_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_gender_pie_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_gender_pie_20251024_130858.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "9A750B743F_new_returning_trends_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_new_returning_trends_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_new_returning_trends_20251024_130858.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "9A750B743F_ranking_trend_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_ranking_trend_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_ranking_trend_20251024_130858.png",
+        "type": "store_chart"
+      },
+      {
+        "name": "9A750B743F_sales_trend_20251024_130858",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_sales_trend_20251024_130858.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\store_charts\\9A750B743F_sales_trend_20251024_130858.png",
+        "type": "store_chart"
+      }
+    ],
+    "mobility_charts": [
+      {
+        "name": "part1_move_types_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part1_move_types_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part1_move_types_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part2_time_pattern_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part2_time_pattern_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part2_time_pattern_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part3_purpose_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part3_purpose_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part3_purpose_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part4_transport_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part4_transport_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part4_transport_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_2_age_purpose_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_2_age_purpose_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_2_age_purpose_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_3_age_time_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_3_age_time_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_3_age_time_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_4_top3_purposes_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_4_top3_purposes_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_4_top3_purposes_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_5_3d_analysis_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_5_3d_analysis_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_5_3d_analysis_20251012_174149.png",
+        "type": "mobility_chart"
+      },
+      {
+        "name": "part5_age_20251012_174149",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_age_20251012_174149.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\mobility_charts\\part5_age_20251012_174149.png",
+        "type": "mobility_chart"
+      }
+    ],
+    "panorama_images": [
+      {
+        "name": "point_5956_pano_HBX8Z4WkWLs6oGOn4cacIw",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_5956_pano_HBX8Z4WkWLs6oGOn4cacIw.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_5956_pano_HBX8Z4WkWLs6oGOn4cacIw.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6471_pano_LeXvqCQpG_w6rZm-CJWYhg",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6471_pano_LeXvqCQpG_w6rZm-CJWYhg.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6471_pano_LeXvqCQpG_w6rZm-CJWYhg.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6472_pano_lbn9gjkpp4uLATuKsQY0eQ",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6472_pano_lbn9gjkpp4uLATuKsQY0eQ.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6472_pano_lbn9gjkpp4uLATuKsQY0eQ.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6949_pano_k0YFiSqj7N6WH7XFm2R_DA",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6949_pano_k0YFiSqj7N6WH7XFm2R_DA.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6949_pano_k0YFiSqj7N6WH7XFm2R_DA.jpg",
+        "type": "panorama_image"
+      },
+      {
+        "name": "point_6950_pano_pv4emm-14ITUClzrN6vCOw",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6950_pano_pv4emm-14ITUClzrN6vCOw.jpg",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\images\\point_6950_pano_pv4emm-14ITUClzrN6vCOw.jpg",
+        "type": "panorama_image"
+      }
+    ],
+    "spatial_files": [
+      {
+        "name": "공간 분석 지도",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\spatial_map.html",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\spatial_map.html",
+        "type": "spatial_map"
+      },
+      {
+        "name": "공간 분석 차트",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\spatial_analysis.png",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\spatial_analysis.png",
+        "type": "spatial_chart"
+      },
+      {
+        "name": "파노라마 분석 지도",
+        "path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\analysis_map.html",
+        "absolute_path": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\analysis_9A750B743F_20251024_131105\\panorama\\analysis_map.html",
+        "type": "panorama_map"
+      }
+    ]
+  }
+}

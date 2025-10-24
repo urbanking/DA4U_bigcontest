@@ -257,16 +257,29 @@ sys.path.insert(0, str(Path(__file__).parent.parent))  # open_sdk 디렉토리 �
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "agents_new"))  # agents_new 추가
 from run_analysis import run_full_analysis_pipeline
 
-# Marketing Module import
+# Marketing Module import (LangChain Version)
 MARKETING_MODULE_AVAILABLE = False
 try:
-    from agents_new.marketing_agent.marketing import run_marketing_sync
+    from agents_new.marketing_agent.marketing_langchain import run_marketing_sync_langchain as run_marketing_sync
     MARKETING_MODULE_AVAILABLE = True
-    print("[OK] Marketing Module loaded successfully")
+    print("[OK] Marketing Module (LangChain) loaded successfully")
 except ImportError as e:
     print(f"[WARN] Marketing Module import failed: {e}")
 except Exception as e:
     print(f"[ERROR] Marketing Module error: {e}")
+    import traceback
+    traceback.print_exc()
+
+# Google Maps MCP Lookup import (LangChain Version)
+MCP_LOOKUP_AVAILABLE = False
+try:
+    from agents_new.google_map_mcp.lookup_runner import run_lookup_from_code as run_gm_lookup
+    MCP_LOOKUP_AVAILABLE = True
+    print("[OK] Google Maps MCP Lookup (LangChain) loaded successfully")
+except ImportError as e:
+    print(f"[WARN] Google Maps MCP Lookup import failed: {e}")
+except Exception as e:
+    print(f"[ERROR] Google Maps MCP Lookup error: {e}")
     import traceback
     traceback.print_exc()
 
@@ -1009,13 +1022,14 @@ def display_store_overview(analysis_data):
     
     # MCP 구글맵 검색 결과 (있으면 표시)
     mcp_result = analysis_data.get("mcp_search_result", {})
-    if mcp_result.get("success") and mcp_result.get("file"):
+    mcp_file_path_str = mcp_result.get("output_path") or mcp_result.get("file")
+    if mcp_file_path_str:
         st.markdown("---")
         st.markdown("#### 🗺️ Google Maps 정보")
         
         # txt 파일 읽기
         try:
-            mcp_file_path = Path(mcp_result["file"])
+            mcp_file_path = Path(mcp_file_path_str)
             if mcp_file_path.exists():
                 with open(mcp_file_path, 'r', encoding='utf-8') as f:
                     mcp_content = f.read()
@@ -3242,32 +3256,36 @@ with col2:
                                         log_capture.add_log(f"[2/3] MCP 매장 검색 시작: {store_code}", "INFO")
                                         print(f"🔍 MCP 검색 중: {store_code}")
                                         
-                                        # StoreSearchProcessor import (절대 경로 사용)
-                                        import sys
-                                        import importlib.util
-                                        processor_path = Path(__file__).parent / "utils" / "store_search_processor.py"
-                                        spec = importlib.util.spec_from_file_location("store_search_processor", processor_path)
-                                        processor_module = importlib.util.module_from_spec(spec)
-                                        spec.loader.exec_module(processor_module)
-                                        StoreSearchProcessor = processor_module.StoreSearchProcessor
-                                        
-                                        csv_path = Path(__file__).parent.parent.parent / "data" / "matched_store_results.csv"
-                                        
-                                        if csv_path.exists():
-                                            processor = StoreSearchProcessor(csv_path=str(csv_path))
-                                            mcp_result = processor.search_and_save_store(store_code)
-                                            
-                                            if mcp_result.get("success"):
-                                                output_file = mcp_result.get("file", "")
-                                                print(f"✅ MCP 검색 성공! 저장: {output_file}")
-                                                log_capture.add_log(f"✅ MCP 매장 검색 성공: {output_file}", "SUCCESS")
+                                        if MCP_LOOKUP_AVAILABLE:
+                                            # CSV 경로: agents_new/google_map_mcp/matched_store_results.csv
+                                            csv_path = Path(__file__).parent.parent.parent / "agents_new" / "google_map_mcp" / "matched_store_results.csv"
+
+                                            if csv_path.exists():
+                                                # 출력 경로: 현재 분석 디렉토리 우선 사용
+                                                out_dir = Path(analysis_data.get("analysis_dir") or (Path(__file__).parent.parent / "output"))
+                                                out_dir.mkdir(parents=True, exist_ok=True)
+
+                                                mcp_result = run_gm_lookup(
+                                                    store_code,
+                                                    csv_path=str(csv_path),
+                                                    out_dir=str(out_dir),
+                                                    force=False,
+                                                    dry_run=False,
+                                                )
+
+                                                output_file = mcp_result.get("output_path", "")
+                                                if output_file and Path(output_file).exists():
+                                                    print(f"✅ MCP 검색 성공! 저장: {Path(output_file).name}")
+                                                    log_capture.add_log(f"✅ MCP 매장 검색 성공: {Path(output_file).name}", "SUCCESS")
+                                                else:
+                                                    log_capture.add_log("⚠️ MCP 검색은 수행되었으나 출력 파일 확인 실패", "WARNING")
+
+                                                # 결과 저장 (성공/실패 관계없이 세부 내용 유지)
                                                 analysis_data["mcp_search_result"] = mcp_result
                                             else:
-                                                error_msg = mcp_result.get("error", "Unknown error")
-                                                log_capture.add_log(f"⚠️ MCP 검색 실패: {error_msg}", "WARNING")
-                                                analysis_data["mcp_search_result"] = {"success": False, "error": error_msg}
+                                                log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
                                         else:
-                                            log_capture.add_log(f"⚠️ MCP CSV 파일 없음: {csv_path}", "WARNING")
+                                            log_capture.add_log("MCP Lookup 모듈을 사용할 수 없습니다 - 환경변수 또는 의존성 확인", "WARN")
                                     except Exception as e:
                                         log_capture.add_log(f"❌ MCP 매장 검색 오류: {e}", "ERROR")
                                         import traceback
@@ -3383,8 +3401,8 @@ with col2:
                                     
                                     # MCP 검색 결과 txt 파일 읽기 (있으면)
                                     mcp_content = ""
-                                    if "mcp_search_result" in analysis_data and analysis_data["mcp_search_result"].get("success"):
-                                        mcp_file = analysis_data["mcp_search_result"].get("file")
+                                    if "mcp_search_result" in analysis_data:
+                                        mcp_file = analysis_data["mcp_search_result"].get("output_path") or analysis_data["mcp_search_result"].get("file")
                                         if mcp_file and Path(mcp_file).exists():
                                             try:
                                                 with open(mcp_file, 'r', encoding='utf-8') as f:

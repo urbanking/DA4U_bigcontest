@@ -1,0 +1,214 @@
+{
+  "report_metadata": {
+    "store_code": "9A750B743F",
+    "analysis_date": "2025-10-24 13:08:58",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8300000000000001
+  },
+  "store_overview": {
+    "code": "9A750B743F",
+    "name": "시원********",
+    "address": "서울 성동구 상원10길 7",
+    "industry": "백반/가정식",
+    "brand": "브랜드 없음",
+    "commercial_area": "뚝섬역상점가",
+    "record_months": 24,
+    "operating_months": 59.4,
+    "store_age": "성숙 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "상승 추세",
+        "stability": "보통",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "상승 추세",
+        "stability": "불안정",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "상승 추세",
+        "stability": "불안정",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "하락 추세",
+        "average": 230.2
+      },
+      "same_industry_sales_count": {
+        "trend": "하락 추세",
+        "average": 275.4
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 안정",
+        "average": 6.6
+      },
+      "commercial_rank": {
+        "trend": "순위 안정",
+        "average": 11.2
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 1.9,
+      "grade_distribution": {
+        "1.0": 17,
+        "5.0": 4,
+        "3.0": 3
+      },
+      "recommendation": "취소율이 양호합니다. 현재 수준을 유지하세요."
+    },
+    "delivery_analysis": {
+      "trend": "상승 추세",
+      "average": 26.8
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 53.0,
+      "female_ratio": 47.0
+    },
+    "age_group_distribution": {
+      "20대 이하": 11.8,
+      "30대": 26.5,
+      "40대": 19.4,
+      "50대": 24.5,
+      "60대 이상": 17.8
+    },
+    "detailed_customer_ratios": {
+      "남30대": 14.0,
+      "남50대": 13.0,
+      "여30대": 12.5,
+      "여50대": 11.5,
+      "남40대": 10.3,
+      "남60대이상": 9.4,
+      "여40대": 9.1,
+      "여60대이상": 8.4,
+      "남20대이하": 6.3,
+      "여20대이하": 5.5
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 5.6,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 27.0,
+        "trend": "안정 추세"
+      },
+      "customer_distribution": {
+        "residential": 41.8,
+        "workplace": 28.4,
+        "floating": 29.9
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "뚝섬역상점가",
+    "analysis_available": true,
+    "total_stores_in_area": 71,
+    "average_sales_analysis": {
+      "sales_amount_trend": "상승 추세",
+      "sales_count_trend": "상승 추세",
+      "unique_customers_trend": "상승 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 8.06,
+      "area_health": "건전한 상권"
+    },
+    "average_customer_segments": {
+      "남20대이하": 11.4,
+      "남30대": 16.0,
+      "남40대": 9.5,
+      "남50대": 8.4,
+      "남60대이상": 5.5,
+      "여20대이하": 12.7,
+      "여30대": 15.6,
+      "여40대": 8.4,
+      "여50대": 7.5,
+      "여60대이상": 4.9
+    }
+  },
+  "industry_analysis": {
+    "industry": "백반/가정식",
+    "analysis_available": true,
+    "total_stores_in_industry": 346,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 19.53,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 33.71,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 9.7,
+      "남30대": 13.4,
+      "남40대": 12.9,
+      "남50대": 15.7,
+      "남60대이상": 13.4,
+      "여20대이하": 6.4,
+      "여30대": 8.0,
+      "여40대": 6.7,
+      "여50대": 7.7,
+      "여60대이상": 6.1
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 상승 추세",
+      "업종 내 순위: 순위 안정",
+      "주 고객층: 남성 고객 중심",
+      "상권 건강도: 건전한 상권",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [],
+    "recommendations": []
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_sales_trend_20251024_130858.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_gender_pie_20251024_130858.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_age_pie_20251024_130858.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_detailed_pie_20251024_130858.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_ranking_trend_20251024_130858.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_customer_trends_20251024_130858.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\9A750B743F_new_returning_trends_20251024_130858.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.83,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.6,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.6"
+  }
+}
