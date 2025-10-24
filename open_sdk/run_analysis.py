@@ -25,7 +25,6 @@ def is_cloud_environment() -> bool:
         os.path.exists('/home/appuser') or
         os.getenv('STREAMLIT_SHARING_MODE') is not None or
         os.getenv('HOME') == '/home/appuser' or
-        'streamlit' in sys.executable.lower() or
         os.path.exists('/app')  # Heroku, Cloud Run 등
     )
 
