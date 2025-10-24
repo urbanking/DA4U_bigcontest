@@ -7,6 +7,29 @@ import json
 import os
 from openai import OpenAI
 from .prompts import SYSTEM_PROMPT, USER_PROMPT
+import matplotlib.pyplot as plt
+import platform
+
+# 한글 폰트 설정
+def set_korean_font():
+    """한글 폰트 설정"""
+    system = platform.system()
+    
+    if system == "Windows":
+        font_name = "Malgun Gothic"
+    elif system == "Darwin":  # macOS
+        font_name = "AppleGothic"
+    else:  # Linux
+        font_name = "DejaVu Sans"
+    
+    # matplotlib 폰트 설정
+    plt.rcParams['font.family'] = font_name
+    plt.rcParams['axes.unicode_minus'] = False
+    
+    return font_name
+
+# 폰트 설정 실행
+KOREAN_FONT = set_korean_font()
 
 
 class LLMGenerator:
@@ -63,7 +86,7 @@ class LLMGenerator:
         Returns:
             완성된 메뉴명 (예: "무화과 스무디", "바나나 쿠키")
         """
-        # 카테고리별 메뉴명 템플릿
+        # 카테고리별 메뉴명 템플릿 (쌀 20kg 제거)
         menu_templates = {
             "농산물": {
                 "무화과": ["무화과 스무디", "무화과 타르트", "허니 무화과 라떼", "무화과 파르페"],
@@ -110,6 +133,74 @@ class LLMGenerator:
         
         # 템플릿에 키워드 삽입
         return template.format(keyword=keyword)
+
+    def _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
+        """
+        여러 개의 신제품 제안 생성 (2-3개)
+        
+        Args:
+            insights: 크롤링된 키워드 리스트
+            audience: 타겟 고객 정보
+            store_male: 매장 남성 비율
+            store_female: 매장 여성 비율
+            
+        Returns:
+            제안 리스트 (2-3개)
+        """
+        proposals = []
+        
+        # 쌀 관련 키워드 필터링
+        filtered_insights = [insight for insight in insights if not any(keyword in insight.get("keyword", "").lower() for keyword in ["쌀", "rice", "20kg", "kg"])]
+        
+        # 상위 3개 키워드 선택 (없으면 더미 데이터 사용)
+        top_keywords = filtered_insights[:3] if len(filtered_insights) >= 3 else filtered_insights
+        
+        # 키워드가 부족하면 더미 키워드 추가 (쌀 관련 제외)
+        if len(top_keywords) < 2:
+            dummy_keywords = [
+                {"category": "음료", "keyword": "바닐라", "rank": 1},
+                {"category": "과자/베이커리", "keyword": "마카롱", "rank": 2},
+                {"category": "음료", "keyword": "헤이즐넛", "rank": 3},
+                {"category": "과자/베이커리", "keyword": "크로와상", "rank": 4}
+            ]
+            top_keywords.extend(dummy_keywords[:2-len(top_keywords)])
+        
+        # 각 키워드에 대해 제안 생성
+        for i, keyword_data in enumerate(top_keywords[:2]):  # 최대 2개
+            proposal = {
+                "menu_name": self._generate_menu_name(keyword_data["keyword"], keyword_data["category"]),
+                "category": keyword_data["category"],
+                "target": {
+                    "gender": audience["gender"], 
+                    "ages": audience["ages"]
+                },
+                "evidence": {
+                    "category": keyword_data["category"], 
+                    "keyword": keyword_data["keyword"], 
+                    "rank": keyword_data["rank"],
+                    "data_source": "네이버 데이터랩 쇼핑인사이트",
+                    "rationale": f"{keyword_data['keyword']}는 {keyword_data['category']} 카테고리에서 {keyword_data['rank']}위로 높은 인기를 보이고 있습니다."
+                },
+                "data_backing": {
+                    "customer_fit": f"{audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭",
+                    "trend_score": f"순위 {keyword_data['rank']}위 = 높은 검색 빈도",
+                    "market_gap": f"매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균"
+                },
+                "template_ko": (
+                    f"{audience['gender']}과 {', '.join(audience['ages'])}의 사람들은 "
+                    f"네이버 쇼핑에서 {keyword_data['category']} 카테고리에서 "
+                    f"'{keyword_data['keyword']}' 키워드를 많이 찾았습니다(순위 {keyword_data['rank']}).\n\n"
+                    f"**데이터 근거:**\n"
+                    f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
+                    f"- 트렌드 점수: 순위 {keyword_data['rank']}위 = 높은 검색 빈도\n"
+                    f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
+                    f"따라서 이를 결합한 '{self._generate_menu_name(keyword_data['keyword'], keyword_data['category'])}' 메뉴를 "
+                    f"개발해보는 것을 추천드립니다."
+                )
+            }
+            proposals.append(proposal)
+        
+        return proposals
 
     def generate(
         self, 
@@ -205,67 +296,21 @@ class LLMGenerator:
         ind_numbers: Dict
     ) -> Dict[str, Any]:
         """
-        Gemini 사용 불가 시 더미 응답 생성
+        Gemini 사용 불가 시 더미 응답 생성 (인사이트 제거, 쌀 관련 키워드 필터링)
         """
-        best = insights[0] if insights else {
-            "category": "음료", 
-            "keyword": "시즈널", 
-            "rank": 1
-        }
+        # 쌀 관련 키워드 필터링
+        filtered_insights = [insight for insight in insights if not any(keyword in insight.get("keyword", "").lower() for keyword in ["쌀", "rice", "20kg", "kg"])]
+        
+        # 필터링된 키워드가 없으면 더미 키워드 사용
+        if not filtered_insights:
+            filtered_insights = [
+                {"category": "음료", "keyword": "바닐라", "rank": 1},
+                {"category": "과자/베이커리", "keyword": "마카롱", "rank": 2}
+            ]
         
         store_male = audience["store_gender"]["male"]
         store_female = audience["store_gender"]["female"]
         
         return {
-            "insight": {
-                "store_code": store["code"],
-                "gender_summary": f"남성이 {store_male:.1f}%로 높습니다",
-                "age_summary": "10·20대와 50대 비중이 큽니다",
-                "reasoning": {
-                    "gender_rule": "55% 우세 규칙 적용",
-                    "age_rule": "최소 칸(≤3)로 누적 ≥50% 규칙",
-                    "numbers": {
-                        "store_gender": {
-                            "male": store_male, 
-                            "female": store_female
-                        },
-                        "industry_gender": ind_numbers["gender"],
-                        "store_age": audience["store_age"],
-                        "industry_age": ind_numbers["age"]
-                    }
-                }
-            },
-            "proposals": [
-                {
-                    "menu_name": self._generate_menu_name(best["keyword"], best["category"]),
-                    "category": best["category"],
-                    "target": {
-                        "gender": audience["gender"], 
-                        "ages": audience["ages"]
-                    },
-                    "evidence": {
-                        "category": best["category"], 
-                        "keyword": best["keyword"], 
-                        "rank": best["rank"],
-                        "data_source": "네이버 데이터랩 쇼핑인사이트",
-                        "rationale": f"{best['keyword']}는 {best['category']} 카테고리에서 {best['rank']}위로 높은 인기를 보이고 있습니다."
-                    },
-                    "data_backing": {
-                        "customer_fit": f"{audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭",
-                        "trend_score": f"순위 {best['rank']}위 = 높은 검색 빈도",
-                        "market_gap": f"매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균"
-                    },
-                    "template_ko": (
-                        f"{audience['gender']}과 {', '.join(audience['ages'])}의 사람들은 "
-                        f"네이버 쇼핑에서 {best['category']} 카테고리에서 "
-                        f"'{best['keyword']}' 키워드를 많이 찾았습니다(순위 {best['rank']}).\n\n"
-                        f"**데이터 근거:**\n"
-                        f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
-                        f"- 트렌드 점수: 순위 {best['rank']}위 = 높은 검색 빈도\n"
-                        f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
-                        f"따라서 이를 결합한 '{best['keyword']} 콘셉트' 메뉴를 "
-                        f"개발해보는 것을 추천드립니다."
-                    )
-                }
-            ]
+            "proposals": self._generate_multiple_proposals(filtered_insights, audience, store_male, store_female)
         }

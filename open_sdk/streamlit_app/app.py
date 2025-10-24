@@ -3,6 +3,15 @@ BigContest AI Agent - 1:1 비밀 상담 서비스
 Langchain + Gemini 버전 (OpenAI Agents SDK 제거)
 """
 import streamlit as st
+
+# 페이지 설정 (가장 먼저 실행되어야 함)
+st.set_page_config(
+    page_title="BigContest AI Agent - 1:1 비밀 상담 서비스",
+    page_icon="🏪",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 from pathlib import Path
 import json
 import asyncio
@@ -20,6 +29,122 @@ from streamlit_autorefresh import st_autorefresh
 
 # .env 파일 로드
 load_dotenv()
+
+# 한글 폰트 설정
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import seaborn as sns
+
+def set_korean_font():
+    """한글 폰트 설정"""
+    system = platform.system()
+    
+    if system == "Windows":
+        font_name = "Malgun Gothic"
+    elif system == "Darwin":  # macOS
+        font_name = "AppleGothic"
+    else:  # Linux
+        font_name = "DejaVu Sans"
+    
+    # matplotlib 폰트 설정
+    plt.rcParams['font.family'] = font_name
+    plt.rcParams['axes.unicode_minus'] = False
+    
+    # seaborn 폰트 설정
+    sns.set_style("whitegrid")
+    sns.set_palette("husl")
+    
+    return font_name
+
+# 폰트 설정 실행
+KOREAN_FONT = set_korean_font()
+
+# 차트 폰트 설정 함수
+def configure_chart_fonts():
+    """차트에서 한글 폰트 설정"""
+    # Plotly 폰트 설정
+    import plotly.graph_objects as go
+    import plotly.express as px
+    
+    # Plotly 기본 폰트 설정
+    go.layout.template = "plotly_white"
+    
+    # Plotly 폰트 설정을 위한 레이아웃
+    plotly_font_config = {
+        'family': 'Malgun Gothic, 맑은 고딕, sans-serif',
+        'size': 12,
+        'color': 'black'
+    }
+    
+    return plotly_font_config
+
+# 차트 폰트 설정 실행
+CHART_FONT_CONFIG = configure_chart_fonts()
+
+# Streamlit CSS 설정 (한글 폰트)
+
+# CSS 스타일 추가
+st.markdown(f"""
+<style>
+    /* 한글 폰트 설정 */
+    .main .block-container {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    .stApp {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    .stSelectbox label,
+    .stTextInput label,
+    .stTextArea label,
+    .stNumberInput label,
+    .stDateInput label,
+    .stTimeInput label,
+    .stFileUploader label,
+    .stRadio label,
+    .stCheckbox label,
+    .stSlider label,
+    .stMultiSelect label {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    /* 차트 제목 및 라벨 폰트 설정 */
+    .plotly-graph-div {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif !important;
+    }}
+    
+    /* 테이블 폰트 설정 */
+    .dataframe {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    /* 메트릭 폰트 설정 */
+    .metric-container {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    /* 알림 메시지 폰트 설정 */
+    .stAlert {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    /* 버튼 폰트 설정 */
+    .stButton button {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    /* 탭 폰트 설정 */
+    .stTabs [data-baseweb="tab-list"] {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+    
+    /* 사이드바 폰트 설정 */
+    .css-1d391kg {{
+        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    }}
+</style>
+""", unsafe_allow_html=True)
 
 # 개선된 Streamlit 로깅 핸들러
 class StreamlitHandler(logging.Handler):
@@ -120,15 +245,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# 한글 폰트 설정
-system = platform.system()
-if system == "Windows":
-    plt.rcParams['font.family'] = 'Malgun Gothic'
-elif system == "Darwin":
-    plt.rcParams['font.family'] = 'AppleGothic'
-else:
-    plt.rcParams['font.family'] = 'NanumGothic'
-matplotlib.rcParams['axes.unicode_minus'] = False
+# 한글 폰트 설정은 위에서 이미 처리됨
 
 print("[OK] Matplotlib loaded successfully")
 
@@ -140,16 +257,16 @@ sys.path.insert(0, str(Path(__file__).parent.parent))  # open_sdk 디렉토리 �
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "agents_new"))  # agents_new 추가
 from run_analysis import run_full_analysis_pipeline
 
-# Marketing Agent import
-MARKETING_AGENT_AVAILABLE = False
+# Marketing Module import
+MARKETING_MODULE_AVAILABLE = False
 try:
-    from agents_new.marketing_agent.marketing_agent import marketingagent
-    MARKETING_AGENT_AVAILABLE = True
-    print("[OK] Marketing Agent loaded successfully")
+    from agents_new.marketing_agent.marketing import run_marketing_sync
+    MARKETING_MODULE_AVAILABLE = True
+    print("[OK] Marketing Module loaded successfully")
 except ImportError as e:
-    print(f"[WARN] Marketing Agent import failed: {e}")
+    print(f"[WARN] Marketing Module import failed: {e}")
 except Exception as e:
-    print(f"[ERROR] Marketing Agent error: {e}")
+    print(f"[ERROR] Marketing Module error: {e}")
     import traceback
     traceback.print_exc()
 
@@ -186,12 +303,6 @@ except Exception as e:
     openai_client = None
     print(f"OpenAI client with Gemini not available: {e}")
 
-# 페이지 설정
-st.set_page_config(
-    page_title="BigContest AI Agent - 1:1 비밀 상담 서비스",
-    page_icon="🏪",
-    layout="wide"
-)
 
 # 자동 새로고침 비활성화 (무한 루프 방지)
 # if st.session_state.get('is_analyzing', False) and not st.session_state.get('stop_autorefresh', False):
@@ -295,7 +406,6 @@ def generate_marketplace_summary_with_gemini(marketplace_data):
 ## 🏬 상권 분석 요약
 
 ### 📍 상권 개요
-- 상권명: [상권명]
 - 상권 유형: [유형]
 - 분석 면적: [면적]
 - 점포수: [점포수]
@@ -762,7 +872,6 @@ def generate_comprehensive_analysis_with_gemini(analysis_data):
 - 상권 분위기: {panorama_data.get('comprehensive_scores', {}).get('commercial_atmosphere', 'N/A')}/10
 
 ### 🏬 상권 분석
-- 상권명: {marketplace_data.get('상권명', 'N/A')}
 - 점포수: {marketplace_data.get('상권_점포수', 'N/A')}개
 - 매출액: {marketplace_data.get('상권_매출액', 'N/A')}만원
         """
@@ -1459,20 +1568,22 @@ def display_marketplace_analysis(analysis_data):
         st.info("상권 분석 데이터가 없습니다.")
         return
     
+    # 상권 분석 데이터 사용 (spatial_matcher에서 이미 올바른 상권명으로 수정됨)
+    corrected_marketplace_data = marketplace_data
+    
     # 1. 상권 기본 정보
     st.markdown("#### 📍 상권 기본 정보")
     col1, col2 = st.columns(2)
     
     with col1:
-        st.write(f"**상권명:** {marketplace_data.get('상권명', 'N/A')}")
-        st.write(f"**분석일시:** {marketplace_data.get('분석일시', 'N/A')}")
+        st.write(f"**분석일시:** {corrected_marketplace_data.get('분석일시', 'N/A')}")
     
     with col2:
-        st.write(f"**총 페이지:** {marketplace_data.get('총_페이지', 'N/A')}페이지")
-        st.write(f"**추출 페이지:** {marketplace_data.get('추출_페이지', 'N/A')}페이지")
+        st.write(f"**총 페이지:** {corrected_marketplace_data.get('총_페이지', 'N/A')}페이지")
+        st.write(f"**추출 페이지:** {corrected_marketplace_data.get('추출_페이지', 'N/A')}페이지")
     
     # 2. 종합의견 섹션 분석
-    data_section = marketplace_data.get("데이터", [])
+    data_section = corrected_marketplace_data.get("데이터", [])
     if data_section and len(data_section) > 0:
         # 종합의견 데이터 찾기
         comprehensive_data = None
@@ -2049,10 +2160,12 @@ def _display_marketing_strategies_detailed(strategies):
                 if str(agents_path) not in sys.path:
                     sys.path.insert(0, str(agents_path))
                 
-                from agents_new.marketing_agent.strategy_generator import StrategyGenerator
+                # Marketing Module을 통한 채널 상세 정보 확장
+                from agents_new.marketing_agent.marketing import MarketingModule
                 
-                sg = StrategyGenerator()
-                expanded = sg.expand_channel_details(channel)
+                # 임시 MarketingModule 인스턴스 생성
+                temp_marketing = MarketingModule("temp", "temp")
+                expanded = temp_marketing._expand_channel_details(channel)
                 
                 # 온라인 채널
                 if expanded.get("online_channels"):
@@ -2172,12 +2285,12 @@ def _display_marketing_details(marketing_data):
                         if str(agents_path) not in sys.path:
                             sys.path.insert(0, str(agents_path))
                         
-                        # Import StrategyGenerator
-                        from agents_new.marketing_agent.strategy_generator import StrategyGenerator
+                        # Marketing Module을 통한 채널 상세 정보 확장
+                        from agents_new.marketing_agent.marketing import MarketingModule
                         
-                        # 채널 상세 정보 확장
-                        sg = StrategyGenerator()
-                        expanded = sg.expand_channel_details(channel)
+                        # 임시 MarketingModule 인스턴스 생성
+                        temp_marketing = MarketingModule("temp", "temp")
+                        expanded = temp_marketing._expand_channel_details(channel)
                         
                         # 온라인 채널
                         if expanded.get("online_channels"):
@@ -2332,18 +2445,6 @@ def display_new_product_recommendations(analysis_data):
                     keyword = keyword_data.get("keyword", "N/A")
                     rank = keyword_data.get("rank", "N/A")
                     st.write(f"{i}. **{keyword}** (순위: {rank})")
-    
-    # 인사이트
-    insight = new_product_data.get("insight", {})
-    if insight:
-        st.markdown("#### 💡 인사이트")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.write(f"**성별 요약:** {insight.get('gender_summary', 'N/A')}")
-        
-        with col2:
-            st.write(f"**연령 요약:** {insight.get('age_summary', 'N/A')}")
     
     # 제안 메뉴들
     proposals = new_product_data.get("proposals", [])
@@ -2635,10 +2736,12 @@ def generate_comprehensive_markdown(merged_data):
     # 3. Marketplace 분석
     marketplace_analysis = merged_data.get("marketplace_analysis", {})
     if marketplace_analysis:
+        # 상권명 사용 (spatial_matcher에서 이미 올바른 상권명으로 수정됨)
+        corrected_marketplace_name = marketplace_analysis.get('상권명', 'N/A')
+        
         md += f"""## 3. 상권 분석 (Marketplace Analysis)
 
 ### 기본 정보
-- 상권명: {marketplace_analysis.get('상권명', 'N/A')}
 - 분석일시: {marketplace_analysis.get('분석일시', 'N/A')}
 
 ### 상권 데이터
@@ -2731,6 +2834,21 @@ def generate_comprehensive_markdown(merged_data):
 # 사이드바: 분석 진행 상황 표시
 with st.sidebar:
     st.markdown("## 📊 분석 진행 상황")
+    
+    # 환경 변수 설정 안내
+    if not os.getenv("GEMINI_API_KEY") and not os.getenv("GOOGLE_API_KEY"):
+        st.error("⚠️ GEMINI_API_KEY 또는 GOOGLE_API_KEY가 설정되지 않았습니다!")
+        st.markdown("""
+        **환경 변수 설정 방법:**
+        1. 프로젝트 루트에 `.env` 파일 생성
+        2. 다음 내용 추가:
+        ```
+        GEMINI_API_KEY=your_gemini_api_key_here
+        GOOGLE_API_KEY=your_google_api_key_here
+        ```
+        3. 앱 재시작
+        """)
+        st.markdown("---")
     
     # 분석 상태 표시
     if st.session_state.get('is_analyzing', False):
@@ -2972,7 +3090,7 @@ with col2:
             # 분석 실행
             result = asyncio.run(run_full_analysis_pipeline(st.session_state.store_code))
             
-            # Marketing Agent는 상담 시작 단계에서 실행되도록 이동
+            # Marketing Module은 상담 시작 단계에서 실행되도록 이동
             
             # 분석 완료 후 결과 로드
             if result and result.get("status") == "success":
@@ -3066,73 +3184,55 @@ with col2:
                                     log_capture.add_log(f"Analysis Dir: {analysis_data['analysis_dir']}", "DEBUG")
                                     log_capture.add_log(f"MD 파일 크기: {len(merged_md)} bytes", "DEBUG")
                                     
-                                    # ===== 1단계: Marketing Agent 실행 =====
+                                    # ===== 1단계: Marketing Module 실행 =====
                                     print("\n" + "="*60)
-                                    print("[1/3] Marketing Agent 실행!")
+                                    print("[1/3] Marketing Module 실행!")
                                     print("="*60)
-                                    try:
-                                        log_capture.add_log("[1/3] Marketing Agent 분석 시작...", "INFO")
+                                    
+                                    # Marketing Module 결과가 이미 있는지 확인
+                                    marketing_file = Path(analysis_data.get("analysis_dir", "")) / "marketing_result.json"
+                                    if marketing_file.exists():
+                                        print(f"[INFO] Marketing result already exists: {marketing_file.name}")
+                                        log_capture.add_log(f"✅ Marketing Module 결과 이미 존재: {marketing_file.name}", "INFO")
                                         
-                                        # Store analysis에서 marketing format으로 변환
-                                        store_analysis = analysis_data.get("store_analysis")
-                                        if store_analysis and MARKETING_AGENT_AVAILABLE:
-                                            store_report = convert_store_to_marketing_format(store_analysis)
+                                        # 기존 결과 로드
+                                        with open(marketing_file, 'r', encoding='utf-8') as f:
+                                            marketing_result = json.load(f)
+                                        analysis_data["marketing_analysis"] = marketing_result
+                                        
+                                        # 프론트엔드 표시를 위해 marketing_result도 설정
+                                        analysis_data["marketing_result"] = marketing_result
+                                    else:
+                                        try:
+                                            log_capture.add_log("[1/3] Marketing Module 분석 시작...", "INFO")
                                             
-                                            if store_report:
-                                                # Marketing Agent 실행
-                                                agent = marketingagent(store_code)
-                                                
-                                                diagnostic = {
-                                                    "overall_risk_level": "MEDIUM",
-                                                    "detected_risks": [],
-                                                    "diagnostic_results": {}
-                                                }
-                                                
-                                                marketing_result = asyncio.run(agent.run_marketing(store_report, diagnostic))
-                                                
-                                                if marketing_result and not marketing_result.get("error"):
-                                                    # Enum을 문자열로 변환
-                                                    marketing_result = _convert_enums_to_strings(marketing_result)
-                                                    
-                                                    # analysis_data에 추가
-                                                    analysis_data["marketing_analysis"] = marketing_result
-                                                    
-                                                # Marketing Agent 결과를 파일로 저장
-                                                try:
-                                                    from pathlib import Path
-                                                    import json
-                                                    from datetime import datetime
-                                                    
-                                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
-                                                    output_dir = Path(__file__).parent.parent / "output"
-                                                    store_folders = sorted(
-                                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
-                                                        key=lambda x: x.name,
-                                                        reverse=True
+                                            # Store analysis에서 marketing format으로 변환
+                                            store_analysis = analysis_data.get("store_analysis")
+                                            if store_analysis:
+                                                # Marketing Module 실행 (JSON 2개 자동 저장)
+                                                if MARKETING_MODULE_AVAILABLE:
+                                                    marketing_result = run_marketing_sync(
+                                                        store_code, 
+                                                        analysis_data.get("analysis_dir", ""), 
+                                                        store_analysis
                                                     )
-                                                    
-                                                    if store_folders:
-                                                        latest_folder = store_folders[0]
-                                                        marketing_file = latest_folder / "marketing_result.json"  # 파일명 변경
-                                                        
-                                                        with open(marketing_file, 'w', encoding='utf-8') as f:
-                                                            json.dump(marketing_result, f, ensure_ascii=False, indent=2)
-                                                        
-                                                        log_capture.add_log(f"Marketing Agent 결과 저장: {marketing_file.name}", "OK")
-                                                    else:
-                                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
-                                                except Exception as save_error:
-                                                    log_capture.add_log(f"Marketing Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                                else:
+                                                    log_capture.add_log("Marketing Module을 사용할 수 없습니다 - GEMINI_API_KEY 또는 GOOGLE_API_KEY 환경 변수를 설정해주세요", "WARN")
+                                                    log_capture.add_log("기본 마케팅 결과를 생성합니다...", "INFO")
+                                                    marketing_result = None
                                                 
-                                                log_capture.add_log("✅ Marketing Agent 완료!", "SUCCESS")
+                                                if marketing_result:
+                                                    analysis_data["marketing_analysis"] = marketing_result
+                                                    analysis_data["marketing_result"] = marketing_result
+                                                    log_capture.add_log("✅ Marketing Module 완료!", "SUCCESS")
+                                                else:
+                                                    log_capture.add_log("Marketing Module 실패", "WARN")
                                             else:
-                                                log_capture.add_log("Marketing Agent 실패", "WARN")
-                                        else:
-                                            log_capture.add_log("Store report 변환 실패", "WARN")
-                                    except Exception as e:
-                                        log_capture.add_log(f"❌ Marketing Agent 오류: {str(e)}", "ERROR")
-                                        import traceback
-                                        traceback.print_exc()
+                                                log_capture.add_log("Store analysis 없음", "WARN")
+                                        except Exception as e:
+                                            log_capture.add_log(f"❌ Marketing Module 오류: {str(e)}", "ERROR")
+                                            import traceback
+                                            traceback.print_exc()
                                     
                                     # ===== 2단계: MCP 매장 검색 실행 =====
                                     print("\n" + "="*60)
@@ -3177,85 +3277,105 @@ with col2:
                                     print("\n" + "="*60)
                                     print("[3/3] New Product Agent 실행 (네이버 크롤링)")
                                     print("="*60)
-                                    # New Product Agent 실행 (Store 분석 결과가 있을 때만)
-                                    if analysis_data.get("store_analysis"):
-                                        try:
-                                            log_capture.add_log("[3/3] New Product Agent 실행 중 (네이버 크롤링)...", "INFO")
-                                            
-                                            # New Product Agent import 및 실행
-                                            import sys
-                                            from pathlib import Path
-                                            project_root = Path(__file__).parent.parent.parent
-                                            sys.path.insert(0, str(project_root))
-                                            
-                                            from agents_new.new_product_agent import NewProductAgent
-                                            
-                                            # New Product Agent 실행
-                                            agent = NewProductAgent(headless=True, save_outputs=True)
-                                            
-                                            # 이벤트 루프 처리 (타임아웃 적용)
-                                            new_product_result = None
-                                            
-                                            # 새 이벤트 루프를 만들어서 독립적으로 실행
-                                            loop = asyncio.new_event_loop()
-                                            asyncio.set_event_loop(loop)
-                                            
-                                            try:
-                                                # 타임아웃 없이 실행
-                                                new_product_result = loop.run_until_complete(agent.run(analysis_data["store_analysis"]))
-                                                log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
-                                            except Exception as e:
-                                                log_capture.add_log(f"New Product Agent 실행 중 에러: {e}", "ERROR")
-                                                new_product_result = {"activated": False, "error": str(e)}
-                                            finally:
-                                                try:
-                                                    loop.close()
-                                                except:
-                                                    pass
-                                            
-                                            if new_product_result:
-                                                analysis_data["new_product_result"] = new_product_result
-                                                
-                                                # New Product Agent 결과를 파일로 저장
-                                                try:
-                                                    from pathlib import Path
-                                                    import json
-                                                    
-                                                    # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
-                                                    output_dir = Path(__file__).parent.parent / "output"
-                                                    store_folders = sorted(
-                                                        [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
-                                                        key=lambda x: x.name,
-                                                        reverse=True
-                                                    )
-                                                    
-                                                    if store_folders:
-                                                        latest_folder = store_folders[0]
-                                                        new_product_file = latest_folder / "new_product_result.json"
-                                                        
-                                                        with open(new_product_file, 'w', encoding='utf-8') as f:
-                                                            json.dump(new_product_result, f, ensure_ascii=False, indent=2)
-                                                        
-                                                        log_capture.add_log(f"New Product Agent 결과 저장: {new_product_file.name}", "OK")
-                                                    else:
-                                                        log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
-                                                except Exception as save_error:
-                                                    log_capture.add_log(f"New Product Agent 결과 저장 실패: {str(save_error)}", "WARN")
-                                                
-                                                if new_product_result.get("activated"):
-                                                    log_capture.add_log(f"New Product Agent - {len(new_product_result.get('proposals', []))}개 제안", "SUCCESS")
-                                                else:
-                                                    log_capture.add_log(f"New Product Agent 비활성화: {new_product_result.get('reason', 'N/A')}", "INFO")
-                                            else:
-                                                log_capture.add_log("New Product Agent 결과 없음", "WARN")
-                                            
-                                        except Exception as e:
-                                            log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
-                                            analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
-                                            import traceback
-                                            traceback.print_exc()
+                                    
+                                    # New Product Agent 결과가 이미 있는지 확인
+                                    new_product_file = Path(analysis_data.get("analysis_dir", "")) / "new_product_result.json"
+                                    if new_product_file.exists():
+                                        print(f"[INFO] New Product result already exists: {new_product_file.name}")
+                                        log_capture.add_log(f"✅ New Product Agent 결과 이미 존재: {new_product_file.name}", "INFO")
+                                        
+                                        # 기존 결과 로드
+                                        with open(new_product_file, 'r', encoding='utf-8') as f:
+                                            new_product_result = json.load(f)
+                                        analysis_data["new_product_analysis"] = new_product_result
+                                        
+                                        # 프론트엔드 표시를 위해 new_product_result도 설정
+                                        analysis_data["new_product_result"] = new_product_result
+                                        
+                                        if new_product_result.get("activated"):
+                                            log_capture.add_log(f"New Product Agent - {len(new_product_result.get('proposals', []))}개 제안", "SUCCESS")
+                                        else:
+                                            log_capture.add_log(f"New Product Agent 비활성화: {new_product_result.get('reason', 'N/A')}", "INFO")
                                     else:
-                                        log_capture.add_log("Store 분석 결과 없음 - New Product Agent 건너뜀", "INFO")
+                                        # New Product Agent 실행 (Store 분석 결과가 있을 때만)
+                                        if analysis_data.get("store_analysis"):
+                                            try:
+                                                log_capture.add_log("[3/3] New Product Agent 실행 중 (네이버 크롤링)...", "INFO")
+                                                
+                                                # New Product Agent import 및 실행
+                                                import sys
+                                                from pathlib import Path
+                                                project_root = Path(__file__).parent.parent.parent
+                                                sys.path.insert(0, str(project_root))
+                                                
+                                                from agents_new.new_product_agent import NewProductAgent
+                                                
+                                                # New Product Agent 실행
+                                                agent = NewProductAgent(headless=True, save_outputs=True)
+                                                
+                                                # 이벤트 루프 처리 (타임아웃 적용)
+                                                new_product_result = None
+                                                
+                                                # 새 이벤트 루프를 만들어서 독립적으로 실행
+                                                loop = asyncio.new_event_loop()
+                                                asyncio.set_event_loop(loop)
+                                                
+                                                try:
+                                                    # 타임아웃 없이 실행
+                                                    new_product_result = loop.run_until_complete(agent.run(analysis_data["store_analysis"]))
+                                                    log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
+                                                except Exception as e:
+                                                    log_capture.add_log(f"New Product Agent 실행 중 에러: {e}", "ERROR")
+                                                    new_product_result = {"activated": False, "error": str(e)}
+                                                finally:
+                                                    try:
+                                                        loop.close()
+                                                    except:
+                                                        pass
+                                                
+                                                if new_product_result:
+                                                    analysis_data["new_product_result"] = new_product_result
+                                                    
+                                                    # New Product Agent 결과를 파일로 저장
+                                                    try:
+                                                        from pathlib import Path
+                                                        import json
+                                                        
+                                                        # output 폴더에서 해당 store_code의 최신 분석 폴더 찾기
+                                                        output_dir = Path(__file__).parent.parent / "output"
+                                                        store_folders = sorted(
+                                                            [f for f in output_dir.glob(f"analysis_{store_code}_*") if f.is_dir()],
+                                                            key=lambda x: x.name,
+                                                            reverse=True
+                                                        )
+                                                        
+                                                        if store_folders:
+                                                            latest_folder = store_folders[0]
+                                                            new_product_file = latest_folder / "new_product_result.json"
+                                                            
+                                                            with open(new_product_file, 'w', encoding='utf-8') as f:
+                                                                json.dump(new_product_result, f, ensure_ascii=False, indent=2)
+                                                            
+                                                            log_capture.add_log(f"New Product Agent 결과 저장: {new_product_file.name}", "OK")
+                                                        else:
+                                                            log_capture.add_log("출력 폴더를 찾을 수 없음", "WARN")
+                                                    except Exception as save_error:
+                                                        log_capture.add_log(f"New Product Agent 결과 저장 실패: {str(save_error)}", "WARN")
+                                                        
+                                                    if new_product_result.get("activated"):
+                                                        log_capture.add_log(f"New Product Agent - {len(new_product_result.get('proposals', []))}개 제안", "SUCCESS")
+                                                    else:
+                                                        log_capture.add_log(f"New Product Agent 비활성화: {new_product_result.get('reason', 'N/A')}", "INFO")
+                                                else:
+                                                    log_capture.add_log("New Product Agent 결과 없음", "WARN")
+                                                
+                                            except Exception as e:
+                                                log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
+                                                analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
+                                                import traceback
+                                                traceback.print_exc()
+                                        else:
+                                            log_capture.add_log("Store 분석 결과 없음 - New Product Agent 건너뜀", "INFO")
                                     
                                     # ===== 4단계: Langchain Consultation Chain 생성 =====
                                     # Langchain Consultation Chain 생성
@@ -3346,10 +3466,7 @@ with col2:
         # 초기 상태
         st.info("👈 왼쪽에서 상점 코드를 입력하세요!")
         
-        # 기존 분석 결과가 있는 상점 코드들을 동적으로 표시
-        st.markdown("### 📊 기존 분석 결과가 있는 상점 코드:")
-        
-        # output 폴더에서 기존 분석 결과 스캔
+        # 기존 분석 결과가 있는 상점 코드들을 간단히 표시
         output_dir = Path("open_sdk/output")
         existing_analyses = []
         
@@ -3363,19 +3480,34 @@ with col2:
                         # analysis_result.json 파일이 있는지 확인
                         result_file = analysis_folder / "analysis_result.json"
                         if result_file.exists():
+                            # 날짜를 YYYY-MM-DD 형식으로 포맷
+                            try:
+                                if len(parts) >= 3:
+                                    date_str = parts[2]  # YYYYMMDD
+                                    if len(date_str) == 8:
+                                        formatted_date = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"
+                                    else:
+                                        formatted_date = "N/A"
+                                else:
+                                    formatted_date = "N/A"
+                            except:
+                                formatted_date = "N/A"
+                            
                             existing_analyses.append({
                                 "store_code": store_code,
-                                "folder_name": analysis_folder.name,
-                                "analysis_date": parts[2] + "_" + parts[3] if len(parts) >= 4 else "N/A"
+                                "analysis_date": formatted_date
                             })
         
         if existing_analyses:
-            # 최신 순으로 정렬
+            # 최신 순으로 정렬 (날짜 기준)
             existing_analyses.sort(key=lambda x: x["analysis_date"], reverse=True)
             
-            # 상점 코드들을 표시
-            for analysis in existing_analyses:
-                st.code(f"{analysis['store_code']}  # 분석일: {analysis['analysis_date']}")
+            # 상점 코드들을 깔끔하게 표시
+            st.markdown("### 📊 기존 분석 결과")
+            cols = st.columns(3)
+            for i, analysis in enumerate(existing_analyses[:9]):  # 최대 9개만 표시
+                with cols[i % 3]:
+                    st.info(f"**{analysis['store_code']}**\n*{analysis['analysis_date']}*")
         else:
             st.info("기존 분석 결과가 없습니다.")
 

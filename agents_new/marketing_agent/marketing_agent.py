@@ -47,11 +47,21 @@ def convert_enums_to_json_serializable(obj: Any) -> Any:
 class marketingagent:
     """페르소나 기반 마케팅 전략 에이전트"""
     
-    def __init__(self, store_code: str):
+    def __init__(self, store_code: str, client=None):
         self.store_code = store_code
+        self.client = client
         self.persona_engine = PersonaEngine()
         self.risk_analyzer = RiskAnalyzer()
         self.strategy_generator = StrategyGenerator()
+        
+        # 클라이언트가 있으면 각 컴포넌트에 전달
+        if self.client:
+            if hasattr(self.persona_engine, 'client'):
+                self.persona_engine.client = self.client
+            if hasattr(self.risk_analyzer, 'client'):
+                self.risk_analyzer.client = self.client
+            if hasattr(self.strategy_generator, 'client'):
+                self.strategy_generator.client = self.client
     
     async def run_marketing(
         self,

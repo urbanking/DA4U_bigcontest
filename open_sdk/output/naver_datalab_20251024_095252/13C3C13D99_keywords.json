@@ -1,0 +1,121 @@
+{
+  "store_code": "13C3C13D99",
+  "crawled_at": "2025-10-24T09:52:52.456661",
+  "metadata": {
+    "industry": "커피전문점",
+    "commercial_area": "성동용답상가시장",
+    "target_gender": "남성",
+    "target_ages": [
+      "50대",
+      "30대",
+      "60대 이상"
+    ],
+    "categories": [
+      "농산물",
+      "음료"
+    ]
+  },
+  "keywords": [
+    {
+      "category": "농산물",
+      "rank": 1,
+      "keyword": "쌀20kg"
+    },
+    {
+      "category": "농산물",
+      "rank": 2,
+      "keyword": "쌀10kg"
+    },
+    {
+      "category": "농산물",
+      "rank": 3,
+      "keyword": "사과"
+    },
+    {
+      "category": "농산물",
+      "rank": 4,
+      "keyword": "송이버섯"
+    },
+    {
+      "category": "농산물",
+      "rank": 5,
+      "keyword": "고구마"
+    },
+    {
+      "category": "농산물",
+      "rank": 6,
+      "keyword": "능이버섯"
+    },
+    {
+      "category": "농산물",
+      "rank": 7,
+      "keyword": "쌀"
+    },
+    {
+      "category": "농산물",
+      "rank": 8,
+      "keyword": "샤인머스켓"
+    },
+    {
+      "category": "농산물",
+      "rank": 9,
+      "keyword": "밤"
+    },
+    {
+      "category": "농산물",
+      "rank": 10,
+      "keyword": "귤"
+    },
+    {
+      "category": "음료",
+      "rank": 1,
+      "keyword": "레몬즙"
+    },
+    {
+      "category": "음료",
+      "rank": 2,
+      "keyword": "두유"
+    },
+    {
+      "category": "음료",
+      "rank": 3,
+      "keyword": "생수"
+    },
+    {
+      "category": "음료",
+      "rank": 4,
+      "keyword": "맥심모카골드"
+    },
+    {
+      "category": "음료",
+      "rank": 5,
+      "keyword": "그릭요거트"
+    },
+    {
+      "category": "음료",
+      "rank": 6,
+      "keyword": "멸균우유"
+    },
+    {
+      "category": "음료",
+      "rank": 7,
+      "keyword": "쌍화차"
+    },
+    {
+      "category": "음료",
+      "rank": 8,
+      "keyword": "커피믹스"
+    },
+    {
+      "category": "음료",
+      "rank": 9,
+      "keyword": "생강청"
+    },
+    {
+      "category": "음료",
+      "rank": 10,
+      "keyword": "탄산수"
+    }
+  ],
+  "total_count": 20
+}

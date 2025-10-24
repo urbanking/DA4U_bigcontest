@@ -1,0 +1,17 @@
+{
+  "address": "서울특별시 성동구 고산자로6길 22",
+  "coordinates": [
+    37.5571635,
+    127.0351983
+  ],
+  "dong": "행당1동",
+  "marketplace": {
+    "상권명": "A",
+    "거리_m": 0
+  },
+  "visualization": {
+    "map_file": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\spatial_visualization\\spatial_map_20251024_084829.html",
+    "chart_file": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\spatial_visualization\\spatial_analysis_20251024_084829.png"
+  },
+  "status": "success"
+}

@@ -1,0 +1,17 @@
+{
+  "address": "서울  성동구  용답중앙15길  16",
+  "coordinates": [
+    37.5647022,
+    127.0541421
+  ],
+  "dong": "용답동",
+  "marketplace": {
+    "상권명": "R",
+    "거리_m": 0
+  },
+  "visualization": {
+    "map_file": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\spatial_visualization\\spatial_map_20251024_092149.html",
+    "chart_file": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\open_sdk\\output\\spatial_visualization\\spatial_analysis_20251024_092150.png"
+  },
+  "status": "success"
+}

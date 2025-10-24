@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "store_code": "EAD182F319",
+    "analysis_timestamp": "20251024_082929",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 아차산로13길 31",
+    "coordinates": [
+      37.5459231,
+      127.0615109
+    ],
+    "administrative_dong": "성수2가3동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 0
+    }
+  },
+  "store_summary": {
+    "store_name": "커피**",
+    "industry": "커피전문점",
+    "commercial_area": "성수초등학교",
+    "quality_score": 0.87
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 현재 활발한 도시 재개발 및 개발이 진행 중인 과도기적 특성을 보이며, 생활 밀착형 소규모 상점, 산업/서비스 시설, 그리고 비활성 구역이 혼재되어 있습니다. 전반적으로 상업 활동이 저조하고 차분하며 조용한 분위기가 지배적인 도심 외곽 지역입니다.",
+    "marketplace_type": "과도기적 혼합 상권",
+    "scores": {
+      "commercial_atmosphere": 3,
+      "street_atmosphere": 4,
+      "cleanliness": 5,
+      "maintenance": 5,
+      "walkability": 4,
+      "safety_perception": 5,
+      "business_diversity": 3,
+      "residential_suitability": 5,
+      "commercial_suitability": 4
+    },
+    "strengths": [
+      "재개발 및 개발이 진행 중으로, 향후 인프라 개선 및 인구 유입을 통한 상권 활성화 잠재력이 높음",
+      "중심에서 100m 내외의 비교적 가까운 거리로, 개발 완료 시 도심과의 연계성이 강화될 수 있음",
+      "일부 지역에 생활 밀착형 소규모 상점이 존재하여 기본적인 지역 주민 수요층이 있음"
+    ],
+    "weaknesses": [
+      "대부분의 지점에서 상점 수가 매우 적거나 없어 현재 상업 활동이 극히 저조하고 상권 활력이 낮음",
+      "재개발 및 공사 현장이 많아 환경이 불안정하고, 보행자 동선 및 시각적 매력이 떨어짐",
+      "업종 다양성이 부족하고 상권만의 뚜렷한 정체성이 없어 고객 유인 요소가 미약함"
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

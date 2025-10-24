@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "store_code": "EBE0962975",
+    "analysis_timestamp": "20251024_082838",
+    "analysis_type": "comprehensive_analysis"
+  },
+  "spatial_analysis": {
+    "address": "서울특별시 성동구 무학봉15길 27",
+    "coordinates": [
+      37.5636804,
+      127.0301981
+    ],
+    "administrative_dong": "왕십리2동",
+    "marketplace": {
+      "상권명": "A",
+      "거리_m": 10.722305474190819
+    }
+  },
+  "store_summary": {
+    "store_name": "이디***********************",
+    "industry": "커피전문점",
+    "commercial_area": "중심상권 아님",
+    "quality_score": 0.87
+  },
+  "panorama_summary": {
+    "area_characteristics": "이 지역은 조용하고 차분한 분위기의 주거 상업 혼합 지역으로, 주로 생활 밀착형 서비스와 의료 관련 상점들이 산재해 있습니다. 전반적으로 상업적 활력보다는 주거지의 편의성을 보완하는 근린 상권의 특성을 강하게 보입니다.",
+    "marketplace_type": "근린형 생활상가",
+    "scores": {
+      "commercial_atmosphere": 4,
+      "street_atmosphere": 6,
+      "cleanliness": 7,
+      "maintenance": 7,
+      "walkability": 7,
+      "safety_perception": 7,
+      "business_diversity": 3,
+      "residential_suitability": 8,
+      "commercial_suitability": 4
+    },
+    "strengths": [
+      "안정적인 주거 배후 수요가 존재하여 생활 밀착형 서비스에 대한 꾸준한 수요가 예상됩니다.",
+      "조용하고 쾌적한 주거 환경을 갖추고 있어 특정 니즈를 가진 주민들에게 어필할 수 있습니다.",
+      "경쟁이 낮은 편으로, 틈새시장 공략 시 초기 진입 장벽이 낮을 수 있습니다."
+    ],
+    "weaknesses": [
+      "매우 낮은 상업 활력도와 유동인구로 인해 불특정 다수를 대상으로 하는 업종은 성공하기 어렵습니다.",
+      "업종 다양성이 매우 제한적이며, 상점 수가 적어 상권으로서의 집객력이 현저히 낮습니다.",
+      "이면도로에 위치한 지점들이 많고 상점 간 연계성이 부족하여 상권 인지도가 낮습니다."
+    ],
+    "recommended_industries": null,
+    "expert_opinion": null
+  },
+  "marketplace_summary": {
+    "marketplace_name": "경수초등학교",
+    "store_count": null,
+    "sales_volume": null
+  },
+  "mobility_summary": {
+    "analysis_period": null,
+    "total_charts": 0
+  }
+}

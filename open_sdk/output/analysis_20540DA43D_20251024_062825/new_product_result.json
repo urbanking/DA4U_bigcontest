@@ -146,12 +146,12 @@
     {
       "category": "과자/베이커리",
       "rank": 5,
-      "keyword": "켈로그운빨존많겜"
+      "keyword": "화과자"
     },
     {
       "category": "과자/베이커리",
       "rank": 6,
-      "keyword": "화과자"
+      "keyword": "켈로그운빨존많겜"
     },
     {
       "category": "과자/베이커리",
@@ -161,12 +161,12 @@
     {
       "category": "과자/베이커리",
       "rank": 8,
-      "keyword": "메롱바"
+      "keyword": "마가렛트고구마"
     },
     {
       "category": "과자/베이커리",
       "rank": 9,
-      "keyword": "마가렛트고구마"
+      "keyword": "메롱바"
     },
     {
       "category": "과자/베이커리",
@@ -213,7 +213,7 @@
   },
   "proposals": [
     {
-      "menu_name": "쌀20kg 스무디",
+      "menu_name": "쌀20kg 쿠키",
       "category": "농산물",
       "target": {
         "gender": "남성",

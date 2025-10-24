@@ -520,6 +520,36 @@ async def run_panorama_analysis(address: str) -> Dict[str, Any]:
         return {"status": "failed", "error": str(e)}
 
 
+def load_latest_spatial_analysis() -> Dict[str, Any]:
+    """가장 최근 spatial_matcher JSON 결과 로드"""
+    try:
+        spatial_dir = project_root / "open_sdk" / "output" / "spatial_analysis"
+        
+        if not spatial_dir.exists():
+            print(f"[WARN] Spatial analysis directory not found: {spatial_dir}")
+            return None
+        
+        # 가장 최근 JSON 파일 찾기
+        json_files = list(spatial_dir.glob("spatial_analysis_*.json"))
+        if not json_files:
+            print(f"[WARN] No spatial analysis JSON files found")
+            return None
+        
+        # 파일명의 타임스탬프로 정렬하여 가장 최근 파일 선택
+        latest_file = max(json_files, key=lambda x: x.stem.split('_')[-1])
+        
+        print(f"[INFO] Loading latest spatial analysis: {latest_file.name}")
+        
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            spatial_data = json.load(f)
+        
+        return spatial_data
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load spatial analysis: {e}")
+        return None
+
+
 def get_marketplace_json(address: str, spatial_info: Dict[str, Any] = None) -> Dict[str, Any]:
     """Step 6: Marketplace Analysis (Mandatory) - Using spatial_matcher result"""
     print("\n" + "="*60)
@@ -529,6 +559,11 @@ def get_marketplace_json(address: str, spatial_info: Dict[str, Any] = None) -> D
     try:
         import shutil
         from datetime import datetime
+        
+        # spatial_matcher 결과가 없으면 최신 JSON 파일에서 로드
+        if not spatial_info:
+            print("[INFO] Loading spatial_matcher result from JSON file...")
+            spatial_info = load_latest_spatial_analysis()
         
         # Marketplace analysis results directory
         marketplace_dir = project_root / "agents_new" / "data outputs" / "상권분석서비스_결과"
@@ -560,60 +595,8 @@ def get_marketplace_json(address: str, spatial_info: Dict[str, Any] = None) -> D
         
         # Fallback to keyword matching if spatial_matcher result not available
         if not best_match:
-            print("[INFO] Spatial matcher result not available, using keyword matching...")
-            import re
-            
-            # Extract keywords from address
-            keywords = []
-            
-            # Extract station names (highest priority)
-            station_matches = re.findall(r'([가-힣]+역)', address)
-            keywords.extend(station_matches)
-            
-            # Road name based keywords
-            if "왕십리" in address:
-                keywords.extend(["왕십리역", "상왕십리역", "왕십리"])
-            if "성수" in address or "서울숲" in address:
-                keywords.extend(["성수역", "서울숲역", "뚝섬역"])
-            if "금호" in address:
-                keywords.extend(["금호역", "신금호역"])
-            if "옥수" in address:
-                keywords.append("옥수역")
-            if "행당" in address or "한양대" in address:
-                keywords.extend(["행당역", "한양대역"])
-            if "마장" in address:
-                keywords.append("마장역")
-            if "답십리" in address:
-                keywords.append("답십리역")
-            
-            keywords = list(set(keywords))
-            print(f"Search keywords: {keywords}")
-            
-            # Keyword-based scoring
-            best_score = 0
-            
-            for json_file in json_files:
-                filename = json_file.stem
-                score = 0
-                
-                for keyword in keywords:
-                    if keyword in filename:
-                        # Higher score for exact station name match
-                        if keyword.endswith("역"):
-                            score += len(keyword) * 5
-                        else:
-                            score += len(keyword) * 2
-                
-                if score > best_score:
-                    best_score = score
-                    best_match = json_file
-            
-            if best_match and best_score > 0:
-                print(f"[OK] Keyword matching successful: {best_match.name} (score: {best_score})")
-            else:
-                # Use first file if no match found
-                print(f"[WARN] No keyword match found, using default file")
-                best_match = json_files[0]
+            print("[ERROR] Spatial matcher result not available and no fallback matching")
+            return {"status": "no_spatial_match", "error": "Spatial matcher result required for accurate marketplace matching"}
         
         print(f"[OK] Selected marketplace: {best_match.name}")
         
@@ -847,17 +830,20 @@ async def run_full_analysis_pipeline(store_code: str) -> Dict[str, Any]:
             print(f"[OK] Administrative dong: {dong}")
             print(f"[OK] Marketplace: {marketplace_info.get('상권명') if marketplace_info else 'N/A'}")
             print(f"[OK] Visualization: map/chart generated")
+            print(f"[OK] Spatial analysis JSON saved for marketplace matching")
         else:
             print(f"[WARN] spatial_matcher failed, using default values")
             dong = "왕십리2동"  # Default
             marketplace_info = None
             visualization_files = None
+            spatial_info = None
             
     except Exception as e:
         print(f"[WARN] spatial_matcher error: {e}")
         dong = "왕십리2동"  # Default
         marketplace_info = None
         visualization_files = None
+        spatial_info = None
     
     # Step 1: Store Agent analysis
     store_analysis = await run_store_analysis(store_code)

@@ -1,0 +1,226 @@
+{
+  "report_metadata": {
+    "store_code": "EBE0962975",
+    "analysis_date": "2025-10-24 08:26:38",
+    "agent_name": "StoreAgent",
+    "report_version": "1.0",
+    "quality_score": 0.8700000000000001
+  },
+  "store_overview": {
+    "code": "EBE0962975",
+    "name": "이디***********************",
+    "address": "서울 성동구 무학봉15길 27",
+    "industry": "커피전문점",
+    "brand": "커피전문점",
+    "commercial_area": "중심상권 아님",
+    "record_months": 24,
+    "operating_months": 40.6,
+    "store_age": "성숙 매장"
+  },
+  "sales_analysis": {
+    "trends": {
+      "sales_amount": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "sales_count": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      },
+      "unique_customers": {
+        "trend": "상승 추세",
+        "stability": "불안정",
+        "data_points": 24
+      },
+      "avg_transaction": {
+        "trend": "안정 추세",
+        "stability": "매우 안정적",
+        "data_points": 24
+      }
+    },
+    "industry_comparison": {
+      "same_industry_sales_amount": {
+        "trend": "하락 추세",
+        "average": 170.4
+      },
+      "same_industry_sales_count": {
+        "trend": "하락 추세",
+        "average": 198.0
+      }
+    },
+    "rankings": {
+      "industry_rank": {
+        "trend": "순위 안정",
+        "average": 9.5
+      },
+      "commercial_rank": {
+        "trend": "순위 안정",
+        "average": 0.0
+      }
+    },
+    "cancellation_analysis": {
+      "average_grade": 3.6,
+      "grade_distribution": {
+        "5.0": 7,
+        "3.0": 6,
+        "4.0": 5,
+        "2.0": 3,
+        "1.0": 2,
+        "6.0": 1
+      },
+      "recommendation": "취소율이 높습니다. 주문 확인 프로세스 개선, 배달 시간 단축, 고객 서비스 강화를 권장합니다."
+    },
+    "delivery_analysis": {
+      "trend": "안정 추세",
+      "average": 7.7
+    }
+  },
+  "customer_analysis": {
+    "gender_distribution": {
+      "male_ratio": 43.9,
+      "female_ratio": 56.2
+    },
+    "age_group_distribution": {
+      "20대 이하": 27.9,
+      "30대": 23.9,
+      "40대": 13.6,
+      "50대": 18.1,
+      "60대 이상": 16.6
+    },
+    "detailed_customer_ratios": {
+      "여20대이하": 15.7,
+      "여30대": 13.4,
+      "남20대이하": 12.2,
+      "남30대": 10.5,
+      "여50대": 10.2,
+      "여60대이상": 9.3,
+      "남50대": 7.9,
+      "여40대": 7.6,
+      "남60대이상": 7.3,
+      "남40대": 6.0
+    },
+    "customer_type_analysis": {
+      "new_customers": {
+        "ratio": 5.9,
+        "trend": "안정 추세"
+      },
+      "returning_customers": {
+        "ratio": 35.1,
+        "trend": "하락 추세"
+      },
+      "customer_distribution": {
+        "residential": 58.5,
+        "workplace": 5.0,
+        "floating": 36.5
+      }
+    }
+  },
+  "commercial_area_analysis": {
+    "commercial_area": "중심상권 아님",
+    "analysis_available": false,
+    "total_stores_in_area": 0,
+    "average_sales_analysis": {},
+    "termination_analysis": {},
+    "average_customer_segments": {}
+  },
+  "industry_analysis": {
+    "industry": "커피전문점",
+    "analysis_available": true,
+    "total_stores_in_industry": 182,
+    "average_sales_analysis": {
+      "sales_amount_trend": "안정 추세",
+      "sales_count_trend": "안정 추세",
+      "unique_customers_trend": "안정 추세",
+      "avg_transaction_trend": "안정 추세"
+    },
+    "termination_analysis": {
+      "termination_ratio": 15.05,
+      "industry_health": "보통 업종"
+    },
+    "delivery_analysis": {
+      "average_delivery_ratio": 10.11,
+      "delivery_trend": "안정 추세"
+    },
+    "average_customer_segments": {
+      "남20대이하": 14.6,
+      "남30대": 15.7,
+      "남40대": 8.9,
+      "남50대": 6.7,
+      "남60대이상": 3.2,
+      "여20대이하": 15.9,
+      "여30대": 15.9,
+      "여40대": 9.4,
+      "여50대": 6.7,
+      "여60대이상": 3.0
+    }
+  },
+  "summary": {
+    "key_insights": [
+      "매출 트렌드: 안정 추세",
+      "업종 내 순위: 순위 안정",
+      "주 고객층: 여성 고객 중심",
+      "업종 건강도: 보통 업종"
+    ],
+    "main_problems": [
+      "높은 취소율"
+    ],
+    "recommendations": [
+      {
+        "category": "운영 개선",
+        "priority": "높음",
+        "target": "전체 고객",
+        "action": "취소율 감소 프로그램",
+        "specific_actions": [
+          "주문 확인 시스템 개선 (2단계 확인)",
+          "예상 대기시간 정확한 안내",
+          "취소 시 포인트 적립 혜택 제공",
+          "배달 시간 단축 (30분 이내 목표)"
+        ],
+        "expected_impact": "취소율 3.6 → 2.0 이하"
+      },
+      {
+        "category": "배달 서비스",
+        "priority": "중간",
+        "target": "배달 매출 확대",
+        "action": "배달 서비스 강화",
+        "specific_actions": [
+          "배달 전용 메뉴 개발",
+          "배달 앱 최적화",
+          "배달 포장재 개선",
+          "배달료 할인 이벤트"
+        ],
+        "expected_impact": "배달 매출 비율 10.1% → 40% 이상"
+      }
+    ]
+  },
+  "visualizations": {
+    "chart_files": {
+      "sales_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_sales_trend_20251024_082638.png",
+      "gender_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_gender_pie_20251024_082638.png",
+      "age_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_age_pie_20251024_082638.png",
+      "detailed_pie": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_detailed_pie_20251024_082638.png",
+      "ranking_trend": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_ranking_trend_20251024_082638.png",
+      "customer_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_customer_trends_20251024_082638.png",
+      "new_returning_trends": "C:\\ㅈ\\DA4U\\bigcontest_ai_agent\\agents_new\\store_agent\\outputs\\charts\\EBE0962975_new_returning_trends_20251024_082638.png"
+    },
+    "available_charts": [
+      "sales_trend",
+      "gender_pie",
+      "age_pie",
+      "detailed_pie",
+      "ranking_trend",
+      "customer_trends",
+      "new_returning_trends"
+    ]
+  },
+  "evaluation": {
+    "quality_score": 0.87,
+    "completeness": 1.0,
+    "accuracy": 0.9,
+    "relevance": 0.7,
+    "actionability": 0.8,
+    "feedback": "매장 분석이 완료되었습니다. 완성도: 1.0, 정확성: 0.9, 관련성: 0.7, 실행가능성: 0.8"
+  }
+}
