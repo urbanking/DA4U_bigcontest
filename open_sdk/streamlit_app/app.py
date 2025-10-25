@@ -1162,9 +1162,18 @@ def load_analysis_data_from_output(store_code):
         
         if "store_analysis" in data and data["store_analysis"]:
             try:
-                commercial_area_name = data["store_analysis"].get("json_output", {}).get("store_overview", {}).get("commercial_area", None)
+                store_analysis = data["store_analysis"]
+                # 먼저 store_overview에서 직접 확인
+                if "store_overview" in store_analysis:
+                    commercial_area_name = store_analysis["store_overview"].get("commercial_area", None)
+                # 없으면 json_output 안에서 확인
+                elif "json_output" in store_analysis and "store_overview" in store_analysis["json_output"]:
+                    commercial_area_name = store_analysis["json_output"]["store_overview"].get("commercial_area", None)
+                
                 if commercial_area_name:
                     print(f"[INFO] 상권명 확인: {commercial_area_name}")
+                else:
+                    print(f"[WARN] 상권명을 찾을 수 없습니다.")
             except Exception as e:
                 print(f"[WARN] 상권명 추출 실패: {e}")
         
@@ -4588,7 +4597,10 @@ with col2:
                         with col3:
                             st.metric("추출 페이지", marketplace_data.get("추출_페이지", "N/A"))
                         with col4:
-                            st.metric("분석일시", marketplace_data.get("분석일시", "N/A").split("T")[0] if marketplace_data.get("분석일시") else "N/A")
+                            analysis_date = marketplace_data.get("분석일시", "N/A")
+                            if analysis_date and isinstance(analysis_date, str):
+                                analysis_date = analysis_date.split("T")[0] if "T" in analysis_date else analysis_date
+                            st.metric("분석일시", analysis_date)
                         
                         # 종합의견 및 주요 지표
                         if "데이터" in marketplace_data:
@@ -4606,62 +4618,119 @@ with col2:
                                     # 면적 정보
                                     if "면적" in item:
                                         area = item["면적"]
+                                        st.markdown("**📐 면적 정보**")
                                         col1, col2 = st.columns(2)
                                         with col1:
-                                            st.metric("선택 면적", f"{area.get('선택', 0):,}㎡")
+                                            selected_area = area.get('선택', 0)
+                                            st.metric("선택 면적", f"{selected_area:,}㎡", 
+                                                     help="분석 대상으로 선택된 면적")
                                         with col2:
-                                            st.metric("분석 면적", f"{area.get('분석', 0):,}㎡")
+                                            analyzed_area = area.get('분석', 0)
+                                            st.metric("분석 면적", f"{analyzed_area:,}㎡",
+                                                     help="실제로 분석이 수행된 면적")
                                     
                                     # 점포수 정보
                                     if "점포수" in item:
                                         store_count = item["점포수"]
+                                        st.markdown("---")
                                         st.markdown("##### 🏪 점포수 분석")
+                                        
+                                        current_count = store_count.get('현재', {})
+                                        current_value = current_count.get('값', 0)
+                                        qoq_change = store_count.get('전분기대비', {}).get('변화', 0)
+                                        yoy_change = store_count.get('전년동분기대비', {}).get('변화', 0)
                                         
                                         col1, col2, col3, col4 = st.columns(4)
                                         with col1:
-                                            st.metric("현재 점포수", f"{store_count.get('현재', {}).get('값', 0):,}개", 
-                                                     delta=f"{store_count.get('전분기대비', {}).get('변화', 0):+}개" if store_count.get('전분기대비') else None)
+                                            delta_str = f"{qoq_change:+}개" if qoq_change != 0 else None
+                                            st.metric("현재 점포수", f"{current_value:,}개", delta=delta_str,
+                                                     help=f"전분기 대비 {qoq_change:+}개 변화")
                                         with col2:
-                                            yoy_change = store_count.get('전년동분기대비', {}).get('변화', 0)
-                                            st.metric("전년대비", f"{yoy_change:+}개" if yoy_change != 0 else "0개")
+                                            st.metric("전년대비", f"{yoy_change:+}개" if yoy_change != 0 else "0개",
+                                                     help=f"전년 동분기 대비 {yoy_change:+}개 변화")
                                         with col3:
-                                            st.metric("순위", store_count.get('순위', 'N/A'))
+                                            rank = store_count.get('순위', 'N/A')
+                                            st.metric("순위", rank,
+                                                     help="서울시 전체 상권 대비 순위")
                                         with col4:
-                                            st.metric("기준", store_count.get('현재', {}).get('기준', 'N/A'))
+                                            criterion = current_count.get('기준', 'N/A')
+                                            st.metric("기준", criterion,
+                                                     help="데이터 집계 기준 시기")
+                                        
+                                        # 인사이트
+                                        if qoq_change > 0:
+                                            st.info(f"💡 점포수가 {qoq_change}개 증가했습니다. 상권이 확장되고 있는 시기로, 경쟁 관계 변화에 유의하세요.")
+                                        elif qoq_change < 0:
+                                            st.warning(f"⚠️ 점포수가 {abs(qoq_change)}개 감소했습니다. 상권 축소 가능성을 모니터링하세요.")
                                     
                                     # 매출액 정보
                                     if "매출액" in item:
                                         sales = item["매출액"]
+                                        st.markdown("---")
                                         st.markdown("##### 💰 매출액 분석")
+                                        
+                                        current_sales = sales.get('현재', {})
+                                        current_value = current_sales.get('값', 0)
+                                        qoq_change = sales.get('전분기대비', {}).get('변화', 0)
+                                        yoy_change = sales.get('전년동분기대비', {}).get('변화', 0)
                                         
                                         col1, col2, col3, col4 = st.columns(4)
                                         with col1:
-                                            st.metric("현재 매출액", f"{sales.get('현재', {}).get('값', 0):,}만원",
-                                                     delta=f"{sales.get('전분기대비', {}).get('변화', 0):+}만원" if sales.get('전분기대비') else None)
+                                            delta_str = f"{qoq_change:+}만원" if qoq_change != 0 else None
+                                            st.metric("현재 매출액", f"{current_value:,}만원", delta=delta_str,
+                                                     help=f"전분기 대비 {qoq_change:+}만원 변화")
                                         with col2:
-                                            yoy_change = sales.get('전년동분기대비', {}).get('변화', 0)
-                                            st.metric("전년대비", f"{yoy_change:+}만원" if yoy_change != 0 else "0만원")
+                                            st.metric("전년대비", f"{yoy_change:+}만원" if yoy_change != 0 else "0만원",
+                                                     help=f"전년 동분기 대비 {yoy_change:+}만원 변화")
                                         with col3:
-                                            st.metric("순위", sales.get('순위', 'N/A'))
+                                            rank = sales.get('순위', 'N/A')
+                                            st.metric("순위", rank,
+                                                     help="서울시 전체 상권 대비 순위")
                                         with col4:
-                                            st.metric("기준", sales.get('현재', {}).get('기준', 'N/A'))
+                                            criterion = current_sales.get('기준', 'N/A')
+                                            st.metric("기준", criterion,
+                                                     help="데이터 집계 기준 시기")
+                                        
+                                        # 인사이트
+                                        if yoy_change < 0:
+                                            st.warning(f"⚠️ 전년 대비 매출액이 {abs(yoy_change)}만원 감소했습니다. 경쟁 환경 변화 또는 소비 패턴 변화를 고려해보세요.")
+                                        elif qoq_change > 0:
+                                            st.info(f"💡 전분기 대비 매출액이 {qoq_change}만원 증가했습니다. 상권 활성화 추세입니다.")
                                     
                                     # 유동인구 정보
                                     if "유동인구" in item:
                                         flow = item["유동인구"]
+                                        st.markdown("---")
                                         st.markdown("##### 👥 유동인구 분석")
+                                        
+                                        current_flow = flow.get('현재', {})
+                                        current_value = current_flow.get('값', 0)
+                                        qoq_change = flow.get('전분기대비', {}).get('변화', 0)
+                                        yoy_change = flow.get('전년동분기대비', {}).get('변화', 0)
                                         
                                         col1, col2, col3, col4 = st.columns(4)
                                         with col1:
-                                            st.metric("현재 유동인구", f"{flow.get('현재', {}).get('값', 0):,}명",
-                                                     delta=f"{flow.get('전분기대비', {}).get('변화', 0):+}명" if flow.get('전분기대비') else None)
+                                            delta_str = f"{qoq_change:+,}명" if qoq_change != 0 else None
+                                            st.metric("현재 유동인구", f"{current_value:,}명", delta=delta_str,
+                                                     help=f"전분기 대비 {qoq_change:+,}명 변화")
                                         with col2:
-                                            yoy_change = flow.get('전년동분기대비', {}).get('변화', 0)
-                                            st.metric("전년대비", f"{yoy_change:+}명" if yoy_change != 0 else "0명")
+                                            st.metric("전년대비", f"{yoy_change:+,}명" if yoy_change != 0 else "0명",
+                                                     help=f"전년 동분기 대비 {yoy_change:+,}명 변화")
                                         with col3:
-                                            st.metric("순위", flow.get('순위', 'N/A'))
+                                            rank = flow.get('순위', 'N/A')
+                                            st.metric("순위", rank,
+                                                     help="서울시 전체 상권 대비 순위")
                                         with col4:
-                                            st.metric("기준", flow.get('현재', {}).get('기준', 'N/A'))
+                                            criterion = current_flow.get('기준', 'N/A')
+                                            st.metric("기준", criterion,
+                                                     help="데이터 집계 기준 시기")
+                                        
+                                        # 인사이트
+                                        if abs(yoy_change) > 100000:
+                                            if yoy_change < 0:
+                                                st.error(f"🚨 전년 대비 유동인구가 {abs(yoy_change):,}명 크게 감소했습니다. 상권 침체 가능성을 면밀히 모니터링하세요.")
+                                            else:
+                                                st.success(f"✅ 전년 대비 유동인구가 {yoy_change:,}명 크게 증가했습니다. 상권 활성도가 높아지고 있습니다.")
                                     
                                     break
                             
@@ -4676,18 +4745,18 @@ with col2:
                                 item_type = item.get("유형", "N/A")
                                 title = item.get("제목", "")
                                 
-                                with st.expander(f"페이지 {page_num}: {title or item_type}", expanded=False):
+                                with st.expander(f"📄 페이지 {page_num}: {title or item_type}", expanded=False):
                                     st.write(f"**유형:** {item_type}")
                                     
                                     # 제목이 있으면 표시
                                     if title:
-                                        st.write(f"**제목:** {title}")
+                                        st.markdown(f"**제목:** {title}")
                                     
                                     # 설명 정보
                                     if "설명" in item:
                                         descriptions = item.get("설명", [])
                                         if descriptions:
-                                            st.markdown("**설명:**")
+                                            st.markdown("**💬 설명**")
                                             for desc in descriptions:
                                                 st.write(f"- {desc}")
                                     
@@ -4695,20 +4764,91 @@ with col2:
                                     if "비교" in item:
                                         comparisons = item.get("비교", [])
                                         if comparisons:
-                                            st.markdown("**비교 정보:**")
+                                            st.markdown("---")
+                                            st.markdown("**📊 비교 정보**")
+                                            
+                                            # 비교 정보를 테이블 형태로 표시
+                                            comparison_data = []
                                             for comp in comparisons:
-                                                st.write(f"- {comp.get('기준', 'N/A')}: {comp.get('변화', 'N/A')} {comp.get('단위', '')}")
+                                                benchmark = comp.get('기준', 'N/A')
+                                                change = comp.get('변화', 'N/A')
+                                                unit = comp.get('단위', '')
+                                                
+                                                # 숫자인 경우 포맷팅
+                                                if isinstance(change, (int, float)):
+                                                    if abs(change) >= 1000:
+                                                        change_str = f"{change:,.1f}"
+                                                    else:
+                                                        change_str = f"{change:.2f}" if isinstance(change, float) else str(change)
+                                                else:
+                                                    change_str = str(change)
+                                                
+                                                comparison_data.append({
+                                                    "기준": benchmark,
+                                                    "변화": f"{change_str} {unit}"
+                                                })
+                                            
+                                            st.table(comparison_data)
                                     
                                     # 점포당 월평균 매출건수
                                     if "점포당월평균매출건수" in item:
                                         sales_count = item["점포당월평균매출건수"]
-                                        st.metric("점포당 월평균 매출건수", 
-                                                 f"{sales_count.get('값', 0):,}{sales_count.get('단위', '건')}")
+                                        st.markdown("---")
+                                        st.markdown("**💰 매출 건수 정보**")
+                                        count_value = sales_count.get('값', 0)
+                                        count_unit = sales_count.get('단위', '건')
+                                        st.metric("점포당 월평균 매출건수", f"{count_value:,}{count_unit}",
+                                                 help="상권 내 점포의 월평균 거래 건수")
+                                        
+                                        # 인사이트
+                                        if count_value >= 500:
+                                            st.info(f"💡 월평균 {count_value}건의 거래가 발생하는 활발한 상권입니다.")
+                                        elif count_value < 200:
+                                            st.warning(f"⚠️ 월평균 {count_value}건으로 거래 빈도가 상대적으로 낮습니다.")
                                     
                                     # 개업/폐업 정보
                                     if "페업수" in item:
                                         close_count = item["페업수"]
-                                        st.metric("폐업수", f"{close_count.get('값', 0):,}{close_count.get('단위', '개')}")
+                                        st.markdown("---")
+                                        st.markdown("**🚪 폐업 현황**")
+                                        close_value = close_count.get('값', 0)
+                                        close_unit = close_count.get('단위', '개')
+                                        st.metric("폐업수", f"{close_value:,}{close_unit}")
+                                    
+                                    # 신생기업생존율 정보
+                                    if title and "신생기업생존율" in title:
+                                        if "비교" in item:
+                                            comparisons = item.get("비교", [])
+                                            seoul_bench = None
+                                            district_bench = None
+                                            
+                                            for comp in comparisons:
+                                                benchmark = comp.get('기준', '')
+                                                change = comp.get('변화', 0)
+                                                
+                                                if "서울시대비" in benchmark:
+                                                    seoul_bench = change
+                                                elif "자치구대비" in benchmark:
+                                                    district_bench = change
+                                            
+                                            st.markdown("---")
+                                            st.markdown("**📈 생존율 비교 분석**")
+                                            
+                                            if seoul_bench is not None:
+                                                st.metric("서울시 평균 대비", f"{seoul_bench:.1f}년",
+                                                         delta="서울시 평균보다 낮음" if seoul_bench < 0 else "서울시 평균보다 높음",
+                                                         help="서울시 평균 영업 기간과의 차이")
+                                            
+                                            if district_bench is not None:
+                                                st.metric("자치구 평균 대비", f"{district_bench:.1f}년",
+                                                         delta="자치구 평균보다 낮음" if district_bench < 0 else "자치구 평균보다 높음",
+                                                         help="자치구 평균 영업 기간과의 차이")
+                                            
+                                            # 인사이트
+                                            if seoul_bench and seoul_bench < 0:
+                                                st.warning(f"⚠️ 서울시 평균보다 {abs(seoul_bench):.1f}년 짧은 영업 기간을 보입니다. 이 업종의 경쟁력이 부족할 수 있습니다.")
+                                            elif seoul_bench and seoul_bench > 0:
+                                                st.success(f"✅ 서울시 평균보다 {seoul_bench:.1f}년 긴 영업 기간을 보입니다. 안정적인 상권으로 판단됩니다.")
                     else:
                         st.json(marketplace_data)
                 else:
