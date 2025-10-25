@@ -4172,7 +4172,7 @@ with col2:
 
             if not st.session_state.consultation_mode:
 
-                if st.button("💬 상담 시작 (파노라마→마케팅→MCP→크롤링)", type="primary", use_container_width=True):
+                if st.button("💬 상담 시작 (분석 3~5분 소요)", type="primary", use_container_width=True):
                     print(f"[INFO] 상담 모드 시작 요청: {store_code}")
 
                     if AGENTS_AVAILABLE:
@@ -4502,9 +4502,9 @@ with col2:
 
             # 탭으로 상세 결과 표시 (시각화 탭 제거)
 
-            tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+            tab1, tab2, tab3, tab4, tab5, tab6, tab7= st.tabs([
 
-                "개요", "고객 분석", "이동 패턴", "지역 분석", "상권 분석", "마케팅", "신메뉴 추천", "파노라마 분석"
+                "개요", "고객 분석", "이동 패턴", "지역 분석", "상권 분석", "마케팅", "신메뉴 추천"
 
             ])
 
@@ -4636,91 +4636,7 @@ with col2:
                 else:
                     st.info("신메뉴 추천 데이터가 없습니다.")
 
-            with tab8:
-                st.markdown("#### 🏙️ 파노라마 분석")
-                
-                # 기존 분석 결과에서 파노라마 분석 데이터 확인
-                if "panorama_analysis" in analysis_data:
-                    panorama_data = analysis_data["panorama_analysis"]
-                    
-                    if "error" not in panorama_data:
-                        # 메타데이터 표시
-                        if "metadata" in panorama_data:
-                            metadata = panorama_data["metadata"]
-                            col1, col2 = st.columns(2)
-                            
-                            with col1:
-                                st.metric("분석 주소", metadata.get("input_address", "N/A"))
-                                st.metric("분석 반경", f"{metadata.get('buffer_meters', 0)}m")
-                            
-                            with col2:
-                                st.metric("발견된 이미지", f"{metadata.get('total_images_found', 0)}개")
-                                st.metric("분석된 이미지", f"{metadata.get('images_analyzed', 0)}개")
-                        
-                        # 종합 분석 결과 표시
-                        if "synthesis" in panorama_data:
-                            synthesis = panorama_data["synthesis"]
-                            
-                            if "area_summary" in synthesis:
-                                area_summary = synthesis["area_summary"]
-                                st.markdown("##### 📍 지역 특성")
-                                st.write(f"**지역 유형:** {area_summary.get('dominant_zone_type', 'N/A')}")
-                                st.write(f"**상권 유형:** {area_summary.get('primary_commercial_type', 'N/A')}")
-                                st.write(f"**전체 특성:** {area_summary.get('overall_character', 'N/A')}")
-                            
-                            if "comprehensive_scores" in synthesis:
-                                scores = synthesis["comprehensive_scores"]
-                                st.markdown("##### 📊 종합 점수")
-                                
-                                col1, col2, col3 = st.columns(3)
-                                
-                                with col1:
-                                    st.metric("상권 분위기", f"{scores.get('commercial_atmosphere', 0)}/10")
-                                    st.metric("도로 분위기", f"{scores.get('street_atmosphere', 0)}/10")
-                                
-                                with col2:
-                                    st.metric("청결도", f"{scores.get('cleanliness', 0)}/10")
-                                    st.metric("보행 편의성", f"{scores.get('walkability', 0)}/10")
-                                
-                                with col3:
-                                    st.metric("업종 다양성", f"{scores.get('business_diversity', 0)}/10")
-                                    st.metric("상업 적합도", f"{scores.get('commercial_suitability', 0)}/10")
-                            
-                            if "detailed_assessment" in synthesis:
-                                assess = synthesis["detailed_assessment"]
-                                
-                                col1, col2 = st.columns(2)
-                                
-                                with col1:
-                                    st.markdown("##### 💪 강점")
-                                    for strength in assess.get('strengths', [])[:3]:
-                                        st.write(f"• {strength}")
-                                
-                                with col2:
-                                    st.markdown("##### ⚠️ 약점")
-                                    for weakness in assess.get('weaknesses', [])[:3]:
-                                        st.write(f"• {weakness}")
-                                
-                                st.markdown("##### 🏪 추천 업종")
-                                for biz in assess.get('recommended_business_types', [])[:3]:
-                                    st.write(f"• {biz}")
-                            
-                            if "final_recommendation" in synthesis:
-                                st.markdown("##### 💡 전문가 종합 의견")
-                                st.write(synthesis["final_recommendation"])
-                        
-                        # 지도 링크 표시
-                        if "output_folder" in panorama_data:
-                            output_folder = panorama_data["output_folder"]
-                            map_path = f"{output_folder}/analysis_map.html"
-                            if os.path.exists(map_path):
-                                st.markdown("##### 🗺️ 분석 지도")
-                                st.markdown(f"[지도 보기]({map_path})")
-                    else:
-                        st.error(f"파노라마 분석 실패: {panorama_data['error']}")
-                else:
-                    st.info("파노라마 분석 데이터가 없습니다. 상점 코드를 입력하면 자동으로 파노라마 분석이 실행됩니다.")
-
+            
     
 
     else:
@@ -4780,19 +4696,3 @@ with col2:
 
         
 
-        if existing_analyses:
-
-            # 최신 순으로 정렬 (날짜 기준)
-            existing_analyses.sort(key=lambda x: x["analysis_date"], reverse=True)
-
-            
-
-            # 상점 코드들을 깔끔하게 표시
-            st.markdown("### 📊 기존 분석 결과")
-            cols = st.columns(3)
-            for i, analysis in enumerate(existing_analyses[:9]):  # 최대 9개만 표시
-                with cols[i % 3]:
-                    st.info(f"**{analysis['store_code']}**\n*{analysis['analysis_date']}*")
-        else:
-
-            st.info("기존 분석 결과가 없습니다.")
