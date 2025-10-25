@@ -2861,6 +2861,12 @@ def display_panorama_analysis(analysis_data):
         st.info("파노라마 분석 데이터가 없습니다.")
 
         return
+    
+    # Get analysis directory for image loading
+    analysis_dir_str = analysis_data.get("analysis_dir", "")
+    panorama_images_dir = None
+    if analysis_dir_str:
+        panorama_images_dir = Path(analysis_dir_str) / "panorama" / "images"
 
     
 
@@ -2969,21 +2975,59 @@ def display_panorama_analysis(analysis_data):
     # panorama_analysis에서 직접 이미지 경로 추출
     panorama_images_list = []
     
+    # 0. panorama/images 폴더에서 모든 이미지 파일 자동 로드
+    if panorama_images_dir and panorama_images_dir.exists():
+        image_files = sorted([f for f in panorama_images_dir.iterdir() 
+                             if f.is_file() and f.suffix.lower() in ['.jpg', '.jpeg', '.png']])
+        for img_file in image_files[:10]:  # 최대 10개
+            panorama_images_list.append({
+                "path": str(img_file),
+                "name": img_file.name
+            })
+    
+    # 1. individual_analyses 배열에서 이미지 추출
     if "panorama_analysis" in analysis_data:
         panorama_data = analysis_data["panorama_analysis"]
         
-        # panorama_analysis 안의 images 배열 탐색
-        if isinstance(panorama_data, dict):
-            for key, value in panorama_data.items():
-                if isinstance(value, list):
-                    for item in value:
-                        if isinstance(item, dict) and "path" in item:
-                            img_path = item.get("path")
-                            img_name = item.get("name", "파노라마 이미지")
-                            if img_path and (Path(img_path).exists() or Path(img_path).suffix.lower() in ['.jpg', '.jpeg', '.png']):
-                                panorama_images_list.append({"path": img_path, "name": img_name})
+        individual_analyses = panorama_data.get("individual_analyses", [])
+        if isinstance(individual_analyses, list):
+            for idx, analysis_item in enumerate(individual_analyses, 1):
+                if isinstance(analysis_item, dict):
+                    # 원본 이미지 경로 (JSON에서 가져옴)
+                    original_img_path = analysis_item.get("image_path", "")
+                    
+                    # 이미지 파일명 추출 (확장자 포함)
+                    img_filename = Path(original_img_path).name if original_img_path else None
+                    
+                    # panorama/images 폴더에서 동일한 파일명 찾기 (JPG, PNG 모두 지원)
+                    if img_filename and panorama_images_dir:
+                        # JPG로 시도
+                        local_img_path_jpg = panorama_images_dir / img_filename
+                        local_img_path_png = panorama_images_dir / f"{Path(img_filename).stem}.png"
+                        local_img_path = None
+                        
+                        if local_img_path_jpg.exists():
+                            local_img_path = local_img_path_jpg
+                        elif local_img_path_png.exists():
+                            local_img_path = local_img_path_png
+                        
+                        # 파일이 존재하면 사용
+                        if local_img_path:
+                            point_id = analysis_item.get("point_id", idx)
+                            lon = analysis_item.get("lon", "N/A")
+                            lat = analysis_item.get("lat", "N/A")
+                            img_name = f"포인트 {point_id} (경도: {lon}, 위도: {lat})"
+                            panorama_images_list.append({"path": str(local_img_path), "name": img_name})
+                        else:
+                            # 파일이 없으면 원본 경로 사용 시도
+                            point_id = analysis_item.get("point_id", idx)
+                            lon = analysis_item.get("lon", "N/A")
+                            lat = analysis_item.get("lat", "N/A")
+                            img_name = f"포인트 {point_id} (경도: {lon}, 위도: {lat})"
+                            if original_img_path and Path(original_img_path).exists():
+                                panorama_images_list.append({"path": original_img_path, "name": img_name})
     
-    # visualizations에서 이미지 추가
+    # 2. visualizations에서 이미지 추가
     visualizations = analysis_data.get("visualizations", {})
     panorama_images_from_viz = visualizations.get("panorama_images", [])
     
@@ -4859,6 +4903,13 @@ with col2:
                 if "marketing_analysis" in analysis_data:
                     marketing_data = analysis_data["marketing_analysis"]
                     
+                    # formatted_output이 있으면 먼저 표시하고 계속 진행
+                    if isinstance(marketing_data, dict) and "formatted_output" in marketing_data and marketing_data.get("formatted_output"):
+                        st.markdown(marketing_data["formatted_output"])
+                        st.markdown("---")
+                        st.markdown("## 📊 상세 분석 데이터")
+                    
+                    # 구조화된 데이터를 파싱하여 표시
                     if isinstance(marketing_data, dict):
                         
                         # ========== 1. 위험 진단 (Risk Diagnosis) ==========
