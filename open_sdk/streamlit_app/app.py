@@ -4986,7 +4986,7 @@ with col2:
                             except Exception as e:
                                 st.error(f"위험 분석 로드 오류: {str(e)}")
                         
-                        # ========== 2. 종합 결론 (Overall Conclusion) ==========
+                        # ========== 2. 요약 인사이트 (Overall Conclusion) ==========
                         if "persona_analysis" in marketing_data and marketing_data.get("persona_analysis"):
                             try:
                                 persona = marketing_data["persona_analysis"]
@@ -4995,7 +4995,7 @@ with col2:
                                     insights = persona["core_insights"]["persona"]
                                     
                                     st.markdown("---")
-                                    st.markdown("### ■ 종합 결론 (Overall Conclusion)")
+                                    st.markdown("### ■ 요약 인사이트")
                                     
                                     # Summary 표시
                                     if "summary" in insights:
@@ -5014,7 +5014,7 @@ with col2:
                         if "marketing_strategies" in marketing_data and marketing_data.get("marketing_strategies"):
                             try:
                                 st.markdown("---")
-                                st.markdown("### ■ 홍보 아이디어 (Promotion Ideas)")
+                                st.markdown("### ■ 추가 홍보 아이디어 (Additional Promotion Ideas)")
                                 strategies = marketing_data["marketing_strategies"]
                                 
                                 if isinstance(strategies, list):
