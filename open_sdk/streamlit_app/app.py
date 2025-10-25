@@ -3084,26 +3084,30 @@ def display_panorama_analysis(analysis_data):
 
             if file_path and Path(file_path).exists():
 
-                if file_type == "spatial_chart" or file_type == "panorama_map":
-
+                if file_type == "spatial_chart":
+                    # PNG 차트는 이미지로 표시
                     try:
-
                         st.image(file_path, caption=file_name, use_container_width=True)
-
                     except Exception as e:
-
                         st.error(f"파일 로딩 실패: {file_name}")
-
+                        
                 elif file_type == "spatial_map" or file_type == "panorama_map":
-
-                    st.write(f"**{file_name}:** [지도 파일]({file_path})")
-
+                    # HTML 지도는 컴포넌트로 표시
+                    try:
+                        with open(file_path, 'r', encoding='utf-8') as f:
+                            html_content = f.read()
+                        
+                        # HTML을 Streamlit 컴포넌트로 표시
+                        import streamlit.components.v1 as components
+                        components.html(html_content, height=600, scrolling=True)
+                        st.caption(file_name)
+                    except Exception as e:
+                        st.error(f"지도 로딩 실패: {file_name} ({str(e)})")
+                        st.write(f"**{file_name}:** [지도 파일]({file_path})")
                 else:
-
                     st.write(f"**{file_name}:** {file_path}")
 
             else:
-
                 st.write(f"파일 없음: {file_name}")
 
     
