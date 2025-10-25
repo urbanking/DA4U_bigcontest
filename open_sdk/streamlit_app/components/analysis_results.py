@@ -124,7 +124,7 @@ def render_store_tab(data: Dict[str, Any], result_dir: str):
                 col_idx = i % 2
                 with cols[col_idx]:
                     if Path(chart_path).exists():
-                        st.image(chart_path, caption=f"Store Chart {i+1}", use_column_width=True)
+                        st.image(chart_path, caption=f"Store Chart {i+1}", use_container_width=True)
     
     # Store 데이터 표시
     st.markdown("### 📈 Store 메트릭")
@@ -164,7 +164,7 @@ def render_mobility_tab(data: Dict[str, Any], result_dir: str):
                 col_idx = i % 2
                 with cols[col_idx]:
                     if Path(chart_path).exists():
-                        st.image(chart_path, caption=f"Mobility Chart {i+1}", use_column_width=True)
+                        st.image(chart_path, caption=f"Mobility Chart {i+1}", use_container_width=True)
     
     # Mobility 데이터 표시
     mobility_data = data.get("mobility_summary", {})
@@ -196,7 +196,7 @@ def render_panorama_tab(data: Dict[str, Any], result_dir: str):
                 col_idx = i % 2
                 with cols[col_idx]:
                     if Path(img_path).exists():
-                        st.image(img_path, caption=f"Panorama Image {i+1}", use_column_width=True)
+                        st.image(img_path, caption=f"Panorama Image {i+1}", use_container_width=True)
     
     # Panorama 데이터 표시
     panorama_data = data.get("panorama_summary", {})
