@@ -4578,36 +4578,125 @@ with col2:
                         if "persona_analysis" in marketing_data:
                             persona = marketing_data["persona_analysis"]
                             st.markdown("##### 👤 고객 페르소나")
-                            st.write(f"**타입:** {persona.get('persona_type', 'N/A')}")
+                            
+                            col1, col2 = st.columns(2)
+                            with col1:
+                                st.metric("페르소나 타입", persona.get('persona_type', 'N/A'))
+                            with col2:
+                                if "components" in persona and "customer_demographics" in persona["components"]:
+                                    demo = persona["components"]["customer_demographics"]
+                                    st.metric("주요 고객", f"{demo.get('gender', 'N/A')} {demo.get('age', 'N/A')}")
+                            
                             st.write(f"**설명:** {persona.get('persona_description', 'N/A')}")
                             
                             if "marketing_tone" in persona:
                                 st.write(f"**마케팅 톤:** {persona['marketing_tone']}")
                             
+                            # 매장 특성
+                            if "components" in persona:
+                                components = persona["components"]
+                                st.markdown("**📊 매장 특성:**")
+                                cols = st.columns(4)
+                                with cols[0]:
+                                    st.write(f"**업종:** {components.get('industry', 'N/A')}")
+                                with cols[1]:
+                                    st.write(f"**상권:** {components.get('commercial_zone', 'N/A')}")
+                                with cols[2]:
+                                    st.write(f"**매장 연령:** {components.get('store_age', 'N/A')}")
+                                with cols[3]:
+                                    st.write(f"**배달 비중:** {components.get('delivery_ratio', 'N/A')}")
+                            
+                            # 추천 채널
                             if "key_channels" in persona:
                                 st.markdown("##### 📱 추천 채널")
-                                for i, channel in enumerate(persona["key_channels"][:5], 1):
+                                for i, channel in enumerate(persona["key_channels"], 1):
                                     st.write(f"{i}. {channel}")
-                        
-                        # 마케팅 전략
-                        if "marketing_strategies" in marketing_data:
-                            st.markdown("##### 🎯 마케팅 전략")
-                            strategies = marketing_data["marketing_strategies"]
-                            for i, strategy in enumerate(strategies[:3], 1):
-                                st.write(f"**전략 {i}:** {strategy.get('name', 'N/A')}")
-                                st.write(f"**설명:** {strategy.get('description', 'N/A')}")
-                                st.write(f"**예상 효과:** {strategy.get('expected_impact', 'N/A')}")
-                                st.write("---")
                         
                         # 위험 분석
                         if "risk_analysis" in marketing_data:
                             risk = marketing_data["risk_analysis"]
+                            st.markdown("---")
                             st.markdown("##### ⚠️ 위험 분석")
-                            st.write(f"**전체 위험도:** {risk.get('overall_risk_level', 'N/A')}")
                             
+                            # 전체 위험도
+                            risk_level = risk.get('overall_risk_level', 'N/A')
+                            risk_color = "🔴" if risk_level == "위험" else "🟡" if risk_level == "높음" else "🟢"
+                            st.markdown(f"**전체 위험도:** {risk_color} {risk_level}")
+                            
+                            # 감지된 위험들
                             if "detected_risks" in risk:
-                                for risk_item in risk["detected_risks"][:3]:
-                                    st.write(f"**{risk_item.get('name', 'N/A')}:** {risk_item.get('description', 'N/A')}")
+                                st.markdown("**감지된 위험 요소:**")
+                                for risk_item in risk["detected_risks"]:
+                                    with st.expander(f"🔴 {risk_item.get('name', 'N/A')} (우선순위: {risk_item.get('priority', 'N/A')})", expanded=False):
+                                        st.write(f"**설명:** {risk_item.get('description', 'N/A')}")
+                                        st.write(f"**근거:** {risk_item.get('evidence', 'N/A')}")
+                                        st.write(f"**위험도:** {risk_item.get('level', 'N/A')} (점수: {risk_item.get('score', 'N/A')})")
+                                        st.write(f"**영향도:** {risk_item.get('impact_score', 'N/A')}")
+                        
+                        # 마케팅 전략
+                        if "marketing_strategies" in marketing_data:
+                            st.markdown("---")
+                            st.markdown("##### 🎯 마케팅 전략")
+                            strategies = marketing_data["marketing_strategies"]
+                            
+                            for i, strategy in enumerate(strategies, 1):
+                                with st.expander(f"전략 {i}: {strategy.get('name', 'N/A')}", expanded=(i <= 3)):
+                                    st.write(f"**설명:** {strategy.get('description', 'N/A')}")
+                                    st.write(f"**예상 효과:** {strategy.get('expected_impact', 'N/A')}")
+                                    st.write(f"**구현 기간:** {strategy.get('implementation_time', 'N/A')}")
+                                    st.write(f"**예산:** {strategy.get('budget_estimate', 'N/A')}")
+                                    st.write(f"**우선순위:** {strategy.get('priority', 'N/A')}")
+                                    
+                                    if "success_metrics" in strategy:
+                                        st.write("**성공 지표:**")
+                                        for metric in strategy["success_metrics"]:
+                                            st.write(f"- {metric}")
+                        
+                        # 채널 추천
+                        if "channel_recommendation" in marketing_data:
+                            st.markdown("---")
+                            st.markdown("##### 📱 채널 추천")
+                            channel_rec = marketing_data["channel_recommendation"]
+                            
+                            col1, col2 = st.columns(2)
+                            with col1:
+                                st.metric("추천 채널", channel_rec.get('channels', 'N/A'))
+                                st.metric("주요 채널", channel_rec.get('primary_channel', 'N/A'))
+                            with col2:
+                                st.metric("사용률", f"{channel_rec.get('usage_rate', 'N/A')}%")
+                            
+                            if "reasoning" in channel_rec:
+                                st.write(f"**추천 이유:** {channel_rec['reasoning']}")
+                        
+                        # SNS 콘텐츠
+                        if "social_content" in marketing_data:
+                            st.markdown("---")
+                            st.markdown("##### 📲 SNS 콘텐츠")
+                            social = marketing_data["social_content"]
+                            
+                            if "instagram_posts" in social and social["instagram_posts"]:
+                                st.write(f"**인스타그램 포스트 {len(social['instagram_posts'])}개**")
+                                for idx, post in enumerate(social["instagram_posts"][:3], 1):
+                                    with st.expander(f"포스트 {idx}: {post.get('title', 'N/A')}", expanded=False):
+                                        st.write(f"**내용:** {post.get('content', 'N/A')}")
+                                        if "hashtags" in post:
+                                            st.write(f"**해시태그:** {', '.join(post['hashtags'][:10])}")
+                        
+                        # 추천 사항
+                        if "recommendations" in marketing_data:
+                            st.markdown("---")
+                            st.markdown("##### 💡 추천 사항")
+                            rec = marketing_data["recommendations"]
+                            
+                            if "immediate_actions" in rec:
+                                st.write("**즉시 실행 가능한 조치:**")
+                                for action in rec["immediate_actions"]:
+                                    st.write(f"- {action}")
+                            
+                            if "success_factors" in rec:
+                                st.write("**성공 요소:**")
+                                for factor in rec["success_factors"]:
+                                    st.write(f"- {factor}")
                     else:
                         st.json(marketing_data)
                 else:

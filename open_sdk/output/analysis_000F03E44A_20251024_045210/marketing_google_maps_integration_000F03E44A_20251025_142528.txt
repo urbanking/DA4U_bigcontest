@@ -1,0 +1,106 @@
+================================================================================
+마케팅 & Google Maps 통합 분석 결과
+상점 코드: 000F03E44A
+생성 시간: 2025-10-25 14:25:28
+================================================================================
+
+📊 마케팅 분석 결과
+----------------------------------------
+마케팅 전략 수: 6
+1. N/A
+   - 설명: 1.  **배달 앱 최상위 노출 및 집중 프로모션:**
+   - 예상 효과: N/A
+
+2. N/A
+   - 설명: 2.  **'서울숲 시그니처' 메뉴 개발 및 스토리텔링 마케팅:**
+   - 예상 효과: N/A
+
+3. N/A
+   - 설명: 3.  **남성 타겟 '든든한 한 끼' 세트 메뉴 및 시간대별 프로모션:**
+   - 예상 효과: N/A
+
+4. N/A
+   - 설명: 4.  **배달 특화 로열티/멤버십 프로그램 도입:**
+   - 예상 효과: N/A
+
+5. N/A
+   - 설명: 5.  **온라인 리뷰 관리 및 지역 맛집 인플루언서 협업:**
+   - 예상 효과: N/A
+
+6. N/A
+   - 설명: 6.  **"빠른 만족, 든든한 한 끼, 믿고 즐기는 맛" 브랜드 메시지 일관성 강화:**
+   - 예상 효과: N/A
+
+추천사항: {'immediate_actions': ['즉시 실행: 전략 1', '예상 효과: 매출 증대 및 고객 만족도 향상', '예산: 중간', '구현 기간: 1-2주'], 'short_term_goals': ['위험 코드 해결을 위한 단계적 접근', '페르소나별 맞춤 마케팅 채널 최적화', '고객 만족도 및 리뷰 점수 개선'], 'long_term_strategy': ['브랜드 이미지 및 고객 충성도 구축', '지속 가능한 성장 모델 수립', '시장 경쟁력 강화 및 차별화'], 'success_factors': ['페르소나 기반 맞춤형 접근', '데이터 기반 의사결정', '지속적인 모니터링 및 개선', '고객 피드백 반영']}
+
+================================================================================
+
+🗺️ Google Maps 정보
+----------------------------------------
+매장명: 육육**
+매칭 매장명: 육육면관
+주소: 서울특별시 성동구 왕십리로4가길 9
+Place ID: ChIJSxPPaEylfDURPCE88aWGIUE
+
+📍 상세 정보:
+정식 매장명: 육육면관
+주소: 9 Wangsimni-ro 4ga-gil, Seongdong-gu, Seoul, South Korea
+전화번호: 02-497-6266
+웹사이트: N/A
+평점: 4.3/5.0
+리뷰 수: 20개
+
+🕐 영업시간:
+  Monday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Tuesday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Wednesday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Thursday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Friday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Saturday: 11:30 AM – 3:00 PM, 5:00 – 9:30 PM
+  Sunday: Closed
+
+💬 리뷰 (최대 5개):
+1. JaySee Asia ⭐ 5/5.0
+   The PERFECT chinese ramen which you must not miss! VERY VERY GOOD!
+
+2. S Y ⭐ 4/5.0
+   You can see the menu from outside the restaurant. Inside, there were even instructions on how to enjoy it.
+
+You can order and pay at your seat at the kiosk. The double portion and regular portions are the same price. So, I'll go with the double portion!
+
+My companion told me they often come here and usually order the Hong Kong-style dan dan noodles. So, I decided to try the tried-and-true Hong Kong-style dan dan noodles (9,000 won).
+
+At first glance, it looked like a noodle dish with a red broth, but when I mixed it, I realized it had a lot of peanut sauce. It was a bit thick, almost like a green onion, but it was savory and delicious. It was a bit salty, so I added water and it tasted even better.
+
+My companion, who always ordered dan dan noodles, ordered the Mala Beef Noodles (9,900 won). It tasted like the beef noodle soup we'd had in Taiwan, but with a touch of mala.
+
+Since we were in such an exotic restaurant, we also ordered the Xiao Long Bao (5,500 won). It was lighter than expected, but the broth was juicy and satisfying. I almost regretted not eating there.
+
+The interior has a clean, typical restaurant feel, but the tables and small decorations add a touch of exoticism. Yukyukmyeon-gwan has unique tables, with mahjong tiles placed under glass, adding to the exotic atmosphere.
+
+Since Seoul Forest Station is nearby, it was even better to take a walk through Seoul Forest after eating.
+Soju 5,000 won
+Chinese beer 7,000 won
+Taiwanese beer 8,000 won
+
+3. K.H. Jin ⭐ 3/5.0
+   I don't know about the udon noodles, but the eggplant rice bowl is not that great. It's salty and costs 10,500 won for that kind of taste... It seems like they don't cook it right away, but just have a part-timer heat it up.
+
+4. 전영혁 ⭐ 4/5.0
+   The food was above average, but I was disappointed that the rice orders were blocked today.
+
+5. NF ⭐ 5/5.0
+   It's been a while since I've had udon noodles, and they were absolutely delicious!
+
+The dumplings were delicious, and the service was also satisfactory.
+
+
+================================================================================
+
+🎯 통합 분석 및 추천
+----------------------------------------
+1. 제안된 6개의 마케팅 전략을 Google Maps 정보와 연계하여 실행하세요.
+
+================================================================================
+분석 완료
+================================================================================
