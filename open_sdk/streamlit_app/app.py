@@ -1156,25 +1156,29 @@ def load_analysis_data_from_output(store_code):
         
 
         # 5. Marketplace 분석 결과
-
+        # 먼저 analysis 폴더 내부에서 찾기
         marketplace_file = latest_dir / "marketplace" / "marketplace_data.json"
+        
+        # 내부에 없으면 별도 marketplace_{timestamp} 폴더에서 찾기
+        if not marketplace_file.exists():
+            # 가장 최근 marketplace 폴더 찾기
+            marketplace_dirs = sorted(
+                output_dir.glob("marketplace_*"), 
+                key=os.path.getmtime, 
+                reverse=True
+            )
+            if marketplace_dirs:
+                marketplace_file = marketplace_dirs[0] / "marketplace_data.json"
+                print(f"[INFO] marketplace 파일을 별도 폴더에서 찾음: {marketplace_file.parent.name}")
 
         if marketplace_file.exists():
-
             try:
-
                 with open(marketplace_file, 'r', encoding='utf-8') as f:
-
                     data["marketplace_analysis"] = json.load(f)
-
                 print(f"[OK] marketplace_data.json 로드 성공")
-
             except PermissionError:
-
                 print(f"[WARN] marketplace_data.json 권한 오류 - 건너뜀")
-
             except Exception as e:
-
                 print(f"[WARN] marketplace_data.json 로드 실패: {e}")
 
         
@@ -4541,27 +4545,138 @@ with col2:
                     
                     # 상권 분석 요약 정보 표시
                     if isinstance(marketplace_data, dict):
-                        col1, col2 = st.columns(2)
+                        # 기본 정보
+                        st.markdown("##### 📋 기본 정보")
+                        col1, col2, col3, col4 = st.columns(4)
                         
                         with col1:
                             st.metric("상권명", marketplace_data.get("상권명", "N/A"))
-                            st.metric("점포수", marketplace_data.get("점포수", "N/A"))
-                        
                         with col2:
-                            st.metric("매출액", marketplace_data.get("매출액", "N/A"))
-                            st.metric("유동인구", marketplace_data.get("유동인구", "N/A"))
+                            st.metric("총 페이지", marketplace_data.get("총_페이지", "N/A"))
+                        with col3:
+                            st.metric("추출 페이지", marketplace_data.get("추출_페이지", "N/A"))
+                        with col4:
+                            st.metric("분석일시", marketplace_data.get("분석일시", "N/A").split("T")[0] if marketplace_data.get("분석일시") else "N/A")
                         
-                        # 상세 정보
+                        # 종합의견 및 주요 지표
                         if "데이터" in marketplace_data:
-                            st.markdown("##### 📊 상세 분석")
-                            for item in marketplace_data["데이터"][:3]:  # 처음 3개만 표시
-                                if "종합의견" in item:
-                                    st.write(f"**종합의견:** {item['종합의견']}")
-                                if "점포수" in item:
-                                    st.write(f"**점포수:** {item['점포수']}")
-                                if "매출액" in item:
-                                    st.write(f"**매출액:** {item['매출액']}")
-                                st.write("---")
+                            for item in marketplace_data["데이터"]:
+                                if item.get("유형") == "종합의견":
+                                    st.markdown("---")
+                                    st.markdown("##### 📊 종합의견")
+                                    
+                                    # 종합의견 텍스트
+                                    opinions = item.get("종합의견", [])
+                                    if opinions:
+                                        for opinion in opinions:
+                                            st.write(f"- {opinion}")
+                                    
+                                    # 면적 정보
+                                    if "면적" in item:
+                                        area = item["면적"]
+                                        col1, col2 = st.columns(2)
+                                        with col1:
+                                            st.metric("선택 면적", f"{area.get('선택', 0):,}㎡")
+                                        with col2:
+                                            st.metric("분석 면적", f"{area.get('분석', 0):,}㎡")
+                                    
+                                    # 점포수 정보
+                                    if "점포수" in item:
+                                        store_count = item["점포수"]
+                                        st.markdown("##### 🏪 점포수 분석")
+                                        
+                                        col1, col2, col3, col4 = st.columns(4)
+                                        with col1:
+                                            st.metric("현재 점포수", f"{store_count.get('현재', {}).get('값', 0):,}개", 
+                                                     delta=f"{store_count.get('전분기대비', {}).get('변화', 0):+}개" if store_count.get('전분기대비') else None)
+                                        with col2:
+                                            yoy_change = store_count.get('전년동분기대비', {}).get('변화', 0)
+                                            st.metric("전년대비", f"{yoy_change:+}개" if yoy_change != 0 else "0개")
+                                        with col3:
+                                            st.metric("순위", store_count.get('순위', 'N/A'))
+                                        with col4:
+                                            st.metric("기준", store_count.get('현재', {}).get('기준', 'N/A'))
+                                    
+                                    # 매출액 정보
+                                    if "매출액" in item:
+                                        sales = item["매출액"]
+                                        st.markdown("##### 💰 매출액 분석")
+                                        
+                                        col1, col2, col3, col4 = st.columns(4)
+                                        with col1:
+                                            st.metric("현재 매출액", f"{sales.get('현재', {}).get('값', 0):,}만원",
+                                                     delta=f"{sales.get('전분기대비', {}).get('변화', 0):+}만원" if sales.get('전분기대비') else None)
+                                        with col2:
+                                            yoy_change = sales.get('전년동분기대비', {}).get('변화', 0)
+                                            st.metric("전년대비", f"{yoy_change:+}만원" if yoy_change != 0 else "0만원")
+                                        with col3:
+                                            st.metric("순위", sales.get('순위', 'N/A'))
+                                        with col4:
+                                            st.metric("기준", sales.get('현재', {}).get('기준', 'N/A'))
+                                    
+                                    # 유동인구 정보
+                                    if "유동인구" in item:
+                                        flow = item["유동인구"]
+                                        st.markdown("##### 👥 유동인구 분석")
+                                        
+                                        col1, col2, col3, col4 = st.columns(4)
+                                        with col1:
+                                            st.metric("현재 유동인구", f"{flow.get('현재', {}).get('값', 0):,}명",
+                                                     delta=f"{flow.get('전분기대비', {}).get('변화', 0):+}명" if flow.get('전분기대비') else None)
+                                        with col2:
+                                            yoy_change = flow.get('전년동분기대비', {}).get('변화', 0)
+                                            st.metric("전년대비", f"{yoy_change:+}명" if yoy_change != 0 else "0명")
+                                        with col3:
+                                            st.metric("순위", flow.get('순위', 'N/A'))
+                                        with col4:
+                                            st.metric("기준", flow.get('현재', {}).get('기준', 'N/A'))
+                                    
+                                    break
+                            
+                            # 상세 페이지별 분석
+                            st.markdown("---")
+                            st.markdown("##### 📄 상세 분석")
+                            
+                            detail_items = [item for item in marketplace_data["데이터"] if item.get("유형") not in ["표지", "종합의견"] and item.get("유형")]
+                            
+                            for item in detail_items:
+                                page_num = item.get("페이지", "?")
+                                item_type = item.get("유형", "N/A")
+                                title = item.get("제목", "")
+                                
+                                with st.expander(f"페이지 {page_num}: {title or item_type}", expanded=False):
+                                    st.write(f"**유형:** {item_type}")
+                                    
+                                    # 제목이 있으면 표시
+                                    if title:
+                                        st.write(f"**제목:** {title}")
+                                    
+                                    # 설명 정보
+                                    if "설명" in item:
+                                        descriptions = item.get("설명", [])
+                                        if descriptions:
+                                            st.markdown("**설명:**")
+                                            for desc in descriptions:
+                                                st.write(f"- {desc}")
+                                    
+                                    # 비교 정보
+                                    if "비교" in item:
+                                        comparisons = item.get("비교", [])
+                                        if comparisons:
+                                            st.markdown("**비교 정보:**")
+                                            for comp in comparisons:
+                                                st.write(f"- {comp.get('기준', 'N/A')}: {comp.get('변화', 'N/A')} {comp.get('단위', '')}")
+                                    
+                                    # 점포당 월평균 매출건수
+                                    if "점포당월평균매출건수" in item:
+                                        sales_count = item["점포당월평균매출건수"]
+                                        st.metric("점포당 월평균 매출건수", 
+                                                 f"{sales_count.get('값', 0):,}{sales_count.get('단위', '건')}")
+                                    
+                                    # 개업/폐업 정보
+                                    if "페업수" in item:
+                                        close_count = item["페업수"]
+                                        st.metric("폐업수", f"{close_count.get('값', 0):,}{close_count.get('단위', '개')}")
                     else:
                         st.json(marketplace_data)
                 else:
@@ -4572,131 +4687,204 @@ with col2:
                 if "marketing_analysis" in analysis_data:
                     marketing_data = analysis_data["marketing_analysis"]
                     
-                    # 마케팅 분석 요약 정보 표시
+                    # 마케팅 분석 정보 표시 (이미지 구조에 맞춰 재구성)
                     if isinstance(marketing_data, dict):
-                        # 페르소나 정보
+                        
+                        # === 1. 위험 진단 (Risk Diagnosis) ===
+                        if "risk_analysis" in marketing_data and marketing_data.get("risk_analysis"):
+                            try:
+                                risk = marketing_data["risk_analysis"]
+                                st.markdown("### ▲ 위험 진단 (Risk Diagnosis)")
+                                
+                                # 전체 위험 수준
+                                risk_level = risk.get('overall_risk_level', 'N/A') if isinstance(risk, dict) else 'N/A'
+                                risk_color = "🔴" if risk_level == "위험" else "🟡" if risk_level == "높음" else "🟢"
+                                st.markdown(f"**전체 위험 수준:** {risk_color} **{risk_level}**")
+                                
+                                # 분석 요약
+                                if "analysis_summary" in risk:
+                                    st.write(f"이 매장에서 파악된 위험 요소: {risk['analysis_summary']}")
+                                
+                                # 위험 요소 테이블
+                                if isinstance(risk, dict) and "detected_risks" in risk and risk.get("detected_risks"):
+                                    detected_risks = risk["detected_risks"]
+                                    if isinstance(detected_risks, list) and len(detected_risks) > 0:
+                                        st.markdown("---")
+                                        st.markdown("### ■ 위험 요소 상세 (Detailed Risk Factors)")
+                                        
+                                        # 테이블 헤더
+                                        cols = st.columns([1, 3, 2, 2, 2])
+                                        with cols[0]:
+                                            st.markdown("**코드**")
+                                        with cols[1]:
+                                            st.markdown("**의미**")
+                                        with cols[2]:
+                                            st.markdown("**수준**")
+                                        with cols[3]:
+                                            st.markdown("**점수**")
+                                        with cols[4]:
+                                            st.markdown("**우선순위**")
+                                        
+                                        # 위험 요소 목록
+                                        for idx, risk_item in enumerate(detected_risks):
+                                            if isinstance(risk_item, dict):
+                                                cols = st.columns([1, 3, 2, 2, 2])
+                                                with cols[0]:
+                                                    st.write(risk_item.get('code', 'N/A'))
+                                                with cols[1]:
+                                                    st.write(risk_item.get('name', 'N/A'))
+                                                with cols[2]:
+                                                    st.write(risk_item.get('level', 'N/A'))
+                                                with cols[3]:
+                                                    st.write(risk_item.get('score', 'N/A'))
+                                                with cols[4]:
+                                                    st.write(risk_item.get('priority', 'N/A'))
+                                        
+                                        # 위험 요소 상세 분석
+                                        st.markdown("---")
+                                        st.markdown("### ■ 위험 분석 요약 (Risk Analysis Summary)")
+                                        st.write(risk.get('analysis_summary', 'N/A'))
+                                        
+                                        st.markdown("**● 위험 요소 상세 분석:**")
+                                        for idx, risk_item in enumerate(detected_risks):
+                                            if isinstance(risk_item, dict):
+                                                st.write(f"- **{risk_item.get('code', 'N/A')}**: {risk_item.get('name', 'N/A')}")
+                            except Exception as e:
+                                st.error(f"위험 분석 로드 오류: {str(e)}")
+                        
+                        # === 2. 종합 결론 (Overall Conclusion) ===
                         if "persona_analysis" in marketing_data:
                             persona = marketing_data["persona_analysis"]
-                            st.markdown("##### 👤 고객 페르소나")
+                            if "core_insights" in persona and "persona" in persona["core_insights"]:
+                                insights = persona["core_insights"]["persona"]
+                                
+                                st.markdown("---")
+                                st.markdown("### ■ 종합 결론 (Overall Conclusion)")
+                                
+                                if "summary" in insights:
+                                    st.write(insights["summary"])
+                                
+                                if "table_data" in insights:
+                                    st.markdown("**매장 특성:**")
+                                    table_data = insights["table_data"]
+                                    if isinstance(table_data, dict):
+                                        for key, value in table_data.items():
+                                            st.write(f"- **{key}**: {value}")
+                        
+                        # === 3. 홍보 아이디어 (Promotion Ideas) ===
+                        if "marketing_strategies" in marketing_data and marketing_data.get("marketing_strategies"):
+                            try:
+                                st.markdown("---")
+                                st.markdown("### ■ 홍보 아이디어 (Promotion Ideas)")
+                                strategies = marketing_data["marketing_strategies"]
+                                
+                                if isinstance(strategies, list):
+                                    for i, strategy in enumerate(strategies, 1):
+                                        if isinstance(strategy, dict):
+                                            st.markdown(f"**{i}. {strategy.get('name', 'N/A')}**")
+                                            st.write(f"{strategy.get('description', 'N/A')}")
+                            except Exception as e:
+                                st.error(f"홍보 아이디어 로드 오류: {e}")
+                        
+                        # === 4. 타겟 전략 (Target Strategy) ===
+                        if "persona_analysis" in marketing_data:
+                            persona = marketing_data["persona_analysis"]
                             
-                            col1, col2 = st.columns(2)
-                            with col1:
-                                st.metric("페르소나 타입", persona.get('persona_type', 'N/A'))
-                            with col2:
-                                if "components" in persona and "customer_demographics" in persona["components"]:
-                                    demo = persona["components"]["customer_demographics"]
-                                    st.metric("주요 고객", f"{demo.get('gender', 'N/A')} {demo.get('age', 'N/A')}")
+                            st.markdown("---")
+                            st.markdown("### ■ 타겟 전략 (Target Strategy)")
                             
-                            st.write(f"**설명:** {persona.get('persona_description', 'N/A')}")
-                            
-                            if "marketing_tone" in persona:
-                                st.write(f"**마케팅 톤:** {persona['marketing_tone']}")
-                            
-                            # 매장 특성
+                            # 주 타겟 고객층
                             if "components" in persona:
                                 components = persona["components"]
-                                st.markdown("**📊 매장 특성:**")
-                                cols = st.columns(4)
-                                with cols[0]:
-                                    st.write(f"**업종:** {components.get('industry', 'N/A')}")
-                                with cols[1]:
-                                    st.write(f"**상권:** {components.get('commercial_zone', 'N/A')}")
-                                with cols[2]:
-                                    st.write(f"**매장 연령:** {components.get('store_age', 'N/A')}")
-                                with cols[3]:
-                                    st.write(f"**배달 비중:** {components.get('delivery_ratio', 'N/A')}")
-                            
-                            # 추천 채널
-                            if "key_channels" in persona:
-                                st.markdown("##### 📱 추천 채널")
-                                for i, channel in enumerate(persona["key_channels"], 1):
-                                    st.write(f"{i}. {channel}")
+                                st.markdown("**1. 주 타겟 고객층 (Primary Target Audience)**")
+                                
+                                if "customer_demographics" in components:
+                                    demo = components["customer_demographics"]
+                                    st.write(f"- **성별:** {demo.get('gender', 'N/A')}")
+                                    st.write(f"- **연령대:** {demo.get('age', 'N/A')}")
+                                
+                                st.write(f"- **페르소나 타입:** {persona.get('persona_type', 'N/A')}")
+                                st.write(f"- **특성:** {persona.get('persona_description', 'N/A')[:100]}...")
+                                
+                                if "key_channels" in persona and persona.get("key_channels"):
+                                    st.write(f"- **추천 채널:** {', '.join(persona['key_channels'][:3])}")
                         
-                        # 위험 분석
-                        if "risk_analysis" in marketing_data:
-                            risk = marketing_data["risk_analysis"]
-                            st.markdown("---")
-                            st.markdown("##### ⚠️ 위험 분석")
-                            
-                            # 전체 위험도
-                            risk_level = risk.get('overall_risk_level', 'N/A')
-                            risk_color = "🔴" if risk_level == "위험" else "🟡" if risk_level == "높음" else "🟢"
-                            st.markdown(f"**전체 위험도:** {risk_color} {risk_level}")
-                            
-                            # 감지된 위험들
-                            if "detected_risks" in risk:
-                                st.markdown("**감지된 위험 요소:**")
-                                for risk_item in risk["detected_risks"]:
-                                    with st.expander(f"🔴 {risk_item.get('name', 'N/A')} (우선순위: {risk_item.get('priority', 'N/A')})", expanded=False):
-                                        st.write(f"**설명:** {risk_item.get('description', 'N/A')}")
-                                        st.write(f"**근거:** {risk_item.get('evidence', 'N/A')}")
-                                        st.write(f"**위험도:** {risk_item.get('level', 'N/A')} (점수: {risk_item.get('score', 'N/A')})")
-                                        st.write(f"**영향도:** {risk_item.get('impact_score', 'N/A')}")
-                        
-                        # 마케팅 전략
-                        if "marketing_strategies" in marketing_data:
-                            st.markdown("---")
-                            st.markdown("##### 🎯 마케팅 전략")
-                            strategies = marketing_data["marketing_strategies"]
-                            
-                            for i, strategy in enumerate(strategies, 1):
-                                with st.expander(f"전략 {i}: {strategy.get('name', 'N/A')}", expanded=(i <= 3)):
-                                    st.write(f"**설명:** {strategy.get('description', 'N/A')}")
-                                    st.write(f"**예상 효과:** {strategy.get('expected_impact', 'N/A')}")
-                                    st.write(f"**구현 기간:** {strategy.get('implementation_time', 'N/A')}")
-                                    st.write(f"**예산:** {strategy.get('budget_estimate', 'N/A')}")
-                                    st.write(f"**우선순위:** {strategy.get('priority', 'N/A')}")
+                        # === 5. 마케팅 채널 전략 (Marketing Channel Strategy) ===
+                        if "channel_recommendation" in marketing_data and marketing_data.get("channel_recommendation"):
+                            try:
+                                st.markdown("---")
+                                st.markdown("### ■ 마케팅 채널 전략 (Marketing Channel Strategy)")
+                                channel_rec = marketing_data["channel_recommendation"]
+                                
+                                if isinstance(channel_rec, dict):
+                                    st.markdown("**온라인 채널:**")
                                     
-                                    if "success_metrics" in strategy:
-                                        st.write("**성공 지표:**")
-                                        for metric in strategy["success_metrics"]:
-                                            st.write(f"- {metric}")
+                                    if "primary_channel" in channel_rec:
+                                        st.write(f"- **추천 채널:** {channel_rec.get('primary_channel', 'N/A')}")
+                                        st.write(f"- **사용률:** {channel_rec.get('usage_rate', 'N/A')}%")
+                                    
+                                    if "reasoning" in channel_rec:
+                                        st.write(f"- **추천 이유:** {channel_rec['reasoning']}")
+                            except Exception as e:
+                                st.error(f"마케팅 채널 전략 로드 오류: {e}")
                         
-                        # 채널 추천
-                        if "channel_recommendation" in marketing_data:
+                        # === 6. 핵심 인사이트 (Key Insights) ===
+                        if "persona_analysis" in marketing_data and "risk_analysis" in marketing_data:
                             st.markdown("---")
-                            st.markdown("##### 📱 채널 추천")
-                            channel_rec = marketing_data["channel_recommendation"]
+                            st.markdown("### ■ 핵심 인사이트 (Key Insights)")
                             
-                            col1, col2 = st.columns(2)
-                            with col1:
-                                st.metric("추천 채널", channel_rec.get('channels', 'N/A'))
-                                st.metric("주요 채널", channel_rec.get('primary_channel', 'N/A'))
-                            with col2:
-                                st.metric("사용률", f"{channel_rec.get('usage_rate', 'N/A')}%")
+                            insights = []
                             
-                            if "reasoning" in channel_rec:
-                                st.write(f"**추천 이유:** {channel_rec['reasoning']}")
+                            # 인사이트 1: 핵심 고객층
+                            if "persona_analysis" in marketing_data:
+                                persona = marketing_data["persona_analysis"]
+                                if "persona_type" in persona and "persona_description" in persona:
+                                    insights.append({
+                                        "title": "핵심 고객층",
+                                        "content": f"{persona.get('persona_type', 'N/A')}: {persona.get('persona_description', 'N/A')[:80]}..."
+                                    })
+                            
+                            # 인사이트 2: 경쟁 우위
+                            if "persona_analysis" in marketing_data:
+                                persona = marketing_data["persona_analysis"]
+                                if "components" in persona:
+                                    components = persona["components"]
+                                    comp_summary = f"{components.get('industry', 'N/A')} 업종, {components.get('commercial_zone', 'N/A')} 상권, {components.get('store_age', 'N/A')}"
+                                    insights.append({
+                                        "title": "경쟁 우위",
+                                        "content": f"안정적인 운영 연한과 명확한 타겟 페르소나. {comp_summary}"
+                                    })
+                            
+                            # 인사이트 3: 개선 필요 영역
+                            if "risk_analysis" in marketing_data:
+                                risk = marketing_data["risk_analysis"]
+                                if "analysis_summary" in risk:
+                                    insights.append({
+                                        "title": "개선 필요 영역",
+                                        "content": risk.get('analysis_summary', 'N/A')[:100] + "..."
+                                    })
+                            
+                            for i, insight in enumerate(insights, 1):
+                                st.write(f"**{i}. {insight.get('title', 'N/A')}:**")
+                                st.write(insight.get('content', 'N/A'))
                         
-                        # SNS 콘텐츠
-                        if "social_content" in marketing_data:
-                            st.markdown("---")
-                            st.markdown("##### 📲 SNS 콘텐츠")
-                            social = marketing_data["social_content"]
-                            
-                            if "instagram_posts" in social and social["instagram_posts"]:
-                                st.write(f"**인스타그램 포스트 {len(social['instagram_posts'])}개**")
-                                for idx, post in enumerate(social["instagram_posts"][:3], 1):
-                                    with st.expander(f"포스트 {idx}: {post.get('title', 'N/A')}", expanded=False):
-                                        st.write(f"**내용:** {post.get('content', 'N/A')}")
-                                        if "hashtags" in post:
-                                            st.write(f"**해시태그:** {', '.join(post['hashtags'][:10])}")
+                        # === 7. 다음 단계 제안 (Next Step Proposals) ===
+                        if "recommendations" in marketing_data and marketing_data.get("recommendations"):
+                            try:
+                                st.markdown("---")
+                                st.markdown("### ■ 다음 단계 제안 (Next Step Proposals)")
+                                rec = marketing_data["recommendations"]
+                                
+                                if isinstance(rec, dict):
+                                    if "immediate_actions" in rec and rec.get("immediate_actions"):
+                                        for i, action in enumerate(rec["immediate_actions"][:4], 1):
+                                            st.write(f"**{i}. {action}**")
+                            except Exception as e:
+                                st.error(f"다음 단계 제안 로드 오류: {e}")
                         
-                        # 추천 사항
-                        if "recommendations" in marketing_data:
-                            st.markdown("---")
-                            st.markdown("##### 💡 추천 사항")
-                            rec = marketing_data["recommendations"]
-                            
-                            if "immediate_actions" in rec:
-                                st.write("**즉시 실행 가능한 조치:**")
-                                for action in rec["immediate_actions"]:
-                                    st.write(f"- {action}")
-                            
-                            if "success_factors" in rec:
-                                st.write("**성공 요소:**")
-                                for factor in rec["success_factors"]:
-                                    st.write(f"- {factor}")
+                        # === 최종 정리: JSON 전체 데이터를 백업으로 표시 ===
+                        with st.expander("📄 전체 마케팅 데이터 (JSON)", expanded=False):
+                            st.json(marketing_data)
                     else:
                         st.json(marketing_data)
                 else:
