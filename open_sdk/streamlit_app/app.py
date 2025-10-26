@@ -8,47 +8,6 @@ Langchain + Gemini 버전 (OpenAI Agents SDK 제거)
 # app.py 라인 상단 import 섹션에 추가 (약 400번째 줄 근처)
 from agents_new.new_product_agent import NewProductAgent
 
-# ... 중간 생략 ...
-
-# 라인 4465-4490 부분 수정
-# ===== 3단계: New Product Agent 실행 (간소화) =====
-print("\n" + "="*60)
-print("[3/3] New Product Agent 실행")
-print("="*60)
-
-# New Product Agent 실행
-try:
-    log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
-    
-    # 캐시 모드로 실행 (실시간 크롤링 없음)
-    agent = NewProductAgent(
-        use_cache=True,  # JSON 캐시 사용
-        save_outputs=False  # 출력 파일 저장 안함
-    )
-    
-    # StoreAgent 리포트 가져오기 (analysis_data에서)
-    store_report = None
-    if "store_analysis_report" in analysis_data:
-        store_report = analysis_data["store_analysis_report"]
-    elif "report_metadata" in analysis_data:
-        # 이미 리포트 형식인 경우
-        store_report = analysis_data
-    else:
-        log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
-        new_product_result = {"activated": False, "reason": "StoreAgent 리포트 없음"}
-    else:
-        # Agent 실행
-        import asyncio
-        new_product_result = asyncio.run(agent.run(store_report))
-        
-    analysis_data["new_product_result"] = new_product_result
-    log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
-    
-except Exception as e:
-    log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
-    analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
-import streamlit as st
-
 
 # 페이지 설정 (가장 먼저 실행되어야 함)
 st.set_page_config(
