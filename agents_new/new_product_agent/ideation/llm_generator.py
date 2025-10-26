@@ -137,16 +137,7 @@ class LLMGenerator:
 
     def _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
         """
-        여러 개의 신제품 제안 생성 (3개, 마지막은 농산물)
-        
-        Args:
-            insights: 크롤링된 키워드 리스트
-            audience: 타겟 고객 정보
-            store_male: 매장 남성 비율
-            store_female: 매장 여성 비율
-            
-        Returns:
-            제안 리스트 (3개: 음료/베이커리 2개 + 농산물 1개)
+        여러 개의 신제품 제안 생성 (3개: 음료 + 베이커리 + 농산물)
         """
         proposals = []
         
@@ -160,22 +151,24 @@ class LLMGenerator:
             "과자/베이커리": [i for i in filtered_insights if i.get("category") == "과자/베이커리"]
         }
         
-
+        # 1번째: 음료
+        if keywords_by_category["음료"]:
+            keyword_data = keywords_by_category["음료"][0]
+            proposal = self._create_proposal(keyword_data, audience, store_male, store_female)
+            proposals.append(proposal)
         
-        # 2번째: 베이커리 (이미 음료가 있으면) 또는 음료
-        if len(proposals) < 2:
-            remaining = keywords_by_category["과자/베이커리"] if len(proposals) == 1 else keywords_by_category["음료"]
-            if remaining:
-                keyword_data = remaining[0]
-                proposal = self._create_proposal(keyword_data, audience, store_male, store_female)
-                proposals.append(proposal)
+        # 2번째: 베이커리
+        if keywords_by_category["과자/베이커리"]:
+            keyword_data = keywords_by_category["과자/베이커리"][0]
+            proposal = self._create_proposal(keyword_data, audience, store_male, store_female)
+            proposals.append(proposal)
         
-        # 3번째: ✅ 반드시 농산물 포함 (음료 스타일: 스무디, 라떼 등)
+        # 3번째: 반드시 농산물 포함 (음료 스타일)
         if keywords_by_category["농산물"]:
             agriculture_keyword = keywords_by_category["농산물"][0]
-            # 농산물 + 음료 조합 메뉴 (예: "사과 스무디", "레몬 라떼")
+            menu_name = self._generate_agriculture_drink_menu(agriculture_keyword["keyword"])
             proposal = {
-                "menu_name": self._generate_agriculture_drink_menu(agriculture_keyword["keyword"]),
+                "menu_name": menu_name,
                 "category": "음료",
                 "target": {
                     "gender": audience["gender"], 
@@ -201,13 +194,13 @@ class LLMGenerator:
                     f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
                     f"- 트렌드 점수: 순위 {agriculture_keyword['rank']}위 = 높은 검색 빈도\n"
                     f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
-                    f"따라서 '{self._generate_agriculture_drink_menu(agriculture_keyword['keyword'])}' 메뉴를 개발해보는 것을 추천드립니다."
+                    f"따라서 '{menu_name}' 메뉴를 개발해보는 것을 추천드립니다."
                 )
             }
             proposals.append(proposal)
         else:
             # 농산물 키워드가 없으면 더미 데이터로 추가
-            dummy_agriculture = {
+            proposals.append({
                 "menu_name": "사과 스무디",
                 "category": "음료",
                 "target": {"gender": audience["gender"], "ages": audience["ages"]},
@@ -232,8 +225,7 @@ class LLMGenerator:
                     f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
                     f"따라서 '사과 스무디' 메뉴를 개발해보는 것을 추천드립니다."
                 )
-            }
-            proposals.append(dummy_agriculture)
+            })
         
         return proposals
     
@@ -404,5 +396,6 @@ class LLMGenerator:
         return {
             "proposals": self._generate_multiple_proposals(filtered_insights, audience, store_male, store_female)
         }
+
 
 
