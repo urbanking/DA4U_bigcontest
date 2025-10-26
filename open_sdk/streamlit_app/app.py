@@ -4503,18 +4503,20 @@ with col2:
                                             
                                             # StoreAgent 리포트가 있으면 Agent 실행
                                             
+                                           
                                             if store_report:
                                                 # 절대 경로로 캐시 파일 경로 생성
                                                 import os
                                                 current_file = Path(__file__)
-                                                # open_sdk 폴더 찾기 (streamlit_app 위로)
-                                                base_dir = current_file.parent.parent.parent  # open_sdk
+                                                # 경로 설정
+                                                project_root = current_file.parent.parent.parent  # 프로젝트 루트
+                                                open_sdk_dir = current_file.parent.parent  # open_sdk
                                                 
-                                                # keywords_20251026.json 절대 경로
-                                                cache_path = base_dir / "agents_new" / "new_product_agent" / "keywords_20251026.json"
+                                                # keywords_20251026.json 절대 경로 (프로젝트 루트 기준)
+                                                cache_path = project_root / "agents_new" / "new_product_agent" / "keywords_20251026.json"
                                                 
-                                                # output 디렉토리 절대 경로
-                                                output_dir = base_dir / "output"
+                                                # output 디렉토리 절대 경로 (open_sdk 기준) - ✅ 수정
+                                                output_dir = open_sdk_dir / "output"  # open_sdk/output
                                                 
                                                 print(f"[DEBUG] Cache path: {cache_path}")
                                                 print(f"[DEBUG] Cache exists: {cache_path.exists()}")
@@ -4524,8 +4526,8 @@ with col2:
                                                 agent = NewProductAgent(
                                                     use_cache=True,  # JSON 캐시 사용
                                                     save_outputs=True,
-                                                    output_dir=str(output_dir),  # 절대 경로로 output 디렉토리 지정
-                                                    cache_json_path=str(cache_path) # None으로 설정하면 자동 탐색
+                                                    output_dir=str(output_dir),  # open_sdk/output 사용
+                                                    cache_json_path=str(cache_path)  # 캐시 파일 절대 경로 전달
                                                 )
                                                 
                                                 # Agent 실행 (비동기)
