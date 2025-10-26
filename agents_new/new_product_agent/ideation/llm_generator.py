@@ -132,11 +132,16 @@ class LLMGenerator:
         template = random.choice(templates)
         
         # 템플릿에 키워드 삽입
-        return template.format(keyword=keyworddef _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
+        return template.format(keyword=keyword)
+    def _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
         """
         여러 개의 신제품 제안 생성 (3개: 농산물 + 음료 + 베이커리)
         """
         proposals = []
+
+
+
+        
         
         # 쌀 관련 키워드 필터링
         filtered_insights = [insight for insight in insights if not any(keyword in insight.get("keyword", "").lower() for keyword in ["쌀", "rice", "20kg", "kg"])]
