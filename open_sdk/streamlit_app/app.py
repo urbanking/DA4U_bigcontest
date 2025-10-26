@@ -1535,37 +1535,37 @@ def display_basic_info(analysis_data):
 
 
 
-def display_final_report_button(store_code, analysis_data):
+#def display_final_report_button(store_code, analysis_data):
 
-    """최종 리포트 생성 버튼 표시"""
+ #   """최종 리포트 생성 버튼 표시"""
 
-    if not st.session_state.final_report_generated:
+#    if not st.session_state.final_report_generated:
 
-        if st.button("📋 최종 리포트 생성 (Gemini)", type="primary"):
+ #       if st.button("📋 최종 리포트 생성 (Gemini)", type="primary"):
+#
+ #           with st.spinner("Gemini로 최종 리포트를 생성 중..."):
+#
+ #               md_content, json_content = generate_final_report_with_gemini(analysis_data)
+#
+ #               if md_content:
 
-            with st.spinner("Gemini로 최종 리포트를 생성 중..."):
+  #                  report_dir = save_final_reports(store_code, md_content, json_content)
 
-                md_content, json_content = generate_final_report_with_gemini(analysis_data)
+   #                 if report_dir:
 
-                if md_content:
+#                        st.success(f"최종 리포트가 생성되었습니다: {report_dir}")
 
-                    report_dir = save_final_reports(store_code, md_content, json_content)
+#                        st.session_state.final_report_generated = True
 
-                    if report_dir:
+#                        st.rerun()
+#
+  #              else:
+##
+  #                  st.error("최종 리포트 생성에 실패했습니다.")
+#
+ #   else:
 
-                        st.success(f"최종 리포트가 생성되었습니다: {report_dir}")
-
-                        st.session_state.final_report_generated = True
-
-                        st.rerun()
-
-                else:
-
-                    st.error("최종 리포트 생성에 실패했습니다.")
-
-    else:
-
-        st.info("✅ 최종 리포트가 이미 생성되었습니다.")
+   #     st.info("✅ 최종 리포트가 이미 생성되었습니다.")
 
 
 
