@@ -4973,41 +4973,7 @@ with col2:
                         # ========== 3. 홍보 아이디어 (Promotion Ideas) ==========
                         
                         # ========== 4. 타겟 전략 (Target Strategy) ==========
-                        if "persona_트 ")
-                        
-                        insights_list = []
-                        
-                        # 인사이트 1: 핵심 고객층
-                        if "persona_analysis" in marketing_data:
-                            persona = marketing_data["persona_analysis"]
-                            if persona.get("persona_type") and persona.get("persona_description"):
-                                insights_list.append({
-                                    "title": "핵심 고객층",
-                                    "content": f"이 매장은 '{persona.get('persona_type', 'N/A')}' 유형의 명확한 페르소나를 보유하고 있습니다. {persona.get('persona_description', 'N/A')}"
-                                })
-                        
-                        # 인사이트 2: 경쟁 우위
-                        if "persona_analysis" in marketing_data:
-                            persona = marketing_data["persona_analysis"]
-                            if "components" in persona:
-                                components = persona["components"]
-                                industry = components.get('industry', 'N/A')
-                                zone = components.get('commercial_zone', 'N/A')
-                                age = components.get('store_age', 'N/A')
-                                insights_list.append({
-                                    "title": "경쟁 우위",
-                                    "content": f"{industry} 업종의 {zone} 상권에서 {age} 단계의 안정적인 운영을 하고 있으며, 명확한 타겟 페르소나를 바탕으로 차별화된 포지셔닝 잠재력을 가지고 있습니다."
-                                })
-                        
-                        # 인사이트 3: 개선 필요 영역
-                        if "risk_analysis" in marketing_data and marketing_data.get("risk_analysis"):
-                            risk = marketing_data["risk_analysis"]
-                            if "analysis_summary" in risk:
-                                insights_list.append({
-                                    "title": "개선 필요 영역",
-                                    "content": risk.get('analysis_summary', 'N/A')
-                                })
-                        
+
 
                         
                         # ========== 7. 다음 단계 제안 (Next Step Proposals) ==========
