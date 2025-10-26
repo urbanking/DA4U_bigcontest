@@ -4188,27 +4188,27 @@ with col2:
 
                 # 최종 리포트 생성 버튼 표시
 
-                if st.button("📋 최종 리포트 생성 (Gemini)", type="primary"):
+                #if st.button("📋 최종 리포트 생성 (Gemini)", type="primary"):
 
-                    with st.spinner("Gemini로 최종 리포트를 생성 중..."):
+                 #   with st.spinner("Gemini로 최종 리포트를 생성 중..."):
 
-                        md_content, json_content = generate_final_report_with_gemini(result)
+                  #      md_content, json_content = generate_final_report_with_gemini(result)
 
-                        if md_content:
+                   #     if md_content:
 
-                            report_dir = save_final_reports(st.session_state.store_code, md_content, json_content)
+#                            report_dir = save_final_reports(st.session_state.store_code, md_content, json_content)
 
-                            if report_dir:
+ #                           if report_dir:
 
-                                st.success(f"최종 리포트가 생성되었습니다: {report_dir}")
+  #                              st.success(f"최종 리포트가 생성되었습니다: {report_dir}")
 
-                                st.session_state.final_report_generated = True
+#                                st.session_state.final_report_generated = True
 
-                                st.rerun()
+ #                               st.rerun()
 
-                        else:
+  #                      else:
 
-                            st.error("최종 리포트 생성에 실패했습니다.")
+   #                         st.error("최종 리포트 생성에 실패했습니다.")
 
                 
 
