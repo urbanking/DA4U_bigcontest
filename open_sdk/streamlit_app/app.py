@@ -4497,14 +4497,17 @@ with col2:
                                                 log_capture.add_log(f"✅ StoreAgent 리포트 로드 (alt key): {len(str(store_report))} bytes", "INFO")
                                             else:
                                                 log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
+
+
+
                                             
                                             # StoreAgent 리포트가 있으면 Agent 실행
                                             if store_report:
                                                 # JSON 캐시 모드로 Agent 초기화
                                                 agent = NewProductAgent(
                                                     use_cache=True,  # JSON 캐시 사용
-                                                    save_outputs=False,
-                                                    cache_json_path="agents_new/new_product_agent/keywords_20251026.json"
+                                                    save_outputs=True,
+                                                    cache_json_path=str(Path(__file__).parent.parent / "agents_new" / "new_product_agent" / "keywords_20251026.json")
                                                 )
                                                 
                                                 # Agent 실행 (비동기)
