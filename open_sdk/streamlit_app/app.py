@@ -4973,104 +4973,7 @@ with col2:
                         # ========== 3. 홍보 아이디어 (Promotion Ideas) ==========
                         
                         # ========== 4. 타겟 전략 (Target Strategy) ==========
-                        if "persona_analysis" in marketing_data and marketing_data.get("persona_analysis"):
-                            try:
-                                persona = marketing_data["persona_analysis"]
-                                
-                                st.markdown("---")
-                                st.markdown("### ■ 타겟 전략 (Target Strategy)")
-                                
-                                # 1. 주 타겟 고객층
-                                st.markdown("**1. 주 타겟 고객층 (Primary Target Audience)**")
-                                
-                                if "components" in persona and isinstance(persona["components"], dict):
-                                    components = persona["components"]
-                                    
-                                    if "customer_demographics" in components and isinstance(components["customer_demographics"], dict):
-                                        demo = components["customer_demographics"]
-                                        st.write(f"**성별:** {demo.get('gender', 'N/A')}")
-                                        st.write(f"**연령대:** {demo.get('age', 'N/A')}")
-                                    
-                                    # 페르소나 정보
-                                    if persona.get('persona_type'):
-                                        st.write(f"**페르소나 타입:** {persona.get('persona_type', 'N/A')}")
-                                    if persona.get('persona_description'):
-                                        st.write(f"**특성:** {persona.get('persona_description', 'N/A')}")
-                                    
-                                    # 추천 채널
-                                    if "key_channels" in persona and isinstance(persona["key_channels"], list):
-                                        st.markdown("**추천 채널:**")
-                                        for channel in persona["key_channels"]:
-                                            if channel:
-                                                st.write(f"  - {channel}")
-                                
-                                # 2. 보조 타겟 고객층 및 확장 전략
-                                st.markdown("---")
-                                st.markdown("**2. 보조 타겟 고객층 및 확장 전략 (Secondary Target Audience & Expansion Strategy)**")
-                                if "persona_analysis" in marketing_data:
-                                    persona = marketing_data["persona_analysis"]
-                                    if "components" in persona:
-                                        components = persona["components"]
-                                        st.write(f"**업종 특성:** {components.get('industry', 'N/A')}")
-                                        st.write(f"**상권 특성:** {components.get('commercial_zone', 'N/A')}")
-                                        st.write(f"**매장 안정성:** {components.get('store_age', 'N/A')}")
-                            except Exception as e:
-                                st.error(f"타겟 전략 로드 오류: {str(e)}")
-                        
-                        # ========== 5. 마케팅 채널 전략 (Marketing Channel Strategy) ==========
-                        if "channel_recommendation" in marketing_data and marketing_data.get("channel_recommendation"):
-                            try:
-                                st.markdown("---")
-                                st.markdown("### ■ 마케팅 채널 전략 (Marketing Channel Strategy)")
-                                channel_rec = marketing_data["channel_recommendation"]
-                                
-                                if isinstance(channel_rec, dict):
-                                    # 온라인 채널
-                                    st.markdown("**온라인 채널:**")
-                                    
-                                    if "primary_channel" in channel_rec:
-                                        st.write(f"**추천 채널:** {channel_rec.get('primary_channel', 'N/A')}")
-                                    if "usage_rate" in channel_rec:
-                                        st.write(f"**사용률:** {channel_rec.get('usage_rate', 'N/A')}%")
-                                    if "reasoning" in channel_rec:
-                                        st.write(f"**추천 이유:** {channel_rec['reasoning']}")
-                                    
-                                    # 채널별 상세 데이터
-                                    if "channel_data" in channel_rec and isinstance(channel_rec["channel_data"], list):
-                                        st.markdown("**채널별 사용률 및 트렌드:**")
-                                        for channel_data in channel_rec["channel_data"]:
-                                            if isinstance(channel_data, dict):
-                                                channel_name = channel_data.get('channel', 'N/A')
-                                                usage = channel_data.get('usage_percent', 'N/A')
-                                                trend = channel_data.get('trend_label', 'N/A')
-                                                trend_emoji = channel_data.get('trend_emoji', '')
-                                                recommendation = channel_data.get('recommendation', 'N/A')
-                                                st.write(f"  - **{channel_name}**: {usage}% ({trend_emoji} {trend}) - {recommendation}")
-                                    
-                                    # 피할 채널
-                                    if "avoid_channels" in channel_rec and channel_rec["avoid_channels"]:
-                                        st.markdown("**⚠️ 피할 채널:**")
-                                        for avoid_ch in channel_rec["avoid_channels"]:
-                                            st.write(f"  - {avoid_ch}")
-                                    
-                                    # 오프라인 채널
-                                    st.markdown("---")
-                                    st.markdown("**오프라인 채널:**")
-                                    st.write("  - **매장 POP/전단지**: MZ감성 페르소나에 맞춘 디자인으로 신메뉴/이벤트 홍보, 매장 주변 500m 배포")
-                                    st.write("  - **현수막/간판**: 시그니처 메뉴/감성을 간결하게 전달, 유동 인구 많은 위치에 설치")
-                                    st.write("  - **이벤트/프로모션**: 매장 내 포토존 인증샷, 스탬프 적립 챌린지, 원데이 클래스/워크숍")
-                                    
-                                    # 통합 채널 전략
-                                    st.markdown("---")
-                                    st.markdown("**통합 채널 전략:**")
-                                    st.write("  - **O2O 전략**: 온라인에서 오프라인 방문 유도, 오프라인에서 온라인 재참여 유도")
-                                    st.write("  - **채널 간 시너지 극대화**: 온라인-오프라인 연계 이벤트, QR 코드 활용, 지역 커뮤니티 제휴")
-                            except Exception as e:
-                                st.error(f"마케팅 채널 전략 로드 오류: {e}")
-                        
-                        # ========== 6. 핵심 인사이트 (Key Insights) ==========
-                        st.markdown("---")
-                        st.markdown("### ■ 핵심 인사이트 (Key Insights)")
+                        if "persona_트 ")
                         
                         insights_list = []
                         
@@ -5105,12 +5008,7 @@ with col2:
                                     "content": risk.get('analysis_summary', 'N/A')
                                 })
                         
-                        # 인사이트 표시
-                        for i, insight in enumerate(insights_list, 1):
-                            st.write(f"**{i}. {insight.get('title', 'N/A')}:**")
-                            st.write(insight.get('content', 'N/A'))
-                            if i < len(insights_list):
-                                st.divider()
+
                         
                         # ========== 7. 다음 단계 제안 (Next Step Proposals) ==========
                         if "recommendations" in marketing_data and marketing_data.get("recommendations"):
