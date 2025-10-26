@@ -4678,8 +4678,33 @@ with col2:
             with tab1:
 
                 display_store_overview(analysis_data)
-
+                with st.expander("📥 참고 데이터 다운로드", expanded=False):
+                    st.markdown("### 📊 이 탭에서 참고한 데이터")
+                    
+                    json_files = [
+                        ("전체 분석 결과", "analysis_result.json", "모든 분석 결과를 통합한 종합 리포트"),
+                        ("종합 분석 요약", "comprehensive_analysis.json", "각 분석의 핵심 요약 및 평가 점수"),
+                        ("매장 분석 리포트", "store_analysis_report.json", "매장의 고객 분포, 매출 트렌드, 재방문율 분석")
+                    ]
+                    
+                    for name, file, desc in json_files:
+                        file_path = Path(analysis_data.get("analysis_dir", "")) / file
+                        if file_path.exists():
+                            with open(file_path, 'r', encoding='utf-8') as f:
+                                json_data = f.read()
+                            
+                            st.markdown(f"**📄 {name}**")
+                            st.caption(desc)
+                            st.download_button(
+                                label=f"📥 {name} 다운로드",
+                                data=json_data,
+                                file_name=file,
+                                mime="application/json",
+                                key=f"download_{file}"
+                            )
+                            st.divider()
             
+
 
             with tab2:
 
