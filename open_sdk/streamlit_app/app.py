@@ -4864,34 +4864,6 @@ with col2:
                                 st.error(f"종합 결론 로드 오류: {str(e)}")
                         
                         # ========== 3. 홍보 아이디어 (Promotion Ideas) ==========
-                        if "marketing_strategies" in marketing_data and marketing_data.get("marketing_strategies"):
-                            try:
-                                st.markdown("---")
-                                st.markdown("### ■ 추가 홍보 아이디어 (Additional Promotion Ideas)")
-                                strategies = marketing_data["marketing_strategies"]
-                                
-                                if isinstance(strategies, list):
-                                    for i, strategy in enumerate(strategies, 1):
-                                        if isinstance(strategy, dict):
-                                            strategy_name = strategy.get('name', f'전략 {i}')
-                                            strategy_desc = strategy.get('description', 'N/A')
-                                            
-                                            # name과 description 결합
-                                            if strategy_desc and strategy_desc != 'N/A':
-                                                full_text = f"{strategy_name} {strategy_desc}"
-                                            else:
-                                                full_text = strategy_name
-                                            
-                                            st.markdown(f"**{i}.** {full_text}")
-                                            
-                                            # 예상 효과, 구현 기간 표시
-                                            if strategy.get('expected_impact'):
-                                                st.caption(f"📊 예상 효과: {strategy.get('expected_impact')}")
-                                            if strategy.get('implementation_time'):
-                                                st.caption(f"⏱️ 구현 기간: {strategy.get('implementation_time')}")
-                                            st.divider()
-                            except Exception as e:
-                                st.error(f"홍보 아이디어 로드 오류: {e}")
                         
                         # ========== 4. 타겟 전략 (Target Strategy) ==========
                         if "persona_analysis" in marketing_data and marketing_data.get("persona_analysis"):
