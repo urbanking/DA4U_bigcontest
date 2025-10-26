@@ -160,11 +160,7 @@ class LLMGenerator:
             "과자/베이커리": [i for i in filtered_insights if i.get("category") == "과자/베이커리"]
         }
         
-        # 1번째: 음료 또는 베이커리 (농산물 제외)
-        if keywords_by_category["음료"]:
-            keyword_data = keywords_by_category["음료"][0]
-            proposal = self._create_proposal(keyword_data, audience, store_male, store_female)
-            proposals.append(proposal)
+
         
         # 2번째: 베이커리 (이미 음료가 있으면) 또는 음료
         if len(proposals) < 2:
