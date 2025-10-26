@@ -4480,26 +4480,29 @@ with col2:
                                     print("[3/3] New Product Agent 실행 (JSON 캐시 사용)")
                                     print("="*60)
                                     
-                                    # New Product Agent 실행
+
+# New Product Agent 실행
                                     if NEW_PRODUCT_AGENT_AVAILABLE:
                                         try:
                                             log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
                                             
                                             # StoreAgent 리포트 가져오기
                                             store_report = None
-                                            if "store_analysis_report" in analysis_data:
+                                            
+                                            if "store_analysis" in analysis_data and analysis_data["store_analysis"]:
+                                                store_report = analysis_data["store_analysis"]
+                                                log_capture.add_log(f"✅ StoreAgent 리포트 로드: {len(str(store_report))} bytes", "INFO")
+                                            elif "store_analysis_report" in analysis_data:
                                                 store_report = analysis_data["store_analysis_report"]
-                                            elif "report_metadata" in analysis_data:
-                                                store_report = analysis_data
+                                                log_capture.add_log(f"✅ StoreAgent 리포트 로드 (alt key): {len(str(store_report))} bytes", "INFO")
                                             else:
                                                 log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
-                                                store_report = None
                                             
                                             # StoreAgent 리포트가 있으면 Agent 실행
                                             if store_report:
                                                 # JSON 캐시 모드로 Agent 초기화
                                                 agent = NewProductAgent(
-                                                    use_cache=True,  # JSON 캐시 사용 (크롤링 안함)
+                                                    use_cache=True,  # JSON 캐시 사용
                                                     save_outputs=False,
                                                     cache_json_path="agents_new/new_product_agent/keywords_20251026.json"
                                                 )
@@ -4520,9 +4523,8 @@ with col2:
                                     else:
                                         log_capture.add_log("⚠️ NewProductAgent를 사용할 수 없음", "WARNING")
                                         new_product_result = {"activated": False, "reason": "Agent not available"}
-                                        analysis_data["new_product_result"] = new_product_result                          
-                                    
-                                    
+                                        analysis_data["new_product_result"] = new_product_result
+                                        
                                     
     
 
