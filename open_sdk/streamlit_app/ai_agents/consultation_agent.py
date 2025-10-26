@@ -83,12 +83,28 @@ def load_agent_results(store_code: str) -> dict:
                 print(f"[DEBUG] Marketing result loaded: {marketing_file.name}")
             
             # New Product Agent 결과 로드
+# 86-90번째 줄 변경
+            # New Product Agent 결과 로드
             new_product_file = latest_folder / "new_product_result.json"
             if new_product_file.exists():
                 with open(new_product_file, 'r', encoding='utf-8') as f:
                     results["new_product_result"] = json.load(f)
                 print(f"[DEBUG] New Product result loaded: {new_product_file.name}")
+            else:
+                # analysis_ 폴더에 없으면 naver_datalab_ 폴더에서 찾기
+                datalab_folders = sorted(
+                    [f for f in output_dir.glob("naver_datalab_*") if f.is_dir()],
+                    key=lambda x: x.name,
+                    reverse=True
+                )
                 
+                for datalab_folder in datalab_folders:
+                    new_product_file = datalab_folder / f"{store_code}_new_product_result.json"
+                    if new_product_file.exists():
+                        with open(new_product_file, 'r', encoding='utf-8') as f:
+                            results["new_product_result"] = json.load(f)
+                        print(f"[DEBUG] New Product result loaded from datalab: {new_product_file.name}")
+                        break
     except Exception as e:
         print(f"[WARN] Failed to load agent results: {e}")
     
