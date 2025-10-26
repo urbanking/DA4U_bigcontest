@@ -4678,7 +4678,7 @@ with col2:
             with tab1:
 
                 display_store_overview(analysis_data)
-                with st.expander("📥 참고 데이터 다운로드", expanded=False):
+                with st.expander("                            📥 참고 데이터 다운로드", expanded=False):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     json_files = [
