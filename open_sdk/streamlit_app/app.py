@@ -6,7 +6,6 @@ Langchain + Gemini 버전 (OpenAI Agents SDK 제거)
 
 """
 # app.py 라인 상단 import 섹션에 추가 (약 400번째 줄 근처)
-from agents_new.new_product_agent import NewProductAgent
 
 
 # 페이지 설정 (가장 먼저 실행되어야 함)
@@ -371,7 +370,24 @@ except Exception as e:
     print(f"[ERROR] Marketing Module error: {e}")
     import traceback
     traceback.print_exc()
+# sys.path.insert (라인 359)
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "agents_new"))
 
+# ===== NewProductAgent import 추가 =====
+NEW_PRODUCT_AGENT_AVAILABLE = False
+try:
+    from agents_new.new_product_agent import NewProductAgent
+    NEW_PRODUCT_AGENT_AVAILABLE = True
+    print("[OK] New Product Agent loaded successfully")
+except ImportError as e:
+    print(f"[WARN] New Product Agent import failed: {e}")
+except Exception as e:
+    print(f"[ERROR] New Product Agent error: {e}")
+    import traceback
+    traceback.print_exc()
+
+# run_analysis.py 직접 import (기존 코드)
+from run_analysis import run_full_analysis_pipeline
 # Google Maps MCP Lookup import (HTTP Version)
 MCP_LOOKUP_AVAILABLE = False
 GOOGLE_MAPS_TOOLS_AVAILABLE = False
@@ -4457,48 +4473,53 @@ with col2:
 
                         
                                     # 라인 4465-4480 부분을 완전히 교체
-                                    # ===== 3단계: New Product Agent 실행 =====
+
                                     print("\n" + "="*60)
                                     print("[3/3] New Product Agent 실행")
                                     print("="*60)
                                     
                                     # New Product Agent 실행
-                                    try:
-                                        log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
-                                        
-                                        # StoreAgent 리포트 가져오기
-                                        store_report = None
-                                        if "store_analysis_report" in analysis_data:
-                                            store_report = analysis_data["store_analysis_report"]
-                                        elif "report_metadata" in analysis_data:
-                                            store_report = analysis_data
-                                        else:
-                                            log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
-                                            new_product_result = {"activated": False, "reason": "StoreAgent 리포트 없음"}
-                                            analysis_data["new_product_result"] = new_product_result
-                                        
-                                        # StoreAgent 리포트가 있으면 Agent 실행
-                                        if store_report:
-                                            agent = NewProductAgent(
-                                                use_cache=True,
-                                                save_outputs=False,
-                                                cache_json_path="agents_new/new_product_agent/keywords_20251026.json"
-                                            )
+                                    if NEW_PRODUCT_AGENT_AVAILABLE:
+                                        try:
+                                            log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
                                             
-                                            # Agent 실행 (비동기)
-                                            import asyncio
-                                            new_product_result = asyncio.run(agent.run(store_report))
-                                            analysis_data["new_product_result"] = new_product_result
+                                            # StoreAgent 리포트 가져오기
+                                            store_report = None
+                                            if "store_analysis_report" in analysis_data:
+                                                store_report = analysis_data["store_analysis_report"]
+                                            elif "report_metadata" in analysis_data:
+                                                store_report = analysis_data
+                                            else:
+                                                log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
+                                                new_product_result = {"activated": False, "reason": "StoreAgent 리포트 없음"}
+                                                analysis_data["new_product_result"] = new_product_result
+                                                store_report = None
+                                            
+                                            # StoreAgent 리포트가 있으면 Agent 실행
+                                            if store_report:
+                                                agent = NewProductAgent(
+                                                    use_cache=True,
+                                                    save_outputs=False,
+                                                    cache_json_path="agents_new/new_product_agent/keywords_20251026.json"
+                                                )
+                                                
+                                                # Agent 실행 (비동기)
+                                                new_product_result = asyncio.run(agent.run(store_report))
+                                                analysis_data["new_product_result"] = new_product_result
+                                            
+                                            log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
                                         
-                                        log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
-                                    
-                                    except Exception as e:
-                                        log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
-                                        analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
-                                        import traceback
-                                        traceback.print_exc()
-                                    
-                                    
+                                        except Exception as e:
+                                            log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
+                                            analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
+                                            import traceback
+                                            traceback.print_exc()
+                                    else:
+                                        log_capture.add_log("⚠️ NewProductAgent를 사용할 수 없음", "WARNING")
+                                        new_product_result = {"activated": False, "reason": "Agent not available"}
+                                        analysis_data["new_product_result"] = new_product_result
+                                                                        
+                                                                        
 
 
                                     
