@@ -4675,16 +4675,20 @@ with col2:
 
             
 
-            with tab1:
 
+            with tab1:
                 display_store_overview(analysis_data)
-                with st.expander("                 📥 참고 데이터 다운로드", expanded=True):
+                
+                # JSON 다운로드 섹션 추가
+                st.markdown("---")
+                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     json_files = [
                         ("전체 분석 결과", "analysis_result.json", "모든 분석 결과를 통합한 종합 리포트"),
                         ("종합 분석 요약", "comprehensive_analysis.json", "각 분석의 핵심 요약 및 평가 점수"),
-                        ("매장 분석 리포트", "store_analysis_report.json", "매장의 고객 분포, 매출 트렌드, 재방문율 분석")
+                        ("매장 분석 리포트", "store_analysis_report.json", "매장의 고객 분포, 매출 트렌드, 재방문율 분석"),
+                        ("통합 분석 리포트", "merged_analysis_full.json", "AI 상담에서 참고하는 전체 데이터")
                     ]
                     
                     for name, file, desc in json_files:
@@ -4693,34 +4697,122 @@ with col2:
                             with open(file_path, 'r', encoding='utf-8') as f:
                                 json_data = f.read()
                             
+                            import json as json_lib
+                            json_obj = json_lib.loads(json_data)
+                            
                             st.markdown(f"**📄 {name}**")
                             st.caption(desc)
-                            st.download_button(
-                                label=f"📥 {name} 다운로드",
-                                data=json_data,
-                                file_name=file,
-                                mime="application/json",
-                                key=f"download_{file}"
-                            )
+                            
+                            col1, col2 = st.columns([1, 2])
+                            with col1:
+                                st.download_button(
+                                    label=f"📥 다운로드",
+                                    data=json_data,
+                                    file_name=file,
+                                    mime="application/json",
+                                    key=f"download_tab1_{file}",
+                                    use_container_width=True
+                                )
+                            with col2:
+                                with st.expander(f"📄 {file} 미리보기", expanded=False):
+                                    st.json(json_obj)
                             st.divider()
-            
-
 
             with tab2:
-
                 display_customer_analysis(analysis_data)
-
-            
+                
+                # 고객 분석 JSON 다운로드
+                st.markdown("---")
+                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                    st.markdown("### 📊 이 탭에서 참고한 데이터")
+                    
+                    file_path = Path(analysis_data.get("analysis_dir", "")) / "store_analysis_report.json"
+                    if file_path.exists():
+                        with open(file_path, 'r', encoding='utf-8') as f:
+                            json_data = f.read()
+                        
+                        import json as json_lib
+                        json_obj = json_lib.loads(json_data)
+                        
+                        st.markdown("**📄 매장 분석 리포트**")
+                        st.caption("고객 분포, 연령/성별 분석, 재방문율, 고객 타입별 분석 데이터")
+                        
+                        col1, col2 = st.columns([1, 2])
+                        with col1:
+                            st.download_button(
+                                label="📥 다운로드",
+                                data=json_data,
+                                file_name="store_analysis_report.json",
+                                mime="application/json",
+                                key="download_tab2_store",
+                                use_container_width=True
+                            )
+                        with col2:
+                            with st.expander("📄 store_analysis_report.json 미리보기", expanded=False):
+                                st.json(json_obj)
 
             with tab3:
-
                 display_mobility_analysis(analysis_data)
-
-            
+                
+                # 이동 패턴 JSON 다운로드
+                st.markdown("---")
+                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                    st.markdown("### 📊 이 탭에서 참고한 데이터")
+                    
+                    file_path = Path(analysis_data.get("analysis_dir", "")) / "mobility_data.json"
+                    if file_path.exists():
+                        with open(file_path, 'r', encoding='utf-8') as f:
+                            json_data = f.read()
+                        
+                        import json as json_lib
+                        json_obj = json_lib.loads(json_data)
+                        
+                        st.markdown("**📄 이동 패턴 데이터**")
+                        st.caption("행정동 기준 유입/유출, 시간대별, 목적별, 교통수단별 이동 패턴 분석")
+                        
+                        col1, col2 = st.columns([1, 2])
+                        with col1:
+                            st.download_button(
+                                label="📥 다운로드",
+                                data=json_data,
+                                file_name="mobility_data.json",
+                                mime="application/json",
+                                key="download_tab3_mobility",
+                                use_container_width=True
+                            )
+                        with col2:
+                            with st.expander("📄 mobility_data.json 미리보기", expanded=False):
+                                st.json(json_obj)
 
             with tab4:
-
                 display_panorama_analysis(analysis_data)
+                
+                # 파노라마 분석 JSON 다운로드
+                st.markdown("---")
+                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                    st.markdown("### 📊 이 탭에서 참고한 데이터")
+                    
+                    if "panorama_analysis" in analysis_data and analysis_data.get("panorama_analysis"):
+                        import json as json_lib
+                        json_obj = analysis_data["panorama_analysis"]
+                        json_data = json_lib.dumps(json_obj, ensure_ascii=False, indent=2)
+                        
+                        st.markdown("**📄 파노라마 분석 데이터**")
+                        st.caption("주변 지역 특성, 상권 환경, 상업적 특성 분석 (스트리트뷰 이미지 기반)")
+                        
+                        col1, col2 = st.columns([1, 2])
+                        with col1:
+                            st.download_button(
+                                label="📥 다운로드",
+                                data=json_data,
+                                file_name="panorama_analysis.json",
+                                mime="application/json",
+                                key="download_tab4_panorama",
+                                use_container_width=True
+                            )
+                        with col2:
+                            with st.expander("📄 panorama_analysis.json 미리보기", expanded=False):
+                                st.json(json_obj)
 
             
             with tab5:
