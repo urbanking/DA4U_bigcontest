@@ -5109,28 +5109,79 @@ with col2:
                 else:
                     st.info("마케팅 분석 데이터가 없습니다.")
 
-            with tab7:
-                st.markdown("#### 🍽️ 신메뉴 추천")
-                if "new_product_result" in analysis_data:
-                    new_product_data = analysis_data["new_product_result"]
-                    
-                    # 신메뉴 추천 요약 정보 표시
-                    if isinstance(new_product_data, dict):
-                        if "proposals" in new_product_data:
-                            st.markdown("##### 🍽️ 추천 메뉴")
-                            for i, proposal in enumerate(new_product_data["proposals"][:3], 1):
-                                st.write(f"**메뉴 {i}:** {proposal.get('menu_name', 'N/A')}")
-                                st.write(f"**카테고리:** {proposal.get('category', 'N/A')}")
-                                if "target" in proposal:
-                                    target = proposal["target"]
-                                    st.write(f"**타겟:** {target.get('gender', 'N/A')} {target.get('ages', 'N/A')}")
-                                st.write("---")
+               
+                with tab7:
+                    st.markdown("#### 🍽️ 신메뉴 추천")
+                    if "new_product_result" in analysis_data:
+                        new_product_data = analysis_data["new_product_result"]
+                        
+                        # 신메뉴 추천 요약 정보 표시
+                        if isinstance(new_product_data, dict):
+                            if "proposals" in new_product_data and len(new_product_data["proposals"]) > 0:
+                                st.markdown("##### 🍽️ 추천 메뉴")
+                                
+                                # insight 표시 (있으면)
+                                if "insight" in new_product_data and new_product_data["insight"]:
+                                    with st.expander("📊 추천 근거 (인사이트)", expanded=False):
+                                        st.markdown(new_product_data["insight"].get("summary", "인사이트 없음"))
+                                
+                                for i, proposal in enumerate(new_product_data["proposals"][:3], 1):
+                                    with st.container():
+                                        st.markdown(f"### 추천 메뉴 {i}")
+                                        
+                                        # 기본 정보
+                                        col1, col2 = st.columns(2)
+                                        with col1:
+                                            st.write(f"**메뉴명:** {proposal.get('menu_name', 'N/A')}")
+                                            st.write(f"**카테고리:** {proposal.get('category', 'N/A')}")
+                                        with col2:
+                                            if "target" in proposal:
+                                                target = proposal["target"]
+                                                gender = target.get('gender', 'N/A')
+                                                ages = target.get('ages', [])
+                                                st.write(f"**타겟 고객:** {gender}")
+                                                if ages:
+                                                    st.write(f"**연령대:** {', '.join(ages)}")
+                                        
+                                        st.divider()
+                                        
+                                        # 근거 데이터 (evidence)
+                                        if "evidence" in proposal:
+                                            with st.expander("📈 추천 근거 (데이터)", expanded=True):
+                                                evidence = proposal["evidence"]
+                                                st.write(f"**키워드:** {evidence.get('keyword', 'N/A')}")
+                                                st.write(f"**순위:** {evidence.get('rank', 'N/A')}위")
+                                                st.write(f"**카테고리:** {evidence.get('category', 'N/A')}")
+                                                if "rationale" in evidence:
+                                                    st.write(f"**이유:** {evidence['rationale']}")
+                                                st.caption(f"데이터 출처: {evidence.get('data_source', 'N/A')}")
+                                        
+                                        # 데이터 근거 (data_backing)
+                                        if "data_backing" in proposal:
+                                            with st.expander("📊 상세 분석", expanded=False):
+                                                backing = proposal["data_backing"]
+                                                st.write(f"**고객 적합도:** {backing.get('customer_fit', 'N/A')}")
+                                                st.write(f"**트렌드 점수:** {backing.get('trend_score', 'N/A')}")
+                                                st.write(f"**시장 격차:** {backing.get('market_gap', 'N/A')}")
+                                        
+                                        # 전체 제안문 (template_ko)
+                                        if "template_ko" in proposal:
+                                            with st.expander("📝 전체 제안문", expanded=False):
+                                                st.markdown(proposal["template_ko"])
+                                        
+                                        st.markdown("---")
+                                
+                                st.success(f"총 {len(new_product_data['proposals'])}개의 메뉴가 추천되었습니다.")
+                            else:
+                                st.warning("추천 메뉴가 없습니다.")
+                                if "activated" in new_product_data and not new_product_data.get("activated"):
+                                    st.info(f"비활성화 사유: {new_product_data.get('reason', 'N/A')}")
+                                else:
+                                    st.json(new_product_data)
                         else:
                             st.json(new_product_data)
                     else:
-                        st.json(new_product_data)
-                else:
-                    st.info("신메뉴 추천 데이터가 없습니다.")
+                        st.info("신메뉴 추천 데이터가 없습니다.")
 
             
     
