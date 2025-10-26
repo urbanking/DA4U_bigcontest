@@ -7,7 +7,7 @@ Langchain + Gemini 버전 (OpenAI Agents SDK 제거)
 """
 # app.py 라인 상단 import 섹션에 추가 (약 400번째 줄 근처)
 
-
+import streamlit as st  # ✅ 이게 제일 먼저!
 # 페이지 설정 (가장 먼저 실행되어야 함)
 st.set_page_config(
     page_title="BigContest AI Agent - 1:1 비밀 상담 서비스",
