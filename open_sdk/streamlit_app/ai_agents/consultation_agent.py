@@ -448,9 +448,11 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         
         # 위험 분석 정보 간소화
         risk_summary = "\n".join([
-            f"- **{r.get('code', 'N/A')}**: {r.get('name', 'N/A')} ({r.get('level', 'N/A')}, {r.get('score', 'N/A')}/10) - {r.get('description', 'N/A')[:60]}..."
+            f"- **{r.get('code', 'N/A')}**: {r.get('name', 'N/A')} ({r.get('level', 'N/A')}, {r.get('score', 'N/A')}/10) - {r.get('evidence', 'N/A')[:60]}..."
             for r in marketing_risks[:3]
         ]) if marketing_risks else "위험 분석 정보 없음"
+
+
         
         # 신제품 제안 추출 (JSON 파일에서 로드)
         new_product_proposals = []
