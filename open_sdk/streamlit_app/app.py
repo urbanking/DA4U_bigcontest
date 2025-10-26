@@ -4681,7 +4681,7 @@ with col2:
                 
                 # JSON 다운로드 섹션 추가
                 st.markdown("---")
-                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                with st.expander("    📥 참고 데이터 다운로드 및 확인", expanded=True):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     json_files = [
@@ -4723,7 +4723,7 @@ with col2:
                 
                 # 고객 분석 JSON 다운로드
                 st.markdown("---")
-                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                with st.expander("    📥 참고 데이터 다운로드 및 확인", expanded=True):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     file_path = Path(analysis_data.get("analysis_dir", "")) / "store_analysis_report.json"
@@ -4756,7 +4756,7 @@ with col2:
                 
                 # 이동 패턴 JSON 다운로드
                 st.markdown("---")
-                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                with st.expander("    📥 참고 데이터 다운로드 및 확인", expanded=True):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     file_path = Path(analysis_data.get("analysis_dir", "")) / "mobility_data.json"
@@ -4789,7 +4789,7 @@ with col2:
                 
                 # 파노라마 분석 JSON 다운로드
                 st.markdown("---")
-                with st.expander("📥 참고 데이터 다운로드 및 확인", expanded=False):
+                with st.expander("     📥 참고 데이터 다운로드 및 확인", expanded=True):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     if "panorama_analysis" in analysis_data and analysis_data.get("panorama_analysis"):
