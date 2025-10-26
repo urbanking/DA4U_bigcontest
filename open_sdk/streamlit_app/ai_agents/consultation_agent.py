@@ -121,7 +121,7 @@ def load_sns_segment_data() -> dict:
         from pathlib import Path
         
         # segment_sns.json 파일 경로
-        sns_file = Path(__file__).parent.parent.parent / "data" / "segment_sns.json"
+        sns_file = Path(__file__).parent.parent.parent.parent / "data" / "segment_sns.json"
         
         if sns_file.exists():
             with open(sns_file, 'r', encoding='utf-8') as f:
