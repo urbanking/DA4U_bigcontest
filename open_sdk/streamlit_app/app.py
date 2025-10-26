@@ -4299,7 +4299,7 @@ with col2:
                                     panorama_result = analyze_area_by_address(
                                         address=address,
                                         buffer_meters=300,
-                                        max_images=5,
+                                        max_images=10,
                                         create_map=True
                                     )
                                     
