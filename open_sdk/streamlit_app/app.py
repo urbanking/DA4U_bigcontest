@@ -3774,7 +3774,7 @@ with col1:
 
         with st.chat_message("assistant"):
 
-            st.markdown("🔄 5차원 종합 분석을 진행하겠습니다. 약 3-5분 정도 소요됩니다.")
+            st.markdown("🔄 5차원 종합 분석을 진행하겠습니다. 완료시 상담시작 버튼을 눌러주세요")
 
     
 
