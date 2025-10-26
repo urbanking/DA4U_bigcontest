@@ -133,10 +133,10 @@ class LLMGenerator:
         
         # 템플릿에 키워드 삽입
         return template.format(keyword=keyword)
-
+        
     def _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
         """
-        여러 개의 신제품 제안 생성 (2-3개)
+        여러 개의 신제품 제안 생성 (2-3개, 카테고리 조합)
         
         Args:
             insights: 크롤링된 키워드 리스트
@@ -145,63 +145,98 @@ class LLMGenerator:
             store_female: 매장 여성 비율
             
         Returns:
-            제안 리스트 (2-3개)
+            제안 리스트 (2-3개, 다양한 카테고리 조합)
         """
         proposals = []
         
         # 쌀 관련 키워드 필터링
         filtered_insights = [insight for insight in insights if not any(keyword in insight.get("keyword", "").lower() for keyword in ["쌀", "rice", "20kg", "kg"])]
         
-        # 상위 3개 키워드 선택 (없으면 더미 데이터 사용)
-        top_keywords = filtered_insights[:3] if len(filtered_insights) >= 3 else filtered_insights
+        # 카테고리별로 키워드 분류
+        keywords_by_category = {
+            "농산물": [],
+            "음료": [],
+            "과자/베이커리": []
+        }
         
-        # 키워드가 부족하면 더미 키워드 추가 (쌀 관련 제외)
-        if len(top_keywords) < 2:
-            dummy_keywords = [
-                {"category": "음료", "keyword": "바닐라", "rank": 1},
-                {"category": "과자/베이커리", "keyword": "마카롱", "rank": 2},
-                {"category": "음료", "keyword": "헤이즐넛", "rank": 3},
-                {"category": "과자/베이커리", "keyword": "크로와상", "rank": 4}
-            ]
-            top_keywords.extend(dummy_keywords[:2-len(top_keywords)])
+        for insight in filtered_insights:
+            category = insight.get("category", "")
+            if category in keywords_by_category:
+                keywords_by_category[category].append(insight)
         
-        # 각 키워드에 대해 제안 생성
-        for i, keyword_data in enumerate(top_keywords[:2]):  # 최대 2개
+        # ✅ 카테고리 조합별 메뉴 생성
+        # 1. 농산물 + 음료 조합 (예: "딸기 라떼", "바나나 스무디")
+        if keywords_by_category["농산물"] and keywords_by_category["음료"]:
+            agriculture = keywords_by_category["농산물"][0]
+            beverage = keywords_by_category["음료"][0]
             proposal = {
-                "menu_name": self._generate_menu_name(keyword_data["keyword"], keyword_data["category"]),
-                "category": keyword_data["category"],
+                "menu_name": f"{agriculture['keyword']} {beverage['keyword']}",
+                "category": "음료",
                 "target": {
                     "gender": audience["gender"], 
                     "ages": audience["ages"]
                 },
                 "evidence": {
-                    "category": keyword_data["category"], 
-                    "keyword": keyword_data["keyword"], 
-                    "rank": keyword_data["rank"],
+                    "category": f"농산물({agriculture['keyword']}) + 음료({beverage['keyword']})", 
+                    "keyword": f"{agriculture['keyword']} × {beverage['keyword']}", 
+                    "rank": min(agriculture['rank'], beverage['rank']),
                     "data_source": "네이버 데이터랩 쇼핑인사이트",
-                    "rationale": f"{keyword_data['keyword']}는 {keyword_data['category']} 카테고리에서 {keyword_data['rank']}위로 높은 인기를 보이고 있습니다."
+                    "rationale": f"{agriculture['keyword']}(농산물)와 {beverage['keyword']}(음료)를 조합하여 새로운 메뉴를 제안합니다."
                 },
                 "data_backing": {
                     "customer_fit": f"{audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭",
-                    "trend_score": f"순위 {keyword_data['rank']}위 = 높은 검색 빈도",
+                    "trend_score": f"농산물 순위 {agriculture['rank']}위 + 음료 순위 {beverage['rank']}위",
                     "market_gap": f"매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균"
                 },
                 "template_ko": (
                     f"{audience['gender']}과 {', '.join(audience['ages'])}의 사람들은 "
-                    f"네이버 쇼핑에서 {keyword_data['category']} 카테고리에서 "
-                    f"'{keyword_data['keyword']}' 키워드를 많이 찾았습니다(순위 {keyword_data['rank']}).\n\n"
+                    f"네이버 쇼핑에서 '{agriculture['keyword']}'와 '{beverage['keyword']}'를 많이 찾았습니다.\n\n"
                     f"**데이터 근거:**\n"
                     f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
-                    f"- 트렌드 점수: 순위 {keyword_data['rank']}위 = 높은 검색 빈도\n"
+                    f"- 트렌드 점수: 농산물 순위 {agriculture['rank']}위 + 음료 순위 {beverage['rank']}위\n"
                     f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
-                    f"따라서 이를 결합한 '{self._generate_menu_name(keyword_data['keyword'], keyword_data['category'])}' 메뉴를 "
-                    f"개발해보는 것을 추천드립니다."
+                    f"따라서 '{agriculture['keyword']} {beverage['keyword']}' 메뉴를 개발해보는 것을 추천드립니다."
                 )
             }
             proposals.append(proposal)
         
-        return proposals
-
+        # 2. 농산물 + 베이커리 조합 (예: "딸기 타르트", "바나나 케이크")
+        if keywords_by_category["농산물"] and keywords_by_category["과자/베이커리"]:
+            agriculture = keywords_by_category["농산물"][-1] if len(keywords_by_category["농산물"]) > 1 else keywords_by_category["농산물"][0]
+            bakery = keywords_by_category["과자/베이커리"][0]
+            proposal = {
+                "menu_name": f"{agriculture['keyword']} {bakery['keyword']}",
+                "category": "과자/베이커리",
+                "target": {
+                    "gender": audience["gender"], 
+                    "ages": audience["ages"]
+                },
+                "evidence": {
+                    "category": f"농산물({agriculture['keyword']}) + 베이커리({bakery['keyword']})", 
+                    "keyword": f"{agriculture['keyword']} × {bakery['keyword']}", 
+                    "rank": min(agriculture['rank'], bakery['rank']),
+                    "data_source": "네이버 데이터랩 쇼핑인사이트",
+                    "rationale": f"{agriculture['keyword']}(농산물)와 {bakery['keyword']}(베이커리)를 조합하여 새로운 메뉴를 제안합니다."
+                },
+                "data_backing": {
+                    "customer_fit": f"{audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭",
+                    "trend_score": f"농산물 순위 {agriculture['rank']}위 + 베이커리 순위 {bakery['rank']}위",
+                    "market_gap": f"매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균"
+                },
+                "template_ko": (
+                    f"{audience['gender']}과 {', '.join(audience['ages'])}의 사람들은 "
+                    f"네이버 쇼핑에서 '{agriculture['keyword']}'와 '{bakery['keyword']}'를 많이 찾았습니다.\n\n"
+                    f"**데이터 근거:**\n"
+                    f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
+                    f"- 트렌드 점수: 농산물 순위 {agriculture['rank']}위 + 베이커리 순위 {bakery['rank']}위\n"
+                    f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
+                    f"따라서 '{agriculture['keyword']} {bakery['keyword']}' 메뉴를 개발해보는 것을 추천드립니다."
+                )
+            }
+            proposals.append(proposal)
+        
+        # 최대 3개까지만 반환
+        return proposals[:2]
     def generate(
         self, 
         *, 
@@ -314,3 +349,4 @@ class LLMGenerator:
         return {
             "proposals": self._generate_multiple_proposals(filtered_insights, audience, store_male, store_female)
         }
+
