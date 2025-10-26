@@ -44,7 +44,6 @@ from contextlib import redirect_stdout, redirect_stderr
 import logging
 
 from streamlit_autorefresh import st_autorefresh
-generate_comprehensive_analysis_with_gemin
 
 
 # .env 파일 로드
