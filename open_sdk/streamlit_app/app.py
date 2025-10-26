@@ -4969,12 +4969,7 @@ with col2:
                                     
                             except Exception as e:
                                 st.error(f"종합 결론 로드 오류: {str(e)}")
-                        
-                        # ========== 3. 홍보 아이디어 (Promotion Ideas) ==========
-                        
-                        # ========== 4. 타겟 전략 (Target Strategy) ==========
-
-
+                    
                         
                         # ========== 7. 다음 단계 제안 (Next Step Proposals) ==========
                         if "recommendations" in marketing_data and marketing_data.get("recommendations"):
