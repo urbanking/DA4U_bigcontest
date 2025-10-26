@@ -4474,8 +4474,10 @@ with col2:
                         
                                     # 라인 4465-4480 부분을 완전히 교체
 
+ 
+                                    # ===== 3단계: New Product Agent 실행 =====
                                     print("\n" + "="*60)
-                                    print("[3/3] New Product Agent 실행")
+                                    print("[3/3] New Product Agent 실행 (JSON 캐시 사용)")
                                     print("="*60)
                                     
                                     # New Product Agent 실행
@@ -4491,14 +4493,13 @@ with col2:
                                                 store_report = analysis_data
                                             else:
                                                 log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
-                                                new_product_result = {"activated": False, "reason": "StoreAgent 리포트 없음"}
-                                                analysis_data["new_product_result"] = new_product_result
                                                 store_report = None
                                             
                                             # StoreAgent 리포트가 있으면 Agent 실행
                                             if store_report:
+                                                # JSON 캐시 모드로 Agent 초기화
                                                 agent = NewProductAgent(
-                                                    use_cache=True,
+                                                    use_cache=True,  # JSON 캐시 사용 (크롤링 안함)
                                                     save_outputs=False,
                                                     cache_json_path="agents_new/new_product_agent/keywords_20251026.json"
                                                 )
@@ -4506,8 +4507,10 @@ with col2:
                                                 # Agent 실행 (비동기)
                                                 new_product_result = asyncio.run(agent.run(store_report))
                                                 analysis_data["new_product_result"] = new_product_result
-                                            
-                                            log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
+                                                log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
+                                            else:
+                                                new_product_result = {"activated": False, "reason": "StoreAgent 리포트 없음"}
+                                                analysis_data["new_product_result"] = new_product_result
                                         
                                         except Exception as e:
                                             log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
@@ -4517,11 +4520,9 @@ with col2:
                                     else:
                                         log_capture.add_log("⚠️ NewProductAgent를 사용할 수 없음", "WARNING")
                                         new_product_result = {"activated": False, "reason": "Agent not available"}
-                                        analysis_data["new_product_result"] = new_product_result
-                                                                        
-                                                                        
-
-
+                                        analysis_data["new_product_result"] = new_product_result                          
+                                    
+                                    
                                     
     
 
