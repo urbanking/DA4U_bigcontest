@@ -44,7 +44,7 @@ from contextlib import redirect_stdout, redirect_stderr
 import logging
 
 from streamlit_autorefresh import st_autorefresh
-
+generate_comprehensive_analysis_with_gemin
 
 
 # .env 파일 로드
@@ -1738,7 +1738,7 @@ def generate_comprehensive_analysis_with_gemini(analysis_data):
 
             temperature=0.7,
 
-            max_tokens=3000
+            max_tokens=20000
 
         )
 
