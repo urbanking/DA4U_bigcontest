@@ -4455,8 +4455,9 @@ with col2:
 
                                     
 
-
-                                    # ===== 3단계: New Product Agent 실행 (간소화) =====
+                        
+                                    # 라인 4465-4480 부분을 완전히 교체
+                                    # ===== 3단계: New Product Agent 실행 =====
                                     print("\n" + "="*60)
                                     print("[3/3] New Product Agent 실행")
                                     print("="*60)
@@ -4465,36 +4466,42 @@ with col2:
                                     try:
                                         log_capture.add_log("[3/3] New Product Agent 실행 중...", "INFO")
                                         
-                                        # 캐시 모드로 실행 (실시간 크롤링 없음)
-                                        agent = NewProductAgent(
-                                            use_cache=True,  # JSON 캐시 사용
-                                            save_outputs=False,
-                                            cache_json_path="agents_new/new_product_agent/keywords_20251026.json" 
-                                            
-                                        )
-                                        
-                                        # StoreAgent 리포트 가져오기 (analysis_data에서)
+                                        # StoreAgent 리포트 가져오기
                                         store_report = None
                                         if "store_analysis_report" in analysis_data:
                                             store_report = analysis_data["store_analysis_report"]
                                         elif "report_metadata" in analysis_data:
-                                            # 이미 리포트 형식인 경우
                                             store_report = analysis_data
                                         else:
                                             log_capture.add_log("⚠️ StoreAgent 리포트 없음, NewProductAgent 스킵", "WARNING")
                                             new_product_result = {"activated": False, "reason": "StoreAgent 리포트 없음"}
-                                        else:
-                                            # Agent 실행
+                                            analysis_data["new_product_result"] = new_product_result
+                                        
+                                        # StoreAgent 리포트가 있으면 Agent 실행
+                                        if store_report:
+                                            agent = NewProductAgent(
+                                                use_cache=True,
+                                                save_outputs=False,
+                                                cache_json_path="agents_new/new_product_agent/keywords_20251026.json"
+                                            )
+                                            
+                                            # Agent 실행 (비동기)
                                             import asyncio
                                             new_product_result = asyncio.run(agent.run(store_report))
-                                            
-                                        analysis_data["new_product_result"] = new_product_result
-                                        log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
+                                            analysis_data["new_product_result"] = new_product_result
                                         
+                                        log_capture.add_log("✅ New Product Agent 완료", "SUCCESS")
+                                    
                                     except Exception as e:
                                         log_capture.add_log(f"❌ New Product Agent 실행 실패: {e}", "ERROR")
                                         analysis_data["new_product_result"] = {"activated": False, "error": str(e)}
+                                        import traceback
+                                        traceback.print_exc()
+                                    
+                                    
 
+
+                                    
     
 
                                     # ===== 4단계: Langchain Consultation Chain 생성 =====
