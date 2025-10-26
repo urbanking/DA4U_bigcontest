@@ -4854,12 +4854,6 @@ with col2:
                                     if "summary" in insights:
                                         st.write(insights["summary"])
                                     
-                                    # 매장 특성 테이블
-                                    if "table_data" in insights and isinstance(insights["table_data"], dict):
-                                        st.markdown("**매장 특성:**")
-                                        table_data = insights["table_data"]
-                                        for key, value in table_data.items():
-                                            st.write(f"**{key}**: {value}")
                             except Exception as e:
                                 st.error(f"종합 결론 로드 오류: {str(e)}")
                         
