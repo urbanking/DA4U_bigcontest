@@ -132,12 +132,9 @@ class LLMGenerator:
         template = random.choice(templates)
         
         # 템플릿에 키워드 삽입
-        return template.format(keyword=keyword)
-        
-
-    def _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
+        return template.format(keyword=keyworddef _generate_multiple_proposals(self, insights: List[Dict], audience: Dict, store_male: float, store_female: float) -> List[Dict]:
         """
-        여러 개의 신제품 제안 생성 (3개: 음료 + 베이커리 + 농산물)
+        여러 개의 신제품 제안 생성 (3개: 농산물 + 음료 + 베이커리)
         """
         proposals = []
         
@@ -151,31 +148,17 @@ class LLMGenerator:
             "과자/베이커리": [i for i in filtered_insights if i.get("category") == "과자/베이커리"]
         }
         
-        # 1번째: 음료
-        if keywords_by_category["음료"]:
-            keyword_data = keywords_by_category["음료"][0]
-            proposal = self._create_proposal(keyword_data, audience, store_male, store_female)
-            proposals.append(proposal)
-        
-        # 2번째: 베이커리
-        if keywords_by_category["과자/베이커리"]:
-            keyword_data = keywords_by_category["과자/베이커리"][0]
-            proposal = self._create_proposal(keyword_data, audience, store_male, store_female)
-            proposals.append(proposal)
-        
-        # 3번째: 반드시 농산물 포함 (음료 스타일)
+        # 1번째: 농산물 (음료 스타일) - 첫 번째로
         if keywords_by_category["농산물"]:
             agriculture_keyword = keywords_by_category["농산물"][0]
-            menu_name = self._generate_agriculture_drink_menu(agriculture_keyword["keyword"])
-            proposal = {
+            menu_name = f"{agriculture_keyword['keyword']} 스무디"
+            
+            proposals.append({
                 "menu_name": menu_name,
                 "category": "음료",
-                "target": {
-                    "gender": audience["gender"], 
-                    "ages": audience["ages"]
-                },
+                "target": {"gender": audience["gender"], "ages": audience["ages"]},
                 "evidence": {
-                    "category": f"농산물({agriculture_keyword['keyword']}) × 음료", 
+                    "category": "농산물", 
                     "keyword": agriculture_keyword["keyword"], 
                     "rank": agriculture_keyword["rank"],
                     "data_source": "네이버 데이터랩 쇼핑인사이트",
@@ -196,34 +179,69 @@ class LLMGenerator:
                     f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
                     f"따라서 '{menu_name}' 메뉴를 개발해보는 것을 추천드립니다."
                 )
-            }
-            proposals.append(proposal)
-        else:
-            # 농산물 키워드가 없으면 더미 데이터로 추가
+            })
+        
+        # 2번째: 음료
+        if keywords_by_category["음료"]:
+            keyword_data = keywords_by_category["음료"][0]
             proposals.append({
-                "menu_name": "사과 스무디",
-                "category": "음료",
+                "menu_name": self._generate_menu_name(keyword_data["keyword"], keyword_data["category"]),
+                "category": keyword_data["category"],
                 "target": {"gender": audience["gender"], "ages": audience["ages"]},
                 "evidence": {
-                    "category": "농산물(사과) × 음료",
-                    "keyword": "사과",
-                    "rank": 1,
+                    "category": keyword_data["category"], 
+                    "keyword": keyword_data["keyword"], 
+                    "rank": keyword_data["rank"],
                     "data_source": "네이버 데이터랩 쇼핑인사이트",
-                    "rationale": "사과(농산물)를 음료 스타일로 개발하여 새로운 메뉴를 제안합니다."
+                    "rationale": f"{keyword_data['keyword']}는 {keyword_data['category']} 카테고리에서 {keyword_data['rank']}위로 높은 인기를 보이고 있습니다."
                 },
                 "data_backing": {
                     "customer_fit": f"{audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭",
-                    "trend_score": "농산물 순위 1위 = 높은 검색 빈도",
+                    "trend_score": f"순위 {keyword_data['rank']}위 = 높은 검색 빈도",
                     "market_gap": f"매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균"
                 },
                 "template_ko": (
                     f"{audience['gender']}과 {', '.join(audience['ages'])}의 사람들은 "
-                    f"네이버 쇼핑에서 농산물 카테고리에서 '사과' 키워드를 많이 찾았습니다(순위 1).\n\n"
+                    f"네이버 쇼핑에서 {keyword_data['category']} 카테고리에서 "
+                    f"'{keyword_data['keyword']}' 키워드를 많이 찾았습니다(순위 {keyword_data['rank']}).\n\n"
                     f"**데이터 근거:**\n"
                     f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
-                    f"- 트렌드 점수: 순위 1위 = 높은 검색 빈도\n"
+                    f"- 트렌드 점수: 순위 {keyword_data['rank']}위 = 높은 검색 빈도\n"
                     f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
-                    f"따라서 '사과 스무디' 메뉴를 개발해보는 것을 추천드립니다."
+                    f"따라서 '{self._generate_menu_name(keyword_data['keyword'], keyword_data['category'])}' 메뉴를 "
+                    f"개발해보는 것을 추천드립니다."
+                )
+            })
+        
+        # 3번째: 베이커리
+        if keywords_by_category["과자/베이커리"]:
+            keyword_data = keywords_by_category["과자/베이커리"][0]
+            proposals.append({
+                "menu_name": self._generate_menu_name(keyword_data["keyword"], keyword_data["category"]),
+                "category": keyword_data["category"],
+                "target": {"gender": audience["gender"], "ages": audience["ages"]},
+                "evidence": {
+                    "category": keyword_data["category"], 
+                    "keyword": keyword_data["keyword"], 
+                    "rank": keyword_data["rank"],
+                    "data_source": "네이버 데이터랩 쇼핑인사이트",
+                    "rationale": f"{keyword_data['keyword']}는 {keyword_data['category']} 카테고리에서 {keyword_data['rank']}위로 높은 인기를 보이고 있습니다."
+                },
+                "data_backing": {
+                    "customer_fit": f"{audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭",
+                    "trend_score": f"순위 {keyword_data['rank']}위 = 높은 검색 빈도",
+                    "market_gap": f"매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균"
+                },
+                "template_ko": (
+                    f"{audience['gender']}과 {', '.join(audience['ages'])}의 사람들은 "
+                    f"네이버 쇼핑에서 {keyword_data['category']} 카테고리에서 "
+                    f"'{keyword_data['keyword']}' 키워드를 많이 찾았습니다(순위 {keyword_data['rank']}).\n\n"
+                    f"**데이터 근거:**\n"
+                    f"- 고객 적합도: {audience['gender']} {', '.join(audience['ages'])} 타겟과 매칭\n"
+                    f"- 트렌드 점수: 순위 {keyword_data['rank']}위 = 높은 검색 빈도\n"
+                    f"- 시장 격차: 매장 {audience['gender']} {store_male if audience['gender']=='남성' else store_female:.1f}% vs 업종 평균\n\n"
+                    f"따라서 '{self._generate_menu_name(keyword_data['keyword'], keyword_data['category'])}' 메뉴를 "
+                    f"개발해보는 것을 추천드립니다."
                 )
             })
         
@@ -396,6 +414,7 @@ class LLMGenerator:
         return {
             "proposals": self._generate_multiple_proposals(filtered_insights, audience, store_male, store_female)
         }
+
 
 
 
