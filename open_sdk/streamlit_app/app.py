@@ -5100,7 +5100,7 @@ with col2:
 
                
                 with tab7:
-                    st.markdown("#### 🍽️ 신메뉴 추천")
+                    st.markdown("#### 🍽️ 신메뉴 추천(카페,디저트류 매장 한정)")
                     if "new_product_result" in analysis_data:
                         new_product_data = analysis_data["new_product_result"]
                         
