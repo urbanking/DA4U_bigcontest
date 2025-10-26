@@ -40,9 +40,7 @@ import io
 import threading
 
 from contextlib import redirect_stdout, redirect_stderr
-
 import logging
-
 from streamlit_autorefresh import st_autorefresh
 
 
