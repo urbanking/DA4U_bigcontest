@@ -393,10 +393,25 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         chat_history = InMemoryChatMessageHistory()
         
         # 분석 데이터에서 핵심 정보 추출
+        # 분석 데이터에서 핵심 정보 추출
         store_name = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("name", "N/A")
         industry = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("industry", "N/A")
         commercial_area = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("commercial_area", "N/A")
         
+        # 재방문율 데이터 명시적으로 추출
+        store_analysis = analysis_data.get("store_analysis", {})
+        customer_analysis = store_analysis.get("customer_analysis", {})
+        customer_type_analysis = customer_analysis.get("customer_type_analysis", {})
+        returning_customers = customer_type_analysis.get("returning_customers", {})
+        returning_customer_ratio = returning_customers.get("ratio", "N/A")
+        returning_customer_trend = returning_customers.get("trend", "N/A")
+        
+        new_customers = customer_type_analysis.get("new_customers", {})
+        new_customer_ratio = new_customers.get("ratio", "N/A")
+        new_customer_trend = new_customers.get("trend", "N/A")
+        
+        # 에이전트 결과 로드
+        agent_results = load_agent_results(store_code)   
         # 에이전트 결과 로드
         agent_results = load_agent_results(store_code)
         
@@ -504,6 +519,8 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         
         # 시스템 프롬프트 구성 (중괄호 이스케이프 - 모든 { } 를 {{ }} 로 변환)
         # analysis_md에 JSON이 포함되어 있어 중괄호 문제 발생 가능
+        # 시스템 프롬프트 구성 (중괄호 이스케이프 - 모든 { } 를 {{ }} 로 변환)
+        # analysis_md에 JSON이 포함되어 있어 중괄호 문제 발생 가능
         safe_analysis_md = analysis_md[:3000].replace("{", "{{").replace("}", "}}")
         safe_strategy_summary = strategy_summary.replace("{", "{{").replace("}", "}}")
         safe_persona_summary = persona_summary.replace("{", "{{").replace("}", "}}")
@@ -513,6 +530,9 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         safe_new_product_insight = new_product_insight_summary.replace("{", "{{").replace("}", "}}")
         safe_sns_recommendations = sns_recommendations.replace("{", "{{").replace("}", "}}")
         
+        # 재방문율 정보 생성
+        revisit_info = f"재방문 고객 비율: {returning_customer_ratio}% (트렌드: {returning_customer_trend}), 신규 고객 비율: {new_customer_ratio}% (트렌드: {new_customer_trend})"
+        safe_revisit_info = revisit_info.replace("{", "{{").replace("}", "}}")
         # MCP 섹션 조건부 추가
         mcp_section = ""
         if safe_mcp_content:
@@ -547,7 +567,8 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 {safe_panorama_summary[:200]}...
 
 ### 🏪 매장 성과 - store_analysis.json
-- 매출 트렌드, 고객 분포, 재방문율, 동종업계 순위
+{safe_revisit_info}
+- 매출 트렌드, 고객 분포, 동종업계 순위
 
 ### 🏬 상권 분석 - 출처: marketplace_analysis.json
 - 상권 규모, 경쟁 환경
