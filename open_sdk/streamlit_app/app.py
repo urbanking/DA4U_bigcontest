@@ -4971,8 +4971,6 @@ with col2:
                                         if "detailed_analysis" in risk_data:
                                             with st.expander("● 위험 요소 상세 분석", expanded=False):
                                                 st.write(risk_data['detailed_analysis'])
-                                            except KeyError:
-                                                pass  # detailed_analysis가 없으면 스킵
                             except Exception as e:
                                 st.error(f"위험 분석 로드 오류: {str(e)}")
 
