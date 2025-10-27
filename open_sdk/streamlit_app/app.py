@@ -4301,8 +4301,14 @@ with col2:
                                     from agents_new.panorama_img_anal.analyze_area_by_address import analyze_area_by_address
                                     
                                     # 주소 가져오기
-                                    address = analysis_data.get("address", "서울특별시 성동구")
+                                    address = None
+                                    if "store_analysis" in analysis_data and "store_overview" in analysis_data["store_analysis"]:
+                                        address = analysis_data["store_analysis"]["store_overview"].get("address")
                                     
+                                    if not address:
+                                        log_capture.add_log("❌ 매장 주소 없음", "ERROR")
+                                        analysis_data["panorama_analysis"] = {"error": "매장 주소 없음"}
+                                        raise Exception("매장 주소 없음")    
                                     # 파노라마 분석 실행
                                     panorama_result = analyze_area_by_address(
                                         address=address,
