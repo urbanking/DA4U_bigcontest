@@ -1460,6 +1460,14 @@ def load_visualization_files(analysis_dir):
                 "type": "panorama_map"
 
             })
+        image_locations_map = analysis_dir / "panorama" / "image_locations_map.html"
+        if image_locations_map.exists():
+            viz_data["spatial_files"].append({
+                "name": "📍 파노라마 이미지 위치 지도",
+                "path": str(image_locations_map),
+                "absolute_path": str(image_locations_map),
+                "type": "panorama_map"
+            })
 
         
 
