@@ -567,6 +567,7 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 {safe_panorama_summary[:200]}...
 
 ### 🏪 매장 성과 - store_analysis.json
+**중요**: 반드시 아래 재방문율 정보를 사용하세요.
 {safe_revisit_info}
 - 매출 트렌드, 고객 분포, 동종업계 순위
 
@@ -678,7 +679,8 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 **마케팅 위험 점수 (Risk Score) 계산:**
 - 각 위험 코드(R1-R10)는 고유한 가중치(threshold_value)와 영향도 점수(impact_score)를 가집니다
 - 실제 점수는 (심각도 × 가중치)로 계산되며, 최대 100점입니다
-- 예: R2(재방문율 저하)의 점수 계산: |29.8 - 44.5| × 5 = 58.5점
+- 예: R2(재방문율 저하)의 점수 계산: |[재방문율] - [업종 평균]| × 5 = [계산된 점수]점
+- **중요**: 위의 "매장 성과" 섹션에 제공된 실제 재방문율 값을 사용하세요!
 
 **전체 위험 수준 (Overall Risk Level) 결정:**
 - 위험 점수들의 평균을 계산합니다
