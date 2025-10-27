@@ -3614,38 +3614,7 @@ with st.sidebar:
     
 
     # 환경 변수 설정 안내
-    if not os.getenv("GEMINI_API_KEY") and not os.getenv("GOOGLE_API_KEY"):
-        st.error("⚠️ GEMINI_API_KEY 또는 GOOGLE_API_KEY가 설정되지 않았습니다!")
-        st.markdown("""
-        **환경 변수 설정 방법:**
-        1. 프로젝트 루트에 `.env` 파일 생성
-        2. 다음 내용 추가:
-        ```
-        GEMINI_API_KEY=your_gemini_api_key_here
-        GOOGLE_API_KEY=your_google_api_key_here
-        MCP_SERVER_URL=http://localhost:3000
-        ```
-        3. 앱 재시작
-        """)
-        st.markdown("---")
-    
-    # MCP 서버 상태 확인
-    mcp_server_url = os.getenv("MCP_SERVER_URL", "http://localhost:3000")
-    if not MCP_LOOKUP_AVAILABLE:
-        st.warning("⚠️ Google Maps MCP 서버를 사용할 수 없습니다!")
-        st.markdown(f"""
-        **MCP 서버 설정 방법:**
-        1. MCP 서버 실행:
-        ```bash
-        npx @cablate/mcp-google-map --port 3000 --apikey YOUR_GOOGLE_API_KEY
-        ```
-        2. 환경 변수 설정:
-        ```
-        MCP_SERVER_URL=http://localhost:3000
-        GOOGLE_API_KEY=your_google_api_key_here
-        ```
-        """)
-        st.markdown("---")
+
     
     
     # 분석 상태 표시
@@ -4959,7 +4928,7 @@ with col2:
                                                         st.markdown("---")
                                                     
                                                     if risk_item.get('description') or risk_item.get('evidence'):
-                                                        with st.expander(f"**{risk_item.get('code', 'N/A')} 상세 정보**", expanded=False):
+                                                        with st.expander(f"**{risk_item.get('code', 'N/A')} 상세 정보**", expanded=True):
                                                             if risk_item.get('description'):
                                                                 st.write(f"**설명:** {risk_item.get('description')}")
                                                             if risk_item.get('evidence'):
@@ -4973,12 +4942,12 @@ with col2:
                                             # 요약 및 상세 분석 (토글로 표시)
                                             st.markdown("---")
                                             if "summary" in risk_data:
-                                                with st.expander("■ 위험 분석 요약", expanded=False):
+                                                with st.expander("■     위험 분석 요약", expanded=False):
                                                     st.write(risk_data['summary'])
                                             
                                             # detailed_analysis가 있으면 표시
                                             if "detailed_analysis" in risk_data:
-                                                with st.expander("● 위험 요소 상세 분석", expanded=False):
+                                                with st.expander("●     위험 요소 상세 분석", expanded=False):
                                                     st.write(risk_data['detailed_analysis'])
                                     except Exception as e:
                                         st.error(f"위험 진단 로드 오류: {str(e)}")
