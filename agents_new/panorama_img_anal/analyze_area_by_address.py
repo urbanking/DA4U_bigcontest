@@ -1094,11 +1094,15 @@ def analyze_area_by_address(address: str,
     # output 폴더 생성 (절대 경로)
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     # 프로젝트 루트 찾기 (이 파일의 위치: agents_new/panorama_img_anal/)
-    # 상위 2단계 올라가서 프로젝트 루트
-    current_file = Path(__file__)
-    project_root = current_file.parent.parent.parent  # panorama_img_anal/agents_new/../ = 프로젝트 루트
+    # 상위 3단계 올라가서 프로젝트 루트
+    current_file = Path(__file__).resolve()  # 절대 경로로 변환
+    # panorama_img_anal -> agents_new -> bigcontest_ai_agent -> 프로젝트 루트
+    project_root = current_file.parent.parent.parent.parent
     output_folder = project_root / "open_sdk" / "output" / f"analysis_{timestamp}"
     output_folder = str(output_folder)
+    print(f"[DEBUG] 현재 파일: {current_file}")
+    print(f"[DEBUG] 프로젝트 루트: {project_root}")
+    print(f"[DEBUG] 출력 폴더: {output_folder}")
     os.makedirs(output_folder, exist_ok=True)
     os.makedirs(f"{output_folder}/images", exist_ok=True)
     
