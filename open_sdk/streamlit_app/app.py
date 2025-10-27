@@ -4896,143 +4896,92 @@ with col2:
                       # ========== 1. 위험 진단 (Risk Diagnosis) - persona_analysis.core_insights.risk_diagnosis 우선 사용 ==========
                         # 먼저 persona_analysis.core_insights.risk_diagnosis에서 가져오기 시도
                         risk_data = None
+                        # ========== 1. 위험 진단 (Risk Diagnosis) - persona_analysis.core_insights.risk_diagnosis 사용 ==========
                         if "persona_analysis" in marketing_data and isinstance(marketing_data.get("persona_analysis"), dict):
                             persona = marketing_data["persona_analysis"]
                             if "core_insights" in persona and isinstance(persona.get("core_insights"), dict):
                                 if "risk_diagnosis" in persona["core_insights"]:
                                     risk_data = persona["core_insights"]["risk_diagnosis"]
-                        
-                        # fallback: risk_analysis 사용
-                        if not risk_data and "risk_analysis" in marketing_data:
-                            risk_data = marketing_data["risk_analysis"]
-                        
-                        if risk_data:
-                            try:
-                                st.markdown("### ▲ 위험 진단 (Risk Diagnosis)")
-                                
-                                # 전체 위험 수준
-                                risk_level = risk_data.get('overall_risk_level', 'N/A')
-                                risk_emoji = "🔴" if risk_level in ["위험", "높음"] else "🟡" if risk_level == "보통" else "🟢"
-                                st.markdown(f"**전체 위험 수준:** {risk_emoji} **{risk_level}**")
-                                
-                                # 위험 요소 개수 표시
-                                if "table_data" in risk_data and risk_data.get("table_data"):
-                                    # persona_analysis.core_insights.risk_diagnosis 구조
-                                    table_data = risk_data["table_data"]
-                                    if isinstance(table_data, list) and len(table_data) > 0:
-                                        risk_codes = [r.get('code', '') for r in table_data if isinstance(r, dict) and r.get('code')]
-                                        st.write(f"이 매장에서 파악된 위험 요소는 {', '.join(risk_codes)}로 {len(risk_codes)}개의 요소가 있습니다.")
-                                elif "detected_risks" in risk_data and risk_data.get("detected_risks"):
-                                    # risk_analysis 구조
-                                    detected_risks = risk_data["detected_risks"]
-                                    risk_codes = [r.get('code', '') for r in detected_risks if isinstance(r, dict) and r.get('code')]
-                                    st.write(f"이 매장에서 파악된 위험 요소는 {', '.join(risk_codes)}로 {len(risk_codes)}개의 요소가 있습니다.")
-                                
-                                st.markdown("---")
-                                st.markdown("### ■ 위험 요소 상세 (Detailed Risk Factors)")
-                                
-                                # 위험 요소 상세 표
-                                if "table_data" in risk_data and isinstance(risk_data.get("table_data"), list) and len(risk_data["table_data"]) > 0:
-                                    # persona_analysis.core_insights.risk_diagnosis 구조
-                                    table_data = risk_data["table_data"]
-                                    # 테이블 헤더
-                                    cols = st.columns([1, 3, 2, 2, 2])
-                                    with cols[0]:
-                                        st.markdown("**코드**")
-                                    with cols[1]:
-                                        st.markdown("**의미**")
-                                    with cols[2]:
-                                        st.markdown("**수준**")
-                                    with cols[3]:
-                                        st.markdown("**점수**")
-                                    with cols[4]:
-                                        st.markdown("**우선순위**")
                                     
-                                    st.divider()
-                                    
-                                    # 테이블 데이터
-                                    for idx, risk_item in enumerate(table_data):
-                                        if isinstance(risk_item, dict):
+                                    try:
+                                        st.markdown("### ▲ 위험 진단 (Risk Diagnosis)")
+                                        
+                                        # 전체 위험 수준
+                                        risk_level = risk_data.get('overall_risk_level', 'N/A')
+                                        risk_emoji = "🔴" if risk_level in ["위험", "높음"] else "🟡" if risk_level == "보통" else "🟢"
+                                        st.markdown(f"**전체 위험 수준:** {risk_emoji} **{risk_level}**")
+                                        
+                                        # 위험 요소 개수 표시
+                                        if "table_data" in risk_data and risk_data.get("table_data"):
+                                            table_data = risk_data["table_data"]
+                                            if isinstance(table_data, list) and len(table_data) > 0:
+                                                risk_codes = [r.get('code', '') for r in table_data if isinstance(r, dict) and r.get('code')]
+                                                st.write(f"이 매장에서 파악된 위험 요소는 {', '.join(risk_codes)}로 {len(risk_codes)}개의 요소가 있습니다.")
+                                        
+                                        st.markdown("---")
+                                        st.markdown("### ■ 위험 요소 상세 (Detailed Risk Factors)")
+                                        
+                                        # table_data 구조
+                                        if "table_data" in risk_data and isinstance(risk_data.get("table_data"), list) and len(risk_data["table_data"]) > 0:
+                                            table_data = risk_data["table_data"]
+                                            # 테이블 헤더
                                             cols = st.columns([1, 3, 2, 2, 2])
                                             with cols[0]:
-                                                st.write(risk_item.get('code', 'N/A'))
+                                                st.markdown("**코드**")
                                             with cols[1]:
-                                                st.write(risk_item.get('meaning', risk_item.get('name', 'N/A')))  # 'meaning' 우선 사용
+                                                st.markdown("**의미**")
                                             with cols[2]:
-                                                st.write(risk_item.get('level', 'N/A'))
+                                                st.markdown("**수준**")
                                             with cols[3]:
-                                                st.write(risk_item.get('score', 'N/A'))
+                                                st.markdown("**점수**")
                                             with cols[4]:
-                                                st.write(risk_item.get('priority', 'N/A'))
-                                            if idx < len(table_data) - 1:
-                                                st.divider()
-                                    
-                                    # 요약 및 상세 분석 (토글로 표시)
-                                    st.markdown("---")
-                                    if "summary" in risk_data:
-                                        with st.expander("■ 위험 분석 요약", expanded=False):
-                                            st.write(risk_data['summary'])
-                                    
-                                    # detailed_analysis가 있으면 표시
-                                    if "detailed_analysis" in risk_data:
-                                        with st.expander("● 위험 요소 상세 분석", expanded=False):
-                                            st.write(risk_data['detailed_analysis'])
-                                
-                                elif isinstance(risk_data, dict) and "detected_risks" in risk_data and risk_data.get("detected_risks"):
-                                    # risk_analysis 구조 (fallback)
-                                    detected_risks = risk_data["detected_risks"]
-                                    if isinstance(detected_risks, list) and len(detected_risks) > 0:
-                                        # 테이블 헤더
-                                        cols = st.columns([1, 3, 2, 2, 2])
-                                        with cols[0]:
-                                            st.markdown("**코드**")
-                                        with cols[1]:
-                                            st.markdown("**의미**")
-                                        with cols[2]:
-                                            st.markdown("**수준**")
-                                        with cols[3]:
-                                            st.markdown("**점수**")
-                                        with cols[4]:
-                                            st.markdown("**우선순위**")
-                                        
-                                        st.divider()
-                                        
-                                        # 테이블 데이터
-                                        for idx, risk_item in enumerate(detected_risks):
-                                            if isinstance(risk_item, dict):
-                                                cols = st.columns([1, 3, 2, 2, 2])
-                                                with cols[0]:
-                                                    st.write(risk_item.get('code', 'N/A'))
-                                                with cols[1]:
-                                                    st.write(risk_item.get('name', 'N/A'))
-                                                with cols[2]:
-                                                    st.write(risk_item.get('level', 'N/A'))
-                                                with cols[3]:
-                                                    st.write(risk_item.get('score', 'N/A'))
-                                                with cols[4]:
-                                                    st.write(risk_item.get('priority', 'N/A'))
-                                                if idx < len(detected_risks) - 1:
-                                                    st.divider()
-                                        
-                                        # 위험 분석 요약
-                                        st.markdown("---")
-                                        st.markdown("### ■ 위험 분석 요약 (Risk Analysis Summary)")
-                                        if "analysis_summary" in risk_data:
-                                            st.write(risk_data['analysis_summary'])
-                                        
-                                        # 위험 요소 상세 분석
-                                        st.markdown("**● 위험 요소 상세 분석:**")
-                                        for risk_item in detected_risks:
-                                            if isinstance(risk_item, dict):
-                                                st.write(f"**{risk_item.get('code', 'N/A')}**: {risk_item.get('name', 'N/A')}")
-                                                if risk_item.get('description'):
-                                                    st.write(f"  - 설명: {risk_item.get('description')}")
-                                                if risk_item.get('evidence'):
-                                                    st.write(f"  - 근거: {risk_item.get('evidence')}")
-                            except Exception as e:
-                                st.error(f"위험 분석 로드 오류: {str(e)}")
-
-
+                                                st.markdown("**우선순위**")
+                                            
+                                            st.divider()
+                                            
+                                            # 테이블 데이터
+                                            for idx, risk_item in enumerate(table_data):
+                                                if isinstance(risk_item, dict):
+                                                    cols = st.columns([1, 3, 2, 2, 2])
+                                                    with cols[0]:
+                                                        st.write(risk_item.get('code', 'N/A'))
+                                                    with cols[1]:
+                                                        st.write(risk_item.get('meaning', risk_item.get('name', 'N/A')))  # 'meaning' 우선 사용
+                                                    with cols[2]:
+                                                        st.write(risk_item.get('level', 'N/A'))
+                                                    with cols[3]:
+                                                        st.write(risk_item.get('score', 'N/A'))
+                                                    with cols[4]:
+                                                        st.write(risk_item.get('priority', 'N/A'))
+                                                    
+                                                    # description과 evidence를 표 아래에 추가로 표시
+                                                    if idx == 0:
+                                                        st.markdown("---")
+                                                    
+                                                    if risk_item.get('description') or risk_item.get('evidence'):
+                                                        with st.expander(f"**{risk_item.get('code', 'N/A')} 상세 정보**", expanded=False):
+                                                            if risk_item.get('description'):
+                                                                st.write(f"**설명:** {risk_item.get('description')}")
+                                                            if risk_item.get('evidence'):
+                                                                st.write(f"**근거:** {risk_item.get('evidence')}")
+                                                            if risk_item.get('chart_type'):
+                                                                st.caption(f"📊 차트: {risk_item.get('chart_title', 'N/A')} - {risk_item.get('chart_description', 'N/A')}")
+                                                    
+                                                    if idx < len(table_data) - 1:
+                                                        st.divider()
+                                            
+                                            # 요약 및 상세 분석 (토글로 표시)
+                                            st.markdown("---")
+                                            if "summary" in risk_data:
+                                                with st.expander("■ 위험 분석 요약", expanded=False):
+                                                    st.write(risk_data['summary'])
+                                            
+                                            # detailed_analysis가 있으면 표시
+                                            if "detailed_analysis" in risk_data:
+                                                with st.expander("● 위험 요소 상세 분석", expanded=False):
+                                                    st.write(risk_data['detailed_analysis'])
+                                    except Exception as e:
+                                        st.error(f"위험 진단 로드 오류: {str(e)}")
                         
                         # ========== 2. 요약 인사이트 (Overall Conclusion) ==========
                         if "persona_analysis" in marketing_data and marketing_data.get("persona_analysis"):
