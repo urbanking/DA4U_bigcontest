@@ -393,7 +393,6 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         chat_history = InMemoryChatMessageHistory()
         
         # 분석 데이터에서 핵심 정보 추출
-        # 분석 데이터에서 핵심 정보 추출
         store_name = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("name", "N/A")
         industry = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("industry", "N/A")
         commercial_area = analysis_data.get("store_analysis", {}).get("store_overview", {}).get("commercial_area", "N/A")
@@ -412,8 +411,6 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
         
         # 에이전트 결과 로드
         agent_results = load_agent_results(store_code)   
-        # 에이전트 결과 로드
-        agent_results = load_agent_results(store_code)
         
         # SNS 세그먼트 데이터 로드
         sns_data = load_sns_segment_data()
