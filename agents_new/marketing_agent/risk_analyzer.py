@@ -50,8 +50,8 @@ class RiskAnalyzer:
             ),
             "R2": RiskCode(
                 code="R2",
-                name="재방문율 저하",
-                description="재방문 고객 비율이 감소하고 있음",
+                name="재방문율 동일 업종 비해 저하",
+                description="재방문 고객 비율이 평균보다 낮음",
                 trigger_condition="revisit_rate_drop <= -3%",
                 threshold_value=-3.0,
                 priority=2,
