@@ -4976,7 +4976,6 @@ with col2:
                             except Exception as e:
                                 st.error(f"위험 분석 로드 오류: {str(e)}")
 
-// ... existing code (line 4973 이후)
                         
                         # ========== 2. 요약 인사이트 (Overall Conclusion) ==========
                         if "persona_analysis" in marketing_data and marketing_data.get("persona_analysis"):
