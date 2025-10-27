@@ -209,37 +209,63 @@ def find_images_in_buffer(center_lon: float,
     # 이미지 정보 수집 (9개 폴더에서 검색)
     images_info = []
     
-    # 9개 폴더 경로 생성
-    base_folder = Path(image_folder)
+    # 9개 폴더 경로 생성 (현재 스크립트 위치 기준)
+    current_dir = Path(__file__).parent
     image_folders = [
-        base_folder,
-        base_folder.parent / "downloaded_img_1",
-        base_folder.parent / "downloaded_img_2", 
-        base_folder.parent / "downloaded_img_3",
-        base_folder.parent / "downloaded_img_4",
-        base_folder.parent / "downloaded_img_5",
-        base_folder.parent / "downloaded_img_6",
-        base_folder.parent / "downloaded_img_7",
-        base_folder.parent / "downloaded_img_8",
-        base_folder.parent / "downloaded_img_9"
+        current_dir / "downloaded_img",
+        current_dir / "downloaded_img_1",
+        current_dir / "downloaded_img_2", 
+        current_dir / "downloaded_img_3",
+        current_dir / "downloaded_img_4",
+        current_dir / "downloaded_img_5",
+        current_dir / "downloaded_img_6",
+        current_dir / "downloaded_img_7",
+        current_dir / "downloaded_img_8",
+        current_dir / "downloaded_img_9"
     ]
+    
+    # DEBUG: 1단계 - CSV에서 버퍼 내 점 찾기
+    print(f"\n[DEBUG] ===== 1단계: CSV에서 버퍼 내 점 찾기 =====")
+    print(f"[DEBUG] CSV 총 데이터: {len(df)}개")
+    print(f"[DEBUG] 버퍼 내 점 개수: {len(within_buffer)}개")
+    if len(within_buffer) > 0:
+        print(f"[DEBUG] 첫 번째 점 예시: point_ID={within_buffer.iloc[0]['point_ID']}, 좌표=({within_buffer.iloc[0]['pano_lat']:.6f}, {within_buffer.iloc[0]['pano_lon']:.6f})")
+    
+    # DEBUG: 2단계 - 폴더 존재 여부 확인
+    print(f"[DEBUG] 2단계 - 이미지 폴더 검색 경로 (총 {len(image_folders)}개):")
+    for i, folder in enumerate(image_folders):
+        exists = "✅" if folder.exists() else "❌"
+        count = len(list(folder.glob("*.jpg"))) if folder.exists() else 0
+        print(f"  {exists} [{i}] {folder} ({count}개 이미지)")
+    
+    # DEBUG: 3단계 - 폴더에서 이미지 찾기 시작
+    print(f"[DEBUG] 3단계 - 9개 폴더에서 {len(within_buffer)}개 점의 이미지 검색 시작...")
     
     for idx, row in within_buffer.iterrows():
         point_id = row['point_ID']
         pano_id = row['pano_id']
+        
+        # DEBUG: 검색 중인 point_ID 출력 (첫 5개만)
+        if len(images_info) < 5:
+            print(f"[DEBUG] 검색 중: point_ID={point_id}, pano_id={pano_id[:20]}...")
         
         # 이미지 파일명
         image_filename = f"point_{point_id}_pano_{pano_id}.jpg"
         
         # 9개 폴더에서 이미지 찾기
         image_path = None
+        found_folder = None
         for folder in image_folders:
             potential_path = folder / image_filename
             if potential_path.exists():
                 image_path = potential_path
+                found_folder = folder.name
                 break
         
         if image_path:
+            # DEBUG: 첫 3개만 출력
+            if len(images_info) < 3:
+                print(f"[DEBUG] ✅ 이미지 발견 [{found_folder}]: {image_filename}")
             images_info.append({
                 'point_id': int(point_id),
                 'pano_id': pano_id,
@@ -977,12 +1003,21 @@ def analyze_area_by_address(address: str,
     
     # 2. 버퍼 내 이미지 찾기
     print(f"\n[검색] 반경 {buffer_meters}m 내의 이미지 검색 중...")
-    images_info = find_images_in_buffer(
-        center_lon, center_lat, buffer_meters,
-        data_csv_path, image_folder
-    )
-    
-    print(f"[OK] 총 {len(images_info)}개 이미지 발견")
+    try:
+        images_info = find_images_in_buffer(
+            center_lon, center_lat, buffer_meters,
+            data_csv_path, image_folder
+        )
+        print(f"[OK] 총 {len(images_info)}개 이미지 발견")
+    except Exception as e:
+        print(f"[ERROR] 이미지 검색 중 오류 발생: {e}")
+        import traceback
+        traceback.print_exc()
+        return {
+            "error": f"이미지 검색 실패: {str(e)}",
+            "center_coordinates": {"lon": center_lon, "lat": center_lat},
+            "buffer_meters": buffer_meters
+        }
     
     if len(images_info) == 0:
         return {
@@ -1087,7 +1122,7 @@ def analyze_area_by_address(address: str,
             map_output_path
         )
         # 2. 이미지 위치 지도 (파노라마 위치만)
-        image_locations_map_path = f"{panorama_dir}/image_locations_map.html"
+        image_locations_map_path = f"{output_folder}/image_locations_map.html"
         create_image_locations_map(
             center_lon, center_lat, buffer_meters,
             individual_results,
@@ -1151,9 +1186,16 @@ if __name__ == "__main__":
         max_images=10  # 테스트용으로 10개만
     )
     
-    print(f"\n\n결과 폴더: {result['output_folder']}")
-    
-    # 지도 자동 열기
-    import webbrowser
-    map_path = f"{result['output_folder']}/analysis_map.html"
-    webbrowser.open(map_path)
+    if result.get('error'):
+        print(f"\n[ERROR] {result['error']}")
+        print(f"중심 좌표: {result.get('center_coordinates')}")
+        if result.get('output_folder'):
+            print(f"결과 폴더: {result['output_folder']}")
+    else:
+        print(f"\n\n결과 폴더: {result.get('output_folder', 'N/A')}")
+        
+        # 지도 자동 열기
+        import webbrowser
+        map_path = f"{result['output_folder']}/analysis_map.html"
+        if Path(map_path).exists():
+            webbrowser.open(map_path)
