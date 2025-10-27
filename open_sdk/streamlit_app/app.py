@@ -4772,7 +4772,7 @@ with col2:
 
             
             with tab5:
-                st.markdown("#### 🏪 상권 분석")
+                st.markdown("#### 🏪 상권 분석(서울시 상권분석 서비스 데이터 크롤링)")
                 if "marketplace_analysis" in analysis_data:
                     marketplace_data = analysis_data["marketplace_analysis"]
                     
