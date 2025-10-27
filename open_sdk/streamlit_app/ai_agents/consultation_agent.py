@@ -557,7 +557,7 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 ### ⚠️ 위험 분석 - marketing_result.json
 {safe_risk_summary}
 
-**위험 코드 정의 (R1-R10)**:
+**위험 코드 정의 (R1-R10 )**:
 - R1: 신규유입 급감 (신규 고객 유입이 급격히 감소)
 - R2: 재방문율 동일 업종 비해 저하 (평균 대비 3% 이상 낮음)
 - R3: 장기매출침체 (10일 이상 매출 정체)
