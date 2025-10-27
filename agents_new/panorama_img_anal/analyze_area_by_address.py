@@ -811,7 +811,100 @@ def create_analysis_map(center_lon: float,
     print(f"[지도] 시각화 저장: {output_path}")
     
     return output_path
-
+def create_image_locations_map(center_lon: float, 
+                                center_lat: float, 
+                                buffer_meters: float,
+                                analyzed_images: List[Dict],
+                                output_path: str = "image_locations_map.html") -> str:
+    """
+    파노라마 이미지 위치만 표시하는 간단한 지도 생성
+    """
+    # 지도 생성
+    m = folium.Map(
+        location=[center_lat, center_lon],
+        zoom_start=16,
+        tiles='OpenStreetMap'
+    )
+    
+    # 중심점 마커
+    folium.Marker(
+        [center_lat, center_lon],
+        popup=f"<b>분석 중심점</b><br>주소: 분석 대상 지역",
+        tooltip="분석 중심점",
+        icon=folium.Icon(color='red', icon='star', prefix='fa')
+    ).add_to(m)
+    
+    # 버퍼 원
+    folium.Circle(
+        [center_lat, center_lon],
+        radius=buffer_meters,
+        color='blue',
+        fill=True,
+        fillColor='blue',
+        fillOpacity=0.1,
+        popup=f"<b>분석 범위</b><br>반경: {buffer_meters}m",
+        tooltip=f"분석 범위 ({buffer_meters}m)"
+    ).add_to(m)
+    
+    # 분석된 지점들 표시
+    for i, img_info in enumerate(analyzed_images, 1):
+        lat = img_info['lat']
+        lon = img_info['lon']
+        distance = img_info['distance_m']
+        
+        popup_html = f"""
+        <div style='width:200px'>
+            <h4>📍 파노라마 위치 {i}</h4>
+            <hr>
+            <b>거리:</b> {distance:.1f}m<br>
+            <b>Point ID:</b> {img_info['point_id']}<br>
+        </div>
+        """
+        
+        # 거리에 따른 색상
+        if distance < buffer_meters * 0.3:
+            color = 'darkgreen'
+        elif distance < buffer_meters * 0.7:
+            color = 'green'
+        else:
+            color = 'lightgreen'
+        
+        folium.CircleMarker(
+            [lat, lon],
+            radius=10,
+            color=color,
+            fill=True,
+            fillColor=color,
+            fillOpacity=0.8,
+            popup=folium.Popup(popup_html, max_width=250),
+            tooltip=f"📍 파노라마 {i} ({distance:.0f}m)"
+        ).add_to(m)
+    
+    # 범례 추가
+    legend_html = """
+    <div style='position: fixed; 
+                bottom: 50px; right: 50px; width: 200px; height: auto; 
+                background-color: white; z-index:9999; font-size:12px;
+                border:2px solid grey; border-radius: 5px; padding: 10px;
+                box-shadow: 2px 2px 6px rgba(0,0,0,0.3);'>
+        <h4 style='margin-top:0'>📍 파노라마 위치 지도</h4>
+        <hr>
+        <b>빨간 별:</b> 분석 중심점<br>
+        <b>파란 원:</b> 분석 범위<br>
+        <b>녹색 점:</b> 파노라마 위치<br>
+        <br>
+        <small>검은 녹색: 가까운 위치<br>
+        초록색: 중간 거리<br>
+        연두색: 먼 위치</small>
+    </div>
+    """
+    m.get_root().html.add_child(folium.Element(legend_html))
+    
+    # 저장
+    m.save(output_path)
+    print(f"[지도] 이미지 위치 지도 저장: {output_path}")
+    
+    return output_path
 
 @observe()
 def analyze_area_by_address(address: str,
@@ -993,7 +1086,13 @@ def analyze_area_by_address(address: str,
             individual_results, synthesis,
             map_output_path
         )
-    
+        # 2. 이미지 위치 지도 (파노라마 위치만)
+        image_locations_map_path = f"{panorama_dir}/image_locations_map.html"
+        create_image_locations_map(
+            center_lon, center_lat, buffer_meters,
+            individual_results,
+            image_locations_map_path
+        )    
     # output 폴더 경로를 결과에 추가
     result['output_folder'] = output_folder
     
