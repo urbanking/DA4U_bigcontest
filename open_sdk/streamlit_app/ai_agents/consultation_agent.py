@@ -557,6 +557,24 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 ### ⚠️ 위험 분석 - marketing_result.json
 {safe_risk_summary}
 
+**위험 코드 정의 (R1-R10)**:
+- R1: 신규유입 급감 (신규 고객 유입이 급격히 감소)
+- R2: 재방문율 동일 업종 비해 저하 (평균 대비 3% 이상 낮음)
+- R3: 장기매출침체 (10일 이상 매출 정체)
+- R4: 단기매출하락 (15% 이상 급격 하락)
+- R5: 배달매출하락 (10% 이상 감소)
+- R6: 취소율 급등 (0.7% 이상 증가)
+- R7: 핵심연령괴리 (핵심 고객 연령층과 8% 이상 괴리)
+- R8: 시장부적합 (시장 적합도 점수 70점 이상)
+- R9: 상권해지위험 (상권 내 경쟁력 약화, 평균+1.5σ 이상)
+- R10: 재방문율 낮음 (재방문율 30% 이하)
+
+**위험 판단 원칙**:
+- `risk_analysis.detected_risks` 배열에 나열된 위험만 언급하세요
+- 감지된 위험 외에는 "양호"하다고 명시하세요
+
+### 🍰 신제품 제안 - new_product_result.json
+
 ### 🍰 신제품 제안 - new_product_result.json
 {safe_new_product_summary}
 
@@ -609,8 +627,9 @@ def create_consultation_chain(store_code: str, analysis_data: dict, analysis_md:
 
 ### 4. **위험 요소 기반 전략 수정**
 - marketing_result.json의 위험 분석(R1-R10)을 반드시 언급하세요
+- **중요**: 위의 "위험 코드 정의"를 참고하여, `risk_analysis.detected_risks` 배열에 나열된 위험만 언급하고, 나머지는 "양호"하다고 명시하세요
+- 예: "현재{파싱된 R * }와 {파싱된 R * } 위험이 감지되었습니다. 나머지 위험 요소(언급되지 않은 R *)는 양호한 상태입니다."
 - 각 위험 요소에 대한 구체적인 해결 방안을 제시하세요
-- 예: "R2(재방문율 저하)와 R8(시장 부적합성) 위험을 해결하기 위해..."
 
 ### 5. **신제품 제안 시 필수 체크리스트**
 - new_product_result.json의 기존 제안을 먼저 언급하세요
