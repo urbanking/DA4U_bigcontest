@@ -4942,12 +4942,12 @@ with col2:
                                             # 요약 및 상세 분석 (토글로 표시)
                                             st.markdown("---")
                                             if "summary" in risk_data:
-                                                with st.expander("■     위험 분석 요약", expanded=False):
+                                                with st.expander("■     위험 분석 요약", expanded=True):
                                                     st.write(risk_data['summary'])
                                             
                                             # detailed_analysis가 있으면 표시
                                             if "detailed_analysis" in risk_data:
-                                                with st.expander("●     위험 요소 상세 분석", expanded=False):
+                                                with st.expander("●     위험 요소 상세 분석", expanded=True):
                                                     st.write(risk_data['detailed_analysis'])
                                     except Exception as e:
                                         st.error(f"위험 진단 로드 오류: {str(e)}")
@@ -5003,7 +5003,7 @@ with col2:
                         # ========== 8. SNS 콘텐츠 (옵션) ==========
                         if "social_content" in marketing_data and marketing_data.get("social_content"):
                             try:
-                                with st.expander("📱 SNS 콘텐츠 및 프로모션 텍스트", expanded=False):
+                                with st.expander("                            📱 SNS 콘텐츠 및 프로모션 텍스트", expanded=True):
                                     social = marketing_data["social_content"]
                                     
                                     if "instagram_posts" in social and social.get("instagram_posts"):
