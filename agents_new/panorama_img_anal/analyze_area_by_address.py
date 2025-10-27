@@ -1091,9 +1091,14 @@ def analyze_area_by_address(address: str,
     # 8. output 폴더 구조 생성 및 파일 저장
     print(f"\n[저장] 결과 파일 저장 중...")
     
-    # output 폴더 생성 (상대 경로로 변경)
+    # output 폴더 생성 (절대 경로)
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    output_folder = f"open_sdk/output/analysis_{timestamp}"
+    # 프로젝트 루트 찾기 (이 파일의 위치: agents_new/panorama_img_anal/)
+    # 상위 2단계 올라가서 프로젝트 루트
+    current_file = Path(__file__)
+    project_root = current_file.parent.parent.parent  # panorama_img_anal/agents_new/../ = 프로젝트 루트
+    output_folder = project_root / "open_sdk" / "output" / f"analysis_{timestamp}"
+    output_folder = str(output_folder)
     os.makedirs(output_folder, exist_ok=True)
     os.makedirs(f"{output_folder}/images", exist_ok=True)
     
