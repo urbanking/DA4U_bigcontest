@@ -4706,7 +4706,7 @@ with col2:
                 
                 # 고객 분석 JSON 다운로드
                 st.markdown("---")
-                with st.expander("    📥 참고 데이터 다운로드 및 확인", expanded=True):
+                with st.expander("            📥 참고 데이터 다운로드 및 확인", expanded=True):
                     st.markdown("### 📊 이 탭에서 참고한 데이터")
                     
                     file_path = Path(analysis_data.get("analysis_dir", "")) / "store_analysis_report.json"
@@ -4942,12 +4942,12 @@ with col2:
                                             # 요약 및 상세 분석 (토글로 표시)
                                             st.markdown("---")
                                             if "summary" in risk_data:
-                                                with st.expander("■     위험 분석 요약", expanded=True):
+                                                with st.expander("                   위험 분석 요약", expanded=True):
                                                     st.write(risk_data['summary'])
                                             
                                             # detailed_analysis가 있으면 표시
                                             if "detailed_analysis" in risk_data:
-                                                with st.expander("●     위험 요소 상세 분석", expanded=True):
+                                                with st.expander("                 위험 요소 상세 분석", expanded=True):
                                                     st.write(risk_data['detailed_analysis'])
                                     except Exception as e:
                                         st.error(f"위험 진단 로드 오류: {str(e)}")
