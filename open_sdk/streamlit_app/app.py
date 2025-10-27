@@ -4782,7 +4782,7 @@ with col2:
                         col1, col2, col3, col4 = st.columns(4)
                         
                         with col1:
-                            st.metric("상권명", marketplace_data.get("상권명", "N/A"))
+                            st.metric("상권명", marketplace_data.get( "N/A"))
                         with col2:
                             st.metric("총 페이지", marketplace_data.get("총_페이지", "N/A"))
                         with col3:
