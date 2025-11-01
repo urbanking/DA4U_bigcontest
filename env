@@ -1,25 +1,11 @@
 # AI Marketing Agent System - Environment Variables
 
 # Gemini API (새로운 키)
-GEMINI_API_KEY=AIzaSyCio6ImmU5cNEKdkD4TXsfZ_e-RYeEFV9o
-#AIzaSyCio6ImmU5cNEKdkD4TXsfZ_e-RYeEFV9o
+
+
 
 # Kakao API (for geocoding)
-KAKAO_REST_API_KEY=your_kakao_api_key_here
 
-# Data Paths
-PANOID_FILE=agents_new/panorama_img_anal/Step1_Result_final (1).csv
-IMAGE_FOLDER=agents_new/panorama_img_anal/downloaded_img
-
-
-# Skip Options
-SKIP_MARKETPLACE=false
-
-Google_Map_API_KEY=AIzaSyCWHD5C8-daqFpwK_FPoq0SfIrLrEK8iX0
-
-LANGFUSE_PUBLIC_KEY=pk-lf-24239b84-4356-4b4d-833a-c91af853d7d8
-LANGFUSE_SECRET_KEY=sk-lf-f84bd00b-cf18-4d13-aab1-86e186311946
-LANGFUSE_HOST=https://cloud.langfuse.com
 
 # Orchestrator Type 설정
 ORCHESTRATOR_TYPE=openai
