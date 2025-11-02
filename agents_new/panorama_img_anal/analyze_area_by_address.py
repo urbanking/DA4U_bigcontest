@@ -43,17 +43,13 @@ warnings.filterwarnings('ignore')
 def init_openai_client():
     """Gemini OpenAI 호환 API 클라이언트 초기화"""
     from pathlib import Path
+    import sys
     
-    # 프로젝트 루트의 env 파일 찾기
-    current_path = Path(__file__)
-    root_path = current_path
-    while root_path.parent != root_path:
-        root_path = root_path.parent
-        env_path = root_path / "env"
-        if env_path.exists():
-            load_dotenv(env_path, override=True)
-            print(f"[Panorama] Loaded env from: {env_path}")
-            break
+    # secrets.toml 로드
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+    from env_loader import load_env
+    load_env()
+    print("[Panorama] Loaded env from secrets.toml")
     
     api_key = os.getenv('GEMINI_API_KEY')
     
@@ -85,7 +81,8 @@ def address_to_coordinates(address: str) -> tuple:
     from geopy.geocoders import Nominatim
     import requests
     
-    load_dotenv()
+    # 이미 init_openai_client에서 로드됨
+    # load_dotenv()
     
     # 1. Google Maps Geocoding API 시도 (가장 안정적)
     google_key = os.getenv('GOOGLE_MAPS_API_KEY') or os.getenv('Google_Map_API_KEY')
@@ -549,7 +546,8 @@ def analyze_image_with_gpt(client: OpenAI,
     base64_image = encode_image_pil(extracted_image, quality=80, max_dim=1024)
 
     # 환경설정 기반 타임아웃과 재시도 설정 (기본: 타임아웃 없음)
-    load_dotenv()
+    # 이미 로드됨
+    # load_dotenv()
     if os.getenv("OPENAI_NO_TIMEOUT", "0") == "1":
         timeout_s = None
     else:
@@ -630,7 +628,8 @@ def synthesize_analysis(client: OpenAI, individual_results: List[Dict]) -> Dict:
 
     prompt = get_synthesis_prompt(individual_results)
 
-    load_dotenv()
+    # 이미 로드됨
+    # load_dotenv()
     if os.getenv("OPENAI_NO_TIMEOUT", "0") == "1":
         timeout_s = None
     else:
@@ -978,8 +977,8 @@ def analyze_area_by_address(address: str,
     print("주소 기반 지역 종합 분석 시작")
     print("=" * 80)
     
-    # .env에서 경로 로드
-    load_dotenv()
+    # secrets.toml에서 경로 로드 (이미 로드됨)
+    # load_dotenv()
     
     if data_csv_path is None:
         data_csv_path = os.getenv('PANOID_FILE')

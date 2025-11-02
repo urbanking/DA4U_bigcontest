@@ -11,7 +11,10 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from dotenv import load_dotenv
 
-load_dotenv()
+# 환경 변수 로더
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+from env_loader import load_env
+load_env()
 
 
 class MarketplaceWrapper:

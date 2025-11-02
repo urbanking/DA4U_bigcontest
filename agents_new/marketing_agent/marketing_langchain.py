@@ -9,10 +9,12 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# .env 로드 (agents_new/.env)
-ENV_PATH = Path(__file__).parent.parent / ".env"
-load_dotenv(dotenv_path=ENV_PATH)
-print(f"[Marketing-LangChain] .env loaded from {ENV_PATH} | GEMINI_API_KEY set: {'YES' if os.getenv('GEMINI_API_KEY') else 'NO'}")
+# 환경 변수 로더
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+from env_loader import load_env
+load_env()
+print(f"[Marketing-LangChain] secrets.toml loaded | GEMINI_API_KEY set: {'YES' if os.getenv('GEMINI_API_KEY') else 'NO'}")
 
 # 새 LangChain 러너 사용 (legacy로 위임하지 않음)
 try:

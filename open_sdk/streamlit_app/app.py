@@ -42,9 +42,12 @@ from contextlib import redirect_stdout, redirect_stderr
 import logging
 from streamlit_autorefresh import st_autorefresh
 
-
-# .env 파일 로드
-load_dotenv()
+# 환경 변수 로더 (Streamlit Secrets → 환경 변수 변환)
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent / "utils"))
+from env_loader import load_env
+load_env()
 
 
 
@@ -2410,6 +2413,13 @@ def display_customer_analysis(analysis_data):
                         except Exception as e:
 
                             st.error(f"차트 로딩 실패: {chart_name}")
+                            st.caption(f"경로: {chart_path}")
+                            st.caption(f"에러: {str(e)}")
+                    else:
+                        st.warning(f"파일 없음: {chart_name}")
+                        if chart_path:
+                            st.caption(f"경로: {chart_path}")
+                            st.caption(f"존재: {Path(chart_path).exists()}")
 
         else:
 
@@ -2860,6 +2870,12 @@ def display_mobility_analysis(analysis_data):
                     except Exception as e:
 
                         st.error(f"차트 로딩 실패: {chart_name}")
+                        st.caption(f"경로: {chart_path}")
+                        st.caption(f"에러: {str(e)}")
+                else:
+                    st.warning(f"파일 없음: {chart_name}")
+                    if chart_path:
+                        st.caption(f"경로: {chart_path}")
 
     else:
 
@@ -4697,7 +4713,8 @@ with col2:
                                     use_container_width=True
                                 )
                             with col2:
-                                with st.expander(f"📄 {file} 미리보기", expanded=False):
+                                # expander 중첩 방지를 위해 버튼으로 변경
+                                if st.button(f"📄 {file} 미리보기", key=f"preview_tab1_{file}"):
                                     st.json(json_obj)
                             st.divider()
 
@@ -4731,7 +4748,8 @@ with col2:
                                 use_container_width=True
                             )
                         with col2:
-                            with st.expander("📄 store_analysis_report.json 미리보기", expanded=False):
+                            # expander 중첩 방지를 위해 버튼으로 변경
+                            if st.button("📄 store_analysis_report.json 미리보기", key="preview_tab2_store"):
                                 st.json(json_obj)
 
             with tab3:
@@ -4767,7 +4785,8 @@ with col2:
                                 use_container_width=True
                             )
                         with col2:
-                            with st.expander("📄 panorama_analysis.json 미리보기", expanded=False):
+                            # expander 중첩 방지를 위해 버튼으로 변경
+                            if st.button("📄 panorama_analysis.json 미리보기", key="preview_tab4_panorama"):
                                 st.json(json_obj)
 
             

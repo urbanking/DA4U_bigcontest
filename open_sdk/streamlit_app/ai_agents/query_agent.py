@@ -9,7 +9,13 @@ import os
 
 # OpenAI API 설정
 from dotenv import load_dotenv
-load_dotenv()  # .env 파일 로드
+from pathlib import Path
+import sys
+
+# 환경 변수 로더
+sys.path.insert(0, str(Path(__file__).parent.parent / "utils"))
+from env_loader import load_env
+load_env()
 
 # API 키 직접 설정
 openai_key = os.getenv("OPENAI_API_KEY", "")

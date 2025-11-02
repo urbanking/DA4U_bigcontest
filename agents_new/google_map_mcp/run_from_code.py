@@ -15,12 +15,16 @@ import argparse
 import os
 import sys
 from dotenv import load_dotenv
+from pathlib import Path
 
 from .lookup_runner import run_lookup_from_code, DEFAULT_CSV_RELATIVE
 
 
 def main(argv=None):
-    load_dotenv()
+    # 환경 변수 로더
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+    from env_loader import load_env
+    load_env()
 
     parser = argparse.ArgumentParser(description="Run Google Maps MCP lookup by code")
     parser.add_argument("--code", required=True, help="상권 코드 (CSV의 '코드' 값)")

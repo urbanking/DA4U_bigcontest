@@ -20,8 +20,11 @@ except ImportError:
     LANGFUSE_AVAILABLE = False
     langfuse_openai = None
 
-# .env 파일 로드
-load_dotenv()
+# 환경 변수 로더
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent / "utils"))
+from env_loader import load_env
+load_env()
 
 # Gemini API Key 확인
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")

@@ -31,17 +31,12 @@ class GoogleMapsAgent:
         - Gemini 2.5 Flash (OpenAI SDK) 설정
         - MCP Google Maps 서버 설정
         """
-        # 환경 변수 로드 (agents_new/.env에서 강제 파싱)
-        import pathlib
-        from dotenv import dotenv_values
-        env_path = pathlib.Path(__file__).parent.parent / "agents_new" / ".env"
-        env_vars = {}
-        if env_path.exists():
-            env_vars = dotenv_values(str(env_path))
-            for k, v in env_vars.items():
-                os.environ[k] = v or os.environ.get(k, "")
-        else:
-            load_dotenv()
+        # 환경 변수 로드 (secrets.toml)
+        import sys
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+        from env_loader import load_env
+        load_env()
 
         # API 키 확인 (.env 파일의 실제 변수명 사용)
         self.google_maps_api_key = os.getenv("Google_Map_API_KEY")

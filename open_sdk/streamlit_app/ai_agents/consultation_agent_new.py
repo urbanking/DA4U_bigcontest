@@ -12,8 +12,12 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langfuse.decorators import observe
 import os
 from dotenv import load_dotenv
+import sys
 
-load_dotenv()
+# 환경 변수 로더
+sys.path.insert(0, str(Path(__file__).parent.parent / "utils"))
+from env_loader import load_env
+load_env()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("[ERROR] GEMINI_API_KEY not found in environment")

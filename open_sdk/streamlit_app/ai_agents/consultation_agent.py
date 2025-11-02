@@ -28,8 +28,11 @@ except ImportError:
     LANGFUSE_AVAILABLE = False
     langfuse_openai = None
 
-# .env 파일 로드
-load_dotenv()
+# 환경 변수 로더
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent / "utils"))
+from env_loader import load_env
+load_env()
 
 # UTF-8 강제 설정 (Windows 환경) - LogCapture와 충돌 방지
 if sys.platform == "win32":

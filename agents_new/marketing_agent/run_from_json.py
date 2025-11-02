@@ -12,10 +12,12 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load .env (relative)
-ENV_PATH = Path(__file__).parent.parent / ".env"
-load_dotenv(dotenv_path=ENV_PATH)
-print(f"[Runner] .env loaded from {ENV_PATH} | GEMINI_API_KEY: {'YES' if os.getenv('GEMINI_API_KEY') else 'NO'}")
+# 환경 변수 로더
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+from env_loader import load_env
+load_env()
+print(f"[Runner] secrets.toml loaded | GEMINI_API_KEY: {'YES' if os.getenv('GEMINI_API_KEY') else 'NO'}")
 
 # Import runner
 try:

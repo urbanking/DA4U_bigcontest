@@ -22,22 +22,13 @@ except ImportError:
     LANGFUSE_AVAILABLE = False
     langfuse_openai = None
 
-# 환경변수 로드 (최신 키 사용을 위해 매번 로드)
+# 환경변수 로드 (secrets.toml 사용)
 def load_env_with_override():
-    try:
-        # 프로젝트 루트의 env 파일 찾기
-        current_path = Path(__file__)
-        root_path = current_path
-        while root_path.parent != root_path:
-            root_path = root_path.parent
-            env_path = root_path / "env"
-            if env_path.exists():
-                load_dotenv(env_path, override=True)
-                return
-        # fallback
-        load_dotenv(override=True)
-    except Exception:
-        pass
+    """secrets.toml을 읽도록 변경"""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+    from env_loader import load_env
+    load_env()
 
 load_env_with_override()
 

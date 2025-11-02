@@ -104,7 +104,10 @@ def run_lookup_from_code(
         place_id, search_query, agent_output (text or None), csv_row (raw), output_path (if saved)
     """
     # Load environment (to ensure GEMINI_API_KEY and Google_Map_API_KEY are available)
-    load_dotenv()
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+    from env_loader import load_env
+    load_env()
 
     csv_path = csv_path or DEFAULT_CSV_RELATIVE
     out_dir = out_dir or os.getcwd()

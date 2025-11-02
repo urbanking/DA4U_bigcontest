@@ -34,17 +34,24 @@ print("[OK] Matplotlib loaded in spatial_matcher")
 # 프로젝트 루트
 PROJECT_ROOT = Path(__file__).parent.parent
 
-# 환경변수 로드 (panorama와 동일 방식)
-load_dotenv()
+# 환경변수 로드 (secrets.toml 사용)
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+from env_loader import load_env
+load_env()
+
 KAKAO_API_KEY = os.getenv('KAKAO_REST_API_KEY')
-GOOGLE_API_KEY = "AIzaSyCWHD5C8-daqFpwK_FPoq0SfIrLrEK8iX0"
+GOOGLE_API_KEY = os.getenv('Google_Map_API_KEY') or os.getenv('GOOGLE_MAPS_API_KEY')
 
 if KAKAO_API_KEY:
     print(f"[ENV] KAKAO API KEY 로드 성공: {KAKAO_API_KEY[:20]}...")
 else:
     print(f"[WARN] KAKAO_REST_API_KEY 환경변수 없음")
 
-print(f"[ENV] GOOGLE API KEY 설정: {GOOGLE_API_KEY[:20]}...")
+if GOOGLE_API_KEY:
+    print(f"[ENV] GOOGLE API KEY 로드 성공: {GOOGLE_API_KEY[:20]}...")
+else:
+    print(f"[WARN] Google_Map_API_KEY 환경변수 없음")
 
 # SHP 파일 경로
 DONG_SHP = PROJECT_ROOT / "spatial_data" / "성동구_행정동_4.shp"

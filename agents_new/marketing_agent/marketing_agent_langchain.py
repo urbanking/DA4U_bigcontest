@@ -8,10 +8,12 @@ import asyncio
 from pathlib import Path
 from dotenv import load_dotenv
 
-# .env 파일 로드
-env_path = Path(__file__).parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
-print(f"[DEBUG] Loading .env from: {env_path}")
+# 환경 변수 로더
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+from env_loader import load_env
+load_env()
+print(f"[DEBUG] secrets.toml loaded")
 print(f"[DEBUG] GEMINI_API_KEY loaded: {'YES' if os.getenv('GEMINI_API_KEY') else 'NO'}")
 
 # 기존 marketing_agent 사용

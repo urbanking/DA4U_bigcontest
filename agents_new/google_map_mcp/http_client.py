@@ -8,6 +8,8 @@ import json
 import requests
 from typing import Optional, Dict, Any
 from dotenv import load_dotenv
+from pathlib import Path
+import sys
 
 
 class GoogleMapsHTTPClient:
@@ -18,7 +20,10 @@ class GoogleMapsHTTPClient:
     
     def __init__(self):
         """HTTP 클라이언트 초기화"""
-        load_dotenv()
+        # 환경 변수 로더
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent / "open_sdk" / "streamlit_app" / "utils"))
+        from env_loader import load_env
+        load_env()
         
         self.google_maps_api_key = os.getenv("Google_Map_API_KEY")
         self.gemini_api_key = os.getenv("GEMINI_API_KEY")
