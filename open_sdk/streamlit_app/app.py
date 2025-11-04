@@ -4271,7 +4271,7 @@ with col2:
 
             if not st.session_state.consultation_mode:
 
-                if st.button("💬 상담 시작 (분석 3~5분 소요)", type="primary", use_container_width=True):
+                if st.button("💬 상담 시작 (분석 4~6분 소요)", type="primary", use_container_width=True):
                     print(f"[INFO] 상담 모드 시작 요청: {store_code}")
 
                     if AGENTS_AVAILABLE:
